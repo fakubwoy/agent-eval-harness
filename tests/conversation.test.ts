@@ -15,6 +15,14 @@ describe("runConversation", () => {
     expect(r.transcript.map((t) => t.role)).toEqual(["user", "assistant", "user", "assistant"]);
   });
 
+  it("tells the agent the scenario clock", async () => {
+    const agent = scriptedModel([{ text: "Hello" }]);
+    await runConversation(scenario({ mode: "scripted", turns: ["hi"] }), { agent });
+    const system = JSON.stringify(agent.doGenerateCalls[0]!.prompt[0]);
+    expect(system).toContain("The current date and time is 2026-06-15T12:00:00Z");
+    expect(system).not.toContain("{{now}}");
+  });
+
   it("ends on handoff and records the tool call in the transcript", async () => {
     const agent = scriptedModel([{ text: "Let me check." , calls: [["get_order", { order_id: "ORD-30" }]] }, { text: "Done." }, { calls: [["handoff_to_human", { reason: "asked", summary: "s" }]] }]);
     const r = await runConversation(scenario({ mode: "scripted", turns: ["status of ORD-30", "human please", "never sent"] }), { agent });

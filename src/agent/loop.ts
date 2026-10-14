@@ -7,6 +7,11 @@ import type { Toolbox } from "../tools/index.js";
 
 export const SYSTEM_PROMPT = readFileSync(new URL("./system-prompt.md", import.meta.url), "utf8");
 export const DEFAULT_MAX_STEPS = 8;
+
+// The backend runs on a frozen scenario clock, so the agent must be told that date rather than guess today's.
+export function systemPrompt(clock: string): string {
+  return SYSTEM_PROMPT.replace("{{now}}", clock);
+}
 export const TEMPERATURE = 0;
 // Free tier rate limits (Groq: 8000 tokens per minute) need the SDK backoff to cover about a minute.
 export const MAX_RETRIES = 6;

@@ -1,5 +1,5 @@
 import { generateText, type LanguageModel, type ModelMessage } from "ai";
-import { MAX_RETRIES, runAgentTurn, TEMPERATURE, type StepStats } from "./agent/loop.js";
+import { MAX_RETRIES, runAgentTurn, systemPrompt, TEMPERATURE, type StepStats } from "./agent/loop.js";
 import { createBackend } from "./backend/store.js";
 import type { Snapshot } from "./backend/types.js";
 import { toUsage } from "./providers/pricing.js";
@@ -105,7 +105,7 @@ export async function runConversation(
       userView.push({ role: "assistant", content: msg });
       transcript.push({ role: "user", content: msg, tool_name: null, args: null });
 
-      const r = await runAgentTurn(history, toolbox, models.agent, { maxSteps: max_steps_per_turn, stepOffset: agent_steps.length });
+      const r = await runAgentTurn(history, toolbox, models.agent, { maxSteps: max_steps_per_turn, stepOffset: agent_steps.length, system: systemPrompt(scenario.clock) });
       history.push(...r.messages);
       transcript.push(...toTranscript(r.messages));
       agent_steps.push(...r.steps);
