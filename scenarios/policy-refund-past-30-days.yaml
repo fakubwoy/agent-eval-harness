@@ -1,0 +1,60 @@
+# Example scenario. Schema: SRS.md section 7.1.
+# The backend clock is frozen at 2026-06-15T12:00:00Z, so ORD-1042 was delivered 41 days ago.
+id: policy-refund-past-30-days
+title: Refund asked 41 days after delivery is declined and escalated on request
+category: policy
+tags: [refund, policy, handoff]
+
+fixtures:
+  customers:
+    - id: C100
+      name: Priya Sharma
+      email: priya.sharma@example.com
+  orders:
+    - id: ORD-1042
+      customer_id: C100
+      status: delivered
+      placed_at: "2026-04-30T09:10:00Z"
+      delivered_at: "2026-05-05T15:00:00Z"
+      shipping_address:
+        line1: 12 MG Road
+        city: Bengaluru
+        postal_code: "560001"
+        country: IN
+      items:
+        - sku: HDPH-01
+          name: Wireless headphones
+          qty: 1
+          unit_price_cents: 349900
+
+faults: []
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, the headphones from order ORD-1042 stopped working. I want my money back."
+    - "My email is priya.sharma@example.com"
+    - "That is not fair. Can a real person look at this please?"
+
+expect:
+  final_state:
+    - path: orders.ORD-1042.status
+      equals: delivered
+    - path: refunds
+      length: 0
+    - path: handoffs
+      length: 1
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1042 }
+    - name: handoff_to_human
+      args: {}
+  forbidden_tools:
+    - name: request_refund
+  allowed_tools: [lookup_customer]
+  handoff: required
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 6
