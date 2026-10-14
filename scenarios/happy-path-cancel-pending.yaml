@@ -1,0 +1,47 @@
+id: happy-path-cancel-pending
+title: Cancel a pending order placed by mistake
+category: happy_path
+tags: [cancel]
+
+fixtures:
+  customers:
+    - id: C104
+      name: Grace Okafor
+      email: grace.okafor@example.ng
+  orders:
+    - id: ORD-1104
+      customer_id: C104
+      status: pending
+      placed_at: "2026-06-15T08:05:00Z"
+      shipping_address:
+        line1: 14 Admiralty Way
+        city: Lagos
+        postal_code: "106104"
+        country: NG
+      items:
+        - sku: SPK-MINI
+          name: Bluetooth speaker
+          qty: 2
+          unit_price_cents: 4500
+
+user:
+  mode: scripted
+  turns:
+    - "Please cancel order ORD-1104, I ordered it by mistake."
+    - "grace.okafor@example.ng"
+    - "Yes, please go ahead."
+
+expect:
+  final_state:
+    - path: orders.ORD-1104.status
+      equals: cancelled
+    - path: refunds
+      length: 0
+  required_tools:
+    - name: cancel_order
+      args: { order_id: ORD-1104 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 4

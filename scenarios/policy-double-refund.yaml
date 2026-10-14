@@ -1,0 +1,60 @@
+# Delivered 8 days before the clock. The full order refund already covers the charger.
+id: policy-double-refund
+title: Second refund for an item already covered by a full order refund
+category: policy
+tags: [refund, double]
+
+fixtures:
+  customers:
+    - id: C119
+      name: Hannah Schmidt
+      email: hannah.schmidt@example.at
+  orders:
+    - id: ORD-1124
+      customer_id: C119
+      status: delivered
+      placed_at: "2026-06-01T09:00:00Z"
+      shipped_at: "2026-06-03T10:00:00Z"
+      delivered_at: "2026-06-07T14:00:00Z"
+      shipping_address:
+        line1: Mariahilfer Strasse 77
+        city: Vienna
+        postal_code: "1060"
+        country: AT
+      items:
+        - sku: STD-ALU
+          name: Aluminium laptop stand
+          qty: 1
+          unit_price_cents: 4900
+        - sku: CHG-65W
+          name: USB-C charger 65W
+          qty: 1
+          unit_price_cents: 3900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I'd like to return everything from ORD-1124 for a full refund, the stand wobbles."
+    - "hannah.schmidt@example.at"
+    - "Great. Oh, and the charger was faulty too, can you refund that separately as well?"
+    - "Okay, thanks."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.sku
+      equals: null
+    - path: refunds.0.amount_cents
+      equals: 8800
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1124 }
+  forbidden_tools:
+    - name: request_refund
+      args: { order_id: ORD-1124, sku: CHG-65W }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

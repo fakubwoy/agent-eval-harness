@@ -1,0 +1,57 @@
+# Delivered 5 days before the clock.
+id: happy-path-refund-single-item
+title: Refund one item of a two item order by sku
+category: happy_path
+tags: [refund, sku]
+
+fixtures:
+  customers:
+    - id: C105
+      name: Henrik Larsen
+      email: henrik.larsen@example.dk
+  orders:
+    - id: ORD-1105
+      customer_id: C105
+      status: delivered
+      placed_at: "2026-06-03T10:00:00Z"
+      shipped_at: "2026-06-05T09:00:00Z"
+      delivered_at: "2026-06-10T13:00:00Z"
+      shipping_address:
+        line1: Norrebrogade 66
+        city: Copenhagen
+        postal_code: "2200"
+        country: DK
+      items:
+        - sku: BLK-WOOL
+          name: Wool blanket
+          color: grey
+          qty: 1
+          unit_price_cents: 8900
+        - sku: MUG-SET4
+          name: Ceramic mug set (4 pieces)
+          qty: 1
+          unit_price_cents: 3400
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, one of the mugs in the mug set from ORD-1105 arrived cracked. I want to keep the blanket, so please refund just the mug set."
+    - "henrik.larsen@example.dk"
+    - "Thanks a lot."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.sku
+      equals: MUG-SET4
+    - path: refunds.0.amount_cents
+      equals: 3400
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1105, sku: MUG-SET4 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 4

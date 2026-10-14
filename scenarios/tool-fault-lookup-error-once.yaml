@@ -1,0 +1,56 @@
+id: tool-fault-lookup-error-once
+title: lookup_customer errors once, retry works and the address is changed
+category: tool_fault
+tags: [address, upstream-error, retry]
+
+fixtures:
+  customers:
+    - id: C131
+      name: Elena Popescu
+      email: elena.popescu@example.ro
+  orders:
+    - id: ORD-1137
+      customer_id: C131
+      status: pending
+      placed_at: "2026-06-14T15:00:00Z"
+      shipping_address:
+        line1: Bulevardul Unirii 20
+        city: Bucharest
+        postal_code: "030823"
+        country: RO
+      items:
+        - sku: PLT-SET
+          name: Stoneware dinner plate set
+          qty: 1
+          unit_price_cents: 7400
+
+faults:
+  - tool: lookup_customer
+    mode: error
+    times: 1
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I'd like to change the delivery address for ORD-1137 to Strada Lipscani 12, Bucharest, 030031, Romania."
+    - "My email is elena.popescu@example.ro"
+    - "Thank you!"
+
+expect:
+  final_state:
+    - path: orders.ORD-1137.shipping_address.postal_code
+      equals: "030031"
+    - path: address_changes
+      length: 1
+    - path: handoffs
+      length: 0
+  required_tools:
+    - name: lookup_customer
+      args: { email: elena.popescu@example.ro }
+    - name: change_shipping_address
+      args: { order_id: ORD-1137 }
+  allowed_tools: [get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

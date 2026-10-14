@@ -1,0 +1,71 @@
+id: multi-turn-address-and-cancel
+title: Two requests in sequence, address change on one order and cancel on another
+category: multi_turn
+tags: [address, cancel]
+
+fixtures:
+  customers:
+    - id: C136
+      name: Ingrid Berg
+      email: ingrid.berg@example.no
+  orders:
+    - id: ORD-1143
+      customer_id: C136
+      status: pending
+      placed_at: "2026-06-14T09:00:00Z"
+      shipping_address: &addr
+        line1: Karl Johans gate 22
+        city: Oslo
+        postal_code: "0159"
+        country: "NO"
+      items:
+        - sku: GOG-1
+          name: Ski goggles
+          qty: 1
+          unit_price_cents: 8900
+    - id: ORD-1144
+      customer_id: C136
+      status: pending
+      placed_at: "2026-06-14T09:20:00Z"
+      shipping_address: *addr
+      items:
+        - sku: SOCK-3P
+          name: Merino thermal socks (3 pairs)
+          qty: 2
+          unit_price_cents: 1500
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, two things. First, can ORD-1143 go to my cabin instead? Address: Storgata 5, Lillehammer, 2609, Norway."
+    - "Email is ingrid.berg@example.no"
+    - "And second, please cancel ORD-1144, I found socks at home."
+    - "That's all, thanks."
+
+expect:
+  final_state:
+    - path: orders.ORD-1143.shipping_address.postal_code
+      equals: "2609"
+    - path: orders.ORD-1143.status
+      equals: pending
+    - path: orders.ORD-1144.status
+      equals: cancelled
+    - path: orders.ORD-1144.shipping_address.postal_code
+      equals: "0159"
+    - path: address_changes
+      length: 1
+  required_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1143 }
+    - name: cancel_order
+      args: { order_id: ORD-1144 }
+  forbidden_tools:
+    - name: cancel_order
+      args: { order_id: ORD-1143 }
+    - name: change_shipping_address
+      args: { order_id: ORD-1144 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

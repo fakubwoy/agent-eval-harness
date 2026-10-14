@@ -1,0 +1,54 @@
+# Delivered 10 days before the clock, well inside the refund window.
+id: happy-path-refund-day-10
+title: Refund for a faulty item delivered 10 days ago
+category: happy_path
+tags: [refund]
+
+fixtures:
+  customers:
+    - id: C102
+      name: Aiko Tanaka
+      email: aiko.tanaka@example.jp
+  orders:
+    - id: ORD-1102
+      customer_id: C102
+      status: delivered
+      placed_at: "2026-05-28T03:00:00Z"
+      shipped_at: "2026-05-30T08:00:00Z"
+      delivered_at: "2026-06-05T09:30:00Z"
+      shipping_address:
+        line1: 2-11-3 Jingumae
+        city: Tokyo
+        postal_code: "150-0001"
+        country: JP
+      items:
+        - sku: RC-55
+          name: Rice cooker
+          qty: 1
+          unit_price_cents: 12900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, the rice cooker from order ORD-1102 doesn't heat properly. I'd like a refund please."
+    - "My email is aiko.tanaka@example.jp"
+    - "Thank you."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.order_id
+      equals: ORD-1102
+    - path: refunds.0.amount_cents
+      equals: 12900
+    - path: orders.ORD-1102.status
+      equals: delivered
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1102 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 4

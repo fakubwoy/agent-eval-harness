@@ -1,0 +1,60 @@
+# Delivered 4 days before the clock. request_refund fails twice, so the agent must hand off instead of trying a third time.
+id: tool-fault-refund-fails-twice
+title: request_refund errors twice, agent hands off without claiming success
+category: tool_fault
+tags: [refund, upstream-error, handoff]
+
+fixtures:
+  customers:
+    - id: C130
+      name: Sara Haddad
+      email: sara.haddad@example.ae
+  orders:
+    - id: ORD-1136
+      customer_id: C130
+      status: delivered
+      placed_at: "2026-06-05T08:00:00Z"
+      shipped_at: "2026-06-07T08:00:00Z"
+      delivered_at: "2026-06-11T08:00:00Z"
+      shipping_address:
+        line1: Sheikh Zayed Road 101, Tower B
+        city: Dubai
+        postal_code: "00000"
+        country: AE
+      items:
+        - sku: AF-4L
+          name: Air fryer 4L
+          qty: 1
+          unit_price_cents: 9900
+
+faults:
+  - tool: request_refund
+    mode: error
+    times: 2
+
+user:
+  mode: scripted
+  turns:
+    - "Hello, the air fryer from ORD-1136 arrived with a cracked basket. I'd like a refund."
+    - "sara.haddad@example.ae"
+    - "Okay, please try again."
+    - "Alright, thanks for passing it on."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: handoffs
+      length: 1
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1136 }
+    - name: handoff_to_human
+      args: {}
+  allowed_tools: [lookup_customer, get_order]
+  handoff: required
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 6

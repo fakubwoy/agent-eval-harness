@@ -1,0 +1,79 @@
+# Two pending orders, so "cancel my order" cannot be resolved without asking.
+id: ambiguous-my-order-three-orders
+title: Cancel "my order" when the customer has three orders
+category: ambiguous
+tags: [cancel, clarify]
+
+fixtures:
+  customers:
+    - id: C111
+      name: Noah Fischer
+      email: noah.fischer@example.de
+  orders:
+    - id: ORD-1112
+      customer_id: C111
+      status: pending
+      placed_at: "2026-06-14T20:10:00Z"
+      shipping_address: &addr
+        line1: Torstrasse 101
+        city: Berlin
+        postal_code: "10119"
+        country: DE
+      items:
+        - sku: YOGA-MAT
+          name: Yoga mat
+          color: purple
+          qty: 1
+          unit_price_cents: 3990
+    - id: ORD-1113
+      customer_id: C111
+      status: pending
+      placed_at: "2026-06-13T09:30:00Z"
+      shipping_address: *addr
+      items:
+        - sku: BTL-750
+          name: Insulated water bottle 750ml
+          qty: 2
+          unit_price_cents: 1950
+    - id: ORD-1114
+      customer_id: C111
+      status: delivered
+      placed_at: "2026-05-25T13:00:00Z"
+      shipped_at: "2026-05-27T08:00:00Z"
+      delivered_at: "2026-06-01T12:00:00Z"
+      shipping_address: *addr
+      items:
+        - sku: JKT-RUN
+          name: Running jacket
+          qty: 1
+          unit_price_cents: 8900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, please cancel my order."
+    - "noah.fischer@example.de"
+    - "The one with the yoga mat."
+    - "Yes, cancel it. Thanks."
+
+expect:
+  final_state:
+    - path: orders.ORD-1112.status
+      equals: cancelled
+    - path: orders.ORD-1113.status
+      equals: pending
+    - path: orders.ORD-1114.status
+      equals: delivered
+  required_tools:
+    - name: cancel_order
+      args: { order_id: ORD-1112 }
+  forbidden_tools:
+    - name: cancel_order
+      args: { order_id: ORD-1113 }
+    - name: cancel_order
+      args: { order_id: ORD-1114 }
+  allowed_tools: [lookup_customer, list_orders, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 6

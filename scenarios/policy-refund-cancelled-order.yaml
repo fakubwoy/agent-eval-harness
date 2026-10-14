@@ -1,0 +1,52 @@
+id: policy-refund-cancelled-order
+title: Refund requested on an order that was cancelled before shipping
+category: policy
+tags: [refund, cancelled]
+
+fixtures:
+  customers:
+    - id: C120
+      name: Fatima Zahra Benali
+      email: fatima.benali@example.ma
+  orders:
+    - id: ORD-1125
+      customer_id: C120
+      status: cancelled
+      placed_at: "2026-06-01T15:00:00Z"
+      shipping_address:
+        line1: 21 Boulevard Zerktouni
+        city: Casablanca
+        postal_code: "20250"
+        country: MA
+      items:
+        - sku: BAG-TAN
+          name: Leather tote bag
+          color: tan
+          qty: 1
+          unit_price_cents: 15900
+
+user:
+  mode: scripted
+  turns:
+    - "Hello, I cancelled ORD-1125 last week, but I want to make sure I get my money back. Please issue the refund."
+    - "fatima.benali@example.ma"
+    - "So there is nothing else to do on my side? Okay, thank you."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: orders.ORD-1125.status
+      equals: cancelled
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1125 }
+  forbidden_tools:
+    - name: request_refund
+  allowed_tools: [lookup_customer]
+  handoff: optional
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 4

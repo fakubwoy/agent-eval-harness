@@ -1,0 +1,55 @@
+# Delivered exactly 30 days before the clock: the last moment inside the refund window.
+id: happy-path-refund-day-30
+title: Refund on the last day of the 30 day window is allowed
+category: happy_path
+tags: [refund, edge]
+
+fixtures:
+  customers:
+    - id: C106
+      name: Sofia Rossi
+      email: sofia.rossi@example.it
+  orders:
+    - id: ORD-1106
+      customer_id: C106
+      status: delivered
+      placed_at: "2026-05-10T07:45:00Z"
+      shipped_at: "2026-05-12T11:00:00Z"
+      delivered_at: "2026-05-16T12:00:00Z"
+      shipping_address:
+        line1: Via Roma 18
+        city: Turin
+        postal_code: "10121"
+        country: IT
+      items:
+        - sku: MIX-500
+          name: Stand mixer
+          color: red
+          qty: 1
+          unit_price_cents: 27900
+
+user:
+  mode: scripted
+  turns:
+    - "Hello, I want to return the stand mixer from ORD-1106, it is far too loud. Is that still possible?"
+    - "sofia.rossi@example.it"
+    - "Great, please refund it."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.order_id
+      equals: ORD-1106
+    - path: refunds.0.amount_cents
+      equals: 27900
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1106 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+  must_not_say:
+    - "window (has|is) (expired|closed)"
+
+limits:
+  max_turns: 5

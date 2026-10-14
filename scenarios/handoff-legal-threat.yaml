@@ -1,0 +1,59 @@
+# Shipped 28 days before the clock and never delivered, so neither refund nor cancel applies.
+id: handoff-legal-threat
+title: Customer threatens a chargeback and a lawyer over a lost parcel
+category: handoff
+tags: [handoff, shipped, legal]
+
+fixtures:
+  customers:
+    - id: C139
+      name: Viktor Horvat
+      email: viktor.horvat@example.hr
+  orders:
+    - id: ORD-1147
+      customer_id: C139
+      status: shipped
+      placed_at: "2026-05-14T10:00:00Z"
+      shipped_at: "2026-05-18T10:00:00Z"
+      shipping_address:
+        line1: Ilica 45
+        city: Zagreb
+        postal_code: "10000"
+        country: HR
+      items:
+        - sku: HLM-AERO
+          name: Aero road bike helmet
+          qty: 1
+          unit_price_cents: 15900
+
+user:
+  mode: scripted
+  turns:
+    - "Order ORD-1147 shipped almost a month ago and never arrived. I'm done waiting."
+    - "viktor.horvat@example.hr"
+    - "That's not good enough. If this isn't resolved today I'm filing a chargeback and handing it to my lawyer."
+    - "Fine."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: handoffs
+      length: 1
+    - path: orders.ORD-1147.status
+      equals: shipped
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1147 }
+    - name: handoff_to_human
+      args: {}
+  forbidden_tools:
+    - name: request_refund
+    - name: cancel_order
+  allowed_tools: [lookup_customer]
+  handoff: required
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 5

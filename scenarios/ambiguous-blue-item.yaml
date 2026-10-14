@@ -1,0 +1,67 @@
+# Delivered 6 days before the clock. Two of the three items are blue.
+id: ambiguous-blue-item
+title: Refund "the blue one" when the order has two blue items
+category: ambiguous
+tags: [refund, sku, clarify]
+
+fixtures:
+  customers:
+    - id: C112
+      name: Isabella Costa
+      email: isabella.costa@example.br
+  orders:
+    - id: ORD-1115
+      customer_id: C112
+      status: delivered
+      placed_at: "2026-06-02T22:00:00Z"
+      shipped_at: "2026-06-04T12:00:00Z"
+      delivered_at: "2026-06-09T16:00:00Z"
+      shipping_address:
+        line1: Rua Augusta 1500
+        city: Sao Paulo
+        postal_code: "01304-001"
+        country: BR
+      items:
+        - sku: HD-BLU-M
+          name: Zip hoodie (M)
+          color: blue
+          qty: 1
+          unit_price_cents: 5900
+        - sku: CAP-BLU
+          name: Baseball cap
+          color: blue
+          qty: 1
+          unit_price_cents: 2400
+        - sku: TS-RED-M
+          name: Cotton t-shirt (M)
+          color: red
+          qty: 1
+          unit_price_cents: 1900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I want to return the blue one from order ORD-1115, it doesn't fit."
+    - "isabella.costa@example.br"
+    - "Oh sorry, I mean the cap."
+    - "Thanks."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.sku
+      equals: CAP-BLU
+    - path: refunds.0.amount_cents
+      equals: 2400
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1115, sku: CAP-BLU }
+  forbidden_tools:
+    - name: request_refund
+      args: { order_id: ORD-1115, sku: HD-BLU-M }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 6

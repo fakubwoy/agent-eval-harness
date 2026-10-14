@@ -1,0 +1,53 @@
+id: missing-info-status-no-order-id
+title: Status check where the customer does not know the order id
+category: missing_info
+tags: [status, lookup]
+
+fixtures:
+  customers:
+    - id: C110
+      name: Emily Carter
+      email: emily.carter@example.com
+  orders:
+    - id: ORD-1111
+      customer_id: C110
+      status: shipped
+      placed_at: "2026-06-09T16:20:00Z"
+      shipped_at: "2026-06-11T10:05:00Z"
+      shipping_address:
+        line1: 410 Pine Street
+        city: Seattle
+        postal_code: "98101"
+        country: US
+      items:
+        - sku: BPK-40
+          name: Hiking backpack 40L
+          color: green
+          qty: 1
+          unit_price_cents: 12999
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, my package hasn't arrived yet. Can you check where it is?"
+    - "I don't have the order number, but my email is emily.carter@example.com."
+    - "OK, thanks for checking."
+
+expect:
+  final_state:
+    - path: orders.ORD-1111.status
+      equals: shipped
+    - path: handoffs
+      length: 0
+  required_tools:
+    - name: lookup_customer
+      args: { email: emily.carter@example.com }
+    - name: get_order
+      args: { order_id: ORD-1111 }
+  allowed_tools: [list_orders]
+  handoff: forbidden
+  must_say:
+    - "shipped"
+
+limits:
+  max_turns: 4

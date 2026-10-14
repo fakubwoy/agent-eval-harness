@@ -1,0 +1,55 @@
+id: tool-fault-get-order-timeout-once
+title: get_order times out once, a retry works, no handoff needed
+category: tool_fault
+tags: [status, timeout, retry]
+
+fixtures:
+  customers:
+    - id: C129
+      name: Diego Fernandez
+      email: diego.fernandez@example.com.ar
+  orders:
+    - id: ORD-1135
+      customer_id: C129
+      status: shipped
+      placed_at: "2026-06-09T21:00:00Z"
+      shipped_at: "2026-06-11T13:00:00Z"
+      shipping_address:
+        line1: Avenida Corrientes 1234
+        city: Buenos Aires
+        postal_code: "C1043"
+        country: AR
+      items:
+        - sku: MATE-KIT
+          name: Mate gourd and bombilla kit
+          qty: 2
+          unit_price_cents: 2800
+
+faults:
+  - tool: get_order
+    mode: timeout
+    times: 1
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, what's the status of ORD-1135?"
+    - "diego.fernandez@example.com.ar"
+    - "Thanks!"
+
+expect:
+  final_state:
+    - path: orders.ORD-1135.status
+      equals: shipped
+    - path: handoffs
+      length: 0
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1135 }
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_say:
+    - "shipped"
+
+limits:
+  max_turns: 4

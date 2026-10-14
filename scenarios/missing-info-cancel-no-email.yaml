@@ -1,0 +1,50 @@
+id: missing-info-cancel-no-email
+title: Cancel request where the email only comes when asked
+category: missing_info
+tags: [cancel, verification, llm-user]
+
+fixtures:
+  customers:
+    - id: C109
+      name: Ravi Menon
+      email: ravi.menon@example.in
+  orders:
+    - id: ORD-1110
+      customer_id: C109
+      status: pending
+      placed_at: "2026-06-14T06:40:00Z"
+      shipping_address:
+        line1: 17 Cathedral Road
+        city: Chennai
+        postal_code: "600086"
+        country: IN
+      items:
+        - sku: PC-5L
+          name: Pressure cooker 5L
+          qty: 1
+          unit_price_cents: 5499
+
+user:
+  mode: llm
+  persona: "Busy customer typing quickly on a phone. Gives short answers and only shares details when asked for them."
+  goal: "Cancel order ORD-1110 because you found it cheaper elsewhere. Open by asking to cancel it without giving your email. Give your email only when the agent asks for it. Say [DONE] once the agent confirms the cancellation or clearly refuses."
+  known_facts:
+    email: ravi.menon@example.in
+    order_id: ORD-1110
+
+expect:
+  final_state:
+    - path: orders.ORD-1110.status
+      equals: cancelled
+    - path: refunds
+      length: 0
+  required_tools:
+    - name: lookup_customer
+      args: { email: ravi.menon@example.in }
+    - name: cancel_order
+      args: { order_id: ORD-1110 }
+  allowed_tools: [get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

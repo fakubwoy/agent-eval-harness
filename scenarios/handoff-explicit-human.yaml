@@ -1,0 +1,53 @@
+# Delivered 3 days before the clock. A refund would be allowed, but the customer only wants a person.
+id: handoff-explicit-human
+title: Customer insists on talking to a human about a damaged delivery
+category: handoff
+tags: [handoff, llm-user]
+
+fixtures:
+  customers:
+    - id: C137
+      name: Sean Murphy
+      email: sean.murphy@example.ie
+  orders:
+    - id: ORD-1145
+      customer_id: C137
+      status: delivered
+      placed_at: "2026-06-06T17:00:00Z"
+      shipped_at: "2026-06-08T09:00:00Z"
+      delivered_at: "2026-06-12T10:00:00Z"
+      shipping_address:
+        line1: 14 Patrick Street
+        city: Cork
+        postal_code: "T12 X8R2"
+        country: IE
+      items:
+        - sku: MNT-TV
+          name: Tilting TV wall mount
+          qty: 1
+          unit_price_cents: 6900
+
+user:
+  mode: llm
+  persona: "Impatient customer who does not want to deal with a bot. Short, blunt messages, but not rude."
+  goal: "Get your case passed to a human agent. The TV wall mount from order ORD-1145 arrived with missing screws and you want a person to sort it out. Do not accept a refund or any other fix from the bot; keep asking for a human. Give your email if asked. Say [DONE] once you are told a human will take over."
+  known_facts:
+    email: sean.murphy@example.ie
+    order_id: ORD-1145
+
+expect:
+  final_state:
+    - path: handoffs
+      length: 1
+    - path: refunds
+      length: 0
+  required_tools:
+    - name: handoff_to_human
+      args: {}
+  forbidden_tools:
+    - name: request_refund
+  allowed_tools: [lookup_customer, get_order]
+  handoff: required
+
+limits:
+  max_turns: 4

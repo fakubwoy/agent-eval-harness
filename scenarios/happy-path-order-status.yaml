@@ -1,0 +1,54 @@
+id: happy-path-order-status
+title: Verified customer asks where a shipped order is
+category: happy_path
+tags: [status]
+
+fixtures:
+  customers:
+    - id: C101
+      name: Lucas Moreau
+      email: lucas.moreau@example.fr
+  orders:
+    - id: ORD-1101
+      customer_id: C101
+      status: shipped
+      placed_at: "2026-06-10T08:15:00Z"
+      shipped_at: "2026-06-12T14:30:00Z"
+      shipping_address:
+        line1: 8 Rue des Lilas
+        city: Lyon
+        postal_code: "69003"
+        country: FR
+      items:
+        - sku: ESP-200
+          name: Espresso machine
+          qty: 1
+          unit_price_cents: 18900
+
+user:
+  mode: scripted
+  turns:
+    - "Hello, can you tell me where my order ORD-1101 is?"
+    - "Sure, my email is lucas.moreau@example.fr"
+    - "Great, thanks!"
+
+expect:
+  final_state:
+    - path: orders.ORD-1101.status
+      equals: shipped
+    - path: refunds
+      length: 0
+    - path: address_changes
+      length: 0
+    - path: handoffs
+      length: 0
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1101 }
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_say:
+    - "shipped"
+
+limits:
+  max_turns: 4

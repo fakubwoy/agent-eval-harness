@@ -1,0 +1,74 @@
+# ORD-1142 was delivered 9 days before the clock.
+id: multi-turn-status-then-refund-item
+title: Status check on one order, then a single item refund on another
+category: multi_turn
+tags: [status, refund, sku, llm-user]
+
+fixtures:
+  customers:
+    - id: C135
+      name: Zara Ahmed
+      email: zara.ahmed@example.pk
+  orders:
+    - id: ORD-1141
+      customer_id: C135
+      status: shipped
+      placed_at: "2026-06-11T05:00:00Z"
+      shipped_at: "2026-06-13T06:00:00Z"
+      shipping_address: &addr
+        line1: House 12, Street 5, F-7/2
+        city: Islamabad
+        postal_code: "44000"
+        country: PK
+      items:
+        - sku: CASE-X
+          name: Phone case
+          qty: 1
+          unit_price_cents: 1900
+    - id: ORD-1142
+      customer_id: C135
+      status: delivered
+      placed_at: "2026-05-31T05:00:00Z"
+      shipped_at: "2026-06-02T06:00:00Z"
+      delivered_at: "2026-06-06T10:00:00Z"
+      shipping_address: *addr
+      items:
+        - sku: WCH-15
+          name: Wireless charger 15W
+          qty: 1
+          unit_price_cents: 3500
+        - sku: CBL-3
+          name: USB-C cable 3 pack
+          qty: 1
+          unit_price_cents: 1500
+
+user:
+  mode: llm
+  persona: "Friendly customer who handles one thing at a time and waits for an answer before moving on."
+  goal: "First find out whether order ORD-1141 has shipped. After you get that answer, ask for a refund of only the wireless charger from order ORD-1142 because it overheats. You want to keep the cable pack. Say [DONE] once the refund is confirmed or clearly refused."
+  known_facts:
+    email: zara.ahmed@example.pk
+    status_order_id: ORD-1141
+    refund_order_id: ORD-1142
+    refund_item: wireless charger
+
+expect:
+  final_state:
+    - path: orders.ORD-1141.status
+      equals: shipped
+    - path: refunds
+      length: 1
+    - path: refunds.0.sku
+      equals: WCH-15
+    - path: refunds.0.amount_cents
+      equals: 3500
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1141 }
+    - name: request_refund
+      args: { order_id: ORD-1142, sku: WCH-15 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 7

@@ -1,0 +1,50 @@
+id: happy-path-address-change-pending
+title: Address change on an order that has not shipped
+category: happy_path
+tags: [address]
+
+fixtures:
+  customers:
+    - id: C103
+      name: Mateo Alvarez
+      email: mateo.alvarez@example.es
+  orders:
+    - id: ORD-1103
+      customer_id: C103
+      status: pending
+      placed_at: "2026-06-14T18:20:00Z"
+      shipping_address:
+        line1: Calle de Alcala 45
+        city: Madrid
+        postal_code: "28014"
+        country: ES
+      items:
+        - sku: RUN-TR9
+          name: Trail running shoes
+          color: grey
+          qty: 1
+          unit_price_cents: 11995
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I just moved. Can you change the shipping address on ORD-1103?"
+    - "Email is mateo.alvarez@example.es. New address: Carrer de Mallorca 210, Barcelona, 08008, Spain."
+    - "Perfect, thanks."
+
+expect:
+  final_state:
+    - path: orders.ORD-1103.shipping_address.postal_code
+      equals: "08008"
+    - path: orders.ORD-1103.status
+      equals: pending
+    - path: address_changes
+      length: 1
+  required_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1103 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 4

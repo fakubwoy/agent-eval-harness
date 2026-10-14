@@ -1,0 +1,52 @@
+id: policy-cancel-after-shipping
+title: Cancellation refused once the order has shipped
+category: policy
+tags: [cancel, shipped]
+
+fixtures:
+  customers:
+    - id: C117
+      name: Javier Ruiz
+      email: javier.ruiz@example.mx
+  orders:
+    - id: ORD-1122
+      customer_id: C117
+      status: shipped
+      placed_at: "2026-06-11T17:00:00Z"
+      shipped_at: "2026-06-13T09:15:00Z"
+      shipping_address:
+        line1: Avenida Reforma 222
+        city: Mexico City
+        postal_code: "06600"
+        country: MX
+      items:
+        - sku: CHR-GX
+          name: Gaming chair
+          qty: 1
+          unit_price_cents: 24900
+
+user:
+  mode: scripted
+  turns:
+    - "Cancel order ORD-1122 please, I don't need the chair anymore."
+    - "javier.ruiz@example.mx"
+    - "Fine, I'll just refuse the delivery."
+
+expect:
+  final_state:
+    - path: orders.ORD-1122.status
+      equals: shipped
+    - path: refunds
+      length: 0
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1122 }
+  forbidden_tools:
+    - name: cancel_order
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_not_say:
+    - "(order|it) (has been|was|is) (cancelled|canceled)"
+
+limits:
+  max_turns: 4

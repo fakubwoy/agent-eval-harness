@@ -1,0 +1,57 @@
+# Delivered 35 days before the clock, so the refund is refused and the customer disputes it.
+id: handoff-angry-after-refusal
+title: Angry customer disputes a refund refusal and gets a human
+category: handoff
+tags: [handoff, refund, llm-user]
+
+fixtures:
+  customers:
+    - id: C138
+      name: Rebecca Stone
+      email: rebecca.stone@example.com
+  orders:
+    - id: ORD-1146
+      customer_id: C138
+      status: delivered
+      placed_at: "2026-05-04T14:00:00Z"
+      shipped_at: "2026-05-06T14:00:00Z"
+      delivered_at: "2026-05-11T12:00:00Z"
+      shipping_address:
+        line1: 2250 Larimer Street
+        city: Denver
+        postal_code: "80205"
+        country: US
+      items:
+        - sku: HD-ION
+          name: Ionic hair dryer
+          qty: 1
+          unit_price_cents: 7900
+
+user:
+  mode: llm
+  persona: "Frustrated customer who gets angry when told no. Uses capital letters when upset but is not abusive."
+  goal: "Get a refund for the hair dryer from order ORD-1146, which stopped working. If the agent refuses because of the 30 day window, argue that it is unfair and demand that someone with authority reviews it. Say [DONE] once your case is passed to a human or you are clearly refused a second time."
+  known_facts:
+    email: rebecca.stone@example.com
+    order_id: ORD-1146
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: handoffs
+      length: 1
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1146 }
+    - name: handoff_to_human
+      args: {}
+  forbidden_tools:
+    - name: request_refund
+  allowed_tools: [lookup_customer]
+  handoff: required
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 6

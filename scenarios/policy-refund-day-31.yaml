@@ -1,0 +1,55 @@
+# Delivered 31 days and 3 hours before the clock: one day past the refund window.
+id: policy-refund-day-31
+title: Refund asked one day after the window closed is declined
+category: policy
+tags: [refund, edge]
+
+fixtures:
+  customers:
+    - id: C115
+      name: Lars Johansson
+      email: lars.johansson@example.se
+  orders:
+    - id: ORD-1120
+      customer_id: C115
+      status: delivered
+      placed_at: "2026-05-08T10:00:00Z"
+      shipped_at: "2026-05-11T08:00:00Z"
+      delivered_at: "2026-05-15T09:00:00Z"
+      shipping_address:
+        line1: Drottninggatan 53
+        city: Stockholm
+        postal_code: "111 21"
+        country: SE
+      items:
+        - sku: KTL-17
+          name: Electric kettle 1.7L
+          color: steel
+          qty: 1
+          unit_price_cents: 4900
+
+user:
+  mode: scripted
+  turns:
+    - "Hello, my kettle from ORD-1120 started leaking. Can I get a refund?"
+    - "lars.johansson@example.se"
+    - "Ah, I missed it by a day. Okay, I understand, thanks anyway."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: orders.ORD-1120.status
+      equals: delivered
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1120 }
+  forbidden_tools:
+    - name: request_refund
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 4

@@ -1,0 +1,53 @@
+# Delivered 12 days before the clock. The first message holds an incomplete order id.
+id: multi-turn-order-id-split
+title: Order id arrives across two messages before a refund
+category: multi_turn
+tags: [refund, partial-input]
+
+fixtures:
+  customers:
+    - id: C134
+      name: Jonas Weber
+      email: jonas.weber@example.ch
+  orders:
+    - id: ORD-1140
+      customer_id: C134
+      status: delivered
+      placed_at: "2026-05-29T08:00:00Z"
+      shipped_at: "2026-05-31T08:00:00Z"
+      delivered_at: "2026-06-03T15:00:00Z"
+      shipping_address:
+        line1: Bahnhofstrasse 10
+        city: Zurich
+        postal_code: "8001"
+        country: CH
+      items:
+        - sku: BLD-PRO
+          name: High speed blender
+          qty: 1
+          unit_price_cents: 13900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, my blender broke after a week. The order number is ORD-11"
+    - "Sorry, sent that too early. It ends in 40, so ORD-1140. Email is jonas.weber@example.ch"
+    - "Yes please, a refund."
+    - "Thanks."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.order_id
+      equals: ORD-1140
+    - path: refunds.0.amount_cents
+      equals: 13900
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1140 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

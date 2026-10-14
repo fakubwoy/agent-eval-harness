@@ -1,0 +1,50 @@
+id: missing-info-address-no-postcode
+title: New address given without a postcode, supplied later
+category: missing_info
+tags: [address]
+
+fixtures:
+  customers:
+    - id: C108
+      name: Daniel Kowalski
+      email: daniel.kowalski@example.pl
+  orders:
+    - id: ORD-1109
+      customer_id: C108
+      status: pending
+      placed_at: "2026-06-13T10:00:00Z"
+      shipping_address:
+        line1: ul. Marszalkowska 84
+        city: Warsaw
+        postal_code: "00-514"
+        country: PL
+      items:
+        - sku: KB-87
+          name: Mechanical keyboard
+          qty: 1
+          unit_price_cents: 15900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, can you send ORD-1109 to my office instead? It's ul. Prosta 20, Warsaw."
+    - "daniel.kowalski@example.pl"
+    - "Oh right, the postcode is 00-850. Country is Poland."
+    - "Thanks!"
+
+expect:
+  final_state:
+    - path: orders.ORD-1109.shipping_address.postal_code
+      equals: "00-850"
+    - path: address_changes
+      length: 1
+    - path: orders.ORD-1109.status
+      equals: pending
+  required_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1109 }
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

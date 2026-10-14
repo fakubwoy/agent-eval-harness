@@ -1,0 +1,68 @@
+# ORD-1118 delivered 13 days before the clock, ORD-1119 3 days before. Both hold the same earbuds.
+id: ambiguous-two-earbud-orders
+title: Refund "my earbuds" when two orders contain the same product
+category: ambiguous
+tags: [refund, clarify]
+
+fixtures:
+  customers:
+    - id: C114
+      name: Mei Lin
+      email: mei.lin@example.sg
+  orders:
+    - id: ORD-1118
+      customer_id: C114
+      status: delivered
+      placed_at: "2026-05-28T04:00:00Z"
+      shipped_at: "2026-05-29T06:00:00Z"
+      delivered_at: "2026-06-02T10:00:00Z"
+      shipping_address: &addr
+        line1: 80 Robinson Road
+        city: Singapore
+        postal_code: "068898"
+        country: SG
+      items:
+        - sku: EB-PRO-WHT
+          name: Wireless earbuds Pro
+          color: white
+          qty: 1
+          unit_price_cents: 12900
+    - id: ORD-1119
+      customer_id: C114
+      status: delivered
+      placed_at: "2026-06-08T03:00:00Z"
+      shipped_at: "2026-06-09T05:00:00Z"
+      delivered_at: "2026-06-12T10:00:00Z"
+      shipping_address: *addr
+      items:
+        - sku: EB-PRO-BLK
+          name: Wireless earbuds Pro
+          color: black
+          qty: 1
+          unit_price_cents: 12900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I'd like a refund for my earbuds, the left one keeps cutting out."
+    - "mei.lin@example.sg"
+    - "The black pair, the one that arrived this week. The white ones are fine."
+    - "Thanks."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.order_id
+      equals: ORD-1119
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1119 }
+  forbidden_tools:
+    - name: request_refund
+      args: { order_id: ORD-1118 }
+  allowed_tools: [lookup_customer, list_orders, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 6

@@ -1,0 +1,57 @@
+id: tool-fault-cancel-timeout-twice
+title: cancel_order times out twice, agent hands off and the order stays pending
+category: tool_fault
+tags: [cancel, timeout, handoff]
+
+fixtures:
+  customers:
+    - id: C132
+      name: Jack Thompson
+      email: jack.thompson@example.co.nz
+  orders:
+    - id: ORD-1138
+      customer_id: C132
+      status: pending
+      placed_at: "2026-06-14T22:40:00Z"
+      shipping_address:
+        line1: 15 Queen Street
+        city: Auckland
+        postal_code: "1010"
+        country: NZ
+      items:
+        - sku: WS-3MM-L
+          name: Wetsuit 3mm (size L)
+          qty: 1
+          unit_price_cents: 18900
+
+faults:
+  - tool: cancel_order
+    mode: timeout
+    times: 2
+
+user:
+  mode: scripted
+  turns:
+    - "Please cancel ORD-1138, I ordered the wrong size."
+    - "jack.thompson@example.co.nz"
+    - "Sure, try again."
+    - "OK, thanks."
+
+expect:
+  final_state:
+    - path: orders.ORD-1138.status
+      equals: pending
+    - path: handoffs
+      length: 1
+  required_tools:
+    - name: cancel_order
+      args: { order_id: ORD-1138 }
+    - name: handoff_to_human
+      args: {}
+  allowed_tools: [lookup_customer, get_order]
+  handoff: required
+  must_not_say:
+    - "(order|it) (has been|was|is) (cancelled|canceled)"
+
+limits:
+  max_turns: 6

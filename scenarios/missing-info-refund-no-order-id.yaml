@@ -1,0 +1,73 @@
+# ORD-1107 was delivered 7 days before the clock, ORD-1108 74 days before.
+id: missing-info-refund-no-order-id
+title: Refund request without an order id, two orders on the account
+category: missing_info
+tags: [refund, lookup]
+
+fixtures:
+  customers:
+    - id: C107
+      name: Olivia Brennan
+      email: olivia.brennan@example.ie
+  orders:
+    - id: ORD-1107
+      customer_id: C107
+      status: delivered
+      placed_at: "2026-06-01T19:00:00Z"
+      shipped_at: "2026-06-03T09:00:00Z"
+      delivered_at: "2026-06-08T11:00:00Z"
+      shipping_address:
+        line1: 22 Harcourt Street
+        city: Dublin
+        postal_code: "D02 H210"
+        country: IE
+      items:
+        - sku: LMP-ARC
+          name: Arc desk lamp
+          color: black
+          qty: 1
+          unit_price_cents: 6450
+    - id: ORD-1108
+      customer_id: C107
+      status: delivered
+      placed_at: "2026-03-26T12:00:00Z"
+      shipped_at: "2026-03-28T10:00:00Z"
+      delivered_at: "2026-04-02T15:00:00Z"
+      shipping_address:
+        line1: 22 Harcourt Street
+        city: Dublin
+        postal_code: "D02 H210"
+        country: IE
+      items:
+        - sku: NB-A5-3
+          name: A5 notebook set
+          qty: 2
+          unit_price_cents: 1200
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, my desk lamp arrived with a broken switch. I'd like a refund."
+    - "My email is olivia.brennan@example.ie. I don't have the order number to hand, sorry."
+    - "Yes, that's the one, the black arc lamp."
+    - "Thanks for sorting it."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 1
+    - path: refunds.0.order_id
+      equals: ORD-1107
+    - path: refunds.0.amount_cents
+      equals: 6450
+  required_tools:
+    - name: request_refund
+      args: { order_id: ORD-1107 }
+  forbidden_tools:
+    - name: request_refund
+      args: { order_id: ORD-1108 }
+  allowed_tools: [lookup_customer, list_orders, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5

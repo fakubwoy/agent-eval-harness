@@ -1,0 +1,53 @@
+id: policy-refund-not-delivered
+title: Refund refused for an order still in transit
+category: policy
+tags: [refund, shipped]
+
+fixtures:
+  customers:
+    - id: C118
+      name: Chen Wei
+      email: chen.wei@example.tw
+  orders:
+    - id: ORD-1123
+      customer_id: C118
+      status: shipped
+      placed_at: "2026-06-06T02:00:00Z"
+      shipped_at: "2026-06-08T04:00:00Z"
+      shipping_address:
+        line1: No. 7 Xinyi Road Sec. 5
+        city: Taipei
+        postal_code: "110"
+        country: TW
+      items:
+        - sku: DRN-MINI
+          name: Mini camera drone
+          qty: 1
+          unit_price_cents: 39900
+
+user:
+  mode: scripted
+  turns:
+    - "I want a refund for ORD-1123. I changed my mind about the drone."
+    - "chen.wei@example.tw"
+    - "OK, I'll ask again once it arrives."
+
+expect:
+  final_state:
+    - path: refunds
+      length: 0
+    - path: orders.ORD-1123.status
+      equals: shipped
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1123 }
+  forbidden_tools:
+    - name: request_refund
+    - name: cancel_order
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_not_say:
+    - "refund (has been|was|is) (processed|approved|issued)"
+
+limits:
+  max_turns: 4

@@ -1,0 +1,64 @@
+id: ambiguous-which-address
+title: Address change for "my order" with two pending orders
+category: ambiguous
+tags: [address, clarify, llm-user]
+
+fixtures:
+  customers:
+    - id: C113
+      name: Thomas Wright
+      email: thomas.wright@example.co.uk
+  orders:
+    - id: ORD-1116
+      customer_id: C113
+      status: pending
+      placed_at: "2026-06-14T07:50:00Z"
+      shipping_address: &addr
+        line1: 9 Kingsway
+        city: London
+        postal_code: "WC2B 6XF"
+        country: GB
+      items:
+        - sku: GRD-BURR
+          name: Burr coffee grinder
+          qty: 1
+          unit_price_cents: 8900
+    - id: ORD-1117
+      customer_id: C113
+      status: pending
+      placed_at: "2026-06-14T08:05:00Z"
+      shipping_address: *addr
+      items:
+        - sku: FLT-100
+          name: Paper coffee filters (100 pack)
+          qty: 3
+          unit_price_cents: 450
+
+user:
+  mode: llm
+  persona: "Polite but vague customer. Says 'my order' and does not know any order numbers. Answers the agent's questions directly."
+  goal: "Get the shipping address of the order with the coffee grinder changed to your new address. The filters order must keep going to the old address. Start by saying you want to change the address on your order, without saying which one. When asked which order, say the one with the coffee grinder. Say [DONE] once the agent confirms the change or clearly refuses."
+  known_facts:
+    email: thomas.wright@example.co.uk
+    new_address: "27 Deansgate, Manchester, M3 4LQ, United Kingdom"
+    item: coffee grinder
+
+expect:
+  final_state:
+    - path: orders.ORD-1116.shipping_address.postal_code
+      equals: "M3 4LQ"
+    - path: orders.ORD-1117.shipping_address.postal_code
+      equals: "WC2B 6XF"
+    - path: address_changes
+      length: 1
+  required_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1116 }
+  forbidden_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1117 }
+  allowed_tools: [lookup_customer, list_orders, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 6

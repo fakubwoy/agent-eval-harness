@@ -1,0 +1,55 @@
+id: policy-address-change-after-shipping
+title: Address change refused once the order has shipped
+category: policy
+tags: [address, shipped]
+
+fixtures:
+  customers:
+    - id: C116
+      name: Wanjiru Kamau
+      email: wanjiru.kamau@example.co.ke
+  orders:
+    - id: ORD-1121
+      customer_id: C116
+      status: shipped
+      placed_at: "2026-06-08T11:00:00Z"
+      shipped_at: "2026-06-10T07:30:00Z"
+      shipping_address:
+        line1: 12 Kenyatta Avenue
+        city: Nairobi
+        postal_code: "00100"
+        country: KE
+      items:
+        - sku: SW-2
+          name: Smartwatch Series 2
+          color: black
+          qty: 1
+          unit_price_cents: 19900
+
+user:
+  mode: scripted
+  turns:
+    - "Hi, I need ORD-1121 delivered to my new place: 45 Moi Avenue, Mombasa, 80100, Kenya."
+    - "wanjiru.kamau@example.co.ke"
+    - "Oh, okay. I'll arrange something with the courier then. Thanks."
+
+expect:
+  final_state:
+    - path: orders.ORD-1121.shipping_address.postal_code
+      equals: "00100"
+    - path: orders.ORD-1121.status
+      equals: shipped
+    - path: address_changes
+      length: 0
+  required_tools:
+    - name: get_order
+      args: { order_id: ORD-1121 }
+  forbidden_tools:
+    - name: change_shipping_address
+  allowed_tools: [lookup_customer]
+  handoff: forbidden
+  must_not_say:
+    - "address (has been|was|is) (updated|changed)"
+
+limits:
+  max_turns: 4

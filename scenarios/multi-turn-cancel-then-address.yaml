@@ -1,0 +1,52 @@
+id: multi-turn-cancel-then-address
+title: Customer asks to cancel, then changes their mind and wants a new address
+category: multi_turn
+tags: [cancel, address, change-of-mind]
+
+fixtures:
+  customers:
+    - id: C133
+      name: Laura Martin
+      email: laura.martin@example.ca
+  orders:
+    - id: ORD-1139
+      customer_id: C133
+      status: pending
+      placed_at: "2026-06-13T19:00:00Z"
+      shipping_address:
+        line1: 200 King Street West
+        city: Toronto
+        postal_code: "M5H 3T4"
+        country: CA
+      items:
+        - sku: DSK-ELEC
+          name: Electric standing desk
+          qty: 1
+          unit_price_cents: 45900
+
+user:
+  mode: scripted
+  turns:
+    - "I want to cancel order ORD-1139."
+    - "laura.martin@example.ca. Actually wait, don't cancel it. I only wanted to cancel because I'm moving. Can you ship it to my new place instead? 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada."
+    - "Yes, keep the order and use the new address."
+    - "Thanks!"
+
+expect:
+  final_state:
+    - path: orders.ORD-1139.status
+      equals: pending
+    - path: orders.ORD-1139.shipping_address.postal_code
+      equals: "H3G 1L3"
+    - path: address_changes
+      length: 1
+  required_tools:
+    - name: change_shipping_address
+      args: { order_id: ORD-1139 }
+  forbidden_tools:
+    - name: cancel_order
+  allowed_tools: [lookup_customer, get_order]
+  handoff: forbidden
+
+limits:
+  max_turns: 5
