@@ -1,0 +1,49 @@
+{
+  "hash": "34538258afdde90c423b207e66b01cd6b2861046173cf4d1bfaa8363ebfca48a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 855,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sorry, sent that too early. It ends in 40, so ORD-1140. Email is jonas.weber@example.ch"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to lookup customer by email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_3f8974d3-4ace-43e3-9257-2a56ec8b1446",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"jonas.weber@example.ch\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1148,
+        "noCache": 124,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 32,
+        "reasoning": 9
+      }
+    }
+  }
+}

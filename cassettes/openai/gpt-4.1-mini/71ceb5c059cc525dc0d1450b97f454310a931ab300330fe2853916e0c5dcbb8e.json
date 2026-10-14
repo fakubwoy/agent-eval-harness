@@ -1,0 +1,48 @@
+{
+  "hash": "71ceb5c059cc525dc0d1450b97f454310a931ab300330fe2853916e0c5dcbb8e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1239,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel ORD-1150 please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist with canceling order ORD-1150, could you please provide your email address for verification?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04d4a75a5fb189b9006acf4c83895887d1a707e0c2c7b4a7d4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 883,
+        "noCache": 883,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 23,
+        "text": 23,
+        "reasoning": 0
+      }
+    }
+  }
+}

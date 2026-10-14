@@ -1,0 +1,74 @@
+{
+  "hash": "997e7af13f260c0e21a905a0c0add041ffea5cad518257a1717e699e41e5a900",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1637,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_io02DOhImUqHYoo8MZ2KWiII",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "get_order timed out after 10000 ms"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0535f9ee8cb0fb92006acf4cb7b9d087d19007a35d1ce68e27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I am experiencing a delay in retrieving the order details. I will try again shortly.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0535f9ee8cb0fb92006acf4cb8f7c487d1bf236cd3f5f6e05d"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_CxKuC8nFEpOlugfB37i9TwQ7",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0535f9ee8cb0fb92006acf4cb9667c87d1935093a794499a5a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1035,
+        "noCache": 1035,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 38,
+        "reasoning": 0
+      }
+    }
+  }
+}

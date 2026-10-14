@@ -1,0 +1,61 @@
+{
+  "hash": "2e68937461af2adbe54773063339172227de2d6d8af4829457773534bf30f102",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1352,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The black pair, the one that arrived this week. The white ones are fine."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_1czSWaYngQozKqL3mfOReF1g",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1118\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0783ba27590631a5006acf4c67637487d1bbabd0ec969530b3"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_UThT5RbqkwgdrCcuPU8maOe4",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1119\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0783ba27590631a5006acf4c67638487d1a6a0f8bd63ea7250"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1084,
+        "noCache": 1084,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 53,
+        "text": 53,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "03e5df4ad84186a288d12853724637f32390a7bbcabdd26343d802b3e3d3f4c2",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1461,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01G1kt3Gcgfn5uwmRmQ1ihXc",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1106",
+                "sku": "MIX-500",
+                "reason": "Stand mixer is too loud",
+                "amount_cents": 27900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! Your refund has been approved. Here are the details:\n\n- **Refund ID:** RF-1\n- **Item:** Stand mixer (red)\n- **Amount:** €279.00\n- **Reason:** Stand mixer is too loud\n\nThe refund has been processed. You should see the credit back to your original payment method within a few business days. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2642,
+        "noCache": 2642,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 93
+      }
+    }
+  }
+}

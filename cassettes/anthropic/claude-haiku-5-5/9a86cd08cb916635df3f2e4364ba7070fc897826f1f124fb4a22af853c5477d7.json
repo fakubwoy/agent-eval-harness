@@ -1,0 +1,44 @@
+{
+  "hash": "9a86cd08cb916635df3f2e4364ba7070fc897826f1f124fb4a22af853c5477d7",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 3660,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure \u2014 I can help with that. Could you please provide the email address you used for this order?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "rebecca.stone@example.com"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 419,
+        "noCache": 419,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "hash": "3c753c6265ff5eab7f88f841673d2e3f209d082ff82450d4cbaf7267bf9093cf",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 2063,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Fk9cntyrCL59qGj7ncnhMs",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C102",
+              "name": "Aiko Tanaka",
+              "order_ids": [
+                "ORD-1102"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_0155jjie9CzzUGwKadTEdQHh",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1102",
+              "customer_id": "C102",
+              "status": "delivered",
+              "placed_at": "2026-05-28T03:00:00Z",
+              "shipped_at": "2026-05-30T08:00:00Z",
+              "delivered_at": "2026-06-05T09:30:00Z",
+              "shipping_address": {
+                "line1": "2-11-3 Jingumae",
+                "city": "Tokyo",
+                "postal_code": "150-0001",
+                "country": "JP"
+              },
+              "items": [
+                {
+                  "sku": "RC-55",
+                  "name": "Rice cooker",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified your account. I can see order ORD-1102 with the rice cooker was delivered on June 5th. Since it was delivered within the last 30 days, you're eligible for a refund.\n\nLet me process the refund for the defective rice cooker:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01JH8NbM3UiDUymNN9UPi5JR",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1102\",\"reason\":\"Rice cooker doesn't heat properly\",\"sku\":\"RC-55\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2394,
+        "noCache": 2394,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 172
+      }
+    }
+  }
+}

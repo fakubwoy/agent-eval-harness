@@ -1,0 +1,92 @@
+{
+  "hash": "31da6922307233b58865cd0f2aa9c6e2fcc06a5a9629620ec1ef923a000221cc",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 2294,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_4vFZ9MkH6hL7EaJttRxehAuZ",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1120",
+              "customer_id": "C115",
+              "status": "delivered",
+              "placed_at": "2026-05-08T10:00:00Z",
+              "shipped_at": "2026-05-11T08:00:00Z",
+              "delivered_at": "2026-05-15T09:00:00Z",
+              "shipping_address": {
+                "line1": "Drottninggatan 53",
+                "city": "Stockholm",
+                "postal_code": "111 21",
+                "country": "SE"
+              },
+              "items": [
+                {
+                  "sku": "KTL-17",
+                  "name": "Electric kettle 1.7L",
+                  "color": "steel",
+                  "qty": 1,
+                  "unit_price_cents": 4900
+                }
+              ],
+              "total_cents": 4900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac7d5adedeb720c006acf4cb19b7c87d198d74940bd8b6191"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order ORD-1120 was delivered on May 15, 2026, which is within the 30-day refund window from today's date, June 15, 2026. However, the refund request was declined by the system. To resolve this, I will escalate the issue to a human agent who can assist you further.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac7d5adedeb720c006acf4cb3307c87d18cf7350c4bac2dd4"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_5aAaaIVVJL357PbUWnVaLKzp",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Refund request declined despite being within the refund window\",\"summary\":\"Customer Lars Johansson with order ORD-1120 requests a refund for a leaking kettle. Order delivered May 15, 2026, within 30 days, but refund system declined the request.\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac7d5adedeb720c006acf4cb3f80087d194d1e31e1080c147"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1493,
+        "noCache": 213,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 138,
+        "text": 138,
+        "reasoning": 0
+      }
+    }
+  }
+}

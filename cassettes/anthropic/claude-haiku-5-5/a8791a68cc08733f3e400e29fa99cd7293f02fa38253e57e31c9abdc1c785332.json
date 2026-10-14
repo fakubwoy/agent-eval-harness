@@ -1,0 +1,44 @@
+{
+  "hash": "a8791a68cc08733f3e400e29fa99cd7293f02fa38253e57e31c9abdc1c785332",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 774,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "To assist you with your order status, may I please have the email address you used for the order? This is to verify your identity and ensure your privacy."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure! The email on the account is zara.ahmed@example.pk."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 439,
+        "noCache": 439,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 25,
+        "text": 25,
+        "reasoning": 0
+      }
+    }
+  }
+}

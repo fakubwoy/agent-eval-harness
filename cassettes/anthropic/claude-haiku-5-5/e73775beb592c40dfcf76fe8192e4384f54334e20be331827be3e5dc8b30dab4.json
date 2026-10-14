@@ -1,0 +1,44 @@
+{
+  "hash": "e73775beb592c40dfcf76fe8192e4384f54334e20be331827be3e5dc8b30dab4",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 2607,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you, Rebecca. I see that your order ORD‑1146 was delivered on May 11, 2026. Our refund policy covers items that are returned within 30 days of delivery, and unfortunately the 35‑day window has now passed.\n\nI’m sorry for the inconvenience with the hair dryer. While I can’t process a refund at this point, I’d be happy to arrange a replacement or discuss other options for you. Please let me know how you’d like to proceed."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I am NOT happy about this. The hair dryer stopped working after a few uses, that is a fault, not me changing my mind. Thirty days is completely unfair when the thing broke and I had no way of knowing it would die that fast. I do not want a replacement, I want my money back. Can you please pass this to someone with the authority to review it, a supervisor or whoever decides these things?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 585,
+        "noCache": 585,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 122,
+        "text": 122,
+        "reasoning": 0
+      }
+    }
+  }
+}

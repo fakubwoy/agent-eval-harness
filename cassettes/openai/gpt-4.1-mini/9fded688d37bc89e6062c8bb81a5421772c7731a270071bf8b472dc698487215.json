@@ -1,0 +1,67 @@
+{
+  "hash": "9fded688d37bc89e6062c8bb81a5421772c7731a270071bf8b472dc698487215",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1270,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_DXxiwjuOq67GJb7b76ra1YYk",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1142",
+                "sku": "WCH-15",
+                "reason": "Wireless charger overheats, requesting refund for this item only",
+                "amount_cents": 3500,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_04435dd2ed5ecfa3006acf50556c6c87d18e00d68de80cfc24"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the wireless charger from your order ORD-1142 has been processed successfully. You will keep the USB-C cable 3 pack from the same order. If you need any further assistance, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf5056c42487d1986bc946edd24b8b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1618,
+        "noCache": 210,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

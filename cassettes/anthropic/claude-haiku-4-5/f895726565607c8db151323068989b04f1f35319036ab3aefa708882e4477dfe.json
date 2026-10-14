@@ -1,0 +1,57 @@
+{
+  "hash": "f895726565607c8db151323068989b04f1f35319036ab3aefa708882e4477dfe",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1251,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01CJVAFN8Wnv9dVLA75SX76F",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1112",
+              "status": "cancelled"
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your order ORD-1112 (purple yoga mat) has been cancelled. You won't be charged, and you should see the refund back to your original payment method within a few business days. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2957,
+        "noCache": 2957,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 58
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "0baf6531a0bbd7aab0a48d85c07e98650652a1ff7a992ae71c5f686e92d1e500",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1300,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, my kettle from ORD-1120 started leaking. Can I get a refund?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for your kettle from order ORD-1120, could you please provide your email address for verification? This is to ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac7d5adedeb720c006acf4caa898087d18791a7802310c43c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 894,
+        "noCache": 894,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 38,
+        "reasoning": 0
+      }
+    }
+  }
+}

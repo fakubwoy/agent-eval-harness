@@ -1,0 +1,48 @@
+{
+  "hash": "80190b3ee9927cb165a2e9d161b30a0ed9a90d922ad0c2c7a2010d2ce37328a7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1216,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks for sorting it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any more help in the future, feel free to reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0aaa76e34e126238006acf4c9c8c4c87d184b2776a42f909c0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1621,
+        "noCache": 85,
+        "cacheRead": 1536,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 26,
+        "text": 26,
+        "reasoning": 0
+      }
+    }
+  }
+}

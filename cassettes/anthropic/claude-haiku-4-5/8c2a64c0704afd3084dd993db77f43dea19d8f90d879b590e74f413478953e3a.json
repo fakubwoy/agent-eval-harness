@@ -1,0 +1,42 @@
+{
+  "hash": "8c2a64c0704afd3084dd993db77f43dea19d8f90d879b590e74f413478953e3a",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1422,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "So there is nothing else to do on my side? Okay, thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! Just to recap: since your order was cancelled before shipping, the charge should have been automatically reversed. If you notice the charge is still on your account after a few business days, feel free to reach out again or contact your bank.\n\nThanks for choosing Northwind Goods, and we hope to serve you again soon!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2540,
+        "noCache": 2540,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 73
+      }
+    }
+  }
+}

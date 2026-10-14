@@ -1,0 +1,67 @@
+{
+  "hash": "117418969018d7c61b4915cd95355c3951bdad9b620fe9751df205302ef5df34",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1328,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_tAO1E5PiUEsrlnRXnZbOFyMs",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1124",
+                "sku": null,
+                "reason": "The stand wobbles",
+                "amount_cents": 8800,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bd466d485c05438006acf4caa2c2487d1a41650f03d8c2923"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund for the full order ORD-1124 has been processed due to the wobbling stand. If you need any further assistance, feel free to ask.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bd466d485c05438006acf4cab7c6c87d1b6a408782082e3c8"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1279,
+        "noCache": 127,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 34,
+        "text": 34,
+        "reasoning": 0
+      }
+    }
+  }
+}

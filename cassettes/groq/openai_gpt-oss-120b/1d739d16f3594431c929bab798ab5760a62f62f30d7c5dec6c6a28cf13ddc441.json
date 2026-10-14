@@ -1,0 +1,60 @@
+{
+  "hash": "1d739d16f3594431c929bab798ab5760a62f62f30d7c5dec6c6a28cf13ddc441",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 298,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_b1f1418c-73ac-4076-b719-a1524ac2f02e",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C129",
+              "name": "Diego Fernandez",
+              "order_ids": [
+                "ORD-1135"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we can get order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_46864f17-5a9e-4a58-81ec-1e03c5b4b1f0",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1187,
+        "noCache": 163,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 30,
+        "text": 22,
+        "reasoning": 8
+      }
+    }
+  }
+}

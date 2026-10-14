@@ -1,0 +1,64 @@
+{
+  "hash": "7918d3be13bda04890baaf3564dbbb56be585440626250b8a13fe583d0c59ab1",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1398,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "viktor.horvat@example.hr"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_018pM5JHFguswZ19pUdk48Lk",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"viktor.horvat@example.hr\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_0131v4hBwC3TnHuWvQUC2Wuh",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1147\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2041,
+        "noCache": 2041,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 104
+      }
+    }
+  }
+}

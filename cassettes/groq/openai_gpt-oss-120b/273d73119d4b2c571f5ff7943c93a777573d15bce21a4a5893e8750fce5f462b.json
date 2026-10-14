@@ -1,0 +1,47 @@
+{
+  "hash": "273d73119d4b2c571f5ff7943c93a777573d15bce21a4a5893e8750fce5f462b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 308,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ah, I missed it by a day. Okay, I understand, thanks anyway."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If you need anything else\u2014whether it’s a warranty claim, a replacement, or any other assistance\u2014just let us know. Have a great day!"
+      },
+      {
+        "type": "reasoning",
+        "text": "User acknowledges, no further action. End conversation politely."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1647,
+        "noCache": 623,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 44,
+        "reasoning": 12
+      }
+    }
+  }
+}

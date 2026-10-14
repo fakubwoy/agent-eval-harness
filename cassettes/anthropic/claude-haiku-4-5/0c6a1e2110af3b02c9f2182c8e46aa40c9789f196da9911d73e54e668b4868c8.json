@@ -1,0 +1,77 @@
+{
+  "hash": "0c6a1e2110af3b02c9f2182c8e46aa40c9789f196da9911d73e54e668b4868c8",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1617,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The one with the yoga mat."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_015c6w9bZC2G5kgdiz533G4A",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1112\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01VqYHKmQ8JuqzCcBSV5fzyy",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1113\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01BeeBeFNKDK7nCguTowbkR6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1114\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2195,
+        "noCache": 2195,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 147
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "97b5df7c6882302ca758f86faef4b801677614fe50e52ce9a05bf7e2ae127fc5",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1251,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0535f9ee8cb0fb92006acf4cbbe03487d1addd2e4575ba8e05"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1259,
+        "noCache": 107,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

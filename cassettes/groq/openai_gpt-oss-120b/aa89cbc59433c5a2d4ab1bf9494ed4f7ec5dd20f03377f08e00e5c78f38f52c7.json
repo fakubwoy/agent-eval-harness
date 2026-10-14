@@ -1,0 +1,46 @@
+{
+  "hash": "aa89cbc59433c5a2d4ab1bf9494ed4f7ec5dd20f03377f08e00e5c78f38f52c7",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 233,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel ORD-1150 please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! Could you please provide the email address associated with your Northwind Goods account? This will help me verify your identity before proceeding with the cancellation."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1049,
+        "noCache": 1049
+      },
+      "outputTokens": {
+        "total": 52,
+        "text": 40,
+        "reasoning": 12
+      }
+    }
+  }
+}

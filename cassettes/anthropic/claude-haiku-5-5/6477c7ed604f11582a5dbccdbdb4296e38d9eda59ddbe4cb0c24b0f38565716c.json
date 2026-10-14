@@ -1,0 +1,44 @@
+{
+  "hash": "6477c7ed604f11582a5dbccdbdb4296e38d9eda59ddbe4cb0c24b0f38565716c",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1290,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Got it\u2014order ORD‑1116 is the one with the coffee grinder.\n\nTo update the shipping address, could you please provide the full new address (line 1, optional line 2, city, postal code, and country)?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks for finding that. The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom. I don't have a second address line, so there's nothing to add there.\n\nAlso, I think there's another order with filters in it that I'd like to keep going to my old address. Could you make sure only the coffee grinder order is changed?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 606,
+        "noCache": 606,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 111,
+        "text": 111,
+        "reasoning": 0
+      }
+    }
+  }
+}

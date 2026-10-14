@@ -1,0 +1,64 @@
+{
+  "hash": "ba5e32cd2cd66911a101ff35cd1f01986f4eb17dd52eb83276c108095db9f382",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1248,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure, my email is zara.ahmed@example.pk."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01DYwN7itu7CoMKzLAPDK1Yy",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"zara.ahmed@example.pk\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01BhKmSzpCzrBMYgJBaGsMGR",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1141\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2047,
+        "noCache": 2047,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 104
+      }
+    }
+  }
+}

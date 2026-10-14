@@ -1,0 +1,48 @@
+{
+  "hash": "5f78673623e7b6d92e4f78bd1d73f46fa30c188a70cb1066df214e8d195d4ab9",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1283,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want a refund for ORD-1123. I changed my mind about the drone."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for order ORD-1123, could you please provide the email address you used for this order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_061cd9493450802d006acf4cafb63887d1b0ab2f4c1b9a6468"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 894,
+        "noCache": 894,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "hash": "56dbbdaa047177395c4b11e8dd60c653ba22718cf8dba5de919307735fc6ada4",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 940,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Done! Your order ORD-1110 has been successfully cancelled. You won't be charged, and the Pressure cooker 5L won't be shipped. Is there anything else I can help you with?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 476,
+        "noCache": 476,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

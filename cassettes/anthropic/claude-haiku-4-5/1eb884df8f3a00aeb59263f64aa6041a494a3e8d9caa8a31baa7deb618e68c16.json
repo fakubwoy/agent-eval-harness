@@ -1,0 +1,42 @@
+{
+  "hash": "1eb884df8f3a00aeb59263f64aa6041a494a3e8d9caa8a31baa7deb618e68c16",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1000,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want to cancel order ORD-1139."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1975,
+        "noCache": 1975,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

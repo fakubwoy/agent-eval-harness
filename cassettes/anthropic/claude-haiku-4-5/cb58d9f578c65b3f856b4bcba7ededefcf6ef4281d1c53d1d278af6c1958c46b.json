@@ -1,0 +1,68 @@
+{
+  "hash": "cb58d9f578c65b3f856b4bcba7ededefcf6ef4281d1c53d1d278af6c1958c46b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1454,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sorry, sent that too early. It ends in 40, so ORD-1140. Email is jonas.weber@example.ch"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks! Let me look up your account and order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Tad94SHSJijAPLnht764rh",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"jonas.weber@example.ch\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01UtCNNPmhy3xLwvve2pQpbj",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1140\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2070,
+        "noCache": 2070,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 115
+      }
+    }
+  }
+}

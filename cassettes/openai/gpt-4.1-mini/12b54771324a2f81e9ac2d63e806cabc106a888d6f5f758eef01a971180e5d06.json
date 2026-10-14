@@ -1,0 +1,80 @@
+{
+  "hash": "12b54771324a2f81e9ac2d63e806cabc106a888d6f5f758eef01a971180e5d06",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1118,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_a4T5bxg38TTEChjZrRJs6DqG",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1122",
+              "customer_id": "C117",
+              "status": "shipped",
+              "placed_at": "2026-06-11T17:00:00Z",
+              "shipped_at": "2026-06-13T09:15:00Z",
+              "shipping_address": {
+                "line1": "Avenida Reforma 222",
+                "city": "Mexico City",
+                "postal_code": "06600",
+                "country": "MX"
+              },
+              "items": [
+                {
+                  "sku": "CHR-GX",
+                  "name": "Gaming chair",
+                  "qty": 1,
+                  "unit_price_cents": 24900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 24900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_029a2c394bcc4525006acf4ca6d4a487d182acc9cb84e0b8f5"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order ORD-1122 has already been shipped, so it can no longer be canceled. If you want, I can help you with a return or refund once you receive the chair. Would you like assistance with that?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_029a2c394bcc4525006acf4ca7d85c87d181d5c7f9a655b397"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1137,
+        "noCache": 1137,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

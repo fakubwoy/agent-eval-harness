@@ -1,0 +1,60 @@
+{
+  "hash": "b689b330f97c6edbd07e8486853b12678d6f00b504241ed5c4456d91de979d20",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1556,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_08af99d1-3523-428e-8263-b3e5fa7e702e",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C132",
+              "name": "Jack Thompson",
+              "order_ids": [
+                "ORD-1138"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have customer id and order id matches. Need to get order details to see status (shipped or not)."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5f7d3a49-429a-44e3-a96b-8ce208493216",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1138\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1181,
+        "noCache": 157,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 22,
+        "reasoning": 25
+      }
+    }
+  }
+}

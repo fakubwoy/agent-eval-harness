@@ -1,0 +1,44 @@
+{
+  "hash": "43d8b784da0e3c3b997bfeb8eebde4b049b9a66104b453b2f1b2a7f36d995b74",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1156,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure thing! To update the shipping address, I’ll need to verify your account first.\n\nCould you please provide the email address you used for your Northwind Goods account and the order ID you’d like to change the address for?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure. The email address is thomas.wright@example.co.uk. I'm afraid I don't have the order ID to hand, though. It's the one with the coffee grinder in it."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 481,
+        "noCache": 481,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 59,
+        "text": 59,
+        "reasoning": 0
+      }
+    }
+  }
+}

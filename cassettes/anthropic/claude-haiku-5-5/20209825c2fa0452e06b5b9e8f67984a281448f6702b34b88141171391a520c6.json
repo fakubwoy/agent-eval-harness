@@ -1,0 +1,44 @@
+{
+  "hash": "20209825c2fa0452e06b5b9e8f67984a281448f6702b34b88141171391a520c6",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 1175,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "My TV wall mount from order ORD-1145 arrived with screws missing. I need a human agent to deal with this, not a bot."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 344,
+        "noCache": 344,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 44,
+        "reasoning": 0
+      }
+    }
+  }
+}

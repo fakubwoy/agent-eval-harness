@@ -1,0 +1,64 @@
+{
+  "hash": "419ee3c713c34ef7ea046ab768374a9280d7af05bd8495fbff3ea831f8acdc81",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 1168,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_XvAQhKgJYpK9ZErxIrHEM9y3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C110",
+              "name": "Emily Carter",
+              "order_ids": [
+                "ORD-1111"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0efd07fe7509a623006acf4c94694487d18091d46017ac6af0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Emily. I found one order under your email. Could you please confirm if the order ID ORD-1111 is the one you are asking about? If not, please provide any details about the package so I can assist you better.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0efd07fe7509a623006acf4c9556cc87d19685ddbb040c813b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1003,
+        "noCache": 1003,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 52,
+        "text": 52,
+        "reasoning": 0
+      }
+    }
+  }
+}

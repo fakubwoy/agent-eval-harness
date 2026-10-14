@@ -1,0 +1,48 @@
+{
+  "hash": "01d55294ced7e4c8a7ef0bd5646488678c06e94a012253480b6fbb9fb2953fc2",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1118,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I need to cancel my order ORD-1110. Found it cheaper somewhere else."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To help you with the cancellation, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_08edeb51d3e24b21006acf504495ac87d19757adafbebf1011"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 893,
+        "noCache": 893,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 36,
+        "reasoning": 0
+      }
+    }
+  }
+}

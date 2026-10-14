@@ -1,0 +1,76 @@
+{
+  "hash": "e0336e0cea2423e424c2c769f8775256a4ab693449a263adc91e280ec89b5480",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 3357,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_25e5f418-562c-4b52-8ce8-d9ca2d25e25b",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1137",
+              "customer_id": "C131",
+              "status": "pending",
+              "placed_at": "2026-06-14T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bulevardul Unirii 20",
+                "city": "Bucharest",
+                "postal_code": "030823",
+                "country": "RO"
+              },
+              "items": [
+                {
+                  "sku": "PLT-SET",
+                  "name": "Stoneware dinner plate set",
+                  "qty": 1,
+                  "unit_price_cents": 7400
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 7400
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Status pending, not shipped. So we can change address. Need to call change_shipping_address with new address."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5bdba3b4-e7f5-4451-8203-3ce29a107aa3",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Bucharest\",\"country\":\"Romania\",\"line1\":\"Strada Lipscani 12\",\"postal_code\":\"030031\"},\"order_id\":\"ORD-1137\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1448,
+        "noCache": 424,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 98,
+        "text": 75,
+        "reasoning": 23
+      }
+    }
+  }
+}

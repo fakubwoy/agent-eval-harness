@@ -1,0 +1,60 @@
+{
+  "hash": "55e70286c7c289489febd8d480d668141c1899fc8084d12fe1f8aff02ceca9d3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 268,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_7958f4f5-b8e5-4f33-b7c2-41f887ee40ef",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C133",
+              "name": "Laura Martin",
+              "order_ids": [
+                "ORD-1139"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we know order belongs to customer. Need to get order details to see status (shipped or not)."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_dd28f11f-f2ab-4e61-9889-06a6bdedf5f9",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1139\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1233,
+        "noCache": 209,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 22,
+        "reasoning": 23
+      }
+    }
+  }
+}

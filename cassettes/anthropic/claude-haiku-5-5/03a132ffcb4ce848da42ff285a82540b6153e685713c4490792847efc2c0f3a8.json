@@ -1,0 +1,44 @@
+{
+  "hash": "03a132ffcb4ce848da42ff285a82540b6153e685713c4490792847efc2c0f3a8",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 880,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your order ORD-1141 has already been shipped on June 13, 2026. If you need any more information or assistance, please let me know!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks, that's exactly what I needed to know! Now I have a second request. My wireless charger from order ORD-1142 overheats, so I'd like a refund for just that charger. I'd like to keep the cable pack from the same order. Can you help with that?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 507,
+        "noCache": 507,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 84,
+        "text": 84,
+        "reasoning": 0
+      }
+    }
+  }
+}

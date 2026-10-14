@@ -1,0 +1,48 @@
+{
+  "hash": "0003be44e1e19d6dcd3fcc78b75a6c0c9b3a2f9f83968ab5237e8b43f1b6b337",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1353,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like to return everything from ORD-1124 for a full refund, the stand wobbles."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for order ORD-1124, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bd466d485c05438006acf4ca6a51c87d1b0f11cf51d34a09a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 899,
+        "noCache": 899,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

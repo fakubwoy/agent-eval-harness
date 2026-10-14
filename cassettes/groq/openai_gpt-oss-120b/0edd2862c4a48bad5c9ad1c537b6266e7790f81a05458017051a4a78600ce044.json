@@ -1,0 +1,47 @@
+{
+  "hash": "0edd2862c4a48bad5c9ad1c537b6266e7790f81a05458017051a4a78600ce044",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 765,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Order ORD-1147 shipped almost a month ago and never arrived. I'm done waiting."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry to hear that your order hasn’t arrived. To look into this for you, could you please confirm the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, check status. The user says shipped almost a month ago and never arrived. Likely they want a refund or cancellation. Policy: refunds only for delivered orders within 30 days of delivery. If not delivered, maybe they can request refund? Not allowed per policy: only for delivered orders. Since not delivered, we cannot refund. Could offer to investigate shipping, maybe reship or refund after investigation. But policy says refunds only for delivered orders. So we must ask for email, verify, then see order status. Then respond accordingly. Also need to ask clarifying question: email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1828,
+        "noCache": 804,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 181,
+        "text": 44,
+        "reasoning": 137
+      }
+    }
+  }
+}

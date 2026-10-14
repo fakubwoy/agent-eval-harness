@@ -1,0 +1,82 @@
+{
+  "hash": "57013b4e2f16a33e395b2be320ebe4bbf949e1494f8a33cb573ee4ef3fed97dc",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 842,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_259b3dfe-4566-4368-9bb2-f903cd336b4c",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1124",
+              "customer_id": "C119",
+              "status": "delivered",
+              "placed_at": "2026-06-01T09:00:00Z",
+              "shipped_at": "2026-06-03T10:00:00Z",
+              "delivered_at": "2026-06-07T14:00:00Z",
+              "shipping_address": {
+                "line1": "Mariahilfer Strasse 77",
+                "city": "Vienna",
+                "postal_code": "1060",
+                "country": "AT"
+              },
+              "items": [
+                {
+                  "sku": "STD-ALU",
+                  "name": "Aluminium laptop stand",
+                  "qty": 1,
+                  "unit_price_cents": 4900
+                },
+                {
+                  "sku": "CHG-65W",
+                  "name": "USB-C charger 65W",
+                  "qty": 1,
+                  "unit_price_cents": 3900
+                }
+              ],
+              "total_cents": 8800
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "The order is delivered on 2026-06-07. Current date is 2026-06-15, that's 8 days, within 30 days. Customer wants full refund for everything because stand wobbles. Refund allowed. Use request_refund without sku to refund whole order. Provide reason."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_bec3f34f-bbc6-4750-9b40-cb0984c77398",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1124\",\"reason\":\"Stand wobbles, customer wants full refund\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1439,
+        "noCache": 415,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 99,
+        "text": 35,
+        "reasoning": 64
+      }
+    }
+  }
+}

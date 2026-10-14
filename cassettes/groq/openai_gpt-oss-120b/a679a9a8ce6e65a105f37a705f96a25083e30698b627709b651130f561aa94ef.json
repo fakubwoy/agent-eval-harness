@@ -1,0 +1,47 @@
+{
+  "hash": "a679a9a8ce6e65a105f37a705f96a25083e30698b627709b651130f561aa94ef",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 337,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, I cancelled ORD-1125 last week, but I want to make sure I get my money back. Please issue the refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, verify order belongs to them, check status. Also need to see if order was delivered? It's cancelled, so likely not delivered. Refund for cancelled order? Policy says refunds only for delivered orders within 30 days. So cannot refund a cancelled order. Must explain politely. Also ask for email first."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1070,
+        "noCache": 46,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 106,
+        "text": 30,
+        "reasoning": 76
+      }
+    }
+  }
+}

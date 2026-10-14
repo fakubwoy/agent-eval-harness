@@ -1,0 +1,44 @@
+{
+  "hash": "99500d459c2339ba8b3949d1e7bb0eba6afa5d2c1bc28c81d3f9cf3d187e3f44",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 897,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great! I've verified your account. Your order ORD-1141 **has shipped**. It was shipped on June 13, 2026 and is on its way to you at House 12, Street 5, F-7/2, Islamabad, 44000, Pakistan.\n\nThe order contains 1 phone case and should arrive soon. Is there anything else I can help you with?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks, that's great to know! Now I'd like to ask about order ORD-1142. I'd like a refund for just the wireless charger from that order, because it overheats. I'd like to keep the cable pack."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 579,
+        "noCache": 579,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 69,
+        "text": 69,
+        "reasoning": 0
+      }
+    }
+  }
+}

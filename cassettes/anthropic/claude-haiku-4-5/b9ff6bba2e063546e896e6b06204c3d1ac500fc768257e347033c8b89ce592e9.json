@@ -1,0 +1,42 @@
+{
+  "hash": "b9ff6bba2e063546e896e6b06204c3d1ac500fc768257e347033c8b89ce592e9",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1201,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, cancel it. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order has already been cancelled! ORD-1112 is now cancelled as of our last action. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 3025,
+        "noCache": 3025,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36
+      }
+    }
+  }
+}

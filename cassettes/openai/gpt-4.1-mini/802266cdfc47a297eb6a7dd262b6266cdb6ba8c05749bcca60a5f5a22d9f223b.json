@@ -1,0 +1,48 @@
+{
+  "hash": "802266cdfc47a297eb6a7dd262b6266cdb6ba8c05749bcca60a5f5a22d9f223b",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1338,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, please go ahead."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order ORD-1104 has already been canceled for you. If you have any other requests or questions, I'm here to help.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_070bdb65e02ddad7006acf4c7b69b487d185e4c248a7b9e0b3"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1230,
+        "noCache": 78,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

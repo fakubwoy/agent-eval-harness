@@ -1,0 +1,59 @@
+{
+  "hash": "59ca3e317cd6b0c57cfb8777ebfa35a05244fad450f8b5ad35a06808c7704996",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 276,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_aebe8627-8dfb-4fb0-b7d4-e6a2668e173b",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C108",
+              "name": "Daniel Kowalski",
+              "order_ids": [
+                "ORD-1109"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have customer id and order list includes ORD-1109. Need to get order details to see status."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_bfb39845-b93b-405d-a36a-2f7c8439e9e6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1109\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1238,
+        "noCache": 1238
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 22,
+        "reasoning": 24
+      }
+    }
+  }
+}

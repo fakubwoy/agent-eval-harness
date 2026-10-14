@@ -1,0 +1,42 @@
+{
+  "hash": "d7b79250735e6e002c63dbd14a272cd70994e74630d2ffc90f460ca3012cb26b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 977,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my package hasn't arrived yet. Can you check where it is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you track your package. To get started, could you please provide your email address so I can look up your order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1979,
+        "noCache": 1979,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

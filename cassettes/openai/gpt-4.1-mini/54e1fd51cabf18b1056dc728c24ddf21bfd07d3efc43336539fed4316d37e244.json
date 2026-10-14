@@ -1,0 +1,65 @@
+{
+  "hash": "54e1fd51cabf18b1056dc728c24ddf21bfd07d3efc43336539fed4316d37e244",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1226,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_mhGeeh8doJwrftjVC3OB6uAY",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "cancel_order timed out after 10000 ms"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b840f1706eaaf85006acf4cb5f32487d1ad3f5f5181f80344"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_pZXiucZ3nyI5UTw2Rqzdwh5X",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Unable to cancel order due to system timeout\",\"summary\":\"Customer Jack Thompson requested cancellation of order ORD-1138 but the cancellation request timed out twice.\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b840f1706eaaf85006acf4cb70d5087d1aecd4d91e57a31ae"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1219,
+        "noCache": 195,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

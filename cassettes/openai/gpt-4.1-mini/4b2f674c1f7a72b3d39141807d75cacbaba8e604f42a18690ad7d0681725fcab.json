@@ -1,0 +1,66 @@
+{
+  "hash": "4b2f674c1f7a72b3d39141807d75cacbaba8e604f42a18690ad7d0681725fcab",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 1105,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_3UOqX4HNapRmyPa0Ub7G4Aaa",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C101",
+              "name": "Lucas Moreau",
+              "order_ids": [
+                "ORD-1101"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b85a6b1a30b0ec6006acf4c77ed3c87d1a4f53f6548765a5e"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Sv4VfDvvWo3OIAVOwKV4wXft",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1101\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b85a6b1a30b0ec6006acf4c791aa887d1a1f09f8d29c5fdad"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 994,
+        "noCache": 994,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

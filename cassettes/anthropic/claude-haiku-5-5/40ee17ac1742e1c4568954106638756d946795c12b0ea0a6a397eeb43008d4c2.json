@@ -1,0 +1,44 @@
+{
+  "hash": "40ee17ac1742e1c4568954106638756d946795c12b0ea0a6a397eeb43008d4c2",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 971,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'd be happy to help you cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ravi.menon@example.in"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 401,
+        "noCache": 401,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 12,
+        "text": 12,
+        "reasoning": 0
+      }
+    }
+  }
+}

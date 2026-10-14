@@ -1,0 +1,48 @@
+{
+  "hash": "8045d88136c71fe144e0c1456207e01a94cc6be2061e806d2524d74e6047e0b3",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 1256,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "If you need any further assistance with your orders or anything else, feel free to ask. I'm here to help!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0eed3d1068d8c10e006acf4c823d0c87d1b8319e0e6939bbec"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1149,
+        "noCache": 125,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 25,
+        "text": 25,
+        "reasoning": 0
+      }
+    }
+  }
+}

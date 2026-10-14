@@ -1,0 +1,48 @@
+{
+  "hash": "df66a8efbccf935fb614abe3b2e5b2694e263d58b86eec20553ab84f52a4222b",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1242,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c6d6ab087d1913b7e3ed012cc97"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1611,
+        "noCache": 75,
+        "cacheRead": 1536,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

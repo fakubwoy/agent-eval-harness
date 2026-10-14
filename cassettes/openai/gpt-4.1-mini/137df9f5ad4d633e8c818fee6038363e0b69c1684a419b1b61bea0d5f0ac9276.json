@@ -1,0 +1,48 @@
+{
+  "hash": "137df9f5ad4d633e8c818fee6038363e0b69c1684a419b1b61bea0d5f0ac9276",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1072,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, the rice cooker from order ORD-1102 doesn't heat properly. I'd like a refund please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for the rice cooker from order ORD-1102, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c79c156508c8b49006acf4c76b08487d19bf2709ee77ad47e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 897,
+        "noCache": 897,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

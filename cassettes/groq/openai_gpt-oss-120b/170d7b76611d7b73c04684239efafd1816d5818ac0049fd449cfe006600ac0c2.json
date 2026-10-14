@@ -1,0 +1,47 @@
+{
+  "hash": "170d7b76611d7b73c04684239efafd1816d5818ac0049fd449cfe006600ac0c2",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 355,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, can you tell me where my order ORD-1101 is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure! To look up your order, could you please provide the email address you used when placing it?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1057,
+        "noCache": 33,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 30,
+        "reasoning": 20
+      }
+    }
+  }
+}

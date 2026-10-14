@@ -1,0 +1,42 @@
+{
+  "hash": "d36bfb8ade82b07dee3b191588ff7665cea1cec6fac3d2f47ae65aac546adebb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1184,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's my personal email, the order is still mine. Just cancel it, the name on it is Tom."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand, but I need to verify your identity with the email address associated with your account before I can make changes to any order. The email you provided doesn't match our records.\n\nCould you try a different email address, or let me know if the order might be under a different email?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2412,
+        "noCache": 2412,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 63
+      }
+    }
+  }
+}

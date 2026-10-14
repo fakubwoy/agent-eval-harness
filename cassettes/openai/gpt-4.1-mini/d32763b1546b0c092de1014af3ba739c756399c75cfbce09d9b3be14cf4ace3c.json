@@ -1,0 +1,50 @@
+{
+  "hash": "d32763b1546b0c092de1014af3ba739c756399c75cfbce09d9b3be14cf4ace3c",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1391,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "mei.lin@example.sg"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Ri0n7LszkDSIVpWksh0cgqCP",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"mei.lin@example.sg\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0783ba27590631a5006acf4c647dd487d1933cb4265e067335"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 953,
+        "noCache": 953,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 18,
+        "text": 18,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "hash": "4cd1d447c1b9bf563481b807718002b34453bb411adf1ee0fb031d9b729b1a2d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1305,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_bZVUDmdrp151zo3sfOcsoMrv",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1115",
+                "sku": "HD-BLU-M",
+                "reason": "Doesn't fit",
+                "amount_cents": 5900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0965f226a38eb8a7006acf4c67d86c87d1a2eac4374efeffa2"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the blue zip hoodie from your order ORD-1115 has been processed. You should see the amount of $59.00 returned to your original payment method shortly. Is there anything else I can help you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c691b9087d1bfec03638debeaf2"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1372,
+        "noCache": 220,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 48,
+        "reasoning": 0
+      }
+    }
+  }
+}

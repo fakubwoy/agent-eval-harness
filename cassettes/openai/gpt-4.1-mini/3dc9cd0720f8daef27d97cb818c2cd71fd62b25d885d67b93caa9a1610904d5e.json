@@ -1,0 +1,66 @@
+{
+  "hash": "3dc9cd0720f8daef27d97cb818c2cd71fd62b25d885d67b93caa9a1610904d5e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 987,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_r7ZCkdEhw84imQ4z7aTGb2MT",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C104",
+              "name": "Grace Okafor",
+              "order_ids": [
+                "ORD-1104"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_070bdb65e02ddad7006acf4c7656a487d18117dce284e063d8"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_a6ckjH2Wm7iFuBOOxvUKpB8N",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1104\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_070bdb65e02ddad7006acf4c775f9087d1acc0383aa0d3fe9c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 993,
+        "noCache": 993,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

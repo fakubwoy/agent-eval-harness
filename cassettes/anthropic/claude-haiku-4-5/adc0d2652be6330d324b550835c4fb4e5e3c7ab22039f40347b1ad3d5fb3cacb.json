@@ -1,0 +1,51 @@
+{
+  "hash": "adc0d2652be6330d324b550835c4fb4e5e3c7ab22039f40347b1ad3d5fb3cacb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 927,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks, that's great to know! Now I'd like to ask about order ORD-1142. I'd like a refund for just the wireless charger from that order, because it overheats. I'd like to keep the cable pack."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_013mbHVehzLwjzUKtk6MaTia",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1142\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2540,
+        "noCache": 2540,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 61
+      }
+    }
+  }
+}

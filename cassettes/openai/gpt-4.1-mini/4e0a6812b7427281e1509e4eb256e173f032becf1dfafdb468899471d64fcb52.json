@@ -1,0 +1,48 @@
+{
+  "hash": "4e0a6812b7427281e1509e4eb256e173f032becf1dfafdb468899471d64fcb52",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1127,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want to cancel order ORD-1139."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with canceling order ORD-1139, could you please provide your email address for verification? This is to ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0f3611daed4faded006acf4c9b12b087d18cff22ab3c449386"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 886,
+        "noCache": 886,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 34,
+        "text": 34,
+        "reasoning": 0
+      }
+    }
+  }
+}

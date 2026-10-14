@@ -1,0 +1,42 @@
+{
+  "hash": "3512b03892978867ee6cf37089ef1d7904d8cdf92991bd309a64cfe91e2f13e3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1302,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I want to return the blue one from order ORD-1115, it doesn't fit."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help with a return. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1986,
+        "noCache": 1986,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36
+      }
+    }
+  }
+}

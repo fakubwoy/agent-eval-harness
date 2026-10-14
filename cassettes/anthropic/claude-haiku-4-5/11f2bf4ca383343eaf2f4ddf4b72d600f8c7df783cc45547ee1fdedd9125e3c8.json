@@ -1,0 +1,97 @@
+{
+  "hash": "11f2bf4ca383343eaf2f4ddf4b72d600f8c7df783cc45547ee1fdedd9125e3c8",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 962,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01RShXFfY5qXHyo2aZporLdq",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "CUSTOMER_NOT_FOUND",
+                "message": "No customer with email t.hughes.home@example.com"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01HyFUjCUE17m34nCAmGkEX9",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1150",
+              "customer_id": "C142",
+              "status": "pending",
+              "placed_at": "2026-06-14T16:00:00Z",
+              "shipping_address": {
+                "line1": "3 Castle Street",
+                "city": "Edinburgh",
+                "postal_code": "EH2 3AH",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "SCF-TRT",
+                  "name": "Tartan wool scarf",
+                  "qty": 1,
+                  "unit_price_cents": 4500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 4500
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm unable to find a customer account with that email address. Could you please double-check the email? Once I verify your identity, I can help you cancel the order."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2347,
+        "noCache": 2347,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39
+      }
+    }
+  }
+}

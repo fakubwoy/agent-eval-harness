@@ -1,0 +1,111 @@
+{
+  "hash": "810cd0c67ec1400340a328e57216df4644f2e317d44083ccd17e38dc686d543c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1597,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_015xXdcqDGBfBZZYuxv2Li55",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C132",
+              "name": "Jack Thompson",
+              "order_ids": [
+                "ORD-1138"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_019TYa1UdhasGYKTiGGpwjPQ",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1138",
+              "customer_id": "C132",
+              "status": "pending",
+              "placed_at": "2026-06-14T22:40:00Z",
+              "shipping_address": {
+                "line1": "15 Queen Street",
+                "city": "Auckland",
+                "postal_code": "1010",
+                "country": "NZ"
+              },
+              "items": [
+                {
+                  "sku": "WS-3MM-L",
+                  "name": "Wetsuit 3mm (size L)",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I've verified that ORD-1138 belongs to your account. The order is still pending (hasn't shipped yet), so I can cancel it for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01X72CwjnRjeotw59jt6Q9QY",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1138\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2350,
+        "noCache": 2350,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 98
+      }
+    }
+  }
+}

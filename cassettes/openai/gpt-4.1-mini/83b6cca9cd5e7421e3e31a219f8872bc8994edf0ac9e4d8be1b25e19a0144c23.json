@@ -1,0 +1,91 @@
+{
+  "hash": "83b6cca9cd5e7421e3e31a219f8872bc8994edf0ac9e4d8be1b25e19a0144c23",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1570,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_L16LmtMGUlcK9rafGe7THC90",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1102",
+              "customer_id": "C102",
+              "status": "delivered",
+              "placed_at": "2026-05-28T03:00:00Z",
+              "shipped_at": "2026-05-30T08:00:00Z",
+              "delivered_at": "2026-06-05T09:30:00Z",
+              "shipping_address": {
+                "line1": "2-11-3 Jingumae",
+                "city": "Tokyo",
+                "postal_code": "150-0001",
+                "country": "JP"
+              },
+              "items": [
+                {
+                  "sku": "RC-55",
+                  "name": "Rice cooker",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c79c156508c8b49006acf4c79183c87d1ac88de066a98333b"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1102 with the rice cooker was delivered on June 5, 2026. Since it is within the 30-day refund window, I can proceed with the refund for the rice cooker. I will process it now.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c79c156508c8b49006acf4c7a1d7c87d1a17926650207e446"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_LS9veFa6cAJrOBO51rSJt6gc",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1102\",\"reason\":\"Rice cooker does not heat properly\",\"sku\":\"RC-55\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0c79c156508c8b49006acf4c7aa1ac87d1ad11b279fce4b337"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1172,
+        "noCache": 1172,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 86,
+        "text": 86,
+        "reasoning": 0
+      }
+    }
+  }
+}

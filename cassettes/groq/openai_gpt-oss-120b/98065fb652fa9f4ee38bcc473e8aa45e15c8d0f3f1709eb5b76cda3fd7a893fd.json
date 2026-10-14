@@ -1,0 +1,47 @@
+{
+  "hash": "98065fb652fa9f4ee38bcc473e8aa45e15c8d0f3f1709eb5b76cda3fd7a893fd",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 501,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there, I'd like to change the address on my order, please. Could you help me with that?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To update the shipping address, I’ll need to verify your account first.\n\nCould you please provide the email address you used for your Northwind Goods account and the order ID you’d like to change the address for?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first: ask for email. Also need order ID. So ask clarifying question: email and order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1064,
+        "noCache": 40,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 83,
+        "text": 55,
+        "reasoning": 28
+      }
+    }
+  }
+}

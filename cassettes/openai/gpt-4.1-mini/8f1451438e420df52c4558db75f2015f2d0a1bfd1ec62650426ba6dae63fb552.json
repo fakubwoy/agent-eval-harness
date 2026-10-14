@@ -1,0 +1,50 @@
+{
+  "hash": "8f1451438e420df52c4558db75f2015f2d0a1bfd1ec62650426ba6dae63fb552",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 920,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I don't have the order number, but my email is emily.carter@example.com."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_XvAQhKgJYpK9ZErxIrHEM9y3",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"emily.carter@example.com\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0efd07fe7509a623006acf4c94694487d18091d46017ac6af0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 957,
+        "noCache": 957,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "hash": "95eef1aac383d2f5d3d0ee2cf9a1940849e6fb49a6caa1972be260b28fd7424c",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1534,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks, that's exactly what I needed to know! Now I have a second request. My wireless charger from order ORD-1142 overheats, so I'd like a refund for just that charger. I'd like to keep the cable pack from the same order. Can you help with that?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To proceed with the refund for the wireless charger from order ORD-1142, I need to confirm that the order is delivered and within the refund window. Let me check the details of order ORD-1142 for you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf5053b6ac87d1a29158b407e391d9"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_fEDoKoC9ICJmukbzD43TSnjG",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1142\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04435dd2ed5ecfa3006acf50542e3487d1be1c6a23c7065247"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1264,
+        "noCache": 112,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 66,
+        "text": 66,
+        "reasoning": 0
+      }
+    }
+  }
+}

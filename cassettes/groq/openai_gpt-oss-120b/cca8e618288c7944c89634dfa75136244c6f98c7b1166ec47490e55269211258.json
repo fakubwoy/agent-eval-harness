@@ -1,0 +1,41 @@
+{
+  "hash": "cca8e618288c7944c89634dfa75136244c6f98c7b1166ec47490e55269211258",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 766,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If anything else comes up, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2010,
+        "noCache": 2010
+      },
+      "outputTokens": {
+        "total": 25,
+        "text": 25
+      }
+    }
+  }
+}

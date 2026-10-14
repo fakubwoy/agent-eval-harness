@@ -1,0 +1,48 @@
+{
+  "hash": "2c9a3a044a399321c89f0be55b01974c7f7254c498e1e73b8151c7c9bb9708f6",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1490,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like to change the delivery address for ORD-1137 to Strada Lipscani 12, Bucharest, 030031, Romania."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with changing the delivery address for order ORD-1137, could you please provide your email address for verification?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bc04bf901fe0601006acf4cb60f4887d19b30200adc44589e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 908,
+        "noCache": 908,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27,
+        "text": 27,
+        "reasoning": 0
+      }
+    }
+  }
+}

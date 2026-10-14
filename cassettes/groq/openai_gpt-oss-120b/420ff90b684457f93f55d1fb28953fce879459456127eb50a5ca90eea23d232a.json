@@ -1,0 +1,47 @@
+{
+  "hash": "420ff90b684457f93f55d1fb28953fce879459456127eb50a5ca90eea23d232a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 329,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, that's the one, the black arc lamp."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I’m glad we could sort that out. Is there anything else I can help you with today?"
+      },
+      {
+        "type": "reasoning",
+        "text": "User confirms. No further action needed. Maybe ask if anything else."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1890,
+        "noCache": 866,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 31,
+        "reasoning": 15
+      }
+    }
+  }
+}

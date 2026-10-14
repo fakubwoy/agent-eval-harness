@@ -1,0 +1,49 @@
+{
+  "hash": "25c592691a98106b11658668b50bc9d87c95442110e7b55b9acbba73661891da",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 256,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "And second, please cancel ORD-1144, I found socks at home."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity again? Already verified email, same customer. Check order ORD-1144 belongs to same customer. Retrieve order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_2de96777-2312-4400-825c-50de3b865d8a",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1144\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1638,
+        "noCache": 614,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 11,
+        "reasoning": 39
+      }
+    }
+  }
+}

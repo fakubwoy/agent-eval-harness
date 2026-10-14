@@ -1,0 +1,42 @@
+{
+  "hash": "b8385700d0963e203ea14788e9a3e65baeb862fa7381ff1c18cd5f9136f94d2f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1258,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great, please refund it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Good news\u2014the refund has already been processed! As you can see from my previous message, refund RF-1 for €279.00 has been approved and submitted. You should see the credit back to your original payment method within a few business days.\n\nIs there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2745,
+        "noCache": 2745,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 69
+      }
+    }
+  }
+}

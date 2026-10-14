@@ -1,0 +1,42 @@
+{
+  "hash": "cd4e0af814f50ead9dfa29fc065a669843b35ec408e6af8469ebd34f3594861d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1147,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like a refund for my earbuds, the left one keeps cutting out."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you with a refund for your earbuds.\n\nTo get started, could you please provide your email address so I can look up your account and find the order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1984,
+        "noCache": 1984,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46
+      }
+    }
+  }
+}

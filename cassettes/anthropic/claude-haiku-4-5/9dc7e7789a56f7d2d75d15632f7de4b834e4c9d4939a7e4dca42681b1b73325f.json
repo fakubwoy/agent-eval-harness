@@ -1,0 +1,42 @@
+{
+  "hash": "9dc7e7789a56f7d2d75d15632f7de4b834e4c9d4939a7e4dca42681b1b73325f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1031,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please cancel ORD-1138, I ordered the wrong size."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1978,
+        "noCache": 1978,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

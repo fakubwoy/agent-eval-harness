@@ -1,0 +1,42 @@
+{
+  "hash": "55156592aa47361f79278efbacb52fc98487be1180998c68c64364e9d7d4ec94",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1184,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my desk lamp arrived with a broken switch. I'd like a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you with a refund for your desk lamp. To get started, I need to verify your account.\n\nCould you please provide the email address associated with your order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1981,
+        "noCache": 1981,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43
+      }
+    }
+  }
+}

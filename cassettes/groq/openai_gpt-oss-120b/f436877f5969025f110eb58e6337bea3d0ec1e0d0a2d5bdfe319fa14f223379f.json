@@ -1,0 +1,76 @@
+{
+  "hash": "f436877f5969025f110eb58e6337bea3d0ec1e0d0a2d5bdfe319fa14f223379f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 304,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5200cce2-e383-47c9-bd4b-562d50460db6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1136",
+              "customer_id": "C130",
+              "status": "delivered",
+              "placed_at": "2026-06-05T08:00:00Z",
+              "shipped_at": "2026-06-07T08:00:00Z",
+              "delivered_at": "2026-06-11T08:00:00Z",
+              "shipping_address": {
+                "line1": "Sheikh Zayed Road 101, Tower B",
+                "city": "Dubai",
+                "postal_code": "00000",
+                "country": "AE"
+              },
+              "items": [
+                {
+                  "sku": "AF-4L",
+                  "name": "Air fryer 4L",
+                  "qty": 1,
+                  "unit_price_cents": 9900
+                }
+              ],
+              "total_cents": 9900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Check refund eligibility: delivered on 2026-06-11, today 2026-06-15, within 30 days. Refund possible. Need reason: cracked basket. We'll request refund. Use request_refund."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_03693961-1f3c-44aa-b223-c5c8def43667",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1136\",\"reason\":\"Cracked basket on delivery\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1430,
+        "noCache": 406,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 78,
+        "text": 31,
+        "reasoning": 47
+      }
+    }
+  }
+}

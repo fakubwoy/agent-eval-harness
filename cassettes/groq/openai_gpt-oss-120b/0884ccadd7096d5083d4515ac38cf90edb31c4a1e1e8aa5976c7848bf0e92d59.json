@@ -1,0 +1,42 @@
+{
+  "hash": "0884ccadd7096d5083d4515ac38cf90edb31c4a1e1e8aa5976c7848bf0e92d59",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 2047,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re very welcome! If you need any further assistance, just let me know. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1640,
+        "noCache": 616,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 26,
+        "text": 26
+      }
+    }
+  }
+}

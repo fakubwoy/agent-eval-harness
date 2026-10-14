@@ -1,0 +1,46 @@
+{
+  "hash": "5470b6740ca8c19ed53936db3cab4000806c2ddd0d556ca1a5bcce88f4102475",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 658,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "noah.fischer@example.de"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Noah. Could you also let me know the order number you’d like to cancel? (It looks like something such as ORD‑1234.)"
+      },
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Need order ID. Ask for it."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1109,
+        "noCache": 1109
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 42,
+        "reasoning": 14
+      }
+    }
+  }
+}

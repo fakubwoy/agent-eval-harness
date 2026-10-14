@@ -1,0 +1,42 @@
+{
+  "hash": "815848b3045925ff140563d01975bdb891c354d52e9e5811deb9fc230b730a1b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 899,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great, thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else with your order, feel free to reach out. Have a great day! 😊"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2501,
+        "noCache": 2501,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 30
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "hash": "a9490fa0859355df15ee1f667983a572054c6ac74a5b29251f4b4abfa7d3a097",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1047,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_TLCfGrzjSpF22XpJ6064Jhkp",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1106",
+                "sku": "MIX-500",
+                "reason": "Too loud stand mixer, customer wants to return it",
+                "amount_cents": 27900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b7d9f8c2be091d2006acf4c7c011087d1aaa7eb4f160b184a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the stand mixer from order ORD-1106 has been processed. If you need any further assistance, please let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b7d9f8c2be091d2006acf4c7d0f5887d1a4ca9da88d445633"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1336,
+        "noCache": 184,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 30,
+        "text": 30,
+        "reasoning": 0
+      }
+    }
+  }
+}

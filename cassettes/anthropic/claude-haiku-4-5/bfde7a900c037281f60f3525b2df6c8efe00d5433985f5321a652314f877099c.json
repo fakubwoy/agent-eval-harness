@@ -1,0 +1,42 @@
+{
+  "hash": "bfde7a900c037281f60f3525b2df6c8efe00d5433985f5321a652314f877099c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1057,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, I cancelled ORD-1125 last week, but I want to make sure I get my money back. Please issue the refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you with that. To verify your identity and look into this order, could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1995,
+        "noCache": 1995,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

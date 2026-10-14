@@ -1,0 +1,44 @@
+{
+  "hash": "31a78022090d3db76da707ed0ec6bf938b7aa986e6d356820791e1b762e03e6b",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 974,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure thing! To keep your account secure, could you please provide the email address you used for this order?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ravi.menon@example.in"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 388,
+        "noCache": 388,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 12,
+        "text": 12,
+        "reasoning": 0
+      }
+    }
+  }
+}

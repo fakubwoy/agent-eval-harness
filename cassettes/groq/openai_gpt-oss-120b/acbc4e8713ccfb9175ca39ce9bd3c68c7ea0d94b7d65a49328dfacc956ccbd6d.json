@@ -1,0 +1,48 @@
+{
+  "hash": "acbc4e8713ccfb9175ca39ce9bd3c68c7ea0d94b7d65a49328dfacc956ccbd6d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 388,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, cancel it. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Proceed to cancel_order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_7c9b1edb-34f1-4ba9-b7a3-a34872879762",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1112\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1558,
+        "noCache": 1558
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 23,
+        "reasoning": 6
+      }
+    }
+  }
+}

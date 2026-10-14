@@ -1,0 +1,98 @@
+{
+  "hash": "1efb911a6ac1593384a5bd7849c1e12734687f1ae503a97f46963b658920e9bb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1701,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013znKuKCiaFsRxLvGSy9w8y",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C118",
+              "name": "Chen Wei",
+              "order_ids": [
+                "ORD-1123"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01AztWfSchjRXp1RLTxLNzPC",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1123",
+              "customer_id": "C118",
+              "status": "shipped",
+              "placed_at": "2026-06-06T02:00:00Z",
+              "shipped_at": "2026-06-08T04:00:00Z",
+              "shipping_address": {
+                "line1": "No. 7 Xinyi Road Sec. 5",
+                "city": "Taipei",
+                "postal_code": "110",
+                "country": "TW"
+              },
+              "items": [
+                {
+                  "sku": "DRN-MINI",
+                  "name": "Mini camera drone",
+                  "qty": 1,
+                  "unit_price_cents": 39900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 39900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks for verifying, Chen Wei. I can see your order ORD-1123 with the Mini camera drone. However, the order has been shipped but not yet delivered. I can only process refunds for orders that have already been delivered.\n\nOnce your drone arrives and you receive it, you'll have 30 days from the delivery date to request a refund. Would you like me to help with anything else, such as canceling the order if it hasn't been delivered yet?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2371,
+        "noCache": 2371,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 106
+      }
+    }
+  }
+}

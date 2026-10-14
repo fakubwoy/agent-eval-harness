@@ -1,0 +1,42 @@
+{
+  "hash": "053b4fd838b7027fbdb34aaa01704536a0557cb5d4755c996e28500705d6cf73",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 840,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I just moved. Can you change the shipping address on ORD-1103?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you change the shipping address! First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1983,
+        "noCache": 1983,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36
+      }
+    }
+  }
+}

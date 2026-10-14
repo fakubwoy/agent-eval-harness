@@ -1,0 +1,60 @@
+{
+  "hash": "50dad2fe5115a2afe0b3dece5d9241d7ed3a015ed1e28188403bec0e7a833de0",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 522,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_edc7ccd0-6659-4b9e-9f84-f715c07ff42d",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C106",
+              "name": "Sofia Rossi",
+              "order_ids": [
+                "ORD-1106"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order belongs to her. Need to get order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_1157f061-f50d-4689-b6e5-cddd7cc43842",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1106\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1228,
+        "noCache": 204,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 37,
+        "text": 22,
+        "reasoning": 15
+      }
+    }
+  }
+}

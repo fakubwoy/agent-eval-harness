@@ -1,0 +1,47 @@
+{
+  "hash": "1fd4f96f26f6c6435686b6247d3a598f2db1250df8236cdaa53185c70ce166b0",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 195,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want to cancel order ORD-1139."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1052,
+        "noCache": 28,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 32,
+        "reasoning": 12
+      }
+    }
+  }
+}

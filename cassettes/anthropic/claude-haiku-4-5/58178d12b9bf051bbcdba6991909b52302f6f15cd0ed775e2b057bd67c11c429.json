@@ -1,0 +1,64 @@
+{
+  "hash": "58178d12b9bf051bbcdba6991909b52302f6f15cd0ed775e2b057bd67c11c429",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1526,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "daniel.kowalski@example.pl"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Dp6vuBbD2Rmw8YKqbrokuu",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"daniel.kowalski@example.pl\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01DcynkEohvsKTBQJcy7Nv5V",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1109\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2047,
+        "noCache": 2047,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

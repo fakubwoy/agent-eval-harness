@@ -1,0 +1,47 @@
+{
+  "hash": "215f157eaf436d7926ecb5fe8ae9fbe03e7250c323d8ff88ce81ae3ce5ac66c5",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1333,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my desk lamp arrived with a broken switch. I'd like a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry to hear that the lamp arrived damaged. To help you with a refund, could you please provide the email address you used for the purchase and the order number (e.g., ORD‑1234) for the desk lamp?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email, then lookup_customer, then get order. Need order id. Ask which order (order id) and email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1058,
+        "noCache": 34,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 93,
+        "text": 59,
+        "reasoning": 34
+      }
+    }
+  }
+}

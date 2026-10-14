@@ -1,0 +1,44 @@
+{
+  "hash": "f077e0a91b0b72b57196ead43af4f34cbc434d8ddeb5347c1cb364d33f7f867b",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1075,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi there, I'd like to change the address on my order, please. Could you help me with that?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 387,
+        "noCache": 387,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

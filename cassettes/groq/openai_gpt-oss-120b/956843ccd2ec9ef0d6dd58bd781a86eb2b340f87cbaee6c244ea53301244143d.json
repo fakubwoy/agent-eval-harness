@@ -1,0 +1,46 @@
+{
+  "hash": "956843ccd2ec9ef0d6dd58bd781a86eb2b340f87cbaee6c244ea53301244143d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 929,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please cancel my order."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! Could you please provide the email address associated with your account and the order ID you’d like to cancel?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email and order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1049,
+        "noCache": 1049
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 33,
+        "reasoning": 15
+      }
+    }
+  }
+}

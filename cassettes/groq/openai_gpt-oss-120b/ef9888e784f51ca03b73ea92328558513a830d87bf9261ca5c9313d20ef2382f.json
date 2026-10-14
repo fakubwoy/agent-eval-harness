@@ -1,0 +1,59 @@
+{
+  "hash": "ef9888e784f51ca03b73ea92328558513a830d87bf9261ca5c9313d20ef2382f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 329,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_46864f17-5a9e-4a58-81ec-1e03c5b4b1f0",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "get_order timed out after 10000 ms"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Tool timed out. We can retry once."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_6c02ed2b-5165-492f-8093-46aa5dcaee2c",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1248,
+        "noCache": 224,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 32,
+        "text": 22,
+        "reasoning": 10
+      }
+    }
+  }
+}

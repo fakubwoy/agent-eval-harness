@@ -1,0 +1,66 @@
+{
+  "hash": "2b3253a46d27168a4b40c79ee27bc64a69626d6f9d1188b5d9cb38879f892209",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1395,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_6iM8bdac1g9j1gtestmmycB6",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C131",
+              "name": "Elena Popescu",
+              "order_ids": [
+                "ORD-1137"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bc04bf901fe0601006acf4cb906fc87d1b0f46426d107ef04"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_siipYiOTEXRraLQQYuSei515",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1137\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bc04bf901fe0601006acf4cba780487d198edb876dc0fb07a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1066,
+        "noCache": 1066,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

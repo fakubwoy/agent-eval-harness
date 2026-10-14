@@ -1,0 +1,48 @@
+{
+  "hash": "6bcf237518102545047b76cdae10ebb2062813db788ad2971ffa4688242c4c19",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1214,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Just to confirm, would you prefer a refund or a replacement for your missing order ORD-1147?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0fb9c73d3b98da0a006acf4c75a34c87d1a7f81685d0aec52f"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1304,
+        "noCache": 152,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 23,
+        "text": 23,
+        "reasoning": 0
+      }
+    }
+  }
+}

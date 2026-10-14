@@ -1,0 +1,44 @@
+{
+  "hash": "77ca7e8ffd31f3c6d8150bb54da36fb46d81e97c4f40d33e97fd16a17d7efaa5",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1094,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The system does not show specific return instructions for the wireless charger refund. Typically, if a return is required, you would receive an email with details on how to safely send the item back. Since the charger overheats, please do not attempt to use or charge it further and wait for the official return instructions.\n\nRegarding the refund timeline, it usually takes a few business days for the refund to be processed and appear on your original payment method, depending on your bank or payment provider.\n\nIf you do not receive return instructions soon or have any concerns, please let me know, and I can assist further."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks for checking! Since the system doesn't show return instructions, I'll wait for that email and won't use or charge the charger in the meantime. Just to confirm, the refund is for the wireless charger only, and I'm keeping the USB-C cable 3 pack, correct?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1100,
+        "noCache": 1100,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 91,
+        "text": 91,
+        "reasoning": 0
+      }
+    }
+  }
+}

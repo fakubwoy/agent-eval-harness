@@ -1,0 +1,74 @@
+{
+  "hash": "b620b13c4692ed7b6b0ad6faf3c70a301627e468e692facd7f65915202d4be5e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1819,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_6c83c2ab-7b99-445a-a261-0070ce4bb48b",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1122",
+              "customer_id": "C117",
+              "status": "shipped",
+              "placed_at": "2026-06-11T17:00:00Z",
+              "shipped_at": "2026-06-13T09:15:00Z",
+              "shipping_address": {
+                "line1": "Avenida Reforma 222",
+                "city": "Mexico City",
+                "postal_code": "06600",
+                "country": "MX"
+              },
+              "items": [
+                {
+                  "sku": "CHR-GX",
+                  "name": "Gaming chair",
+                  "qty": 1,
+                  "unit_price_cents": 24900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 24900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’ve confirmed that order **ORD‑1122** has already been shipped, so it can’t be cancelled at this stage. Once the chair is delivered, you can request a refund (within 30 days of delivery) if you no longer need it.\n\nIs there anything else I can help you with\u2014perhaps updating the shipping address or checking the delivery status?"
+      },
+      {
+        "type": "reasoning",
+        "text": "Order is shipped, cannot cancel. Must inform cannot cancel, can maybe request refund if delivered within 30 days, but not delivered yet. So we can offer to request a refund once delivered, but policy says refunds only for delivered orders. So we must explain cannot cancel because already shipped. Offer to help with anything else, maybe request a return after delivery."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1346,
+        "noCache": 322,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 156,
+        "text": 83,
+        "reasoning": 73
+      }
+    }
+  }
+}

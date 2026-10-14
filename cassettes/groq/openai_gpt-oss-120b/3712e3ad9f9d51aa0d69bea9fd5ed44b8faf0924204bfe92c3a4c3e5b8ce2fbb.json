@@ -1,0 +1,47 @@
+{
+  "hash": "3712e3ad9f9d51aa0d69bea9fd5ed44b8faf0924204bfe92c3a4c3e5b8ce2fbb",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 258,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like to return everything from ORD-1124 for a full refund, the stand wobbles."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To get started, could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, check if belongs to that customer, check status delivered and within 30 days. Need to ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1065,
+        "noCache": 41,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 70,
+        "text": 29,
+        "reasoning": 41
+      }
+    }
+  }
+}

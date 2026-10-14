@@ -1,0 +1,49 @@
+{
+  "hash": "e75b24701c19b301ca38bd3c1ed08f9e9cc89e7c2b0424f4fa57a675b273878a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 183,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is ingrid.berg@example.no"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to lookup customer by email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_566ad4c1-7019-46c6-9551-2d46f342b1f6",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"ingrid.berg@example.no\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1143,
+        "noCache": 119,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 32,
+        "reasoning": 13
+      }
+    }
+  }
+}

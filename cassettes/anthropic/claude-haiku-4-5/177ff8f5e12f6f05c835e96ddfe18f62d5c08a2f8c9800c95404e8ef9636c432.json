@@ -1,0 +1,99 @@
+{
+  "hash": "177ff8f5e12f6f05c835e96ddfe18f62d5c08a2f8c9800c95404e8ef9636c432",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 2216,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01DgHVdLq7YPrbkEPqXfWYVA",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C120",
+              "name": "Fatima Zahra Benali",
+              "order_ids": [
+                "ORD-1125"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013X7D1jA4EMZfB5Etsdj7mT",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1125",
+              "customer_id": "C120",
+              "status": "cancelled",
+              "placed_at": "2026-06-01T15:00:00Z",
+              "shipping_address": {
+                "line1": "21 Boulevard Zerktouni",
+                "city": "Casablanca",
+                "postal_code": "20250",
+                "country": "MA"
+              },
+              "items": [
+                {
+                  "sku": "BAG-TAN",
+                  "name": "Leather tote bag",
+                  "color": "tan",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for verifying your identity, Fatima. I can see that ORD-1125 is indeed your order and it shows as cancelled. However, since the order was cancelled (not delivered), our refund policy only applies to delivered orders. \n\nWhen an order is cancelled before shipment, the cancellation itself should prevent the charge from going through or reverse it automatically. If you were charged for this cancelled order, I'd recommend:\n\n1. Checking your payment method to confirm the charge was reversed\n2. Contacting your bank if the charge still appears\n\nWould you like me to hand you off to a human agent who can investigate the payment status further?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2375,
+        "noCache": 2375,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 145
+      }
+    }
+  }
+}

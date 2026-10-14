@@ -1,0 +1,48 @@
+{
+  "hash": "efc0e6535cb91600908a9618bcb60ab3668d52140aa5dd0b976ee57ec42a3cca",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 1089,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, can you tell me where my order ORD-1101 is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To help you with the status of order ORD-1101, could you please provide the email address you used for the order? This is to verify your identity and ensure your privacy.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b85a6b1a30b0ec6006acf4c76b37c87d1a3aa041c4bf68496"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 891,
+        "noCache": 891,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 39,
+        "reasoning": 0
+      }
+    }
+  }
+}

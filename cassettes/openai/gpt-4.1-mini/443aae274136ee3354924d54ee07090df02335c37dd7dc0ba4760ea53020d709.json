@@ -1,0 +1,66 @@
+{
+  "hash": "443aae274136ee3354924d54ee07090df02335c37dd7dc0ba4760ea53020d709",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1081,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_EsJtlHOzPqiYB1r9ky2VkbqB",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C129",
+              "name": "Diego Fernandez",
+              "order_ids": [
+                "ORD-1135"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0535f9ee8cb0fb92006acf4cb69db887d1904f7f375069b54b"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_io02DOhImUqHYoo8MZ2KWiII",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0535f9ee8cb0fb92006acf4cb7b9d087d19007a35d1ce68e27"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 989,
+        "noCache": 989,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

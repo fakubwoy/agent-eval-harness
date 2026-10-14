@@ -1,0 +1,60 @@
+{
+  "hash": "e9f3568b448948b2add550a5f450701d4f9a3b3b2fd953aebf42e473a326b3ff",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 701,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_084be47c-8163-4860-a6d2-447e74146a53",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C138",
+              "name": "Rebecca Stone",
+              "order_ids": [
+                "ORD-1146"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Use get_order for ORD-1146."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_cc0ad535-5d4c-4db5-a88b-51f40eac5ecb",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1146\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1238,
+        "noCache": 214,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 22,
+        "reasoning": 18
+      }
+    }
+  }
+}

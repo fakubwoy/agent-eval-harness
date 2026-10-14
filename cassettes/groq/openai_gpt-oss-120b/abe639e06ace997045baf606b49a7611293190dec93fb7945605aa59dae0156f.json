@@ -1,0 +1,73 @@
+{
+  "hash": "abe639e06ace997045baf606b49a7611293190dec93fb7945605aa59dae0156f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 708,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_c125fda3-3ade-4b30-987c-6943ca4d7e94",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1147",
+              "customer_id": "C139",
+              "status": "shipped",
+              "placed_at": "2026-05-14T10:00:00Z",
+              "shipped_at": "2026-05-18T10:00:00Z",
+              "shipping_address": {
+                "line1": "Ilica 45",
+                "city": "Zagreb",
+                "postal_code": "10000",
+                "country": "HR"
+              },
+              "items": [
+                {
+                  "sku": "HLM-AERO",
+                  "name": "Aero road bike helmet",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I see that ORD‑1147 was shipped on May 18 but hasn’t been marked as delivered yet. Because refunds can only be issued for orders that have been delivered, the next step is to investigate the shipment with the carrier.\n\nWould you like us to open an investigation and, once we confirm the package is lost, arrange either a replacement shipment or a refund for you?"
+      },
+      {
+        "type": "reasoning",
+        "text": "Order is shipped, not delivered. Customer says never arrived. Policy: refunds only for delivered orders. So we cannot issue refund. We can offer to investigate with carrier, possibly file a claim, or offer to resend. Since policy doesn't specify, we can say we’ll open an investigation and offer a replacement or refund once we confirm delivery status. But we must not promise refund now. Ask if they'd like us to open a carrier investigation and possibly resend or issue a refund after confirmation. Also we can ask if they'd prefer a replacement."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1504,
+        "noCache": 1504
+      },
+      "outputTokens": {
+        "total": 197,
+        "text": 89,
+        "reasoning": 108
+      }
+    }
+  }
+}

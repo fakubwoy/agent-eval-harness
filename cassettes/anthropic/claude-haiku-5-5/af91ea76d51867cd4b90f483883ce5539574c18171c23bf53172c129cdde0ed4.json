@@ -1,0 +1,44 @@
+{
+  "hash": "af91ea76d51867cd4b90f483883ce5539574c18171c23bf53172c129cdde0ed4",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 784,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, that's correct. The refund is for the wireless charger only, and you are keeping the USB-C cable 3 pack. If you have any more questions or need further assistance, feel free to ask!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1255,
+        "noCache": 1255,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

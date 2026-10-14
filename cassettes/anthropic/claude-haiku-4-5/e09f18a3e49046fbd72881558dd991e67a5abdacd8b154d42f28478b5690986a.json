@@ -1,0 +1,42 @@
+{
+  "hash": "e09f18a3e49046fbd72881558dd991e67a5abdacd8b154d42f28478b5690986a",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 981,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, can you tell me where my order ORD-1101 is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you track your order! First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1981,
+        "noCache": 1981,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

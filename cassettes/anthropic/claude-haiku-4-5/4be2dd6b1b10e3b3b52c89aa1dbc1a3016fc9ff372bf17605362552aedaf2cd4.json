@@ -1,0 +1,42 @@
+{
+  "hash": "4be2dd6b1b10e3b3b52c89aa1dbc1a3016fc9ff372bf17605362552aedaf2cd4",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1132,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Order ORD-1147 shipped almost a month ago and never arrived. I'm done waiting."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd like to help you with this. To get started, could you please provide the email address associated with your account? I need to verify that this order belongs to you before I can look into it."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1985,
+        "noCache": 1985,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45
+      }
+    }
+  }
+}

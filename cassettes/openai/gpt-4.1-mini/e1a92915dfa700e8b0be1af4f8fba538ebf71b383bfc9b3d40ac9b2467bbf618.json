@@ -1,0 +1,50 @@
+{
+  "hash": "e1a92915dfa700e8b0be1af4f8fba538ebf71b383bfc9b3d40ac9b2467bbf618",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1065,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "wanjiru.kamau@example.co.ke"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_jlMROSeIx0rsahq6k0KJoEPO",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"wanjiru.kamau@example.co.ke\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b629f2af4654938006acf4ca4efd487d1960af890ff02578c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 946,
+        "noCache": 946,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

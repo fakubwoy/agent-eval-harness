@@ -1,0 +1,65 @@
+{
+  "hash": "ae14c690b359ee83ae421e119f66d69030b2a684eac7c67323808117c62e5f49",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1380,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_zim1Mdv0yMEZy4CE1EyvjqRT",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "request_refund failed: upstream service error"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0a74a658338cda89006acf4cbdfeac87d1b6b2fe5ae4bb912b"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Ace9e5mNzTvcLLtNwOOnADLo",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Refund request failed twice due to upstream service error\",\"summary\":\"Customer Sara Haddad requested a refund for a cracked air fryer basket from order ORD-1136. The refund request failed twice due to an upstream service error.\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0a74a658338cda89006acf4cbf25dc87d189b774b8fdf72e17"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1403,
+        "noCache": 123,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 61,
+        "text": 61,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "hash": "7b66802c7cc7c3c296699f1f4d23fcc7ed5a2a1e5fd20329df3bff5c21ed26a3",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1283,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is olivia.brennan@example.ie. I don't have the order number to hand, sorry."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_hNVHp22jJZwuFQUjuk0iJhPa",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"olivia.brennan@example.ie\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0aaa76e34e126238006acf4c94e97487d1a8adc45077f451cf"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 965,
+        "noCache": 965,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

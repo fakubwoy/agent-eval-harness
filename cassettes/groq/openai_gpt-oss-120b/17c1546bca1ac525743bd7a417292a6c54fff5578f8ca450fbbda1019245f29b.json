@@ -1,0 +1,42 @@
+{
+  "hash": "17c1546bca1ac525743bd7a417292a6c54fff5578f8ca450fbbda1019245f29b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 781,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1758,
+        "noCache": 734,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13
+      }
+    }
+  }
+}

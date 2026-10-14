@@ -1,0 +1,44 @@
+{
+  "hash": "a463693f12599f1c76bcf72bc11e44a462d529ebf2b9cb3e9d938183e805e265",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1065,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, that's correct. The refund is only for the wireless charger, and you are keeping the USB-C cable 3 pack. Regarding the return of the charger, I recommend checking any return instructions that may have been provided in your order confirmation or refund notification email. If you need, I can also check if there are specific return instructions for this refund. Would you like me to do that?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Yes, please check, thanks! I'd like to know whether I need to send the charger back, and if so, how. Since it overheats, I don't want to do anything that could cause a problem. Also, could you tell me roughly how long the refund will take to show up?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 852,
+        "noCache": 852,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 81,
+        "text": 81,
+        "reasoning": 0
+      }
+    }
+  }
+}

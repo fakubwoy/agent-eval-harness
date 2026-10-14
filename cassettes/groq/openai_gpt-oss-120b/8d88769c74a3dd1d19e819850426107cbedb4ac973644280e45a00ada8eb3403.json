@@ -1,0 +1,42 @@
+{
+  "hash": "8d88769c74a3dd1d19e819850426107cbedb4ac973644280e45a00ada8eb3403",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 186,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, thanks for checking."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If you have any other questions or need further assistance, just let me know. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1533,
+        "noCache": 509,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29
+      }
+    }
+  }
+}

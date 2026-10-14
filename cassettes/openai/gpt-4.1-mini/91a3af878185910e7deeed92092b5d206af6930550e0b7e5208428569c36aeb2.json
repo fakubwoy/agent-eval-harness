@@ -1,0 +1,48 @@
+{
+  "hash": "91a3af878185910e7deeed92092b5d206af6930550e0b7e5208428569c36aeb2",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1172,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh, okay. I'll arrange something with the courier then. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any further assistance, feel free to reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b629f2af4654938006acf4ca9435c87d18e502bad162767bd"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1204,
+        "noCache": 180,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 23,
+        "text": 23,
+        "reasoning": 0
+      }
+    }
+  }
+}

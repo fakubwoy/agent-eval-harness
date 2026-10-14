@@ -1,0 +1,42 @@
+{
+  "hash": "94dca24d3b6c40a20db51264f850ef2a50f791d7a861572b70dd0d15bfffd580",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1030,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need help with a refund. The hair dryer I bought stopped working and I want my money back. My order number is ORD-1146. I already tried turning it on and off at the wall and it still won't work at all."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you with a refund for the hair dryer. Before I can proceed, I need to verify your identity first.\n\nCould you please provide the email address associated with your order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2019,
+        "noCache": 2019,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46
+      }
+    }
+  }
+}

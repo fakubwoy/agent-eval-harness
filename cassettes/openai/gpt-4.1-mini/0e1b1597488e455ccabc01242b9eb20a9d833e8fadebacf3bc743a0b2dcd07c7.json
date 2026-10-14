@@ -1,0 +1,50 @@
+{
+  "hash": "0e1b1597488e455ccabc01242b9eb20a9d833e8fadebacf3bc743a0b2dcd07c7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 1207,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is lucia.moretti@example.it"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_A9avHdbBzEOLRs3f77GA6TnI",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"lucia.moretti@example.it\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0eed3d1068d8c10e006acf4c7de47887d189259cbc7d9893b2"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 947,
+        "noCache": 947,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

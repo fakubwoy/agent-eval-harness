@@ -1,0 +1,66 @@
+{
+  "hash": "be40db7aa8520e6f390fb97df0878d0b8fe1ad93c1c7cb1e4c75327a72c65fe4",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1463,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_fP8OrbIWnReuAxX0JGvvuyLi",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1116",
+              "shipping_address": {
+                "line1": "27 Deansgate",
+                "city": "Manchester",
+                "postal_code": "M3 4LQ",
+                "country": "GB"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_02dd2d82538ced64006acf504979ac87d1b01424ee1987331b"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The shipping address for your order with the coffee grinder has been updated to 27 Deansgate, Manchester, M3 4LQ, United Kingdom. Is there anything else I can assist you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_02dd2d82538ced64006acf504b03c487d1b29dd7f596660bef"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1524,
+        "noCache": 244,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 44,
+        "reasoning": 0
+      }
+    }
+  }
+}

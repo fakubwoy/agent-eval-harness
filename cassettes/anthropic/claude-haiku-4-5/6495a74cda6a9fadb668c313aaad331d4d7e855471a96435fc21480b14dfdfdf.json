@@ -1,0 +1,55 @@
+{
+  "hash": "6495a74cda6a9fadb668c313aaad331d4d7e855471a96435fc21480b14dfdfdf",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1223,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "laura.martin@example.ca. Actually wait, don't cancel it. I only wanted to cancel because I'm moving. Can you ship it to my new place instead? 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'll help you change the shipping address instead. Let me first verify that order ORD-1139 belongs to you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01NHhXWX8iWuJKfV1YSHYWcp",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"laura.martin@example.ca\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2074,
+        "noCache": 2074,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 87
+      }
+    }
+  }
+}

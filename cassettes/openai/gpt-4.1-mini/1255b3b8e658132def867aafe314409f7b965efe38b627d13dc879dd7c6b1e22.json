@@ -1,0 +1,61 @@
+{
+  "hash": "1255b3b8e658132def867aafe314409f7b965efe38b627d13dc879dd7c6b1e22",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1236,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_n1JwlixCqJNhCQ8DxymyeSss",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1112",
+              "status": "cancelled"
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_038ecf93a310dbcf006acf4c68096487d1bc977b47d048323b"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order with the yoga mat (order ID ORD-1112) has been successfully canceled. Is there anything else I can help you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_038ecf93a310dbcf006acf4c6922b487d1a12eb26b8e448b29"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1518,
+        "noCache": 110,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 31,
+        "text": 31,
+        "reasoning": 0
+      }
+    }
+  }
+}

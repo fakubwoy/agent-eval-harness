@@ -1,0 +1,44 @@
+{
+  "hash": "af05b4ddc444d699af7d16d1e40b09a5a4ae71185cf7301c7a7e9bf9ed2ba4b4",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 1490,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi. My TV wall mount from order ORD-1145 arrived missing screws. I need a real person to deal with this, not a bot."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 344,
+        "noCache": 344,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

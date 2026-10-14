@@ -1,0 +1,60 @@
+{
+  "hash": "571aebd6bd46c5ea5ca006557ac3ee1396cdbfff618107f27bd3be86b82cee17",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 214,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_ae2e7dd4-e9a5-4002-93ab-46f175d7ca05",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C116",
+              "name": "Wanjiru Kamau",
+              "order_ids": [
+                "ORD-1121"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order belongs to this customer. Need to check order status to see if can change address. Use get_order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_9ee0283c-249f-40fe-b883-ebeacca282fa",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1121\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1226,
+        "noCache": 202,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 22,
+        "reasoning": 26
+      }
+    }
+  }
+}

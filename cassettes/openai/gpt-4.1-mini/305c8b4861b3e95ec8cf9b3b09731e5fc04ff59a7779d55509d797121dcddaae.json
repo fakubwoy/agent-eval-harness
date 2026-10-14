@@ -1,0 +1,48 @@
+{
+  "hash": "305c8b4861b3e95ec8cf9b3b09731e5fc04ff59a7779d55509d797121dcddaae",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1417,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great. Oh, and the charger was faulty too, can you refund that separately as well?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for order ORD-1124 has already been processed in full, so I cannot issue a separate refund for the charger. If you have any other concerns or need further help, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bd466d485c05438006acf4cace39087d1a1b7ed10bcbf5967"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1338,
+        "noCache": 186,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 44,
+        "reasoning": 0
+      }
+    }
+  }
+}

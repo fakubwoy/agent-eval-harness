@@ -1,0 +1,49 @@
+{
+  "hash": "2b68f73e06897ebe46b26766adbaf952731841dd148b4b34f1e50769de69b64f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 312,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I don't have the order number, but my email is emily.carter@example.com."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We have email, need order ID. We can lookup customer to get order IDs."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_83423bb1-63d3-4211-b321-8bf740eb6f12",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"emily.carter@example.com\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1146,
+        "noCache": 122,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 32,
+        "reasoning": 18
+      }
+    }
+  }
+}

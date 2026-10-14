@@ -1,0 +1,62 @@
+{
+  "hash": "a00d736ebc4efb6bf35c951c988d39ac44883493ee2dcc9b5f767a77657020d3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1268,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Uj6MBqU6Zac41FEjU6GGKW",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1116",
+              "shipping_address": {
+                "line1": "27 Deansgate",
+                "city": "Manchester",
+                "postal_code": "M3 4LQ",
+                "country": "GB"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your shipping address for order ORD-1116 has been updated to:\n\n27 Deansgate\nManchester, M3 4LQ\nUnited Kingdom\n\nYour coffee grinder will be shipped to this address. Is there anything else I can help with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2933,
+        "noCache": 2933,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 62
+      }
+    }
+  }
+}

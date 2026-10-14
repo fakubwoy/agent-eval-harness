@@ -1,0 +1,42 @@
+{
+  "hash": "1361d5e45d1056b300e4d2524e1e5d0f78c1a6e93cea197f9a046dcd6f1e06eb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 899,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 3006,
+        "noCache": 3006,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 24
+      }
+    }
+  }
+}

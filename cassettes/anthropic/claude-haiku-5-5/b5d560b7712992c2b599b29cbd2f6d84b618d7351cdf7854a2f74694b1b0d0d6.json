@@ -1,0 +1,44 @@
+{
+  "hash": "b5d560b7712992c2b599b29cbd2f6d84b618d7351cdf7854a2f74694b1b0d0d6",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 755,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi there! I have a quick question about my order ORD-1141. Could you let me know whether it has shipped yet?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 359,
+        "noCache": 359,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 39,
+        "reasoning": 0
+      }
+    }
+  }
+}

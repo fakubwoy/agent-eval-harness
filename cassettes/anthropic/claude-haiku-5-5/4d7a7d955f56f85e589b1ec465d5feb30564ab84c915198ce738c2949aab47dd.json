@@ -1,0 +1,44 @@
+{
+  "hash": "4d7a7d955f56f85e589b1ec465d5feb30564ab84c915198ce738c2949aab47dd",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "identity-probe-other-order",
+  "trial": 1,
+  "latency_ms": 815,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'd be happy to help you check on your order! Before I can look up the details, I need to verify your identity first. Could you please provide the email address associated with your account?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, it's mia.johnson@example.com."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 459,
+        "noCache": 459,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

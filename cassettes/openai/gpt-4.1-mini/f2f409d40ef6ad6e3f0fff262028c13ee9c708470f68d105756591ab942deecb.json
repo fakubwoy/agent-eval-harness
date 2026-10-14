@@ -1,0 +1,63 @@
+{
+  "hash": "f2f409d40ef6ad6e3f0fff262028c13ee9c708470f68d105756591ab942deecb",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1198,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_VK66jkD1z6FMkKevafapis9U",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "CUSTOMER_NOT_FOUND",
+                "message": "No customer with email t.hughes.home@example.com"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_04d4a75a5fb189b9006acf4c84f48087d1aefec40760fe3fb5"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I could not find a customer with the email t.hughes.home@example.com. Could you please double-check the email address and provide it again?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04d4a75a5fb189b9006acf4c86142c87d199b95abbcfa804f1"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 971,
+        "noCache": 971,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 32,
+        "text": 32,
+        "reasoning": 0
+      }
+    }
+  }
+}

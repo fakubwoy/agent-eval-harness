@@ -1,0 +1,51 @@
+{
+  "hash": "51cf7c8f7e42940276f09b0f9eda0c97a1e1386d59bbe8426140b61398ff2d9d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1132,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure, my email is thomas.wright@example.co.uk."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01DWpuLjXAVN1Qik5SuaiuDs",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"thomas.wright@example.co.uk\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2039,
+        "noCache": 2039,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 62
+      }
+    }
+  }
+}

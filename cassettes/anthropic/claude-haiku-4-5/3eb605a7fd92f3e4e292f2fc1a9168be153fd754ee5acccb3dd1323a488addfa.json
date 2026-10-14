@@ -1,0 +1,64 @@
+{
+  "hash": "3eb605a7fd92f3e4e292f2fc1a9168be153fd754ee5acccb3dd1323a488addfa",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1318,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "grace.okafor@example.ng"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Lvn2tfxyQF1fynchSo9PJD",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"grace.okafor@example.ng\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_012a4uvEtfwEaWQae32Rcde2",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1104\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2026,
+        "noCache": 2026,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

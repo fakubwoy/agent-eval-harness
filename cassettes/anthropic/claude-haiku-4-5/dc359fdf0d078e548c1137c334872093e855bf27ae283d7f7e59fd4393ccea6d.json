@@ -1,0 +1,98 @@
+{
+  "hash": "dc359fdf0d078e548c1137c334872093e855bf27ae283d7f7e59fd4393ccea6d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1616,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Tad94SHSJijAPLnht764rh",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C134",
+              "name": "Jonas Weber",
+              "order_ids": [
+                "ORD-1140"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01UtCNNPmhy3xLwvve2pQpbj",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1140",
+              "customer_id": "C134",
+              "status": "delivered",
+              "placed_at": "2026-05-29T08:00:00Z",
+              "shipped_at": "2026-05-31T08:00:00Z",
+              "delivered_at": "2026-06-03T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bahnhofstrasse 10",
+                "city": "Zurich",
+                "postal_code": "8001",
+                "country": "CH"
+              },
+              "items": [
+                {
+                  "sku": "BLD-PRO",
+                  "name": "High speed blender",
+                  "qty": 1,
+                  "unit_price_cents": 13900
+                }
+              ],
+              "total_cents": 13900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I can see your order ORD-1140 for a High speed blender (CHF 139.00) was delivered on June 3rd. \n\nSince it broke after just a week, I can help you request a refund. This is within our 30-day refund window. Could you confirm the reason for the refund? For example, was it a defect or malfunction?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2425,
+        "noCache": 2425,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 92
+      }
+    }
+  }
+}

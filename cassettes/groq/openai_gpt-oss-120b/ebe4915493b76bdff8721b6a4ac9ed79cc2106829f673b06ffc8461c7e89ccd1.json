@@ -1,0 +1,47 @@
+{
+  "hash": "ebe4915493b76bdff8721b6a4ac9ed79cc2106829f673b06ffc8461c7e89ccd1",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 242,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need ORD-1121 delivered to my new place: 45 Moi Avenue, Mombasa, 80100, Kenya."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To make sure I’m updating the right order, could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Customer wants to change shipping address for order ORD-1121. Must ask for email to lookup. So ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1071,
+        "noCache": 47,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 70,
+        "text": 37,
+        "reasoning": 33
+      }
+    }
+  }
+}

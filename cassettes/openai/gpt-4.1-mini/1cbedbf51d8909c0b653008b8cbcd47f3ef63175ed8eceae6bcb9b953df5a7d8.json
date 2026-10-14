@@ -1,0 +1,63 @@
+{
+  "hash": "1cbedbf51d8909c0b653008b8cbcd47f3ef63175ed8eceae6bcb9b953df5a7d8",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1391,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_YH2ZaGhGyqk6dEG4frUUvvJp",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "REFUND_WINDOW_EXPIRED",
+                "message": "Order ORD-1042 was delivered more than 30 days ago"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_048e8169b85c3110006acf4cb4dae087d1a1a673d70ad9da78"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "It seems the refund window of 30 days from delivery has expired for order ORD-1042, so I am unable to process the refund. If you need further assistance or have any other questions, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_048e8169b85c3110006acf4cb6201087d1aac73614ed743e9f"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1261,
+        "noCache": 109,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

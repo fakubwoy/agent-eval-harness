@@ -1,0 +1,112 @@
+{
+  "hash": "0c56ca90cbc869a8d077cbed7a4f21fd7d9c9623cede5def6ba4cb707cb82ed6",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 2406,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01BcR5tu1NujNmvYfGPRFnAa",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C106",
+              "name": "Sofia Rossi",
+              "order_ids": [
+                "ORD-1106"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01MHa1jrYf4sQoBcjF16SymY",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1106",
+              "customer_id": "C106",
+              "status": "delivered",
+              "placed_at": "2026-05-10T07:45:00Z",
+              "shipped_at": "2026-05-12T11:00:00Z",
+              "delivered_at": "2026-05-16T12:00:00Z",
+              "shipping_address": {
+                "line1": "Via Roma 18",
+                "city": "Turin",
+                "postal_code": "10121",
+                "country": "IT"
+              },
+              "items": [
+                {
+                  "sku": "MIX-500",
+                  "name": "Stand mixer",
+                  "color": "red",
+                  "qty": 1,
+                  "unit_price_cents": 27900
+                }
+              ],
+              "total_cents": 27900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified that ORD-1106 belongs to your account. The order was delivered on May 16, 2026. Since today is June 15, 2026, that's 30 days exactly\u2014you're still within the refund window!\n\nI can process a refund for the stand mixer due to the noise issue. Let me submit that for you now."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01G1kt3Gcgfn5uwmRmQ1ihXc",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1106\",\"reason\":\"Stand mixer is too loud\",\"sku\":\"MIX-500\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2377,
+        "noCache": 2377,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 189
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "hash": "2cca595f9635b23d14605be7b6fd3802ea21042efcdf54f0978994a538160d06",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1629,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Tz7pRHlqZXoer5jtOZ2TMLY3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C119",
+              "name": "Hannah Schmidt",
+              "order_ids": [
+                "ORD-1124"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bd466d485c05438006acf4ca8a7b887d1b7e342f0fac90da9"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_MssD6noBXLivphVRxRhFi4b6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1124",
+              "customer_id": "C119",
+              "status": "delivered",
+              "placed_at": "2026-06-01T09:00:00Z",
+              "shipped_at": "2026-06-03T10:00:00Z",
+              "delivered_at": "2026-06-07T14:00:00Z",
+              "shipping_address": {
+                "line1": "Mariahilfer Strasse 77",
+                "city": "Vienna",
+                "postal_code": "1060",
+                "country": "AT"
+              },
+              "items": [
+                {
+                  "sku": "STD-ALU",
+                  "name": "Aluminium laptop stand",
+                  "qty": 1,
+                  "unit_price_cents": 4900
+                },
+                {
+                  "sku": "CHG-65W",
+                  "name": "USB-C charger 65W",
+                  "qty": 1,
+                  "unit_price_cents": 3900
+                }
+              ],
+              "total_cents": 8800
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bd466d485c05438006acf4ca8a7c887d18f3c6901253159ee"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_tAO1E5PiUEsrlnRXnZbOFyMs",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1124\",\"reason\":\"The stand wobbles\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bd466d485c05438006acf4caa2c2487d1a41650f03d8c2923"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1192,
+        "noCache": 1192,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 28,
+        "text": 28,
+        "reasoning": 0
+      }
+    }
+  }
+}

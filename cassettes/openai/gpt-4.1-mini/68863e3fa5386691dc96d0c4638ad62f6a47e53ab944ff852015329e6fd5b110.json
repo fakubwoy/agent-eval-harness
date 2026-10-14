@@ -1,0 +1,50 @@
+{
+  "hash": "68863e3fa5386691dc96d0c4638ad62f6a47e53ab944ff852015329e6fd5b110",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1057,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is priya.sharma@example.com"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_75U1NXzaMZE7b4j7nn4mdFuz",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"priya.sharma@example.com\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_048e8169b85c3110006acf4cb1981c87d1a12738f3103b7f88"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 952,
+        "noCache": 952,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "c30b0bff8e09a908e7e73d0cb34c548b71b6cd42e634f8e274f655ebe10b3331",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1533,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_011xHPxrcSsvvmwnRJrc3vJy",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1119",
+                "sku": null,
+                "reason": "Left earbud keeps cutting out",
+                "amount_cents": 12900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! Your refund has been approved. Here are the details:\n\n- **Order**: ORD-1119 (Black Wireless earbuds Pro)\n- **Refund amount**: $129.00\n- **Reason**: Left earbud keeps cutting out\n\nThe refund has been processed and should appear back in your account within 3-5 business days. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2905,
+        "noCache": 2905,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 96
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "hash": "f2f01ebcec106e6804ca11da5210f9f19e0c5f4b7701e5364e6943e9922576d7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1408,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The one with the yoga mat."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_DBgButNSfYjZbTOyFcYQbsmP",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1112\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_038ecf93a310dbcf006acf4c66b95487d1968af8a739d3b95d"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_e8Yk1KQPLPsYAH9qKytfo5Cv",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1113\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_038ecf93a310dbcf006acf4c66b97087d1a0875dad477d6916"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Pa8VhegjQfbX7UJuCRfHtjag",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1114\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_038ecf93a310dbcf006acf4c66b97887d186d4cce3403e6faa"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1047,
+        "noCache": 1047,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 71,
+        "text": 71,
+        "reasoning": 0
+      }
+    }
+  }
+}

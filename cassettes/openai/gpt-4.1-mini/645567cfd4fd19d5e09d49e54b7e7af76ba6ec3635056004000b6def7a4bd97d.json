@@ -1,0 +1,66 @@
+{
+  "hash": "645567cfd4fd19d5e09d49e54b7e7af76ba6ec3635056004000b6def7a4bd97d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1220,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_jlMROSeIx0rsahq6k0KJoEPO",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C116",
+              "name": "Wanjiru Kamau",
+              "order_ids": [
+                "ORD-1121"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b629f2af4654938006acf4ca4efd487d1960af890ff02578c"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_VYvo8kEBbOXIc1DFeQk4hapg",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1121\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b629f2af4654938006acf4ca62e2087d1b7927d8abdc583f5"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 997,
+        "noCache": 997,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

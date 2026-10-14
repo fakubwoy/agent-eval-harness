@@ -1,0 +1,61 @@
+{
+  "hash": "ec5408683df4a8b47845a44315a2ea5fabe181cc7d5587da5a4c2d197fa127f6",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 468,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5046e74e-024e-472a-9a43-0d14849ce538",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C113",
+              "name": "Thomas Wright",
+              "order_ids": [
+                "ORD-1116",
+                "ORD-1117"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have two orders. Need to get details to find coffee grinder. Call get_order for each."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_12dcf3c5-5a63-4826-ad69-5913c72c0b6f",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1116\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1286,
+        "noCache": 262,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 25,
+        "reasoning": 22
+      }
+    }
+  }
+}

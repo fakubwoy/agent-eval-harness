@@ -1,0 +1,44 @@
+{
+  "hash": "0232da4dfeb0561a14e1548d02ca13f2e74ce22488132c4f5496d29c0a1381d3",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1017,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "To help you with the cancellation, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ravi.menon@example.in"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 404,
+        "noCache": 404,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 12,
+        "text": 12,
+        "reasoning": 0
+      }
+    }
+  }
+}

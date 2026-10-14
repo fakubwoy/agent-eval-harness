@@ -1,0 +1,55 @@
+{
+  "hash": "78db3cfa2d56a4f8774ccb394ce1b2cde0c75f29e65a77b7374be283a8aaf3aa",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 238,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_1ded438b-cc83-43c2-bd80-437eada8d373",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1116",
+              "shipping_address": {
+                "line1": "27 Deansgate",
+                "city": "Manchester",
+                "postal_code": "M3 4LQ",
+                "country": "United Kingdom"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your shipping address for order ORD‑1116 has been updated to:\n\n27 Deansgate  \nManchester, M3 4LQ  \nUnited Kingdom  \n\nThe other order will remain on the original address. Let me know if there’s anything else I can help with!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1784,
+        "noCache": 248,
+        "cacheRead": 1536
+      },
+      "outputTokens": {
+        "total": 61,
+        "text": 61
+      }
+    }
+  }
+}

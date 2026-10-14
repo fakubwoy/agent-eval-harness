@@ -1,0 +1,48 @@
+{
+  "hash": "e489ee2d0ff5f951bb1ba769be5a34020c6848adf9f79de1eeac32a6ba043475",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1243,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "So there is nothing else to do on my side? Okay, thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "That's correct, there is nothing else you need to do. If you have any other questions in the future, feel free to reach out. Thank you for contacting Northwind Goods! Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bbaba6622a2d776006acf4caf06a087d1b39799b3711943d9"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1215,
+        "noCache": 63,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 43,
+        "reasoning": 0
+      }
+    }
+  }
+}

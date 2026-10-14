@@ -1,0 +1,48 @@
+{
+  "hash": "4e389844b7150470584237ba3d218050d4ccf9d14d73e86c716a7cb53a238ab4",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1384,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need help with a refund. I bought a hair dryer on order ORD-1146 and it has stopped working completely. It worked fine for a short time and then just died. I want my money back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for order ORD-1146, could you please provide the email address you used for the purchase? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0be15f8828f77338006acf5042b00087d1828286aec61481fd"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 921,
+        "noCache": 921,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

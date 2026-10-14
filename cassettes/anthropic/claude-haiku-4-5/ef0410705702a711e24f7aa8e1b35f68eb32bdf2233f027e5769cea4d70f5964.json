@@ -1,0 +1,98 @@
+{
+  "hash": "ef0410705702a711e24f7aa8e1b35f68eb32bdf2233f027e5769cea4d70f5964",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 1778,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01TmaYa6f9n2N5BD6czhZBY3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C101",
+              "name": "Lucas Moreau",
+              "order_ids": [
+                "ORD-1101"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01L9UvspTU9wd2itcfZwCLDf",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1101",
+              "customer_id": "C101",
+              "status": "shipped",
+              "placed_at": "2026-06-10T08:15:00Z",
+              "shipped_at": "2026-06-12T14:30:00Z",
+              "shipping_address": {
+                "line1": "8 Rue des Lilas",
+                "city": "Lyon",
+                "postal_code": "69003",
+                "country": "FR"
+              },
+              "items": [
+                {
+                  "sku": "ESP-200",
+                  "name": "Espresso machine",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified your account. Here's the status of your order ORD-1101:\n\n**Order Status:** Shipped  \n**Ordered:** June 10, 2026  \n**Shipped:** June 12, 2026  \n**Item:** Espresso machine (1x €189.00)  \n**Shipping to:** 8 Rue des Lilas, 69003 Lyon, France\n\nYour order is on its way! It hasn't been delivered yet, but it should arrive soon. Is there anything else you'd like to know about this order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2361,
+        "noCache": 2361,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 133
+      }
+    }
+  }
+}

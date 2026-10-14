@@ -1,0 +1,80 @@
+{
+  "hash": "f34c726d29bbb6c3ba6a7e46a7519976b8e7379d0a5618fa33be996cdae51a53",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1612,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_BoItQYJr2fHgjgmxZYyjFqaX",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1147",
+              "customer_id": "C139",
+              "status": "shipped",
+              "placed_at": "2026-05-14T10:00:00Z",
+              "shipped_at": "2026-05-18T10:00:00Z",
+              "shipping_address": {
+                "line1": "Ilica 45",
+                "city": "Zagreb",
+                "postal_code": "10000",
+                "country": "HR"
+              },
+              "items": [
+                {
+                  "sku": "HLM-AERO",
+                  "name": "Aero road bike helmet",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0fb9c73d3b98da0a006acf4c71648c87d1854b69ff4359ab50"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1147 was shipped on May 18, 2026, but it has not been marked as delivered yet. Since it has been almost a month since shipping, I understand your frustration. I will escalate this issue for further investigation. Meanwhile, would you prefer a replacement or a refund if the order cannot be located?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0fb9c73d3b98da0a006acf4c7296bc87d18feeb77280bff8ae"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1149,
+        "noCache": 1149,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 70,
+        "text": 70,
+        "reasoning": 0
+      }
+    }
+  }
+}

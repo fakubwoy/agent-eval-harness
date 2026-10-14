@@ -1,0 +1,76 @@
+{
+  "hash": "480043aba5b6eb11a703486ed6fc6a8f6d6fb8b0a281bae60418e4ec1a2e7736",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 593,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_930b0a63-f3ea-41d7-b875-69140d6f8304",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1118",
+              "customer_id": "C114",
+              "status": "delivered",
+              "placed_at": "2026-05-28T04:00:00Z",
+              "shipped_at": "2026-05-29T06:00:00Z",
+              "delivered_at": "2026-06-02T10:00:00Z",
+              "shipping_address": {
+                "line1": "80 Robinson Road",
+                "city": "Singapore",
+                "postal_code": "068898",
+                "country": "SG"
+              },
+              "items": [
+                {
+                  "sku": "EB-PRO-WHT",
+                  "name": "Wireless earbuds Pro",
+                  "color": "white",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now ORD-1119."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_0ff1df6e-90b8-4c37-bdcc-9bea56982ce6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1119\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1563,
+        "noCache": 1563
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 22,
+        "reasoning": 7
+      }
+    }
+  }
+}

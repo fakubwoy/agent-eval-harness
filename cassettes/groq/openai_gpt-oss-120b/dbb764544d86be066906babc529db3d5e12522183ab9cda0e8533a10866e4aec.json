@@ -1,0 +1,49 @@
+{
+  "hash": "dbb764544d86be066906babc529db3d5e12522183ab9cda0e8533a10866e4aec",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 206,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "wanjiru.kamau@example.co.ke"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_ae2e7dd4-e9a5-4002-93ab-46f175d7ca05",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"wanjiru.kamau@example.co.ke\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1155,
+        "noCache": 131,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 34,
+        "reasoning": 10
+      }
+    }
+  }
+}

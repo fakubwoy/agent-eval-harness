@@ -1,0 +1,76 @@
+{
+  "hash": "a17e5c685c502d9103cfbc9b6ff747abb34fe4f21837572989cb6add3c284247",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1289,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_e0fb4e52-44d8-456a-80f0-c9710171d529",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1110",
+              "customer_id": "C109",
+              "status": "pending",
+              "placed_at": "2026-06-14T06:40:00Z",
+              "shipping_address": {
+                "line1": "17 Cathedral Road",
+                "city": "Chennai",
+                "postal_code": "600086",
+                "country": "IN"
+              },
+              "items": [
+                {
+                  "sku": "PC-5L",
+                  "name": "Pressure cooker 5L",
+                  "qty": 1,
+                  "unit_price_cents": 5499
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 5499
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order belongs to customer, status pending (not shipped). So can cancel. Proceed to cancel_order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_a69f8f5f-725d-4d9d-b2af-de9e7a71587f",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1110\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1373,
+        "noCache": 93,
+        "cacheRead": 1280
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 23,
+        "reasoning": 21
+      }
+    }
+  }
+}

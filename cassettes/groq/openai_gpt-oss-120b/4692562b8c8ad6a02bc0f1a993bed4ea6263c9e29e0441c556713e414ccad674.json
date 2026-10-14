@@ -1,0 +1,59 @@
+{
+  "hash": "4692562b8c8ad6a02bc0f1a993bed4ea6263c9e29e0441c556713e414ccad674",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 208,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_03693961-1f3c-44aa-b223-c5c8def43667",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "request_refund failed: upstream service error"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Tool failed. We can retry once."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_0140926d-527b-4873-9346-2f0902bc0a0f",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1136\",\"reason\":\"Cracked basket on delivery\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1540,
+        "noCache": 516,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 31,
+        "reasoning": 9
+      }
+    }
+  }
+}

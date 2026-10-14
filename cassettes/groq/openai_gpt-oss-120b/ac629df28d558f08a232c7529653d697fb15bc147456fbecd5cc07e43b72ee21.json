@@ -1,0 +1,47 @@
+{
+  "hash": "ac629df28d558f08a232c7529653d697fb15bc147456fbecd5cc07e43b72ee21",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 3208,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "So there is nothing else to do on my side? Okay, thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "That’s correct\u2014no further action is needed on your side. If anything else comes up, feel free to reach out. Have a great day!"
+      },
+      {
+        "type": "reasoning",
+        "text": "We can close politely."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1648,
+        "noCache": 624,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 39,
+        "reasoning": 6
+      }
+    }
+  }
+}

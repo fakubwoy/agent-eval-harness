@@ -1,0 +1,50 @@
+{
+  "hash": "1edcb8e9cd5c6c4d796e682de5b3a2672e5968d7cb621a6c4bbf445d8227c090",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 2344,
+  "request": {
+    "messages": 18,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, please check, thanks! I'd like to know whether I need to send the charger back, and if so, how. Since it overheats, I don't want to do anything that could cause a problem. Also, could you tell me roughly how long the refund will take to show up?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_5uxzynAstc6x8KWhhmoyPaiq",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1142\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04435dd2ed5ecfa3006acf505cf58887d19c2412c5425ba305"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1871,
+        "noCache": 207,
+        "cacheRead": 1664,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

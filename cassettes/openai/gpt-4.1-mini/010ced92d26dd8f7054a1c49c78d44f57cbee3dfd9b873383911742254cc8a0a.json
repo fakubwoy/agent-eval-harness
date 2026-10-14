@@ -1,0 +1,67 @@
+{
+  "hash": "010ced92d26dd8f7054a1c49c78d44f57cbee3dfd9b873383911742254cc8a0a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 2238,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_LS9veFa6cAJrOBO51rSJt6gc",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1102",
+                "sku": "RC-55",
+                "reason": "Rice cooker does not heat properly",
+                "amount_cents": 12900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c79c156508c8b49006acf4c7aa1ac87d1ad11b279fce4b337"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the rice cooker from order ORD-1102 has been processed. You should see the amount of 129.00 in your original payment method shortly. Is there anything else I can help you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c79c156508c8b49006acf4c7bda6c87d18edf690d20ef6214"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1320,
+        "noCache": 168,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 45,
+        "reasoning": 0
+      }
+    }
+  }
+}

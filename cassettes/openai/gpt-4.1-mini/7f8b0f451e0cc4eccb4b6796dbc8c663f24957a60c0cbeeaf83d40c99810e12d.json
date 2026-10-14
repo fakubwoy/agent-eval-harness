@@ -1,0 +1,66 @@
+{
+  "hash": "7f8b0f451e0cc4eccb4b6796dbc8c663f24957a60c0cbeeaf83d40c99810e12d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1018,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_0bnhIlgwEUQjQN3uzhc913DI",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C133",
+              "name": "Laura Martin",
+              "order_ids": [
+                "ORD-1139"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0f3611daed4faded006acf4c9c5d8087d1a02d7f4273014315"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_n36I1QbxBDky1bkDglpbfZqz",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1139\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0f3611daed4faded006acf4c9d745c87d1a47e26d4fbbba6f0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1029,
+        "noCache": 1029,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

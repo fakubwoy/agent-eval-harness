@@ -1,0 +1,66 @@
+{
+  "hash": "591de00604f508947d86a60c35f7fc015930b2ef70893f8e2f55fadd9740b409",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1192,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_bNpx3lbVbmkh65evtOdajk5H",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1109",
+              "shipping_address": {
+                "line1": "ul. Prosta 20",
+                "city": "Warsaw",
+                "postal_code": "00-850",
+                "country": "PL"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cee108f6b55542a006acf4c974e0487d185b2e99d8793554a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I have updated the postal code to 00-850 and the country to Poland for the shipping address of your order ORD-1109. If there's anything else you need, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cee108f6b55542a006acf4c98998c87d1a51c991a1b2a92fc"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1373,
+        "noCache": 221,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

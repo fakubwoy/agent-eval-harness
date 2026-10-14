@@ -1,0 +1,111 @@
+{
+  "hash": "f050a8b89f72c30e1e2daaaa16669c5015ef4cf6a7f7b55accaf70e67a4efa28",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1424,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Lvn2tfxyQF1fynchSo9PJD",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C104",
+              "name": "Grace Okafor",
+              "order_ids": [
+                "ORD-1104"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_012a4uvEtfwEaWQae32Rcde2",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1104",
+              "customer_id": "C104",
+              "status": "pending",
+              "placed_at": "2026-06-15T08:05:00Z",
+              "shipping_address": {
+                "line1": "14 Admiralty Way",
+                "city": "Lagos",
+                "postal_code": "106104",
+                "country": "NG"
+              },
+              "items": [
+                {
+                  "sku": "SPK-MINI",
+                  "name": "Bluetooth speaker",
+                  "qty": 2,
+                  "unit_price_cents": 4500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 9000
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I've verified that order ORD-1104 belongs to your account. The order is still pending (hasn't shipped yet), so I can cancel it for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_013VqUuLN2VvCQTd3pZWBXEx",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1104\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2345,
+        "noCache": 2345,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 99
+      }
+    }
+  }
+}

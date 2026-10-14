@@ -1,0 +1,44 @@
+{
+  "hash": "66f47ab60d666b120bf5839b5a2d753817e47771875d10f45f7257d412c81890",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 791,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your refund request for the **Wireless charger 15W** (SKU WCH‑15) from order **ORD‑1142** has been processed successfully. You’ll receive **$35.00** back to your original payment method within a few business days.\n\nIf there’s anything else I can help with\u2014perhaps a return label, another order question, or anything else\u2014just let me know!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 722,
+        "noCache": 722,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "hash": "6c69cad435ff40b9c8cb670fbff67bb56ecd0d0f1d8fa5e16da200566cf67bdc",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 216,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel order ORD-1122 please, I don't need the chair anymore."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1057,
+        "noCache": 33,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 32,
+        "reasoning": 12
+      }
+    }
+  }
+}

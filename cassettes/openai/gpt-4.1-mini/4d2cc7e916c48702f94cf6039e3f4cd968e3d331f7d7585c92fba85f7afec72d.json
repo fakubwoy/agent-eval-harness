@@ -1,0 +1,48 @@
+{
+  "hash": "4d2cc7e916c48702f94cf6039e3f4cd968e3d331f7d7585c92fba85f7afec72d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1217,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, the air fryer from ORD-1136 arrived with a cracked basket. I'd like a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for the air fryer from order ORD-1136, could you please provide the email address you used for the purchase? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0a74a658338cda89006acf4cb83c7c87d1921c00419a59695f"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 897,
+        "noCache": 897,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

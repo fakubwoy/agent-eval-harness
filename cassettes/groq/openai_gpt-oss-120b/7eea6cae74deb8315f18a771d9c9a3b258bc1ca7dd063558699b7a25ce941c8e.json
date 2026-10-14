@@ -1,0 +1,76 @@
+{
+  "hash": "7eea6cae74deb8315f18a771d9c9a3b258bc1ca7dd063558699b7a25ce941c8e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1273,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_2de96777-2312-4400-825c-50de3b865d8a",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1144",
+              "customer_id": "C136",
+              "status": "pending",
+              "placed_at": "2026-06-14T09:20:00Z",
+              "shipping_address": {
+                "line1": "Karl Johans gate 22",
+                "city": "Oslo",
+                "postal_code": "0159",
+                "country": "NO"
+              },
+              "items": [
+                {
+                  "sku": "SOCK-3P",
+                  "name": "Merino thermal socks (3 pairs)",
+                  "qty": 2,
+                  "unit_price_cents": 1500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3000
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order is pending, not shipped, can cancel. Proceed to cancel."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_a94bde30-2d06-4aa5-9996-de81db9b3922",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1144\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1818,
+        "noCache": 794,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 23,
+        "reasoning": 15
+      }
+    }
+  }
+}

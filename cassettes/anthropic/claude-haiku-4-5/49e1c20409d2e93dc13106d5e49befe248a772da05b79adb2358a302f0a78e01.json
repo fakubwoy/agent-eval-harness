@@ -1,0 +1,64 @@
+{
+  "hash": "49e1c20409d2e93dc13106d5e49befe248a772da05b79adb2358a302f0a78e01",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 5254,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "sara.haddad@example.ae"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Ch8igQ31fcaLb7ih2UmafS",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"sara.haddad@example.ae\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01KEpYnwNUFoPCBYnVNoRgMq",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1136\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2044,
+        "noCache": 2044,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "hash": "6465d3a171e120671c8868bb253ef75d193a8998b6ebd0e7d42cbadfb808f2f9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 355,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "javier.ruiz@example.mx"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now lookup customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_2b591c85-076a-4464-bead-39f5585b46fd",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"javier.ruiz@example.mx\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1113,
+        "noCache": 89,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 37,
+        "text": 32,
+        "reasoning": 5
+      }
+    }
+  }
+}

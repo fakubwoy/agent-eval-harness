@@ -1,0 +1,60 @@
+{
+  "hash": "b9222cb6f214fdbfd5ae1e6235a7aea3f225e644a8f597a31ed53e7e4cc92269",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 991,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_a793d127-55b5-424d-a072-f0452bd63a9b",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C103",
+              "name": "Mateo Alvarez",
+              "order_ids": [
+                "ORD-1103"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Get order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_3f91a9a3-999a-4c32-8c7a-608cc560cbd1",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1103\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1236,
+        "noCache": 212,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 34,
+        "text": 22,
+        "reasoning": 12
+      }
+    }
+  }
+}

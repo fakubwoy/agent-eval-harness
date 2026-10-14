@@ -1,0 +1,55 @@
+{
+  "hash": "0d8139bc520a7a29ff3e256f1ea6001ff102bdefb42f70c98daafa70c0369868",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1572,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes please, a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'll process the refund for your blender due to the defect. Let me submit that now."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01HKfDfa1YGHE4s9wU6UHroD",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1140\",\"reason\":\"Blender broke after one week of use - defect\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2527,
+        "noCache": 2527,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 112
+      }
+    }
+  }
+}

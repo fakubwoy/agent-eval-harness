@@ -1,0 +1,64 @@
+{
+  "hash": "72436e577d2fab43575a81d8d4cbc6babc0c3ef97cc8934d9996f45c95731785",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1400,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "wanjiru.kamau@example.co.ke"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01NNK2ZMzxfcZrE3RiwKPEyR",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"wanjiru.kamau@example.co.ke\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01FiCtWkS47WHhrR2ZaPVqYu",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1121\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2055,
+        "noCache": 2055,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 108
+      }
+    }
+  }
+}

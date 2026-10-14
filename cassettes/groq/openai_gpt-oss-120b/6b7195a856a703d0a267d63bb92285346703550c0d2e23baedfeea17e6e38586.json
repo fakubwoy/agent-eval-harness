@@ -1,0 +1,60 @@
+{
+  "hash": "6b7195a856a703d0a267d63bb92285346703550c0d2e23baedfeea17e6e38586",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 540,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_7b030821-5d07-4e29-bb45-c82b8ed127b5",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C102",
+              "name": "Aiko Tanaka",
+              "order_ids": [
+                "ORD-1102"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify that ORD-1102 belongs to this customer (it does). Next, get order details to see status, delivery date."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_7c3620ce-a56e-464d-afa2-ea310ddfa29a",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1102\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1225,
+        "noCache": 201,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 22,
+        "reasoning": 28
+      }
+    }
+  }
+}

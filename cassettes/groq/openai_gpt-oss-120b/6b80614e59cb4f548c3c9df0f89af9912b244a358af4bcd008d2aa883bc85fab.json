@@ -1,0 +1,42 @@
+{
+  "hash": "6b80614e59cb4f548c3c9df0f89af9912b244a358af4bcd008d2aa883bc85fab",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 605,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If anything else comes up, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1546,
+        "noCache": 522,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 25,
+        "text": 25
+      }
+    }
+  }
+}

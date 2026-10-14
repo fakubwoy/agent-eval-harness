@@ -1,0 +1,59 @@
+{
+  "hash": "92d056692467b584c0c9cb51d6b30d9a3c147d7b503c59e5000dced14edeff8d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 3611,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_acffc70d-07c8-4dc7-8685-81b6d81d0043",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "cancel_order timed out after 10000 ms"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Tool failed. We can retry once."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_a72b6441-19ab-4934-a3d5-9c01f45bf9e4",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1138\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1427,
+        "noCache": 403,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 35,
+        "text": 26,
+        "reasoning": 9
+      }
+    }
+  }
+}

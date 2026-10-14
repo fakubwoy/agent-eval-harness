@@ -1,0 +1,46 @@
+{
+  "hash": "679ffeaa73eda155692ffbe351cf81148705b2a9a6c3d7f6b31b48b8ca68ff06",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 322,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great, please refund it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund has already been completed, and the €279.00 will be returned to your payment method shortly. Let me know if there’s anything else I can help with!"
+      },
+      {
+        "type": "reasoning",
+        "text": "We already processed refund. The user says \"please refund it\" again. We can confirm it's already done. No further action needed."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1718,
+        "noCache": 1718
+      },
+      "outputTokens": {
+        "total": 72,
+        "text": 44,
+        "reasoning": 28
+      }
+    }
+  }
+}

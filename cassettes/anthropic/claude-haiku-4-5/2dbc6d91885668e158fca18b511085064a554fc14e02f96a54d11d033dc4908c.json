@@ -1,0 +1,64 @@
+{
+  "hash": "2dbc6d91885668e158fca18b511085064a554fc14e02f96a54d11d033dc4908c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 1286,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure, my email is lucas.moreau@example.fr"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01TmaYa6f9n2N5BD6czhZBY3",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"lucas.moreau@example.fr\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01L9UvspTU9wd2itcfZwCLDf",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1101\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2032,
+        "noCache": 2032,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 104
+      }
+    }
+  }
+}

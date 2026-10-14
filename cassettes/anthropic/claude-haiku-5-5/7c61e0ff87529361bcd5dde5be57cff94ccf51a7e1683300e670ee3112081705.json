@@ -1,0 +1,44 @@
+{
+  "hash": "7c61e0ff87529361bcd5dde5be57cff94ccf51a7e1683300e670ee3112081705",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 960,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your order **ORD-1110** has been cancelled successfully. If you have any other questions or need further assistance, just let me know!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 442,
+        "noCache": 442,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

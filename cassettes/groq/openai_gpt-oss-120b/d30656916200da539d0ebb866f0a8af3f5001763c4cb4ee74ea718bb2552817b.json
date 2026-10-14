@@ -1,0 +1,47 @@
+{
+  "hash": "d30656916200da539d0ebb866f0a8af3f5001763c4cb4ee74ea718bb2552817b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 2575,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need a refund for my hair dryer. It stopped working after just a few uses and I am really annoyed about it. My order number is ORD-1146."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure \u2014 I can help with that. Could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get_order, check if order belongs to that customer, check delivery status and date within 30 days. Then request refund if eligible. So first ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1078,
+        "noCache": 54,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 82,
+        "text": 32,
+        "reasoning": 50
+      }
+    }
+  }
+}

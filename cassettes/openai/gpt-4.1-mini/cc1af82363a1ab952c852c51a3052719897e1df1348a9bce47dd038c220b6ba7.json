@@ -1,0 +1,67 @@
+{
+  "hash": "cc1af82363a1ab952c852c51a3052719897e1df1348a9bce47dd038c220b6ba7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1616,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_wmvW214UP4egyI2wHtOHR1EI",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1140",
+                "sku": null,
+                "reason": "Blender broke after a week",
+                "amount_cents": 13900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac132c62ca2eeea006acf4ca2864c87d189195221a14aa81d"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for your blender has been processed successfully. You should see the amount of 139.00 CHF returned to your original payment method shortly. If you need any further assistance, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac132c62ca2eeea006acf4ca3b67c87d1bfe6b5587dacd633"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1327,
+        "noCache": 175,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 43,
+        "reasoning": 0
+      }
+    }
+  }
+}

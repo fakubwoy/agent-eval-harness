@@ -1,0 +1,41 @@
+{
+  "hash": "345659fec543b67d925df80f71ba94ea2526f65075b5de64b2f4209b9d9dd334",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 695,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Perfect, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! Have a great day."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1640,
+        "noCache": 1640
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13
+      }
+    }
+  }
+}

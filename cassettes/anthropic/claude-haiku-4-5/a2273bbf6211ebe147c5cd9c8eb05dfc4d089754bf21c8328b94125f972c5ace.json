@@ -1,0 +1,51 @@
+{
+  "hash": "a2273bbf6211ebe147c5cd9c8eb05dfc4d089754bf21c8328b94125f972c5ace",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 1101,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I don't have the order number, but my email is emily.carter@example.com."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01SDZvMawRmPahRjWZ7zPZ7s",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"emily.carter@example.com\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2037,
+        "noCache": 2037,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 60
+      }
+    }
+  }
+}

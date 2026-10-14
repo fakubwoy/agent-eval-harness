@@ -1,0 +1,61 @@
+{
+  "hash": "4aa0cdda6ea2457f4fbaaeab83ae1f43916a9ec403619e9564ade85c45240ebc",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1468,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, that's the one, the black arc lamp."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_4wPFbqqUtseO1ivxmzeXNoem",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1107\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0aaa76e34e126238006acf4c97dd5087d1b465c83606ce5d79"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_TJISHrVHTeYeAX1G3cy73nrL",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1108\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0aaa76e34e126238006acf4c97dd6087d1812faf97509a9ce4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1081,
+        "noCache": 1081,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 53,
+        "text": 53,
+        "reasoning": 0
+      }
+    }
+  }
+}

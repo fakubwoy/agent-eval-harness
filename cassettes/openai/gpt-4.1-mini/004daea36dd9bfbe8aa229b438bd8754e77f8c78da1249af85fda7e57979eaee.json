@@ -1,0 +1,66 @@
+{
+  "hash": "004daea36dd9bfbe8aa229b438bd8754e77f8c78da1249af85fda7e57979eaee",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1134,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_6jW1NXPL9onoIGJl3tCqYDw2",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1137",
+              "shipping_address": {
+                "line1": "Strada Lipscani 12",
+                "city": "Bucharest",
+                "postal_code": "030031",
+                "country": "RO"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bc04bf901fe0601006acf4cbbbefc87d1b3c8da13eb0e7ebd"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The delivery address for your order ORD-1137 has been updated to Strada Lipscani 12, Bucharest, 030031, Romania. Is there anything else I can help you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bc04bf901fe0601006acf4cbd037087d1950d3d08cc83ff1b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1302,
+        "noCache": 150,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 43,
+        "reasoning": 0
+      }
+    }
+  }
+}

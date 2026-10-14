@@ -1,0 +1,56 @@
+{
+  "hash": "3b5cd34392776a4bceef968f7084f433d43ca0ac8437c5c4fc9b5da08679a4fa",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 260,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_ae09b847-916c-488e-a093-af7f46396f20",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1140",
+                "sku": "BLD-PRO",
+                "reason": "Blender broke after a week of use",
+                "amount_cents": 13900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund has been processed for the blender (order ORD‑1140). You’ll receive **CHF 139.00** back to your original payment method within 3\u20135 business days. If you have any other questions, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1564,
+        "noCache": 540,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 56
+      }
+    }
+  }
+}

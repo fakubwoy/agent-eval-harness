@@ -1,0 +1,42 @@
+{
+  "hash": "e293bb5fd415aa712db3c60146c812bcf4d8ff7adf273856c9e45c501ceb9159",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1009,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, what's the status of ORD-1135?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you check the status of that order! First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1977,
+        "noCache": 1977,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "hash": "bd4f3356fd29d743f78063bd4249d05cdde8938d6ccbaa2482d7b5ac432108bc",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 294,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My TV wall mount from order ORD-1145 arrived with screws missing. I need a human agent to deal with this, not a bot."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to follow policies. Customer wants human. Policy 7: handoff to human when customer asks for a human. So we must handoff. Provide reason and summary."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_8362cf02-ecb6-4d2f-9647-3198d26e488c",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Customer requested human assistance for missing screws in delivered order\",\"summary\":\"Customer ORD-1145 TV wall mount arrived missing screws, wants human agent.\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1071,
+        "noCache": 47,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 97,
+        "text": 60,
+        "reasoning": 37
+      }
+    }
+  }
+}

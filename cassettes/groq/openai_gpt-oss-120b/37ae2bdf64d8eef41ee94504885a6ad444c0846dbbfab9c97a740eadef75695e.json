@@ -1,0 +1,47 @@
+{
+  "hash": "37ae2bdf64d8eef41ee94504885a6ad444c0846dbbfab9c97a740eadef75695e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 4931,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there! I have a quick question first. Could you check whether order ORD-1141 has shipped yet?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To look up the details of order **ORD‑1141**, could you please provide the email address you used for the purchase?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Must ask for email. Then lookup_customer, then get order, check status. So ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1065,
+        "noCache": 41,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 67,
+        "text": 38,
+        "reasoning": 29
+      }
+    }
+  }
+}

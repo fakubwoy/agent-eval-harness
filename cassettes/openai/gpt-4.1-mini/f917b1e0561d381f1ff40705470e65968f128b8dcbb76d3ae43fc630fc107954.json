@@ -1,0 +1,48 @@
+{
+  "hash": "f917b1e0561d381f1ff40705470e65968f128b8dcbb76d3ae43fc630fc107954",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1200,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, I want to return the stand mixer from ORD-1106, it is far too loud. Is that still possible?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the return of the stand mixer from order ORD-1106, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b7d9f8c2be091d2006acf4c77c33887d1aa34a051b331b2dd"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 902,
+        "noCache": 902,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

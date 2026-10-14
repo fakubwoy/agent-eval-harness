@@ -1,0 +1,91 @@
+{
+  "hash": "d64c7a9954677130cbeeb4aa0075a1343261c127c02ac942e60d0c5ba9ce5cea",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1544,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_0bdlWO4S3pC2CsiItDBluNPR",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1143",
+              "customer_id": "C136",
+              "status": "pending",
+              "placed_at": "2026-06-14T09:00:00Z",
+              "shipping_address": {
+                "line1": "Karl Johans gate 22",
+                "city": "Oslo",
+                "postal_code": "0159",
+                "country": "NO"
+              },
+              "items": [
+                {
+                  "sku": "GOG-1",
+                  "name": "Ski goggles",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cdb9a7e9da2c252006acf4c9a2c9487d1acd345115781db98"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order ORD-1143 is still pending and has not shipped yet. I can update the shipping address to your cabin at Storgata 5, Lillehammer, 2609, Norway. I will proceed with this change now.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cdb9a7e9da2c252006acf4c9b1f3087d1a9608a3be4e0c7dc"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_geP7HlEMXcIEu0xr7v79UV5I",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1143\",\"address\":{\"line1\":\"Storgata 5\",\"city\":\"Lillehammer\",\"postal_code\":\"2609\",\"country\":\"NO\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cdb9a7e9da2c252006acf4c9ba2c087d1a70e92bac0673c78"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1152,
+        "noCache": 1152,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 97,
+        "text": 97,
+        "reasoning": 0
+      }
+    }
+  }
+}

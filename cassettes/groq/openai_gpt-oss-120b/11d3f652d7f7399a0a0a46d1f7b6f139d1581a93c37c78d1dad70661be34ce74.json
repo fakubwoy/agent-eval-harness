@@ -1,0 +1,48 @@
+{
+  "hash": "11d3f652d7f7399a0a0a46d1f7b6f139d1581a93c37c78d1dad70661be34ce74",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 661,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The one with the yoga mat."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need specific order ID. Ask for order ID or list orders. We can list orders for the customer to identify which contains yoga mat. First, lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_db7f6b73-67a3-4a3f-8e92-2a6988bf5228",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"noah.fischer@example.de\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1178,
+        "noCache": 1178
+      },
+      "outputTokens": {
+        "total": 66,
+        "text": 32,
+        "reasoning": 34
+      }
+    }
+  }
+}

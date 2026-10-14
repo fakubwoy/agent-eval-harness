@@ -1,0 +1,80 @@
+{
+  "hash": "6edbb46393a5bc47fc497d7433e55bca1aeeafbe10e7a36a8a2b74ece375613e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 1238,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Sv4VfDvvWo3OIAVOwKV4wXft",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1101",
+              "customer_id": "C101",
+              "status": "shipped",
+              "placed_at": "2026-06-10T08:15:00Z",
+              "shipped_at": "2026-06-12T14:30:00Z",
+              "shipping_address": {
+                "line1": "8 Rue des Lilas",
+                "city": "Lyon",
+                "postal_code": "69003",
+                "country": "FR"
+              },
+              "items": [
+                {
+                  "sku": "ESP-200",
+                  "name": "Espresso machine",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b85a6b1a30b0ec6006acf4c791aa887d1a1f09f8d29c5fdad"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1101 has been shipped on June 12, 2026. It is currently on its way to the shipping address in Lyon. If you need any more details or assistance, please let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b85a6b1a30b0ec6006acf4c7a28e887d1a00e5b705a766e5c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1141,
+        "noCache": 1141,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

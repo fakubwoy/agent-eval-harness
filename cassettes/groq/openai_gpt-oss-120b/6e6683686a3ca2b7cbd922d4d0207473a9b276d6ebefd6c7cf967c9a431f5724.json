@@ -1,0 +1,74 @@
+{
+  "hash": "6e6683686a3ca2b7cbd922d4d0207473a9b276d6ebefd6c7cf967c9a431f5724",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 552,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_12dcf3c5-5a63-4826-ad69-5913c72c0b6f",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1116",
+              "customer_id": "C113",
+              "status": "pending",
+              "placed_at": "2026-06-14T07:50:00Z",
+              "shipping_address": {
+                "line1": "9 Kingsway",
+                "city": "London",
+                "postal_code": "WC2B 6XF",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "GRD-BURR",
+                  "name": "Burr coffee grinder",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Got it\u2014order ORD‑1116 is the one with the coffee grinder.\n\nTo update the shipping address, could you please provide the full new address (line 1, optional line 2, city, postal code, and country)?"
+      },
+      {
+        "type": "reasoning",
+        "text": "Order ORD-1116 is pending (not shipped). Contains Burr coffee grinder. That's likely the one. So we can proceed to change address. Need new address details. Ask for full new address (line1, line2 optional, city, postal code, country)."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1455,
+        "noCache": 431,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 113,
+        "text": 58,
+        "reasoning": 55
+      }
+    }
+  }
+}

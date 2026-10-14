@@ -1,0 +1,49 @@
+{
+  "hash": "aac4d4726c6924320b89b1f8c894ec45128b7dc3a7734a4640e8cfd8fc97cf0e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 637,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_7c9b1edb-34f1-4ba9-b7a3-a34872879762",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1112",
+              "status": "cancelled"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD‑1112 has been successfully cancelled. If you have any other questions or need further assistance, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1612,
+        "noCache": 1612
+      },
+      "outputTokens": {
+        "total": 32,
+        "text": 32
+      }
+    }
+  }
+}

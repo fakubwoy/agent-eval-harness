@@ -1,0 +1,128 @@
+{
+  "hash": "982ce8aa2b605fd736d1b1dfda921c300ede51c9493da7f77a91c87363eebcf3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1657,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01HFSCzr3t91FcEuRopUM29j",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1107",
+              "customer_id": "C107",
+              "status": "delivered",
+              "placed_at": "2026-06-01T19:00:00Z",
+              "shipped_at": "2026-06-03T09:00:00Z",
+              "delivered_at": "2026-06-08T11:00:00Z",
+              "shipping_address": {
+                "line1": "22 Harcourt Street",
+                "city": "Dublin",
+                "postal_code": "D02 H210",
+                "country": "IE"
+              },
+              "items": [
+                {
+                  "sku": "LMP-ARC",
+                  "name": "Arc desk lamp",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 6450
+                }
+              ],
+              "total_cents": 6450
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_015gWYTv73X6s7u3kGc4gMWN",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1108",
+              "customer_id": "C107",
+              "status": "delivered",
+              "placed_at": "2026-03-26T12:00:00Z",
+              "shipped_at": "2026-03-28T10:00:00Z",
+              "delivered_at": "2026-04-02T15:00:00Z",
+              "shipping_address": {
+                "line1": "22 Harcourt Street",
+                "city": "Dublin",
+                "postal_code": "D02 H210",
+                "country": "IE"
+              },
+              "items": [
+                {
+                  "sku": "NB-A5-3",
+                  "name": "A5 notebook set",
+                  "qty": 2,
+                  "unit_price_cents": 1200
+                }
+              ],
+              "total_cents": 2400
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I found your desk lamp order. It's the Arc desk lamp from order **ORD-1107**, delivered on June 8th. Since it arrived with a broken switch, I can process a refund for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01UpqpFGRgtBgqNwbUMDFyaM",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1107\",\"reason\":\"Desk lamp arrived with a broken switch\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2669,
+        "noCache": 2669,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 135
+      }
+    }
+  }
+}

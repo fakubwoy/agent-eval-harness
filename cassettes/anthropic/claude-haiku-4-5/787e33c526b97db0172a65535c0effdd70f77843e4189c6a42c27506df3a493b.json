@@ -1,0 +1,73 @@
+{
+  "hash": "787e33c526b97db0172a65535c0effdd70f77843e4189c6a42c27506df3a493b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 1306,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01SDZvMawRmPahRjWZ7zPZ7s",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C110",
+              "name": "Emily Carter",
+              "order_ids": [
+                "ORD-1111"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I found your account. You have one order. Let me get the details for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_019FEPE82dyyiSK6YK1NbGpd",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1111\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2134,
+        "noCache": 2134,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 81
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "4b90a9cb148ba750e1844f2f09289b791bfb810483e13353200e2357c03116d9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 392,
+  "request": {
+    "messages": 18,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's all, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re very welcome! Have a great day. If you need anything else, just reach out."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1923,
+        "noCache": 899,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 24,
+        "text": 24
+      }
+    }
+  }
+}

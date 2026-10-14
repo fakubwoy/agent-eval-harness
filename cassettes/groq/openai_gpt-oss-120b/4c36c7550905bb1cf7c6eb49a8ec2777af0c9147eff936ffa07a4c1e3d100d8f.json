@@ -1,0 +1,42 @@
+{
+  "hash": "4c36c7550905bb1cf7c6eb49a8ec2777af0c9147eff936ffa07a4c1e3d100d8f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 305,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! Have a great day, and feel free to reach out anytime."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1870,
+        "noCache": 590,
+        "cacheRead": 1280
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21
+      }
+    }
+  }
+}

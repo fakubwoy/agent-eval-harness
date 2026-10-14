@@ -1,0 +1,50 @@
+{
+  "hash": "99d451317c394121c3e108796c6eaae3d7c6e5dcf85dfaef57a563d595e90c2b",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1215,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That is not fair. Can a real person look at this please?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_jzvmRTDFXHRv8lTeHFRyLoYJ",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Customer disputes refund policy\",\"summary\":\"Customer Priya Sharma requests refund for order ORD-1042 but refund window expired. Customer wants human review.\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_048e8169b85c3110006acf4cb76eb887d19d141e6fc9c560dc"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1328,
+        "noCache": 176,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

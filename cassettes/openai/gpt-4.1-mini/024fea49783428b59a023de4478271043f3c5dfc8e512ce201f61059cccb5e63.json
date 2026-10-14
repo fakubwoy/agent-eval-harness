@@ -1,0 +1,50 @@
+{
+  "hash": "024fea49783428b59a023de4478271043f3c5dfc8e512ce201f61059cccb5e63",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1229,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is t.hughes.home@example.com"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_VK66jkD1z6FMkKevafapis9U",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"t.hughes.home@example.com\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04d4a75a5fb189b9006acf4c84f48087d1aefec40760fe3fb5"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 921,
+        "noCache": 921,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

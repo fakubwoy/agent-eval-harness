@@ -1,0 +1,55 @@
+{
+  "hash": "d2124f08e2043ccafe9824fbdf3c5d53a9c6c7dd0024b099a673cbfd2c1e58b3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 368,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d0ab9a7b-4bb8-4f01-ab9c-3135064c28a5",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1109",
+              "shipping_address": {
+                "line1": "ul. Prosta 20",
+                "city": "Warsaw",
+                "postal_code": "00-850",
+                "country": "Poland"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "All set! The shipping address for **ORD‑1109** has been updated to:\n\nul. Prosta 20  \nWarsaw, 00‑850  \nPoland\n\nIf there’s anything else I can help you with, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1693,
+        "noCache": 669,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 57,
+        "text": 57
+      }
+    }
+  }
+}

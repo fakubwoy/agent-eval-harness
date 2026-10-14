@@ -1,0 +1,72 @@
+{
+  "hash": "5d264ae04e55f498bc96b5a474e2b8b456b1e379f90529ce1f4f188b620b4e3e",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 3336,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01LVcBGvUyeXUphH5GGKp77D",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "REFUND_WINDOW_EXPIRED",
+                "message": "Order ORD-1146 was delivered more than 30 days ago"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I apologize, but unfortunately the refund window has closed. Your order was delivered on May 11, 2026, and our refund policy allows returns within 30 days of delivery. As of today (June 15), that's 35 days ago, which is just outside our window.\n\nI understand this is frustrating, especially since the product was defective from the start. Given the circumstances, I'd like to hand this over to a human agent who may be able to help you further or discuss other options."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_018aZk3AW6zQtuD44fTNa6jN",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Refund request outside 30-day window but product was defective from delivery\",\"summary\":\"Customer Rebecca Stone (rebecca.stone@example.com) ordered an Ionic hair dryer (ORD-1146, $79.00) delivered May 11, 2026. Product never worked properly. Refund requested but order is 35 days old, exceeding the 30-day refund window by 5 days. Customer disputes the timing given the defect.\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2702,
+        "noCache": 2702,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 283
+      }
+    }
+  }
+}

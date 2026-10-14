@@ -1,0 +1,49 @@
+{
+  "hash": "dfc8134054cbadd0069ad151ec905e57d8ec9fb94015fca0afe0aaa4356ea027",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 2019,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "chen.wei@example.tw"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now lookup_customer with email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5ef4df0d-9bc3-4f35-b2f7-b083b18d35e2",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"chen.wei@example.tw\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1144,
+        "noCache": 120,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 31,
+        "reasoning": 7
+      }
+    }
+  }
+}

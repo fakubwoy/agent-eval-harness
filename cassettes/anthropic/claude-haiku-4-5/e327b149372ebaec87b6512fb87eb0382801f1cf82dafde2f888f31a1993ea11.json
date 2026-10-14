@@ -1,0 +1,63 @@
+{
+  "hash": "e327b149372ebaec87b6512fb87eb0382801f1cf82dafde2f888f31a1993ea11",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1377,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01HKfDfa1YGHE4s9wU6UHroD",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1140",
+                "sku": null,
+                "reason": "Blender broke after one week of use - defect",
+                "amount_cents": 13900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! Your refund has been approved. Here are the details:\n\n- **Refund ID:** RF-1\n- **Amount:** CHF 139.00\n- **Status:** Processed\n\nThe refund should appear back to your original payment method within 5-7 business days. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2718,
+        "noCache": 2718,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 77
+      }
+    }
+  }
+}

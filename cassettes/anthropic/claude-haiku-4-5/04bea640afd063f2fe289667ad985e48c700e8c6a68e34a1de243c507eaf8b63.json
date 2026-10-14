@@ -1,0 +1,98 @@
+{
+  "hash": "04bea640afd063f2fe289667ad985e48c700e8c6a68e34a1de243c507eaf8b63",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1522,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Dp6vuBbD2Rmw8YKqbrokuu",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C108",
+              "name": "Daniel Kowalski",
+              "order_ids": [
+                "ORD-1109"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01DcynkEohvsKTBQJcy7Nv5V",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1109",
+              "customer_id": "C108",
+              "status": "pending",
+              "placed_at": "2026-06-13T10:00:00Z",
+              "shipping_address": {
+                "line1": "ul. Marszalkowska 84",
+                "city": "Warsaw",
+                "postal_code": "00-514",
+                "country": "PL"
+              },
+              "items": [
+                {
+                  "sku": "KB-87",
+                  "name": "Mechanical keyboard",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified that ORD-1109 belongs to your account. The order is still pending (hasn't shipped yet), so I can change the address.\n\nTo complete the address change to ul. Prosta 20, Warsaw, I need the postal code for your office. Could you provide that?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2369,
+        "noCache": 2369,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 70
+      }
+    }
+  }
+}

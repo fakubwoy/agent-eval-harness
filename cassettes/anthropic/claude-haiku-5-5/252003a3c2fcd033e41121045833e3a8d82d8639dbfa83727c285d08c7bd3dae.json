@@ -1,0 +1,44 @@
+{
+  "hash": "252003a3c2fcd033e41121045833e3a8d82d8639dbfa83727c285d08c7bd3dae",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 932,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "To assist you with the refund for order ORD-1146, could you please provide the email address you used for the purchase? This is to verify your identity and ensure the order belongs to you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "rebecca.stone@example.com"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 457,
+        "noCache": 457,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13,
+        "reasoning": 0
+      }
+    }
+  }
+}

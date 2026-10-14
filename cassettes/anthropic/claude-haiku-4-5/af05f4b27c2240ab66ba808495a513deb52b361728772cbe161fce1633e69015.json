@@ -1,0 +1,166 @@
+{
+  "hash": "af05f4b27c2240ab66ba808495a513deb52b361728772cbe161fce1633e69015",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1476,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_015c6w9bZC2G5kgdiz533G4A",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1112",
+              "customer_id": "C111",
+              "status": "pending",
+              "placed_at": "2026-06-14T20:10:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "YOGA-MAT",
+                  "name": "Yoga mat",
+                  "color": "purple",
+                  "qty": 1,
+                  "unit_price_cents": 3990
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3990
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01VqYHKmQ8JuqzCcBSV5fzyy",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1113",
+              "customer_id": "C111",
+              "status": "pending",
+              "placed_at": "2026-06-13T09:30:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "BTL-750",
+                  "name": "Insulated water bottle 750ml",
+                  "qty": 2,
+                  "unit_price_cents": 1950
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01BeeBeFNKDK7nCguTowbkR6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1114",
+              "customer_id": "C111",
+              "status": "delivered",
+              "placed_at": "2026-05-25T13:00:00Z",
+              "shipped_at": "2026-05-27T08:00:00Z",
+              "delivered_at": "2026-06-01T12:00:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "JKT-RUN",
+                  "name": "Running jacket",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I found it\u2014that's **ORD-1112**, the purple yoga mat. This order is still pending and hasn't shipped yet, so I can cancel it for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01CJVAFN8Wnv9dVLA75SX76F",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1112\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2828,
+        "noCache": 2828,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 101
+      }
+    }
+  }
+}

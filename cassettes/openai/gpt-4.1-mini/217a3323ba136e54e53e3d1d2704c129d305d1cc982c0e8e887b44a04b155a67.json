@@ -1,0 +1,82 @@
+{
+  "hash": "217a3323ba136e54e53e3d1d2704c129d305d1cc982c0e8e887b44a04b155a67",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1452,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_siipYiOTEXRraLQQYuSei515",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1137",
+              "customer_id": "C131",
+              "status": "pending",
+              "placed_at": "2026-06-14T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bulevardul Unirii 20",
+                "city": "Bucharest",
+                "postal_code": "030823",
+                "country": "RO"
+              },
+              "items": [
+                {
+                  "sku": "PLT-SET",
+                  "name": "Stoneware dinner plate set",
+                  "qty": 1,
+                  "unit_price_cents": 7400
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 7400
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bc04bf901fe0601006acf4cba780487d198edb876dc0fb07a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_6jW1NXPL9onoIGJl3tCqYDw2",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1137\",\"address\":{\"line1\":\"Strada Lipscani 12\",\"city\":\"Bucharest\",\"postal_code\":\"030031\",\"country\":\"RO\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bc04bf901fe0601006acf4cbbbefc87d1b3c8da13eb0e7ebd"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1208,
+        "noCache": 184,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 49,
+        "text": 49,
+        "reasoning": 0
+      }
+    }
+  }
+}

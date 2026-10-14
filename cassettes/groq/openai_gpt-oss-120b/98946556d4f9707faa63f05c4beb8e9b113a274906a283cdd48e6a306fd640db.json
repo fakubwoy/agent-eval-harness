@@ -1,0 +1,57 @@
+{
+  "hash": "98946556d4f9707faa63f05c4beb8e9b113a274906a283cdd48e6a306fd640db",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 374,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_b5819865-eb34-45ce-b8a9-fc1b77b1b8b0",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C140",
+              "name": "Lucia Moretti",
+              "order_ids": [
+                "ORD-1148"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Lucia. I’m only seeing order ORD‑1148 linked to your account, and I don’t have any record of an order ORD‑1149 for you. Could you double‑check the order number and let me know the correct one you’d like to update?"
+      },
+      {
+        "type": "reasoning",
+        "text": "The order ORD-1149 is not in her order list. So we cannot act. Must inform that order not found for this customer. Possibly ask if they have another order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1198,
+        "noCache": 1198
+      },
+      "outputTokens": {
+        "total": 106,
+        "text": 68,
+        "reasoning": 38
+      }
+    }
+  }
+}

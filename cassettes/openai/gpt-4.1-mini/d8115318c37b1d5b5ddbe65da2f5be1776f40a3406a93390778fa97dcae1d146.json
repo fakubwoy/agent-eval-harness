@@ -1,0 +1,50 @@
+{
+  "hash": "d8115318c37b1d5b5ddbe65da2f5be1776f40a3406a93390778fa97dcae1d146",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 1849,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi. My TV wall mount from order ORD-1145 arrived missing screws. I need a real person to deal with this, not a bot."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_hbuoCBQtvYMY1MRcAzJ044Xq",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Customer requests a human agent\",\"summary\":\"Customer reported missing screws in order ORD-1145 and requested a human agent to handle the issue.\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_045d9dfe812dc505006acf5042409487d1acdd055956fff11e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 906,
+        "noCache": 906,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 45,
+        "reasoning": 0
+      }
+    }
+  }
+}

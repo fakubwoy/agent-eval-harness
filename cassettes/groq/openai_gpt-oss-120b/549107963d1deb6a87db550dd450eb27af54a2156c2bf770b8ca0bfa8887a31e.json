@@ -1,0 +1,47 @@
+{
+  "hash": "549107963d1deb6a87db550dd450eb27af54a2156c2bf770b8ca0bfa8887a31e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 345,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like to change the delivery address for ORD-1137 to Strada Lipscani 12, Bucharest, 030031, Romania."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To keep your account secure, could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1074,
+        "noCache": 50,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 33,
+        "reasoning": 12
+      }
+    }
+  }
+}

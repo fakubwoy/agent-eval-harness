@@ -1,0 +1,47 @@
+{
+  "hash": "c72f7d1796fba61483b8a7aeb6347de29f2cc97b860368c3bdced6efd0b18126",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 368,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want to cancel my order ORD-1110. Found it cheaper somewhere else."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To keep your account secure, could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, verify order belongs. Then check order status. If not shipped, can cancel. If shipped, cannot. So first ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1059,
+        "noCache": 35,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 73,
+        "text": 31,
+        "reasoning": 42
+      }
+    }
+  }
+}

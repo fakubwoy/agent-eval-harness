@@ -1,0 +1,42 @@
+{
+  "hash": "31fbccb3b10e3212c23210fa78da49fdff2ab2a010954876728cf09f01a2d108",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 808,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Perfect, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2420,
+        "noCache": 2420,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 24
+      }
+    }
+  }
+}

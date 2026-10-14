@@ -1,0 +1,42 @@
+{
+  "hash": "88de0cb2757d9929123ad5816e56e481bb3c50e2aaf449c83ea6d58bd4904eea",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1052,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine, I'll find the other email and come back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "No problem! Just come back with the email address on your account, and I'll be happy to help you cancel ORD-1150. We're here to help!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2490,
+        "noCache": 2490,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39
+      }
+    }
+  }
+}

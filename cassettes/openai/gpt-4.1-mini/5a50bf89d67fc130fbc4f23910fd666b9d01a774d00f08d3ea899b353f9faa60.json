@@ -1,0 +1,50 @@
+{
+  "hash": "5a50bf89d67fc130fbc4f23910fd666b9d01a774d00f08d3ea899b353f9faa60",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1083,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "laura.martin@example.ca. Actually wait, don't cancel it. I only wanted to cancel because I'm moving. Can you ship it to my new place instead? 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_0bnhIlgwEUQjQN3uzhc913DI",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"laura.martin@example.ca\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0f3611daed4faded006acf4c9c5d8087d1a02d7f4273014315"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 982,
+        "noCache": 982,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

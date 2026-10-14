@@ -1,0 +1,60 @@
+{
+  "hash": "a381822f226e333f5b06c90cfc0469869aefe129d21ad31dcd920713b4453e69",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 225,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_83423bb1-63d3-4211-b321-8bf740eb6f12",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C110",
+              "name": "Emily Carter",
+              "order_ids": [
+                "ORD-1111"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order ID ORD-1111. Need to get order details to see status."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_15f4d396-b568-4988-956b-dcc04c833423",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1111\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1220,
+        "noCache": 196,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 22,
+        "reasoning": 20
+      }
+    }
+  }
+}

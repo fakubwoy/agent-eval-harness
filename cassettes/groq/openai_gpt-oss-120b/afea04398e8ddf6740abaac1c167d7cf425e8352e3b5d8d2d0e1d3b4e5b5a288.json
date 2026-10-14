@@ -1,0 +1,56 @@
+{
+  "hash": "afea04398e8ddf6740abaac1c167d7cf425e8352e3b5d8d2d0e1d3b4e5b5a288",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 969,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_9f391dfc-6551-4310-90c3-fe70d1405716",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1142",
+                "sku": "WCH-15",
+                "reason": "Wireless charger overheats",
+                "amount_cents": 3500,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund request for the **Wireless charger 15W** (SKU WCH‑15) from order **ORD‑1142** has been processed successfully. You’ll receive **$35.00** back to your original payment method within a few business days.\n\nIf there’s anything else I can help with\u2014perhaps a return label, another order question, or anything else\u2014just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1951,
+        "noCache": 415,
+        "cacheRead": 1536
+      },
+      "outputTokens": {
+        "total": 86,
+        "text": 86
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "hash": "7a16659e1cb8ac8a36b70c772badaf464fd140a4bc982fc5e49bd3d8b771688c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1486,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks! The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Uj6MBqU6Zac41FEjU6GGKW",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1116\",\"address\":{\"line1\":\"27 Deansgate\",\"city\":\"Manchester\",\"postal_code\":\"M3 4LQ\",\"country\":\"GB\"}}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2759,
+        "noCache": 2759,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 126
+      }
+    }
+  }
+}

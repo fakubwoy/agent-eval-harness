@@ -1,0 +1,30 @@
+{
+  "hash": "177bd62fea546d5317c8108654cb686e2e4ec3a59e2a5b5e9312301766ae1e0e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 794,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_a72b6441-19ab-4934-a3d5-9c01f45bf9e4",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "cancel_order timed out after 10000 ms"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "rejected": "Provider rejected the model output: Tool call validation failed: tool call validation failed: attempted to call tool 'handful_to_human' which was not in request.tools"
+}

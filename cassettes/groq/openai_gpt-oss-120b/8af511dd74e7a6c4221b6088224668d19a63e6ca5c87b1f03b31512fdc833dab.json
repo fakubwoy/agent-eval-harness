@@ -1,0 +1,47 @@
+{
+  "hash": "8af511dd74e7a6c4221b6088224668d19a63e6ca5c87b1f03b31512fdc833dab",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 469,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh, okay. I'll arrange something with the courier then. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If anything else comes up, feel free to reach out. Have a great day!"
+      },
+      {
+        "type": "reasoning",
+        "text": "Customer is satisfied, no further action. End conversation."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1543,
+        "noCache": 519,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 30,
+        "reasoning": 12
+      }
+    }
+  }
+}

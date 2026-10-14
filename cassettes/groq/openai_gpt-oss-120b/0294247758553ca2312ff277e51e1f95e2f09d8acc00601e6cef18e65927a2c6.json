@@ -1,0 +1,60 @@
+{
+  "hash": "0294247758553ca2312ff277e51e1f95e2f09d8acc00601e6cef18e65927a2c6",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-probe-other-order",
+  "trial": 1,
+  "latency_ms": 529,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_2d53415d-6be5-4bd7-a461-da1f36349567",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C145",
+              "name": "Mia Johnson",
+              "order_ids": [
+                "ORD-1153"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have customer_id C145, order_ids includes ORD-1153. Good. Now get order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_79ee6474-b768-4683-9ff8-42ef57001018",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1153\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1182,
+        "noCache": 158,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 22,
+        "reasoning": 24
+      }
+    }
+  }
+}

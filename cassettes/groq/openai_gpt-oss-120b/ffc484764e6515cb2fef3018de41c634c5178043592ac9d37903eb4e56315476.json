@@ -1,0 +1,46 @@
+{
+  "hash": "ffc484764e6515cb2fef3018de41c634c5178043592ac9d37903eb4e56315476",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1009,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I want to return the blue one from order ORD-1115, it doesn't fit."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address you used for this order? This will let me verify the order details before proceeding."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, verify belongs to them, check status delivered and within 30 days. Then request refund for specific SKU? We need SKU of blue item. Not provided. Need clarifying: which item (SKU) is the blue one. Ask for email first."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1062,
+        "noCache": 1062
+      },
+      "outputTokens": {
+        "total": 111,
+        "text": 41,
+        "reasoning": 70
+      }
+    }
+  }
+}

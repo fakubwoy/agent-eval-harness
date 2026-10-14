@@ -1,0 +1,75 @@
+{
+  "hash": "377e9ff084a49326441743d380f05356cfd9bad9b2f6fe75f518bf6bf1e9a486",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 623,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_7c3620ce-a56e-464d-afa2-ea310ddfa29a",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1102",
+              "customer_id": "C102",
+              "status": "delivered",
+              "placed_at": "2026-05-28T03:00:00Z",
+              "shipped_at": "2026-05-30T08:00:00Z",
+              "delivered_at": "2026-06-05T09:30:00Z",
+              "shipping_address": {
+                "line1": "2-11-3 Jingumae",
+                "city": "Tokyo",
+                "postal_code": "150-0001",
+                "country": "JP"
+              },
+              "items": [
+                {
+                  "sku": "RC-55",
+                  "name": "Rice cooker",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Delivered on 2026-06-05. Current date 2026-06-15, within 30 days. Refund eligible. Need reason: rice cooker doesn't heat properly. We'll request refund."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_778ef63f-44cd-4b75-8eca-b718650cd85b",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1102\",\"reason\":\"Rice cooker does not heat properly\",\"sku\":\"RC-55\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1424,
+        "noCache": 1424
+      },
+      "outputTokens": {
+        "total": 80,
+        "text": 38,
+        "reasoning": 42
+      }
+    }
+  }
+}

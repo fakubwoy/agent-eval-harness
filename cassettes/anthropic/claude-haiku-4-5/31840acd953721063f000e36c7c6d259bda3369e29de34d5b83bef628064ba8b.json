@@ -1,0 +1,42 @@
+{
+  "hash": "31840acd953721063f000e36c7c6d259bda3369e29de34d5b83bef628064ba8b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 871,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, thanks for checking."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else or have questions about your order, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2526,
+        "noCache": 2526,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 30
+      }
+    }
+  }
+}

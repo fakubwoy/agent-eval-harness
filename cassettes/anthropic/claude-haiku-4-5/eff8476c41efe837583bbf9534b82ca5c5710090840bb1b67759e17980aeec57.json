@@ -1,0 +1,51 @@
+{
+  "hash": "eff8476c41efe837583bbf9534b82ca5c5710090840bb1b67759e17980aeec57",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1200,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_018y4QX5h9EL1M2ee7PYRP1X",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1124\",\"reason\":\"Stand wobbles and charger is faulty\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2655,
+        "noCache": 2655,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 87
+      }
+    }
+  }
+}

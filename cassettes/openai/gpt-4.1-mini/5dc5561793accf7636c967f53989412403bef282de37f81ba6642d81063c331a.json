@@ -1,0 +1,50 @@
+{
+  "hash": "5dc5561793accf7636c967f53989412403bef282de37f81ba6642d81063c331a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1365,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes please, a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_wmvW214UP4egyI2wHtOHR1EI",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1140\",\"reason\":\"Blender broke after a week\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac132c62ca2eeea006acf4ca2864c87d189195221a14aa81d"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1238,
+        "noCache": 86,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

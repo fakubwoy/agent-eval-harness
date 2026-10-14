@@ -1,0 +1,48 @@
+{
+  "hash": "acae91f1b93e9afe519fcf03fc0cad88a74d77ee06efc32c84e66a7af72bd1a0",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1226,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need ORD-1121 delivered to my new place: 45 Moi Avenue, Mombasa, 80100, Kenya."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with changing the shipping address for order ORD-1121, could you please provide your email address for verification?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b629f2af4654938006acf4ca3962087d198a4939eed0ab2d6"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 905,
+        "noCache": 905,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27,
+        "text": 27,
+        "reasoning": 0
+      }
+    }
+  }
+}

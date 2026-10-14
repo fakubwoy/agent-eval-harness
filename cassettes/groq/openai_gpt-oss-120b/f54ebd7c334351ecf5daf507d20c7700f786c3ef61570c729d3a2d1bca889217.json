@@ -1,0 +1,56 @@
+{
+  "hash": "f54ebd7c334351ecf5daf507d20c7700f786c3ef61570c729d3a2d1bca889217",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 256,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_804902fa-ada0-4e7c-a35f-32ce28fba910",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1107",
+                "sku": null,
+                "reason": "Broken switch on desk lamp",
+                "amount_cents": 6450,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund has been processed for the desk lamp (order ORD‑1107). You’ll receive €64.50 back to your original payment method within 3\u20135 business days. If you have any other questions, feel free to let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1817,
+        "noCache": 793,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 56
+      }
+    }
+  }
+}

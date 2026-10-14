@@ -1,0 +1,95 @@
+{
+  "hash": "4a5d5186d54419ac64ec04e099a37129be54c92ed2433df3d13b71ffb53344b1",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 2082,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013mbHVehzLwjzUKtk6MaTia",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1142",
+              "customer_id": "C135",
+              "status": "delivered",
+              "placed_at": "2026-05-31T05:00:00Z",
+              "shipped_at": "2026-06-02T06:00:00Z",
+              "delivered_at": "2026-06-06T10:00:00Z",
+              "shipping_address": {
+                "line1": "House 12, Street 5, F-7/2",
+                "city": "Islamabad",
+                "postal_code": "44000",
+                "country": "PK"
+              },
+              "items": [
+                {
+                  "sku": "WCH-15",
+                  "name": "Wireless charger 15W",
+                  "qty": 1,
+                  "unit_price_cents": 3500
+                },
+                {
+                  "sku": "CBL-3",
+                  "name": "USB-C cable 3 pack",
+                  "qty": 1,
+                  "unit_price_cents": 1500
+                }
+              ],
+              "total_cents": 5000
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I can help with that. Your order ORD-1142 was delivered on June 6, 2026, and you're within the 30-day refund window. I can process a refund for just the wireless charger (SKU: WCH-15) and you'll keep the cable pack.\n\nLet me submit that refund request for you:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01ShKFbYv67UzmEM3cz5yN59",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1142\",\"sku\":\"WCH-15\",\"reason\":\"Wireless charger overheats\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2806,
+        "noCache": 2806,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 189
+      }
+    }
+  }
+}

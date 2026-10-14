@@ -1,0 +1,114 @@
+{
+  "hash": "86e9e917dcee6e17d2232de83d4515c28dba1c1d7f823942c171083751f39932",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1369,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01A4yy6BkRYr5Vebejj5tqMJ",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1116",
+              "customer_id": "C113",
+              "status": "pending",
+              "placed_at": "2026-06-14T07:50:00Z",
+              "shipping_address": {
+                "line1": "9 Kingsway",
+                "city": "London",
+                "postal_code": "WC2B 6XF",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "GRD-BURR",
+                  "name": "Burr coffee grinder",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01TBYzv66qsWen6Ca2Qz9sLu",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1117",
+              "customer_id": "C113",
+              "status": "pending",
+              "placed_at": "2026-06-14T08:05:00Z",
+              "shipping_address": {
+                "line1": "9 Kingsway",
+                "city": "London",
+                "postal_code": "WC2B 6XF",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "FLT-100",
+                  "name": "Paper coffee filters (100 pack)",
+                  "qty": 3,
+                  "unit_price_cents": 450
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 1350
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I found it\u2014that's **ORD-1116** with the Burr coffee grinder. The order hasn't shipped yet, so I can change the address for you.\n\nWhat's the new shipping address you'd like to use? Please provide:\n- Street address (line 1)\n- City\n- Postal code\n- Country"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2650,
+        "noCache": 2650,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 80
+      }
+    }
+  }
+}

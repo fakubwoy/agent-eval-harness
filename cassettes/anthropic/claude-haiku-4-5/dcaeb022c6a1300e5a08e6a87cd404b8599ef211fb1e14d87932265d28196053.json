@@ -1,0 +1,42 @@
+{
+  "hash": "dcaeb022c6a1300e5a08e6a87cd404b8599ef211fb1e14d87932265d28196053",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1226,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine, I'll just refuse the delivery."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Understood. You can refuse delivery when the chair arrives at your address (Avenida Reforma 222, Mexico City). That way you won't need to arrange a return.\n\nIs there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2480,
+        "noCache": 2480,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 52
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "b578c34ef611b2b34e63e915edc3ab752d15436145bd9297d63fcb6ce1df5b2d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 975,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, the headphones from order ORD-1042 stopped working. I want my money back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with a refund for your headphones. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1986,
+        "noCache": 1986,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39
+      }
+    }
+  }
+}

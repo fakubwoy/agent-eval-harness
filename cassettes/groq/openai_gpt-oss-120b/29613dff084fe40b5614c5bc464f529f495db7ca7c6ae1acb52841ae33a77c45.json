@@ -1,0 +1,59 @@
+{
+  "hash": "29613dff084fe40b5614c5bc464f529f495db7ca7c6ae1acb52841ae33a77c45",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 397,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_0140926d-527b-4873-9346-2f0902bc0a0f",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "request_refund failed: upstream service error"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Second failure. Policy: after two failures, handoff to human."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_2f699d88-4f35-4eed-af2e-cd23ad62f78f",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Tool failure\",\"summary\":\"Customer Sara Haddad (email sara.haddad@example.ae) requested a refund for order ORD-1136 due to a cracked basket. Refund request could not be processed after two attempts.\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1612,
+        "noCache": 588,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 89,
+        "text": 74,
+        "reasoning": 15
+      }
+    }
+  }
+}

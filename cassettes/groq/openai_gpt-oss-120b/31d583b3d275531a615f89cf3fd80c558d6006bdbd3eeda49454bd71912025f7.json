@@ -1,0 +1,76 @@
+{
+  "hash": "31d583b3d275531a615f89cf3fd80c558d6006bdbd3eeda49454bd71912025f7",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 938,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_0ff1df6e-90b8-4c37-bdcc-9bea56982ce6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1119",
+              "customer_id": "C114",
+              "status": "delivered",
+              "placed_at": "2026-06-08T03:00:00Z",
+              "shipped_at": "2026-06-09T05:00:00Z",
+              "delivered_at": "2026-06-12T10:00:00Z",
+              "shipping_address": {
+                "line1": "80 Robinson Road",
+                "city": "Singapore",
+                "postal_code": "068898",
+                "country": "SG"
+              },
+              "items": [
+                {
+                  "sku": "EB-PRO-BLK",
+                  "name": "Wireless earbuds Pro",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "The black earbuds delivered 2026-06-12, within 30 days (today 2026-06-15). So refund possible. The user wants refund for left earbud only. So we can refund single item? The policy: refund for delivered orders, within 30 days, one refund per order (or per item when refunding a single item). So we can request_refund with sku EB-PRO-BLK. Provide reason. Let's do that."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_b664cb4c-0a91-4ab1-93d0-09c7618cc27e",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1119\",\"reason\":\"Left earbud cutting out\",\"sku\":\"EB-PRO-BLK\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1741,
+        "noCache": 1741
+      },
+      "outputTokens": {
+        "total": 151,
+        "text": 54,
+        "reasoning": 97
+      }
+    }
+  }
+}

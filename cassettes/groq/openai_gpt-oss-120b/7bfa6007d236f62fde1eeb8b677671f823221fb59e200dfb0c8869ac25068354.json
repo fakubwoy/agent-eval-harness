@@ -1,0 +1,74 @@
+{
+  "hash": "7bfa6007d236f62fde1eeb8b677671f823221fb59e200dfb0c8869ac25068354",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 2416,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_6c02ed2b-5165-492f-8093-46aa5dcaee2c",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1135",
+              "customer_id": "C129",
+              "status": "shipped",
+              "placed_at": "2026-06-09T21:00:00Z",
+              "shipped_at": "2026-06-11T13:00:00Z",
+              "shipping_address": {
+                "line1": "Avenida Corrientes 1234",
+                "city": "Buenos Aires",
+                "postal_code": "C1043",
+                "country": "AR"
+              },
+              "items": [
+                {
+                  "sku": "MATE-KIT",
+                  "name": "Mate gourd and bombilla kit",
+                  "qty": 2,
+                  "unit_price_cents": 2800
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 5600
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD‑1135 is currently **shipped**. It left our warehouse on June 11, 2026, and is on its way to the address you provided (Avenida Corrientes 1234, Buenos Aires, C1043, Argentina). If you need anything else\u2014such as a delivery‑date estimate, address change (while it’s still in transit), or have other questions\u2014just let me know!"
+      },
+      {
+        "type": "reasoning",
+        "text": "We have status shipped, not yet delivered. Provide status."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1422,
+        "noCache": 398,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 116,
+        "text": 103,
+        "reasoning": 13
+      }
+    }
+  }
+}

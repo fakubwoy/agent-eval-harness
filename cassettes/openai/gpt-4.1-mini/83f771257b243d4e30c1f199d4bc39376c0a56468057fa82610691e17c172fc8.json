@@ -1,0 +1,50 @@
+{
+  "hash": "83f771257b243d4e30c1f199d4bc39376c0a56468057fa82610691e17c172fc8",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1204,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "And second, please cancel ORD-1144, I found socks at home."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_CEpEwULwWl5UEEvk14Gzd95f",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1144\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cdb9a7e9da2c252006acf4c9e488087d19c5092eb5e9d2fd4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1361,
+        "noCache": 81,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

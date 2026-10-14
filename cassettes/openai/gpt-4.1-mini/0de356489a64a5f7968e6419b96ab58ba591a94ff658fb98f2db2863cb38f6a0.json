@@ -1,0 +1,155 @@
+{
+  "hash": "0de356489a64a5f7968e6419b96ab58ba591a94ff658fb98f2db2863cb38f6a0",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1276,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_DBgButNSfYjZbTOyFcYQbsmP",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1112",
+              "customer_id": "C111",
+              "status": "pending",
+              "placed_at": "2026-06-14T20:10:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "YOGA-MAT",
+                  "name": "Yoga mat",
+                  "color": "purple",
+                  "qty": 1,
+                  "unit_price_cents": 3990
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3990
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_038ecf93a310dbcf006acf4c66b95487d1968af8a739d3b95d"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_e8Yk1KQPLPsYAH9qKytfo5Cv",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1113",
+              "customer_id": "C111",
+              "status": "pending",
+              "placed_at": "2026-06-13T09:30:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "BTL-750",
+                  "name": "Insulated water bottle 750ml",
+                  "qty": 2,
+                  "unit_price_cents": 1950
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_038ecf93a310dbcf006acf4c66b97087d1a0875dad477d6916"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Pa8VhegjQfbX7UJuCRfHtjag",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1114",
+              "customer_id": "C111",
+              "status": "delivered",
+              "placed_at": "2026-05-25T13:00:00Z",
+              "shipped_at": "2026-05-27T08:00:00Z",
+              "delivered_at": "2026-06-01T12:00:00Z",
+              "shipping_address": {
+                "line1": "Torstrasse 101",
+                "city": "Berlin",
+                "postal_code": "10119",
+                "country": "DE"
+              },
+              "items": [
+                {
+                  "sku": "JKT-RUN",
+                  "name": "Running jacket",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_038ecf93a310dbcf006acf4c66b97887d186d4cce3403e6faa"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_n1JwlixCqJNhCQ8DxymyeSss",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1112\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_038ecf93a310dbcf006acf4c68096487d1bc977b47d048323b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1480,
+        "noCache": 1480,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

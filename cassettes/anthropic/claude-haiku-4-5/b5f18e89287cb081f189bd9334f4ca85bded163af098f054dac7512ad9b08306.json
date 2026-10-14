@@ -1,0 +1,110 @@
+{
+  "hash": "b5f18e89287cb081f189bd9334f4ca85bded163af098f054dac7512ad9b08306",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1391,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_0127YDrmjyMkdhWVXzrbQTEZ",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "lookup_customer failed: upstream service error"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013L635xRa4THviPWA8HtU5C",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1137",
+              "customer_id": "C131",
+              "status": "pending",
+              "placed_at": "2026-06-14T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bulevardul Unirii 20",
+                "city": "Bucharest",
+                "postal_code": "030823",
+                "country": "RO"
+              },
+              "items": [
+                {
+                  "sku": "PLT-SET",
+                  "name": "Stoneware dinner plate set",
+                  "qty": 1,
+                  "unit_price_cents": 7400
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 7400
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me retry the customer lookup:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01VyokdxQFevzgmfHxjNc5nL",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"elena.popescu@example.ro\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2376,
+        "noCache": 2376,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 68
+      }
+    }
+  }
+}

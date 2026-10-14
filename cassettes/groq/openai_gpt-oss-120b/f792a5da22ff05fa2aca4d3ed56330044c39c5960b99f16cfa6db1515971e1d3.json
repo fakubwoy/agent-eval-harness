@@ -1,0 +1,74 @@
+{
+  "hash": "f792a5da22ff05fa2aca4d3ed56330044c39c5960b99f16cfa6db1515971e1d3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 978,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_bfb39845-b93b-405d-a36a-2f7c8439e9e6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1109",
+              "customer_id": "C108",
+              "status": "pending",
+              "placed_at": "2026-06-13T10:00:00Z",
+              "shipping_address": {
+                "line1": "ul. Marszalkowska 84",
+                "city": "Warsaw",
+                "postal_code": "00-514",
+                "country": "PL"
+              },
+              "items": [
+                {
+                  "sku": "KB-87",
+                  "name": "Mechanical keyboard",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Got it! I can update the shipping address, but I’ll need the full address details. Could you please provide the postal code (and, if applicable, a second address line) for:\n\n**ul. Prosta 20, Warsaw, Poland**?"
+      },
+      {
+        "type": "reasoning",
+        "text": "Order status pending, not shipped. So we can change address. Need to confirm new address details: they gave \"ul. Prosta 20, Warsaw\". Need city, line1, postal code, country. They didn't give postal code. Ask for missing details."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1409,
+        "noCache": 385,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 117,
+        "text": 62,
+        "reasoning": 55
+      }
+    }
+  }
+}

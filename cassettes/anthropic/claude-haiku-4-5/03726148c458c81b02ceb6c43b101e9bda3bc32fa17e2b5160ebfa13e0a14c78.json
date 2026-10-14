@@ -1,0 +1,64 @@
+{
+  "hash": "03726148c458c81b02ceb6c43b101e9bda3bc32fa17e2b5160ebfa13e0a14c78",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1306,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "fatima.benali@example.ma"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01DgHVdLq7YPrbkEPqXfWYVA",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"fatima.benali@example.ma\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_013X7D1jA4EMZfB5Etsdj7mT",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1125\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2042,
+        "noCache": 2042,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

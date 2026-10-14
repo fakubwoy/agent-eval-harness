@@ -1,0 +1,48 @@
+{
+  "hash": "9a568572692a9cc098fc2e2499051345db7b15dfcf320f65c0d8ffa3f344a1f6",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1318,
+  "request": {
+    "messages": 22,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks for checking! Since the system doesn't show return instructions, I'll wait for that email and won't use or charge the charger in the meantime. Just to confirm, the refund is for the wireless charger only, and I'm keeping the USB-C cable 3 pack, correct?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Yes, that's correct. The refund is for the wireless charger only, and you are keeping the USB-C cable 3 pack. If you have any more questions or need further assistance, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf5061be4087d1883835c370d40212"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2251,
+        "noCache": 203,
+        "cacheRead": 2048,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 44,
+        "reasoning": 0
+      }
+    }
+  }
+}

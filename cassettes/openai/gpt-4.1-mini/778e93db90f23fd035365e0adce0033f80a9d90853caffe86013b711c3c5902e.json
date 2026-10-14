@@ -1,0 +1,50 @@
+{
+  "hash": "778e93db90f23fd035365e0adce0033f80a9d90853caffe86013b711c3c5902e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1302,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh right, the postcode is 00-850. Country is Poland."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_bNpx3lbVbmkh65evtOdajk5H",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1109\",\"address\":{\"line1\":\"ul. Prosta 20\",\"city\":\"Warsaw\",\"postal_code\":\"00-850\",\"country\":\"PL\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cee108f6b55542a006acf4c974e0487d185b2e99d8793554a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1281,
+        "noCache": 129,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 48,
+        "reasoning": 0
+      }
+    }
+  }
+}

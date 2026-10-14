@@ -1,0 +1,76 @@
+{
+  "hash": "b2943d207609061430a26c0e0e62341216f98dee1e9d6a32e13aa3d018545d15",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 767,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5f7d3a49-429a-44e3-a96b-8ce208493216",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1138",
+              "customer_id": "C132",
+              "status": "pending",
+              "placed_at": "2026-06-14T22:40:00Z",
+              "shipping_address": {
+                "line1": "15 Queen Street",
+                "city": "Auckland",
+                "postal_code": "1010",
+                "country": "NZ"
+              },
+              "items": [
+                {
+                  "sku": "WS-3MM-L",
+                  "name": "Wetsuit 3mm (size L)",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Status pending, not shipped. So we can cancel. Proceed to cancel order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_acffc70d-07c8-4dc7-8685-81b6d81d0043",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1138\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1356,
+        "noCache": 332,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 23,
+        "reasoning": 17
+      }
+    }
+  }
+}

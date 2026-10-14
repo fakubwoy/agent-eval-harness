@@ -1,0 +1,48 @@
+{
+  "hash": "412ac2c76601e390dd5170ce2bab99d28386716a352ddad14bd59acc1e3ce909",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1046,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please cancel ORD-1138, I ordered the wrong size."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with canceling order ORD-1138, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b840f1706eaaf85006acf4cb1807087d1bacce43537fdb39d"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 889,
+        "noCache": 889,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 41,
+        "reasoning": 0
+      }
+    }
+  }
+}

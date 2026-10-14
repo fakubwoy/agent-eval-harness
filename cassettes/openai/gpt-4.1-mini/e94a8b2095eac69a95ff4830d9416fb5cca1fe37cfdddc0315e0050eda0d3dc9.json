@@ -1,0 +1,48 @@
+{
+  "hash": "e94a8b2095eac69a95ff4830d9416fb5cca1fe37cfdddc0315e0050eda0d3dc9",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1973,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like a refund for my earbuds, the left one keeps cutting out."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for your earbuds, could you please provide the email address you used for the order and the order ID or any other details to identify the purchase? This will help me verify your identity and check the order status.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0783ba27590631a5006acf4c62b32c87d1b23c37189e8c6674"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 893,
+        "noCache": 893,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 50,
+        "reasoning": 0
+      }
+    }
+  }
+}

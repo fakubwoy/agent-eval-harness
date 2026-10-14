@@ -1,0 +1,55 @@
+{
+  "hash": "8df21ac57b4f4153acdb0fe62173d2f4081194180729e29f2475e198d57357db",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 638,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d2b94b19-ef7f-4675-aa06-73fd9be5e470",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1115",
+                "sku": "CAP-BLU",
+                "reason": "doesn't fit",
+                "amount_cents": 2400,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund for the baseball cap has been processed. You’ll receive **$24.00** back to your original payment method within a few business days. If you have any other questions, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1790,
+        "noCache": 1790
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47
+      }
+    }
+  }
+}

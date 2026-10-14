@@ -1,0 +1,50 @@
+{
+  "hash": "0a3635a815a9dd7d182d5280a7a60c8df5230f403befee6b0cb3ff7abdb29ca5",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1125,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is elena.popescu@example.ro"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_8uHqu00DxXN1tJlXikjxLzPV",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"elena.popescu@example.ro\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bc04bf901fe0601006acf4cb7a8b887d187882289f27ba04d"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 950,
+        "noCache": 950,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

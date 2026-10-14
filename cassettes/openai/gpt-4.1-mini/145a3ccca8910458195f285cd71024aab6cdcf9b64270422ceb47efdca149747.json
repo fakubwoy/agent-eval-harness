@@ -1,0 +1,48 @@
+{
+  "hash": "145a3ccca8910458195f285cd71024aab6cdcf9b64270422ceb47efdca149747",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 1237,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, thanks for checking."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any further assistance with your order or anything else, feel free to ask. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0efd07fe7509a623006acf4c96c9d087d1b7cef29221f855b3"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1067,
+        "noCache": 1067,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 28,
+        "text": 28,
+        "reasoning": 0
+      }
+    }
+  }
+}

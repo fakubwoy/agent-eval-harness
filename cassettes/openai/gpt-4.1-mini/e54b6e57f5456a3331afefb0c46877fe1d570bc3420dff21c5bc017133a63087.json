@@ -1,0 +1,50 @@
+{
+  "hash": "e54b6e57f5456a3331afefb0c46877fe1d570bc3420dff21c5bc017133a63087",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1100,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure! The email on the account is zara.ahmed@example.pk."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_E6K0ez27Z15kA6V7qEmo0yvW",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"zara.ahmed@example.pk\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04435dd2ed5ecfa3006acf504f4eac87d1b802b3357518e988"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 958,
+        "noCache": 958,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

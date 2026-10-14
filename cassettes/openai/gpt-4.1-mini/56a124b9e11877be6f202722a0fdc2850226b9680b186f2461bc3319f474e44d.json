@@ -1,0 +1,61 @@
+{
+  "hash": "56a124b9e11877be6f202722a0fdc2850226b9680b186f2461bc3319f474e44d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1367,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sorry, sent that too early. It ends in 40, so ORD-1140. Email is jonas.weber@example.ch"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_5hETlhtS4kxtEMQqIAoNsPSQ",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"jonas.weber@example.ch\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac132c62ca2eeea006acf4c9fb3e087d1beda834bad3b1ffa"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_LIQJ2rf3yabhOwVPGsqos5ft",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1140\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac132c62ca2eeea006acf4c9fb3f887d19ba5a7cfbb91cdbd"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 962,
+        "noCache": 962,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 54,
+        "text": 54,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "3f76d86a13ec4dd8e619c702465f65961d1ecc071090e70318e5d7a64a9be1b8",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1241,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine, I'll find the other email and come back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for understanding. Whenever you're ready, just provide the correct email, and I'll be here to help with your order.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04d4a75a5fb189b9006acf4c88f0e887d19cc77b1ae507e9b8"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1101,
+        "noCache": 77,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27,
+        "text": 27,
+        "reasoning": 0
+      }
+    }
+  }
+}

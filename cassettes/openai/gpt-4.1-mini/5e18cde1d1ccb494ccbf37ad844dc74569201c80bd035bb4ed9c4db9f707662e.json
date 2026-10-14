@@ -1,0 +1,50 @@
+{
+  "hash": "5e18cde1d1ccb494ccbf37ad844dc74569201c80bd035bb4ed9c4db9f707662e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1033,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, please try again."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_45CqsTVonGR45171OGwuSXHV",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1136\",\"reason\":\"Cracked basket in air fryer\",\"sku\":\"AF-4L\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0a74a658338cda89006acf4cbc721887d18aea03d3b8436518"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1258,
+        "noCache": 106,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 36,
+        "reasoning": 0
+      }
+    }
+  }
+}

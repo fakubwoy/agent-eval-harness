@@ -1,0 +1,66 @@
+{
+  "hash": "7b39032e5edb3303b7aa0f7b8ca00f51b1edc493050737e74eeb72041d30e31d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1048,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_E7TGFckhNoNtOyMKFY2eSYh7",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C102",
+              "name": "Aiko Tanaka",
+              "order_ids": [
+                "ORD-1102"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c79c156508c8b49006acf4c77f00487d1b46e3db37ffaa2ec"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_L16LmtMGUlcK9rafGe7THC90",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1102\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0c79c156508c8b49006acf4c79183c87d1ac88de066a98333b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1008,
+        "noCache": 1008,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "hash": "afc95fc7f53350b520fae1c6363344fdfce31a2df516a6e2a91d42f5615ec80d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 268,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is olivia.brennan@example.ie. I don't have the order number to hand, sorry."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need order number. We can list orders for the customer after lookup. So first lookup_customer with email. Then list_orders to get order ids. Then ask which order is the desk lamp. Could also ask for item description. Let's lookup."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_2f515b72-074e-418b-afb0-d0f18c8e0f13",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"olivia.brennan@example.ie\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1179,
+        "noCache": 155,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 83,
+        "text": 33,
+        "reasoning": 50
+      }
+    }
+  }
+}

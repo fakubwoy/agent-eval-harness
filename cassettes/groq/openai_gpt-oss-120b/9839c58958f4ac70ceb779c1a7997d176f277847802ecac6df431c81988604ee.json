@@ -1,0 +1,47 @@
+{
+  "hash": "9839c58958f4ac70ceb779c1a7997d176f277847802ecac6df431c81988604ee",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 462,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, keep the order and use the new address."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Got it! Your order will stay active and be shipped to the new address you provided. If you need anything else, just let me know."
+      },
+      {
+        "type": "reasoning",
+        "text": "User confirms. No further action needed. Provide confirmation."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1648,
+        "noCache": 624,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 38,
+        "reasoning": 12
+      }
+    }
+  }
+}

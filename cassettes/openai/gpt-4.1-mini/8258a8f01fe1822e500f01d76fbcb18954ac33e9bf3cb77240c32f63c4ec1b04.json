@@ -1,0 +1,48 @@
+{
+  "hash": "8258a8f01fe1822e500f01d76fbcb18954ac33e9bf3cb77240c32f63c4ec1b04",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1038,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any more help, feel free to ask. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bc04bf901fe0601006acf4cbe3eb087d19540e2e02ecab50c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1354,
+        "noCache": 74,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

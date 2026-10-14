@@ -1,0 +1,106 @@
+{
+  "hash": "f30e96dbfb5a563b8050b44dd4d50913d40ff2a8e463cac285470e5d95672e31",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1849,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_550Bj2vKHao1siV0HJdtyREy",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1115",
+              "customer_id": "C112",
+              "status": "delivered",
+              "placed_at": "2026-06-02T22:00:00Z",
+              "shipped_at": "2026-06-04T12:00:00Z",
+              "delivered_at": "2026-06-09T16:00:00Z",
+              "shipping_address": {
+                "line1": "Rua Augusta 1500",
+                "city": "Sao Paulo",
+                "postal_code": "01304-001",
+                "country": "BR"
+              },
+              "items": [
+                {
+                  "sku": "HD-BLU-M",
+                  "name": "Zip hoodie (M)",
+                  "color": "blue",
+                  "qty": 1,
+                  "unit_price_cents": 5900
+                },
+                {
+                  "sku": "CAP-BLU",
+                  "name": "Baseball cap",
+                  "color": "blue",
+                  "qty": 1,
+                  "unit_price_cents": 2400
+                },
+                {
+                  "sku": "TS-RED-M",
+                  "name": "Cotton t-shirt (M)",
+                  "color": "red",
+                  "qty": 1,
+                  "unit_price_cents": 1900
+                }
+              ],
+              "total_cents": 10200
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0965f226a38eb8a7006acf4c660cb087d1a616715334122032"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The blue zip hoodie (M) from order ORD-1115 is eligible for a refund since the order was delivered on June 9, 2026, which is within the 30-day refund window. I will proceed with the refund for the blue zip hoodie.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c6724ac87d1875e0ed029d993e2"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_bZVUDmdrp151zo3sfOcsoMrv",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1115\",\"reason\":\"Doesn't fit\",\"sku\":\"HD-BLU-M\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0965f226a38eb8a7006acf4c67d86c87d1a2eac4374efeffa2"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1223,
+        "noCache": 1223,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 89,
+        "text": 89,
+        "reasoning": 0
+      }
+    }
+  }
+}

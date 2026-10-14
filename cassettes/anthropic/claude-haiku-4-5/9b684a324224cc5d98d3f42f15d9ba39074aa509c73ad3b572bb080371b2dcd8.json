@@ -1,0 +1,98 @@
+{
+  "hash": "9b684a324224cc5d98d3f42f15d9ba39074aa509c73ad3b572bb080371b2dcd8",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 2030,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_018pM5JHFguswZ19pUdk48Lk",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C139",
+              "name": "Viktor Horvat",
+              "order_ids": [
+                "ORD-1147"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_0131v4hBwC3TnHuWvQUC2Wuh",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1147",
+              "customer_id": "C139",
+              "status": "shipped",
+              "placed_at": "2026-05-14T10:00:00Z",
+              "shipped_at": "2026-05-18T10:00:00Z",
+              "shipping_address": {
+                "line1": "Ilica 45",
+                "city": "Zagreb",
+                "postal_code": "10000",
+                "country": "HR"
+              },
+              "items": [
+                {
+                  "sku": "HLM-AERO",
+                  "name": "Aero road bike helmet",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks for verifying, Viktor. I can see your order ORD-1147 (Aero road bike helmet) shipped on May 18th but shows as still in transit\u2014it hasn't been marked as delivered yet.\n\nSince the order hasn't been delivered, I can't process a refund right now. However, I have a couple of options for you:\n\n1. **Cancel the order** if you'd prefer not to wait any longer\n2. **Hand off to a human agent** who may be able to investigate the shipment status with the carrier or discuss other solutions\n\nWhat would you prefer?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2373,
+        "noCache": 2373,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 133
+      }
+    }
+  }
+}

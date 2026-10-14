@@ -1,0 +1,81 @@
+{
+  "hash": "18c27a5022745b8d098cd1cff70d6fe1de8bca11f3bb7bb9404f97fb22ca066a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1755,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_VYvo8kEBbOXIc1DFeQk4hapg",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1121",
+              "customer_id": "C116",
+              "status": "shipped",
+              "placed_at": "2026-06-08T11:00:00Z",
+              "shipped_at": "2026-06-10T07:30:00Z",
+              "shipping_address": {
+                "line1": "12 Kenyatta Avenue",
+                "city": "Nairobi",
+                "postal_code": "00100",
+                "country": "KE"
+              },
+              "items": [
+                {
+                  "sku": "SW-2",
+                  "name": "Smartwatch Series 2",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 19900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 19900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b629f2af4654938006acf4ca62e2087d1b7927d8abdc583f5"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order ORD-1121 has already been shipped, so the shipping address cannot be changed at this point. Is there anything else I can assist you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b629f2af4654938006acf4ca7391087d1a6a5049672fd7a83"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1150,
+        "noCache": 1150,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 34,
+        "text": 34,
+        "reasoning": 0
+      }
+    }
+  }
+}

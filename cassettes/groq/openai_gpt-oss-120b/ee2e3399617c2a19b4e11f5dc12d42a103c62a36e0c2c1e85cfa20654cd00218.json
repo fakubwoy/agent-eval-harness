@@ -1,0 +1,82 @@
+{
+  "hash": "ee2e3399617c2a19b4e11f5dc12d42a103c62a36e0c2c1e85cfa20654cd00218",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 591,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_345b43ac-9a0d-4ea9-bc61-4b050dd8371a",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1105",
+              "customer_id": "C105",
+              "status": "delivered",
+              "placed_at": "2026-06-03T10:00:00Z",
+              "shipped_at": "2026-06-05T09:00:00Z",
+              "delivered_at": "2026-06-10T13:00:00Z",
+              "shipping_address": {
+                "line1": "Norrebrogade 66",
+                "city": "Copenhagen",
+                "postal_code": "2200",
+                "country": "DK"
+              },
+              "items": [
+                {
+                  "sku": "BLK-WOOL",
+                  "name": "Wool blanket",
+                  "color": "grey",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                },
+                {
+                  "sku": "MUG-SET4",
+                  "name": "Ceramic mug set (4 pieces)",
+                  "qty": 1,
+                  "unit_price_cents": 3400
+                }
+              ],
+              "total_cents": 12300
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order details: delivered on 2026-06-10. Current date 2026-06-15, within 30 days. Refund possible. Need to refund just the mug set. Use request_refund with order_id and sku \"MUG-SET4\". Provide reason."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_b8c19dbc-29d2-4531-b0aa-a7dc7e16a8ff",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1105\",\"reason\":\"Mug set arrived cracked\",\"sku\":\"MUG-SET4\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1507,
+        "noCache": 1507
+      },
+      "outputTokens": {
+        "total": 101,
+        "text": 39,
+        "reasoning": 62
+      }
+    }
+  }
+}

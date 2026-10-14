@@ -1,0 +1,51 @@
+{
+  "hash": "49ee9eddd5efdaec22e7727cb700f86a01ac2632b07b80af03c2ed7a745f2096",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1063,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is mateo.alvarez@example.es. New address: Carrer de Mallorca 210, Barcelona, 08008, Spain."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01NgY5G5B6ksUAQxqpdq1xpS",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"mateo.alvarez@example.es\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2055,
+        "noCache": 2055,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 62
+      }
+    }
+  }
+}

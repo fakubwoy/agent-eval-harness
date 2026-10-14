@@ -1,0 +1,49 @@
+{
+  "hash": "e9a79ae8d3c667fcb751f7cf88637402ce90438d5382ce785d497c78bd981ecc",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 229,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is elena.popescu@example.ro"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we need to lookup customer by email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_162a4529-3afe-427b-9ba0-9c06f749b7e1",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"elena.popescu@example.ro\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1134,
+        "noCache": 110,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 32,
+        "reasoning": 10
+      }
+    }
+  }
+}

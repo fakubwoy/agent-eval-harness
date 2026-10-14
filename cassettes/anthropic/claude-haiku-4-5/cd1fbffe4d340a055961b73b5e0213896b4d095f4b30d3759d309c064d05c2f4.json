@@ -1,0 +1,111 @@
+{
+  "hash": "cd1fbffe4d340a055961b73b5e0213896b4d095f4b30d3759d309c064d05c2f4",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1469,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013bMMLMrKgiY2rUvfefnEpH",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C109",
+              "name": "Ravi Menon",
+              "order_ids": [
+                "ORD-1110"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01PrnXmsW9Dq1aY2R96uUeYW",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1110",
+              "customer_id": "C109",
+              "status": "pending",
+              "placed_at": "2026-06-14T06:40:00Z",
+              "shipping_address": {
+                "line1": "17 Cathedral Road",
+                "city": "Chennai",
+                "postal_code": "600086",
+                "country": "IN"
+              },
+              "items": [
+                {
+                  "sku": "PC-5L",
+                  "name": "Pressure cooker 5L",
+                  "qty": 1,
+                  "unit_price_cents": 5499
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 5499
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I've verified that ORD-1110 belongs to your account. The order is still in \"pending\" status and hasn't shipped yet, so I can cancel it for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_011Zgyekkq2zC5cKtQrj4NzE",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1110\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2348,
+        "noCache": 2348,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 102
+      }
+    }
+  }
+}

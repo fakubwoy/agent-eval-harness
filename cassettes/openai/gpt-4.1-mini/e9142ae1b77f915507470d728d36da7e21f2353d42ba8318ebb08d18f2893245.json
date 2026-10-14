@@ -1,0 +1,66 @@
+{
+  "hash": "e9142ae1b77f915507470d728d36da7e21f2353d42ba8318ebb08d18f2893245",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1580,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_1THcHJrJ0xJFEaCUG438czwe",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C112",
+              "name": "Isabella Costa",
+              "order_ids": [
+                "ORD-1115"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0965f226a38eb8a7006acf4c6462c487d18be80211ed5e27e4"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_550Bj2vKHao1siV0HJdtyREy",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1115\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0965f226a38eb8a7006acf4c660cb087d1a616715334122032"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 991,
+        "noCache": 991,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

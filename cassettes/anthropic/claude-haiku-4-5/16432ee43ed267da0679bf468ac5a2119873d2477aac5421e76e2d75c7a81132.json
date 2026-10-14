@@ -1,0 +1,51 @@
+{
+  "hash": "16432ee43ed267da0679bf468ac5a2119873d2477aac5421e76e2d75c7a81132",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1066,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "noah.fischer@example.de"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Xc1HacpU4aEfGFZcVwirhh",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"noah.fischer@example.de\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2018,
+        "noCache": 2018,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 60
+      }
+    }
+  }
+}

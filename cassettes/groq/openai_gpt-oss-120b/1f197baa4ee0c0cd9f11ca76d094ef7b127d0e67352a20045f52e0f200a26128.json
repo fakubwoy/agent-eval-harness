@@ -1,0 +1,47 @@
+{
+  "hash": "1f197baa4ee0c0cd9f11ca76d094ef7b127d0e67352a20045f52e0f200a26128",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 488,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes please, a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for your blender (order ORD‑1140) has already been initiated for **CHF 139.00** and will be returned to your original payment method within a few business days. Let me know if there’s anything else I can help with!"
+      },
+      {
+        "type": "reasoning",
+        "text": "We already processed refund. The user says \"Yes please, a refund.\" Possibly they are confirming. We have already done it. We can confirm again. No further action needed."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1632,
+        "noCache": 608,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 99,
+        "text": 62,
+        "reasoning": 37
+      }
+    }
+  }
+}

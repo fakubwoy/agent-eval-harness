@@ -1,0 +1,44 @@
+{
+  "hash": "cd8da4f06ddfb20668428f11738bae3e733dad0874d23d1335afcc58a7f3fbdf",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1274,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Of course, I can help with that. Could you please provide me with the email address you used for the order and the order ID you want to change the shipping address for? Also, please share the new shipping address details."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure. My email is thomas.wright@example.co.uk. I don't have the order ID to hand, I'm afraid. It's the order with the coffee grinder in it. The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 476,
+        "noCache": 476,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 90,
+        "text": 90,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "cae4147cbd25d92f1d04b09bf0d3f2600be2060af12b36cd3f341fd02244c30b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 877,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else in the future, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2741,
+        "noCache": 2741,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27
+      }
+    }
+  }
+}

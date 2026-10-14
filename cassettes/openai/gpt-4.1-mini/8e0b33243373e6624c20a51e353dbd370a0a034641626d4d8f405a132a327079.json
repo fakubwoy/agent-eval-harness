@@ -1,0 +1,67 @@
+{
+  "hash": "8e0b33243373e6624c20a51e353dbd370a0a034641626d4d8f405a132a327079",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1249,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_ZCJc2FMUp5e6ZP8rwTDXv8Kc",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-2",
+                "order_id": "ORD-1115",
+                "sku": "CAP-BLU",
+                "reason": "Doesn't fit",
+                "amount_cents": 2400,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0965f226a38eb8a7006acf4c6af13087d18fb733bc5a88ed15"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the blue baseball cap from your order ORD-1115 has been processed. You should see the amount of $24.00 returned to your original payment method shortly. If you need a refund for the zip hoodie as well, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c6c0d0c87d1963083148f688599"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1548,
+        "noCache": 140,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 55,
+        "text": 55,
+        "reasoning": 0
+      }
+    }
+  }
+}

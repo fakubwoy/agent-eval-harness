@@ -1,0 +1,65 @@
+{
+  "hash": "5305205e57e74260275c56913d78268a7f2ca12f41e5f021988bd3c6bd2cac43",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1349,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_hNVHp22jJZwuFQUjuk0iJhPa",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C107",
+              "name": "Olivia Brennan",
+              "order_ids": [
+                "ORD-1107",
+                "ORD-1108"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0aaa76e34e126238006acf4c94e97487d1a8adc45077f451cf"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Olivia. You have two recent orders. Could you please tell me if the desk lamp was part of one of these orders? If you are unsure, I can check the items in each order for you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0aaa76e34e126238006acf4c960bf487d183ac02a3f7f7a7c9"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1018,
+        "noCache": 1018,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

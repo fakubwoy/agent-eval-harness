@@ -1,0 +1,42 @@
+{
+  "hash": "80d47f2cf479d0f3b74eebd35bd61c2628ac649e169723ca076f4ae03fd5a53f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 2400,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's not good enough. If this isn't resolved today I'm filing a chargeback and handing it to my lawyer."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand your frustration\u2014a month without delivery is definitely concerning. However, I need to be clear about what I can do:\n\n- I **cannot process a refund** until the order is marked as delivered (that's our policy)\n- I **can cancel** the order right now if you'd like\n- For investigating the actual shipment status with the carrier or discussing other options given the circumstances, **I need to hand you to a human agent** who has access to more tools and can escalate this properly\n\nGiven the seriousness of your situation, I'd recommend speaking with a human agent right away. They'll be better positioned to investigate what happened and find a resolution.\n\nWould you like me to connect you with an agent now?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2536,
+        "noCache": 2536,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 159
+      }
+    }
+  }
+}

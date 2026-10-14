@@ -1,0 +1,50 @@
+{
+  "hash": "19fa37e8259a9211d0797929129db654ee1bcc769a40a9f0d6d74997c244550a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1120,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "grace.okafor@example.ng"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_r7ZCkdEhw84imQ4z7aTGb2MT",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"grace.okafor@example.ng\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_070bdb65e02ddad7006acf4c7656a487d18117dce284e063d8"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 944,
+        "noCache": 944,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

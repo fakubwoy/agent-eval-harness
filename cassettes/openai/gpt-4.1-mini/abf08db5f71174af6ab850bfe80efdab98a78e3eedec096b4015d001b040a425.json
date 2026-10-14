@@ -1,0 +1,66 @@
+{
+  "hash": "abf08db5f71174af6ab850bfe80efdab98a78e3eedec096b4015d001b040a425",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 953,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_IFLYeibXj2gsLbbzSjXRGo0S",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C109",
+              "name": "Ravi Menon",
+              "order_ids": [
+                "ORD-1110"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_08edeb51d3e24b21006acf5047284c87d195161e6ff9da5c88"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_NkdtDZu8R795ehcDgq4T4z6n",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1110\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_08edeb51d3e24b21006acf504858bc87d1b1304fc6ff5a2c99"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 991,
+        "noCache": 991,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

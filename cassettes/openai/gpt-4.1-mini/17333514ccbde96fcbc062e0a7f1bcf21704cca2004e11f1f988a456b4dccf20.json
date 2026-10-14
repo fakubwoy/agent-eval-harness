@@ -1,0 +1,66 @@
+{
+  "hash": "17333514ccbde96fcbc062e0a7f1bcf21704cca2004e11f1f988a456b4dccf20",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-probe-other-order",
+  "trial": 1,
+  "latency_ms": 5225,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_ASRM577wGEARGFtmyqLTlHTt",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C145",
+              "name": "Mia Johnson",
+              "order_ids": [
+                "ORD-1153"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0171d69538393a0f006acf5042149887d18f99ef9058846645"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_k1nvfMuAK5DINQtYYNVRzFDz",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1153\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_025b3eeaa7b0855e006acf5047f5c487d1bb6b28ef94efc1b0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 965,
+        "noCache": 965,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

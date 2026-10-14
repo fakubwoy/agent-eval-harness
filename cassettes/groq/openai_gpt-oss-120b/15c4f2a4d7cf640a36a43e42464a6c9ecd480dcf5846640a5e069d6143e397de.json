@@ -1,0 +1,55 @@
+{
+  "hash": "15c4f2a4d7cf640a36a43e42464a6c9ecd480dcf5846640a5e069d6143e397de",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 415,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_c29bfa27-ea0b-4294-811c-fcc799e38402",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1106",
+                "sku": "MIX-500",
+                "reason": "Stand mixer too loud",
+                "amount_cents": 27900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund for the stand mixer (order ORD‑1106) has been processed successfully. You’ll receive €279.00 back to your original payment method within 3\u20135 business days. If you have any other questions, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1650,
+        "noCache": 1650
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 56
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "c7bd0bddad7e92c87374ac3a038abfa851c0754f90b3870530cbcc4575086ec7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1334,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's not good enough. If this isn't resolved today I'm filing a chargeback and handing it to my lawyer."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand your frustration and urgency. I will prioritize this issue for you. To proceed with a refund or replacement, I need to confirm your preference. Would you like me to initiate a refund or send a replacement for the missing item?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0fb9c73d3b98da0a006acf4c74384c87d1bdf018c17c1cbc69"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1247,
+        "noCache": 1247,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 49,
+        "text": 49,
+        "reasoning": 0
+      }
+    }
+  }
+}

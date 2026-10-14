@@ -1,0 +1,48 @@
+{
+  "hash": "ad1e600fe178db7e888776784bc18bdcc27de497a93a26e412e1db9ceb5fe595",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1228,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine, I'll just refuse the delivery."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "That sounds like a good plan. Refusing the delivery will usually initiate a return process automatically. If you need any help with the refund once the item is returned, feel free to contact us. Is there anything else I can assist you with today?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_029a2c394bcc4525006acf4ca91ae087d1914c78f0511a5458"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1198,
+        "noCache": 174,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 52,
+        "text": 52,
+        "reasoning": 0
+      }
+    }
+  }
+}

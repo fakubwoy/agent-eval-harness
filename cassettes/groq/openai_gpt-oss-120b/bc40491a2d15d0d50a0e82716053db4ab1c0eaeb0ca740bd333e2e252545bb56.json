@@ -1,0 +1,47 @@
+{
+  "hash": "bc40491a2d15d0d50a0e82716053db4ab1c0eaeb0ca740bd333e2e252545bb56",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 290,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, can you send ORD-1109 to my office instead? It's ul. Prosta 20, Warsaw."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! Could you please provide the email address associated with your Northwind Goods account? This will let me verify the order and make the address change for you."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Customer wants to change shipping address. Must ask for email, then lookup_customer, verify order belongs to them, then check order status (not shipped). Need to ask for email first."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1066,
+        "noCache": 42,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 87,
+        "text": 42,
+        "reasoning": 45
+      }
+    }
+  }
+}

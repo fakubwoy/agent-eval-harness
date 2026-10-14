@@ -1,0 +1,48 @@
+{
+  "hash": "652edcfa95d62a97103981ea2e0e4cbdac485bf2947ee0db939c7dfef25df467",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 1076,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my package hasn't arrived yet. Can you check where it is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide me with your email address and the order ID for the package you are referring to? This is to verify your identity and locate the order.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0efd07fe7509a623006acf4c933ac487d1b3fa20d415d96067"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 891,
+        "noCache": 891,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

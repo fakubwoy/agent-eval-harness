@@ -1,0 +1,66 @@
+{
+  "hash": "aeca2ebdfa9e16a05659d200c0df0e5e3c466c0a72aabcc95fc9c7670dd43a46",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1263,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_geP7HlEMXcIEu0xr7v79UV5I",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1143",
+              "shipping_address": {
+                "line1": "Storgata 5",
+                "city": "Lillehammer",
+                "postal_code": "2609",
+                "country": "NO"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cdb9a7e9da2c252006acf4c9ba2c087d1a70e92bac0673c78"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The shipping address for order ORD-1143 has been updated to Storgata 5, Lillehammer, 2609, Norway.\n\nYou mentioned you had a second thing to discuss. How can I assist you further?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cdb9a7e9da2c252006acf4c9ccffc87d199c4552d05cb64bb"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1292,
+        "noCache": 140,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

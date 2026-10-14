@@ -1,0 +1,66 @@
+{
+  "hash": "3cb53c0fab324d6e65fe1cbf56f73d3242f1fc2d0f8da6e18dfacc2e3e1e95aa",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1168,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_QzRpduofZM96K2shX3HnDeOZ",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C103",
+              "name": "Mateo Alvarez",
+              "order_ids": [
+                "ORD-1103"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_06be3c04eaedaee9006acf4c708c6c87d1ba36d1fab4729cfa"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_MgauIk5ZScNPSwCsHEJNio10",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1103\",\"address\":{\"line1\":\"Carrer de Mallorca 210\",\"city\":\"Barcelona\",\"postal_code\":\"08008\",\"country\":\"ES\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_06be3c04eaedaee9006acf4c7196f487d1a0ddbe9ddc9fa53e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1001,
+        "noCache": 1001,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

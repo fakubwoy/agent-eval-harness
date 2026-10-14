@@ -1,0 +1,112 @@
+{
+  "hash": "07961de5734585976f69ff4af9d62eba708d70f9499c6509d1a8a8d380e203c8",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1789,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_0186YpAC7y2xz7uQseroegy2",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C136",
+              "name": "Ingrid Berg",
+              "order_ids": [
+                "ORD-1143",
+                "ORD-1144"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Kgc4nXCGGRuxk5dBEYMfHL",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1143",
+              "customer_id": "C136",
+              "status": "pending",
+              "placed_at": "2026-06-14T09:00:00Z",
+              "shipping_address": {
+                "line1": "Karl Johans gate 22",
+                "city": "Oslo",
+                "postal_code": "0159",
+                "country": "NO"
+              },
+              "items": [
+                {
+                  "sku": "GOG-1",
+                  "name": "Ski goggles",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified that ORD-1143 is yours. The order is still pending (hasn't shipped yet), so I can change the address for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01TxUdbn7914zY1tFZGfkMVz",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1143\",\"address\":{\"line1\":\"Storgata 5\",\"city\":\"Lillehammer\",\"postal_code\":\"2609\",\"country\":\"Norway\"}}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2380,
+        "noCache": 2380,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 144
+      }
+    }
+  }
+}

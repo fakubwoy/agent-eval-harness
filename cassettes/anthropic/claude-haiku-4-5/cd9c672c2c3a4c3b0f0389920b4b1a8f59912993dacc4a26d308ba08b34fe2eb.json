@@ -1,0 +1,68 @@
+{
+  "hash": "cd9c672c2c3a4c3b0f0389920b4b1a8f59912993dacc4a26d308ba08b34fe2eb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1468,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The one with the coffee grinder, please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'll check both orders to find the one with the coffee grinder."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01A4yy6BkRYr5Vebejj5tqMJ",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1116\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01TBYzv66qsWen6Ca2Qz9sLu",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1117\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2203,
+        "noCache": 2203,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 119
+      }
+    }
+  }
+}

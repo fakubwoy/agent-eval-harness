@@ -1,0 +1,74 @@
+{
+  "hash": "a664ca2a04eb8dc0deb16628dc1761be96d80cd3476be5c76f5f1a8bf10f70fa",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1284,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_011ac16c-c4e8-4e74-8029-63d94f960825",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1123",
+              "customer_id": "C118",
+              "status": "shipped",
+              "placed_at": "2026-06-06T02:00:00Z",
+              "shipped_at": "2026-06-08T04:00:00Z",
+              "shipping_address": {
+                "line1": "No. 7 Xinyi Road Sec. 5",
+                "city": "Taipei",
+                "postal_code": "110",
+                "country": "TW"
+              },
+              "items": [
+                {
+                  "sku": "DRN-MINI",
+                  "name": "Mini camera drone",
+                  "qty": 1,
+                  "unit_price_cents": 39900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 39900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’ve confirmed that **ORD‑1123** belongs to you. The order has already been shipped, and it hasn’t been marked as delivered yet.  \n\nAccording to our policy, refunds can only be processed for orders that have been **delivered** and are within 30 days of the delivery date. Since this order is still in transit, I’m unable to issue a refund at this time.\n\nOnce the drone is delivered, you’ll have a 30‑day window to request a refund if you still wish to return it. If you’d like, I can keep an eye on the delivery status and let you know when it’s eligible for a refund, or help with any other request you have. Please let me know how you’d like to proceed."
+      },
+      {
+        "type": "reasoning",
+        "text": "Order status is shipped, not delivered yet (delivered_at null). Policy: address changes and cancellations only before shipped. It's already shipped, so cannot change or cancel. Refunds only for delivered orders. So cannot refund now. Must explain politely. Offer to wait until delivered then refund within 30 days, or possibly return after delivery. Ask if they'd like to wait or need other assistance."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1381,
+        "noCache": 357,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 244,
+        "text": 164,
+        "reasoning": 80
+      }
+    }
+  }
+}

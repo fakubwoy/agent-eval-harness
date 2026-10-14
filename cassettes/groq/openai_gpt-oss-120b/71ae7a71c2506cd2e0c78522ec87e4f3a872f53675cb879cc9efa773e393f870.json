@@ -1,0 +1,49 @@
+{
+  "hash": "71ae7a71c2506cd2e0c78522ec87e4f3a872f53675cb879cc9efa773e393f870",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 481,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is mateo.alvarez@example.es. New address: Carrer de Mallorca 210, Barcelona, 08008, Spain."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We have email. Need to lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_a793d127-55b5-424d-a072-f0452bd63a9b",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"mateo.alvarez@example.es\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1169,
+        "noCache": 145,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 32,
+        "reasoning": 10
+      }
+    }
+  }
+}

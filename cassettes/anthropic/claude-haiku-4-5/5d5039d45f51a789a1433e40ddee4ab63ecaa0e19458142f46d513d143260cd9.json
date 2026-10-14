@@ -1,0 +1,59 @@
+{
+  "hash": "5d5039d45f51a789a1433e40ddee4ab63ecaa0e19458142f46d513d143260cd9",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 2211,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_017UaGKcvKdZ16fhQzuw1Cbw",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "REFUND_WINDOW_EXPIRED",
+                "message": "Order ORD-1042 was delivered more than 30 days ago"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I apologize, but I'm unable to process a refund for this order. Your headphones were delivered on May 5, 2026, and our refund policy allows returns within 30 days of delivery. Unfortunately, it's now June 15, which is 41 days after delivery, so the order is outside our refund window.\n\nI understand this is frustrating. Would you like me to connect you with a human agent who may be able to discuss other options with you?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2579,
+        "noCache": 2579,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 107
+      }
+    }
+  }
+}

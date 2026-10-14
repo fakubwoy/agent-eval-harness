@@ -1,0 +1,47 @@
+{
+  "hash": "b383936df8d3054b75dde2d2a69910c1085441212bbc482604455182eb6e105a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 759,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like a refund for my earbuds, the left one keeps cutting out."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure \u2014 I can help with that. Could you please provide the email address you used for the purchase and the order ID for the earbuds? This will let me verify the order before proceeding."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email and order ID (or which order). The user wants refund for earbuds left one. Need order ID. So ask for email and order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1059,
+        "noCache": 35,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 88,
+        "text": 48,
+        "reasoning": 40
+      }
+    }
+  }
+}

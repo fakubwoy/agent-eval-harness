@@ -1,0 +1,47 @@
+{
+  "hash": "bf17a56ad3bc799abedc81c86e661fd936579febe22088db0b11b92e99a33674",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 2227,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, my kettle from ORD-1120 started leaking. Can I get a refund?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address you used for your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, check if order belongs to that customer, check status delivered and delivery date within 30 days. Current date 2026-06-15. Need to get order details. So first ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1060,
+        "noCache": 36,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 94,
+        "text": 33,
+        "reasoning": 61
+      }
+    }
+  }
+}

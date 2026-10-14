@@ -1,0 +1,57 @@
+{
+  "hash": "1fd2e5e128ee00da04bf12f1dc62512c886430db185947f449450f28110e54e0",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1038,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_011Zgyekkq2zC5cKtQrj4NzE",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1110",
+              "status": "cancelled"
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your order ORD-1110 has been successfully cancelled. You won't be charged, and the Pressure cooker 5L won't be shipped. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2478,
+        "noCache": 2478,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 49
+      }
+    }
+  }
+}

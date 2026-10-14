@@ -1,0 +1,66 @@
+{
+  "hash": "2b8b1e21e28bcc3dfa87d0cb36b16794678ae03efbcedf4de534d53c04087229",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1309,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_T4sfVz5306sBf9Mf1i4nkDV3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C111",
+              "name": "Noah Fischer",
+              "order_ids": [
+                "ORD-1112",
+                "ORD-1113",
+                "ORD-1114"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_038ecf93a310dbcf006acf4c63d74c87d19a386e2cfaf58884"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Noah. Could you please tell me the order ID you want to cancel from the following: ORD-1112, ORD-1113, or ORD-1114?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_038ecf93a310dbcf006acf4c650c6c87d1985189e76dec7641"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 995,
+        "noCache": 995,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 39,
+        "reasoning": 0
+      }
+    }
+  }
+}

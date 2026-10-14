@@ -1,0 +1,48 @@
+{
+  "hash": "17298b42247a9225c250b2f66697ccd047bc4bba3cdccb9a114a31c559aa6fdd",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1200,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great, please refund it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the stand mixer from order ORD-1106 has already been processed. If you have any other questions or need further help, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0b7d9f8c2be091d2006acf4c7e465487d1bacf314a6d38c35b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1378,
+        "noCache": 98,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35,
+        "text": 35,
+        "reasoning": 0
+      }
+    }
+  }
+}

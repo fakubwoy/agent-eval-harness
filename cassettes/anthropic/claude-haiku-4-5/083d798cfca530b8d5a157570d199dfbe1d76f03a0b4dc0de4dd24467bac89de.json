@@ -1,0 +1,64 @@
+{
+  "hash": "083d798cfca530b8d5a157570d199dfbe1d76f03a0b4dc0de4dd24467bac89de",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 1316,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is t.hughes.home@example.com"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01RShXFfY5qXHyo2aZporLdq",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"t.hughes.home@example.com\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01HyFUjCUE17m34nCAmGkEX9",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1150\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2021,
+        "noCache": 2021,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

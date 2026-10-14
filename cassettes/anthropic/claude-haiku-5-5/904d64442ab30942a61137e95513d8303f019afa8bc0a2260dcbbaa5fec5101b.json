@@ -1,0 +1,44 @@
+{
+  "hash": "904d64442ab30942a61137e95513d8303f019afa8bc0a2260dcbbaa5fec5101b",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 10264,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'd be happy to help you with a refund for the hair dryer. Before I can proceed, I need to verify your identity first.\n\nCould you please provide the email address associated with your order?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "rebecca.stone@example.com\n\nAlso, I really don't want to waste time on this. The dryer has never worked properly since I got it, and I need the refund sorted today."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 465,
+        "noCache": 465,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 55,
+        "text": 55,
+        "reasoning": 0
+      }
+    }
+  }
+}

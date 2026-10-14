@@ -1,0 +1,66 @@
+{
+  "hash": "fd132a321d3246a7f70fb8e786565259d3248f3414f89e184fd0e820f7a1ada1",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1134,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Yn7SwhaKI1fUYS4tfLR0OQI3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C118",
+              "name": "Chen Wei",
+              "order_ids": [
+                "ORD-1123"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_061cd9493450802d006acf4cb122d487d18c735fb72f956af5"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Rya4FQiW21wkd0hXGjK7wXA1",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1123\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_061cd9493450802d006acf4cb2495c87d19e3d0832761256a3"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 992,
+        "noCache": 992,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

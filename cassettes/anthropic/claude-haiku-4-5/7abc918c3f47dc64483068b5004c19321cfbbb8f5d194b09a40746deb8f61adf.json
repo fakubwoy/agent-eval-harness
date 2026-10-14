@@ -1,0 +1,51 @@
+{
+  "hash": "7abc918c3f47dc64483068b5004c19321cfbbb8f5d194b09a40746deb8f61adf",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1318,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh sorry, I mean the cap."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_018fZECHFniWkYK7mE2qm1vc",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1115\",\"sku\":\"CAP-BLU\",\"reason\":\"doesn't fit\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2538,
+        "noCache": 2538,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 104
+      }
+    }
+  }
+}

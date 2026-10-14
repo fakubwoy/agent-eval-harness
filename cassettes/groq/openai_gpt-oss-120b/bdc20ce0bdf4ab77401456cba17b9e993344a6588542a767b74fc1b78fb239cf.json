@@ -1,0 +1,47 @@
+{
+  "hash": "bdc20ce0bdf4ab77401456cba17b9e993344a6588542a767b74fc1b78fb239cf",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 453,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "If you need any further assistance, just let me know. Have a great day!"
+      },
+      {
+        "type": "reasoning",
+        "text": "User says \"Okay.\" No further request. We can end politely."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1504,
+        "noCache": 224,
+        "cacheRead": 1280
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 26,
+        "reasoning": 15
+      }
+    }
+  }
+}

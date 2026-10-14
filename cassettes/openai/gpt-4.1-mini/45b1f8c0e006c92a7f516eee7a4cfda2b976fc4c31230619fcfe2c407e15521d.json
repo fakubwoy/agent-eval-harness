@@ -1,0 +1,74 @@
+{
+  "hash": "45b1f8c0e006c92a7f516eee7a4cfda2b976fc4c31230619fcfe2c407e15521d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1259,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_8uHqu00DxXN1tJlXikjxLzPV",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "lookup_customer failed: upstream service error"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bc04bf901fe0601006acf4cb7a8b887d187882289f27ba04d"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "There was a temporary issue verifying your email. Let me try again. Please hold on a moment.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bc04bf901fe0601006acf4cb8bb6487d1af294cfae3a52b8b"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_6iM8bdac1g9j1gtestmmycB6",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"elena.popescu@example.ro\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bc04bf901fe0601006acf4cb906fc87d1b0f46426d107ef04"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 996,
+        "noCache": 996,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

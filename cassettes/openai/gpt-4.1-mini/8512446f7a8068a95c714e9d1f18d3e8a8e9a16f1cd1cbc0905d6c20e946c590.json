@@ -1,0 +1,48 @@
+{
+  "hash": "8512446f7a8068a95c714e9d1f18d3e8a8e9a16f1cd1cbc0905d6c20e946c590",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1009,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, two things. First, can ORD-1143 go to my cabin instead? Address: Storgata 5, Lillehammer, 2609, Norway."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with changing the shipping address for order ORD-1143, may I please have your email address to verify your identity and confirm that this order belongs to you?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cdb9a7e9da2c252006acf4c97d08087d1b57cc007c42605ff"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 911,
+        "noCache": 911,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 37,
+        "text": 37,
+        "reasoning": 0
+      }
+    }
+  }
+}

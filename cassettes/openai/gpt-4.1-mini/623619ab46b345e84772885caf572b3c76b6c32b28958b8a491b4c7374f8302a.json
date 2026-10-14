@@ -1,0 +1,48 @@
+{
+  "hash": "623619ab46b345e84772885caf572b3c76b6c32b28958b8a491b4c7374f8302a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1147,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, the headphones from order ORD-1042 stopped working. I want my money back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for order ORD-1042, could you please provide the email address you used for the purchase? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_048e8169b85c3110006acf4cb04a6487d1b6ec4b6118fd4da5"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 895,
+        "noCache": 895,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "hash": "e2ab940d6a925d5c65d08bff5f0d429032448435de97ae28b96b3ec80e2a61ee",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1237,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Sc28ds6MtQM9Erq7q3FP3M",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1137",
+              "shipping_address": {
+                "line1": "Strada Lipscani 12",
+                "city": "Bucharest",
+                "postal_code": "030031",
+                "country": "RO"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your delivery address for ORD-1137 has been updated to:\n**Strada Lipscani 12, Bucharest, 030031, Romania**\n\nThe order is still pending and will ship to this new address."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2693,
+        "noCache": 2693,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 56
+      }
+    }
+  }
+}

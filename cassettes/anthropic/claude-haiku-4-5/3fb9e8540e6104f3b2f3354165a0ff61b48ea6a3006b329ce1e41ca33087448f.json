@@ -1,0 +1,42 @@
+{
+  "hash": "3fb9e8540e6104f3b2f3354165a0ff61b48ea6a3006b329ce1e41ca33087448f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1108,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there, I'd like to change the shipping address on my order, please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you change your shipping address. \n\nTo get started, could you please provide your email address so I can verify your account and locate your order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1980,
+        "noCache": 1980,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41
+      }
+    }
+  }
+}

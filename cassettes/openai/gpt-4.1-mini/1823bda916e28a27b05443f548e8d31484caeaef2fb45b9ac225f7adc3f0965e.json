@@ -1,0 +1,66 @@
+{
+  "hash": "1823bda916e28a27b05443f548e8d31484caeaef2fb45b9ac225f7adc3f0965e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1169,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_75U1NXzaMZE7b4j7nn4mdFuz",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C100",
+              "name": "Priya Sharma",
+              "order_ids": [
+                "ORD-1042"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_048e8169b85c3110006acf4cb1981c87d1a12738f3103b7f88"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Pqry7UDcr5RwKF4n3teT9Sy1",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1042\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_048e8169b85c3110006acf4cb2c76c87d180aa18f5b0613175"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 999,
+        "noCache": 999,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "hash": "b8e47b740e49f93c84787ed03c513ebb8444b42ac5007b4a86e888d24c24beb3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1162,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_018y4QX5h9EL1M2ee7PYRP1X",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1124",
+                "sku": null,
+                "reason": "Stand wobbles and charger is faulty",
+                "amount_cents": 8800,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your refund has been processed:\n\n**Refund ID:** RF-1  \n**Amount:** €88.00  \n**Status:** Approved\n\nThe refund should appear in your account within 5-7 business days. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2818,
+        "noCache": 2818,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 66
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "7915d23f3b879894d6f8b9a0332aa8c40556808810c1b11946e7048d8eb4245c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 975,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please cancel order ORD-1104, I ordered it by mistake."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1979,
+        "noCache": 1979,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

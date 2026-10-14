@@ -1,0 +1,76 @@
+{
+  "hash": "cbe8320d402ca60b6b9c2ee29c8da13be5e528dc7910db2092742f4844a28a5c",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 317,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d1684362-8b25-4aa9-bb58-40d8658c59e6",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1140",
+              "customer_id": "C134",
+              "status": "delivered",
+              "placed_at": "2026-05-29T08:00:00Z",
+              "shipped_at": "2026-05-31T08:00:00Z",
+              "delivered_at": "2026-06-03T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bahnhofstrasse 10",
+                "city": "Zurich",
+                "postal_code": "8001",
+                "country": "CH"
+              },
+              "items": [
+                {
+                  "sku": "BLD-PRO",
+                  "name": "High speed blender",
+                  "qty": 1,
+                  "unit_price_cents": 13900
+                }
+              ],
+              "total_cents": 13900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Customer says blender broke after a week. Delivered June 3. Today June 15. That's 12 days after delivery, within 30-day window. Refund possible. Need reason. Already given reason: broken after a week. We can proceed with refund request."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_ae09b847-916c-488e-a093-af7f46396f20",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1140\",\"reason\":\"Blender broke after a week of use\",\"sku\":\"BLD-PRO\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1398,
+        "noCache": 374,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 95,
+        "text": 41,
+        "reasoning": 54
+      }
+    }
+  }
+}

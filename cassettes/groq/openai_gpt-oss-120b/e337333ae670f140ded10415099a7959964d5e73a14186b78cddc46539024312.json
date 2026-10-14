@@ -1,0 +1,82 @@
+{
+  "hash": "e337333ae670f140ded10415099a7959964d5e73a14186b78cddc46539024312",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1362,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_dd495fb6-e67f-4646-bfe8-2ac51abc59a2",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1142",
+              "customer_id": "C135",
+              "status": "delivered",
+              "placed_at": "2026-05-31T05:00:00Z",
+              "shipped_at": "2026-06-02T06:00:00Z",
+              "delivered_at": "2026-06-06T10:00:00Z",
+              "shipping_address": {
+                "line1": "House 12, Street 5, F-7/2",
+                "city": "Islamabad",
+                "postal_code": "44000",
+                "country": "PK"
+              },
+              "items": [
+                {
+                  "sku": "WCH-15",
+                  "name": "Wireless charger 15W",
+                  "qty": 1,
+                  "unit_price_cents": 3500
+                },
+                {
+                  "sku": "CBL-3",
+                  "name": "USB-C cable 3 pack",
+                  "qty": 1,
+                  "unit_price_cents": 1500
+                }
+              ],
+              "total_cents": 5000
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order delivered June 6, 2026. Current date June 15, 2026. That's 9 days after delivery, within 30 days. Refund for single item allowed. Need reason. Already provided. So we can request refund for SKU WCH-15. Use request_refund."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_9f391dfc-6551-4310-90c3-fe70d1405716",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1142\",\"reason\":\"Wireless charger overheats\",\"sku\":\"WCH-15\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1785,
+        "noCache": 505,
+        "cacheRead": 1280
+      },
+      "outputTokens": {
+        "total": 99,
+        "text": 37,
+        "reasoning": 62
+      }
+    }
+  }
+}

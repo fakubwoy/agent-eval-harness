@@ -1,0 +1,74 @@
+{
+  "hash": "77ec1057a214f34cce016d272474974ceb0d695f3c251f493b890fa3bdc5e29e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1469,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_45CqsTVonGR45171OGwuSXHV",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "request_refund failed: upstream service error"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0a74a658338cda89006acf4cbc721887d18aea03d3b8436518"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "It seems there was an issue processing the refund request. I will try once more.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0a74a658338cda89006acf4cbdabbc87d1b5d13c498b8ddccb"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_zim1Mdv0yMEZy4CE1EyvjqRT",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1136\",\"reason\":\"Cracked basket in air fryer\",\"sku\":\"AF-4L\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0a74a658338cda89006acf4cbdfeac87d1b6b2fe5ae4bb912b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1322,
+        "noCache": 170,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 55,
+        "text": 55,
+        "reasoning": 0
+      }
+    }
+  }
+}

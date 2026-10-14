@@ -1,0 +1,47 @@
+{
+  "hash": "1a2ca7318a99e75f487b25aa9ea2cdf1d12dd304d9265dd782e7ea575e4069b0",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1053,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, one of the mugs in the mug set from ORD-1105 arrived cracked. I want to keep the blanket, so please refund just the mug set."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure \u2014 I can help with that. Could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, verify that order belongs to that email, check status delivered, delivery date within 30 days. Then request refund for specific SKU? The user says \"mug set\". Need SKU. Might need to ask which SKU or item. Could ask for clarification: which item SKU? Or we can list order items after retrieving order. But we need email first. So ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1075,
+        "noCache": 51,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 128,
+        "text": 32,
+        "reasoning": 96
+      }
+    }
+  }
+}

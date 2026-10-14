@@ -1,0 +1,66 @@
+{
+  "hash": "dc12e5f9bf0646970e8d58504b1efa0cef3355e070653a1311c90af3b8de9c48",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1338,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_nb4glcVo0d0CXD3CWpzaZ16A",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C115",
+              "name": "Lars Johansson",
+              "order_ids": [
+                "ORD-1120"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac7d5adedeb720c006acf4cac190087d1a84bce44e50b7844"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_kFHduOnQMKFPszNj8Ug16VwU",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1120\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac7d5adedeb720c006acf4cad897887d1b75d6890b999e7bb"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 993,
+        "noCache": 993,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

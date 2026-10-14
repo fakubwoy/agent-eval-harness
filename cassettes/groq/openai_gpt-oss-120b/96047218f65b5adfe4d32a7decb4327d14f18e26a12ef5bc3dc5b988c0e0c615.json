@@ -1,0 +1,49 @@
+{
+  "hash": "96047218f65b5adfe4d32a7decb4327d14f18e26a12ef5bc3dc5b988c0e0c615",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 387,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks, that's helpful! Now for my second question: I'd like a refund for just the wireless charger from order ORD-1142. It overheats, so I don't want it anymore. I'd like to keep the cable pack that came in the same order."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity again? Already have email and customer. Order ORD-1142 belongs to same customer. Need to check order details: status, delivered date, within 30 days. Also need to ensure item exists: wireless charger SKU. Let's fetch order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_dd495fb6-e67f-4646-bfe8-2ac51abc59a2",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1142\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1523,
+        "noCache": 499,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 77,
+        "text": 22,
+        "reasoning": 55
+      }
+    }
+  }
+}

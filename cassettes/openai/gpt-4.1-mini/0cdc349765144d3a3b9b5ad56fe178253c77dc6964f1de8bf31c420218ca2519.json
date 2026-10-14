@@ -1,0 +1,65 @@
+{
+  "hash": "0cdc349765144d3a3b9b5ad56fe178253c77dc6964f1de8bf31c420218ca2519",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1364,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Ri0n7LszkDSIVpWksh0cgqCP",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C114",
+              "name": "Mei Lin",
+              "order_ids": [
+                "ORD-1118",
+                "ORD-1119"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0783ba27590631a5006acf4c647dd487d1933cb4265e067335"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Mei Lin. Could you please specify which order the earbuds were purchased in, ORD-1118 or ORD-1119? Also, if you know the SKU or any item details for the earbuds, that would be helpful to identify the exact item for the refund.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0783ba27590631a5006acf4c6593d087d1ac23a0c66b728801"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1003,
+        "noCache": 1003,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 58,
+        "text": 58,
+        "reasoning": 0
+      }
+    }
+  }
+}

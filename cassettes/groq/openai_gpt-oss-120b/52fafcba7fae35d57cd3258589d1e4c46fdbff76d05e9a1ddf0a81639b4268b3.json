@@ -1,0 +1,57 @@
+{
+  "hash": "52fafcba7fae35d57cd3258589d1e4c46fdbff76d05e9a1ddf0a81639b4268b3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 502,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_42751282-5755-4238-b6c3-65b2881fbf89",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "CUSTOMER_NOT_FOUND",
+                "message": "No customer with email t.hughes.home@example.com"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry\u2014I couldn’t find a customer with that email address. Could you double‑check the email you used for your Northwind Goods account (or provide the name the account is under) so I can verify your identity before handling the cancellation?"
+      },
+      {
+        "type": "reasoning",
+        "text": "Customer not found. Could be typo. Ask to confirm email or provide order number? We already have order id. But need to verify identity. Could ask for alternative email or name."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1185,
+        "noCache": 161,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 97,
+        "text": 59,
+        "reasoning": 38
+      }
+    }
+  }
+}

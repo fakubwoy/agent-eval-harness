@@ -1,0 +1,57 @@
+{
+  "hash": "74de70d5b1e807f1f1d35f34041f2afbb24de88c4fdb8d09957064cc9c198b84",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 969,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_013VqUuLN2VvCQTd3pZWBXEx",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1104",
+              "status": "cancelled"
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Done! Your order ORD-1104 has been successfully cancelled. You won't be charged for it. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2472,
+        "noCache": 2472,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 37
+      }
+    }
+  }
+}

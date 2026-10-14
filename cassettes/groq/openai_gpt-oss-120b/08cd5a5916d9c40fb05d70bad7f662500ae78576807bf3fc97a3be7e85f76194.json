@@ -1,0 +1,48 @@
+{
+  "hash": "08cd5a5916d9c40fb05d70bad7f662500ae78576807bf3fc97a3be7e85f76194",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 534,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "viktor.horvat@example.hr"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5c50fab5-c0d3-471d-b97f-adb5c5ec7c69",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"viktor.horvat@example.hr\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1255,
+        "noCache": 1255
+      },
+      "outputTokens": {
+        "total": 44,
+        "text": 34,
+        "reasoning": 10
+      }
+    }
+  }
+}

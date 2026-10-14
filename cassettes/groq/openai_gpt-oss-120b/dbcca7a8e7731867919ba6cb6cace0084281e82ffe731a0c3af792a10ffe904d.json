@@ -1,0 +1,42 @@
+{
+  "hash": "dbcca7a8e7731867919ba6cb6cace0084281e82ffe731a0c3af792a10ffe904d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1695,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, I'll ask again once it arrives."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sounds good! Feel free to reach out when the order arrives, and I’ll be happy to assist with the refund. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1640,
+        "noCache": 616,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 33,
+        "text": 33
+      }
+    }
+  }
+}

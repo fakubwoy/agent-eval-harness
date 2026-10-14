@@ -1,0 +1,49 @@
+{
+  "hash": "9ef5499aff66dfc27a8c8dd9fef91324727d8506bd238a654bc1e27b19f09754",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 2456,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure. The email address is thomas.wright@example.co.uk. I'm afraid I don't have the order ID to hand, though. It's the one with the coffee grinder in it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need order ID. We have email, can lookup customer to get order list, then find which order contains coffee grinder. So first call lookup_customer with email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5046e74e-024e-472a-9a43-0d14849ce538",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"thomas.wright@example.co.uk\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1190,
+        "noCache": 166,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 67,
+        "text": 33,
+        "reasoning": 34
+      }
+    }
+  }
+}

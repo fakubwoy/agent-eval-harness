@@ -1,0 +1,94 @@
+{
+  "hash": "f92e0b3dd37087995c6eece18921162374af821985f27f234e2c3e2cda5bae6e",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1098,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01NbNpqfaXM8YXKD82GVAMh2",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C129",
+              "name": "Diego Fernandez",
+              "order_ids": [
+                "ORD-1135"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01AXB8Rm5CbFC7mLZr8D4Eya",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "get_order timed out after 10000 ms"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me retry that:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_018YvmqzdG9RpUf1LzN8YfYc",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2248,
+        "noCache": 2248,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 66
+      }
+    }
+  }
+}

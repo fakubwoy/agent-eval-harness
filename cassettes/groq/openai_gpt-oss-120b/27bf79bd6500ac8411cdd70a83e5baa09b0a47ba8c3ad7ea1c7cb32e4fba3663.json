@@ -1,0 +1,77 @@
+{
+  "hash": "27bf79bd6500ac8411cdd70a83e5baa09b0a47ba8c3ad7ea1c7cb32e4fba3663",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1728,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_1157f061-f50d-4689-b6e5-cddd7cc43842",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1106",
+              "customer_id": "C106",
+              "status": "delivered",
+              "placed_at": "2026-05-10T07:45:00Z",
+              "shipped_at": "2026-05-12T11:00:00Z",
+              "delivered_at": "2026-05-16T12:00:00Z",
+              "shipping_address": {
+                "line1": "Via Roma 18",
+                "city": "Turin",
+                "postal_code": "10121",
+                "country": "IT"
+              },
+              "items": [
+                {
+                  "sku": "MIX-500",
+                  "name": "Stand mixer",
+                  "color": "red",
+                  "qty": 1,
+                  "unit_price_cents": 27900
+                }
+              ],
+              "total_cents": 27900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Delivered on 2026-05-16. Current date 2026-06-15. That's 30 days? From May 16 to June 15 is 30 days exactly? Let's calculate: May 16 to June 15 inclusive is 30 days. Refund window is within 30 days of delivery date. Usually within 30 days means up to 30 days after delivery, so June 15 is exactly 30 days later, still within? Typically \"within 30 days\" includes day 30. We'll assume it's still allowed. So we can process refund. Need reason. Already given: too loud. We'll request refund."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_c29bfa27-ea0b-4294-811c-fcc799e38402",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1106\",\"reason\":\"Stand mixer too loud\",\"sku\":\"MIX-500\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1414,
+        "noCache": 390,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 169,
+        "text": 37,
+        "reasoning": 132
+      }
+    }
+  }
+}

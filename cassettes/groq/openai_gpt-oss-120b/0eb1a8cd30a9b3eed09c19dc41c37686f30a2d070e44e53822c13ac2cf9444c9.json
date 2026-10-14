@@ -1,0 +1,61 @@
+{
+  "hash": "0eb1a8cd30a9b3eed09c19dc41c37686f30a2d070e44e53822c13ac2cf9444c9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 183,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_566ad4c1-7019-46c6-9551-2d46f342b1f6",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C136",
+              "name": "Ingrid Berg",
+              "order_ids": [
+                "ORD-1143",
+                "ORD-1144"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify that order belongs to this customer. Retrieve order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5dfecc2d-7382-4ed6-a7f2-5455478325db",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1143\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1218,
+        "noCache": 194,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 22,
+        "reasoning": 14
+      }
+    }
+  }
+}

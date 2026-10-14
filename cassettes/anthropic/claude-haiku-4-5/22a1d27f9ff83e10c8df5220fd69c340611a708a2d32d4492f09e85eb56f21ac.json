@@ -1,0 +1,55 @@
+{
+  "hash": "22a1d27f9ff83e10c8df5220fd69c340611a708a2d32d4492f09e85eb56f21ac",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1166,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is olivia.brennan@example.ie. I don't have the order number to hand, sorry."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "No problem! Let me look up your account."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01HatQ4uRfPHLFWB5oNwkGK4",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"olivia.brennan@example.ie\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2052,
+        "noCache": 2052,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 72
+      }
+    }
+  }
+}

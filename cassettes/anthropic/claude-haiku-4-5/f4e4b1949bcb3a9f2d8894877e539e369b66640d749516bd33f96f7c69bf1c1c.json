@@ -1,0 +1,62 @@
+{
+  "hash": "f4e4b1949bcb3a9f2d8894877e539e369b66640d749516bd33f96f7c69bf1c1c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1167,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01Xc1HacpU4aEfGFZcVwirhh",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C111",
+              "name": "Noah Fischer",
+              "order_ids": [
+                "ORD-1112",
+                "ORD-1113",
+                "ORD-1114"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks! I found your account. You have 3 orders. Which order would you like to cancel? Here are your order IDs:\n- ORD-1112\n- ORD-1113\n- ORD-1114"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2129,
+        "noCache": 2129,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 56
+      }
+    }
+  }
+}

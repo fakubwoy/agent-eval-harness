@@ -1,0 +1,44 @@
+{
+  "hash": "fbd1c6ab2ad4079741877bbe9cd8c541ebe34500fb1fcf9d006cdb64c26d7958",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1389,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi there, I'd like to change the shipping address on my order, please. Could you help me with that?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 387,
+        "noCache": 387,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 32,
+        "text": 32,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "1b9599a9dbed90962a523696724988e674f0ab63f08c3e03b18098b489671bdf",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1892,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you so much, that's great news! Just to be sure I understand: the refund is only for the wireless charger, and I'm keeping the USB-C cable 3 pack. Is there anything else I need to do on my end, like returning the charger?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Yes, that's correct. The refund is only for the wireless charger, and you are keeping the USB-C cable 3 pack. Regarding the return of the charger, I recommend checking any return instructions that may have been provided in your order confirmation or refund notification email. If you need, I can also check if there are specific return instructions for this refund. Would you like me to do that?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf50592a4887d199b03ce71bc4ac69"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1724,
+        "noCache": 188,
+        "cacheRead": 1536,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 81,
+        "text": 81,
+        "reasoning": 0
+      }
+    }
+  }
+}

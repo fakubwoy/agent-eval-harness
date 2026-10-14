@@ -1,0 +1,48 @@
+{
+  "hash": "405b9db815cbcb12d9e85ae735132d3db18b28bf224e6d73e60751701a754e1f",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1218,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, cancel it. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order with the yoga mat (ORD-1112) is already canceled. If you need help with anything else, please let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_038ecf93a310dbcf006acf4c6a6ba487d1970e0cfda11b3e2e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1562,
+        "noCache": 154,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 31,
+        "text": 31,
+        "reasoning": 0
+      }
+    }
+  }
+}

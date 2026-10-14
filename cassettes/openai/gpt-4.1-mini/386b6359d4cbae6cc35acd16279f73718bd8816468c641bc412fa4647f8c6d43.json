@@ -1,0 +1,67 @@
+{
+  "hash": "386b6359d4cbae6cc35acd16279f73718bd8816468c641bc412fa4647f8c6d43",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1436,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_BVucQkGeb7bkDakBaIvadGOU",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1119",
+                "sku": "EB-PRO-BLK",
+                "reason": "Left earbud cutting out, customer requests refund",
+                "amount_cents": 12900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0783ba27590631a5006acf4c68f79487d189af9b90b3f893e0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund for the black wireless earbuds from order ORD-1119 has been processed due to the issue with the left earbud cutting out. If you need any further assistance, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0783ba27590631a5006acf4c6a3fb887d1bbf2ff943e7ed20c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1515,
+        "noCache": 235,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

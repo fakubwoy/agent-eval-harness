@@ -1,0 +1,46 @@
+{
+  "hash": "4ca39c424675891ad1147815faf52f81aab60ef72eebdd6f3cdedf8c9e25f99b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 583,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great, thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If you have any other questions or need further assistance, feel free to ask. Have a wonderful day!"
+      },
+      {
+        "type": "reasoning",
+        "text": "We can respond politely."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1453,
+        "noCache": 1453
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 34,
+        "reasoning": 6
+      }
+    }
+  }
+}

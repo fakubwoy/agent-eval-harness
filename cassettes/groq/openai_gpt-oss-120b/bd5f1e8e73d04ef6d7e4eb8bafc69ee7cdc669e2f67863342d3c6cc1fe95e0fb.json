@@ -1,0 +1,47 @@
+{
+  "hash": "bd5f1e8e73d04ef6d7e4eb8bafc69ee7cdc669e2f67863342d3c6cc1fe95e0fb",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 208,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, two things. First, can ORD-1143 go to my cabin instead? Address: Storgata 5, Lillehammer, 2609, Norway."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To update the shipping address for order **ORD‑1143**, could you please confirm the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1077,
+        "noCache": 53,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 52,
+        "text": 40,
+        "reasoning": 12
+      }
+    }
+  }
+}

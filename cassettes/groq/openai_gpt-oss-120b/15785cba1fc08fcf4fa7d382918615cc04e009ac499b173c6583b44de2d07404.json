@@ -1,0 +1,49 @@
+{
+  "hash": "15785cba1fc08fcf4fa7d382918615cc04e009ac499b173c6583b44de2d07404",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1748,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh right, the postcode is 00-850. Country is Poland."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have full address: line1 \"ul. Prosta 20\", city Warsaw, postal_code 00-850, country Poland. No line2 needed. Proceed to change_shipping_address."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_d0ab9a7b-4bb8-4f01-ab9c-3135064c28a5",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Warsaw\",\"country\":\"Poland\",\"line1\":\"ul. Prosta 20\",\"postal_code\":\"00-850\"},\"order_id\":\"ORD-1109\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1547,
+        "noCache": 267,
+        "cacheRead": 1280
+      },
+      "outputTokens": {
+        "total": 94,
+        "text": 53,
+        "reasoning": 41
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "26ff46c6326aab1f02598facedbd283620fb4b363848c19e3acfb41443b2aca3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1066,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, can you send ORD-1109 to my office instead? It's ul. Prosta 20, Warsaw."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you change the shipping address for that order! Before I proceed, I need to verify your identity first.\n\nCould you please provide your email address associated with the order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1992,
+        "noCache": 1992,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43
+      }
+    }
+  }
+}

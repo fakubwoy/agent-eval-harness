@@ -1,0 +1,80 @@
+{
+  "hash": "a2e9aa6497c635e1f2bebb8ce11bffe2e13421f99a8c83b5b5ea9c8c0f6111eb",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1166,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_CxKuC8nFEpOlugfB37i9TwQ7",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1135",
+              "customer_id": "C129",
+              "status": "shipped",
+              "placed_at": "2026-06-09T21:00:00Z",
+              "shipped_at": "2026-06-11T13:00:00Z",
+              "shipping_address": {
+                "line1": "Avenida Corrientes 1234",
+                "city": "Buenos Aires",
+                "postal_code": "C1043",
+                "country": "AR"
+              },
+              "items": [
+                {
+                  "sku": "MATE-KIT",
+                  "name": "Mate gourd and bombilla kit",
+                  "qty": 2,
+                  "unit_price_cents": 2800
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 5600
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0535f9ee8cb0fb92006acf4cb9667c87d1935093a794499a5a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1135 has been shipped on June 11, 2026. It has not been delivered yet. If you need any further assistance with this order, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0535f9ee8cb0fb92006acf4cba842487d1ab4052f324ed17d8"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1209,
+        "noCache": 1209,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 42,
+        "reasoning": 0
+      }
+    }
+  }
+}

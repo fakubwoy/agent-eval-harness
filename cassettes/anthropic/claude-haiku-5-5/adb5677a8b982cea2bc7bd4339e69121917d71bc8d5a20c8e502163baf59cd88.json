@@ -1,0 +1,44 @@
+{
+  "hash": "adb5677a8b982cea2bc7bd4339e69121917d71bc8d5a20c8e502163baf59cd88",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 994,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your order **ORD‑1141** has already been **shipped** (shipped on June 13, 2026). Let me know if you need anything else\u2014such as a delivery update, address change (if it hasn’t been delivered yet), or a refund request."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks, that's helpful! Now for my second question: I'd like a refund for just the wireless charger from order ORD-1142. It overheats, so I don't want it anymore. I'd like to keep the cable pack that came in the same order."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 534,
+        "noCache": 534,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 78,
+        "text": 78,
+        "reasoning": 0
+      }
+    }
+  }
+}

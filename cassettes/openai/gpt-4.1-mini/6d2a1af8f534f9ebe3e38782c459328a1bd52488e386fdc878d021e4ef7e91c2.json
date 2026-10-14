@@ -1,0 +1,48 @@
+{
+  "hash": "6d2a1af8f534f9ebe3e38782c459328a1bd52488e386fdc878d021e4ef7e91c2",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1195,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Order ORD-1147 shipped almost a month ago and never arrived. I'm done waiting."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with your order ORD-1147, could you please provide the email address you used for the purchase? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0fb9c73d3b98da0a006acf4c6eb59487d1ae95a7f6e07c8f8c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 894,
+        "noCache": 894,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 40,
+        "reasoning": 0
+      }
+    }
+  }
+}

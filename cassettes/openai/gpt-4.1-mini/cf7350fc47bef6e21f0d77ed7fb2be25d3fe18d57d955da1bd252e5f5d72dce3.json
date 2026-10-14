@@ -1,0 +1,66 @@
+{
+  "hash": "cf7350fc47bef6e21f0d77ed7fb2be25d3fe18d57d955da1bd252e5f5d72dce3",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 964,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_JBtyiYt3lfbZB0GU1Dmm2i33",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C132",
+              "name": "Jack Thompson",
+              "order_ids": [
+                "ORD-1138"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b840f1706eaaf85006acf4cb2ab9887d19c36717ae0820d61"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_uVcPBnGF9jPcQLtPG3YFbWZr",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1138\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b840f1706eaaf85006acf4cb3ac5487d1863ff64ed1aa15a1"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 990,
+        "noCache": 990,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

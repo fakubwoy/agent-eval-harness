@@ -1,0 +1,60 @@
+{
+  "hash": "cf6bca9833372e141bca5754b0a702cb0d9fa89b09d487e760d8d8b6cb1a1168",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 431,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5ef4df0d-9bc3-4f35-b2f7-b083b18d35e2",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C118",
+              "name": "Chen Wei",
+              "order_ids": [
+                "ORD-1123"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order belongs. Need to get order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_011ac16c-c4e8-4e74-8029-63d94f960825",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1123\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1206,
+        "noCache": 182,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 35,
+        "text": 22,
+        "reasoning": 13
+      }
+    }
+  }
+}

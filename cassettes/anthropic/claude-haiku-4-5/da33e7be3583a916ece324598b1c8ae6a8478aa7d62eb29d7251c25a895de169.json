@@ -1,0 +1,42 @@
+{
+  "hash": "da33e7be3583a916ece324598b1c8ae6a8478aa7d62eb29d7251c25a895de169",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1084,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, I'll ask again once it arrives."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! Just reach out once it's delivered, and I'll be happy to help with the refund. You'll have 30 days from the delivery date to request it. Thanks for your patience!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2490,
+        "noCache": 2490,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45
+      }
+    }
+  }
+}

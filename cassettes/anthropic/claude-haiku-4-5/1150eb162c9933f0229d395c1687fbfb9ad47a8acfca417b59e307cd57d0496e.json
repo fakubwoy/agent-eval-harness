@@ -1,0 +1,64 @@
+{
+  "hash": "1150eb162c9933f0229d395c1687fbfb9ad47a8acfca417b59e307cd57d0496e",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1374,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "diego.fernandez@example.com.ar"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01NbNpqfaXM8YXKD82GVAMh2",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"diego.fernandez@example.com.ar\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01AXB8Rm5CbFC7mLZr8D4Eya",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1135\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2028,
+        "noCache": 2028,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 106
+      }
+    }
+  }
+}

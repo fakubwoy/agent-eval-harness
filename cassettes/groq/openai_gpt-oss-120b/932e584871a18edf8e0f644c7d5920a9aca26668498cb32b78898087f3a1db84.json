@@ -1,0 +1,56 @@
+{
+  "hash": "932e584871a18edf8e0f644c7d5920a9aca26668498cb32b78898087f3a1db84",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 699,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_b664cb4c-0a91-4ab1-93d0-09c7618cc27e",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1119",
+                "sku": "EB-PRO-BLK",
+                "reason": "Left earbud cutting out",
+                "amount_cents": 12900,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund has been processed for the black earbuds (order ORD‑1119). You’ll receive **$129.00** back to your original payment method within 3\u20135 business days. If you have any other questions, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1946,
+        "noCache": 154,
+        "cacheRead": 1792
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 56
+      }
+    }
+  }
+}

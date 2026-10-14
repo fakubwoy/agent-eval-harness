@@ -1,0 +1,75 @@
+{
+  "hash": "6cc5f62706be4deb6a7d00df5ba00288d2f8aa0fc5c18916dbbe4a38512bb435",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 338,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_9ee0283c-249f-40fe-b883-ebeacca282fa",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1121",
+              "customer_id": "C116",
+              "status": "shipped",
+              "placed_at": "2026-06-08T11:00:00Z",
+              "shipped_at": "2026-06-10T07:30:00Z",
+              "shipping_address": {
+                "line1": "12 Kenyatta Avenue",
+                "city": "Nairobi",
+                "postal_code": "00100",
+                "country": "KE"
+              },
+              "items": [
+                {
+                  "sku": "SW-2",
+                  "name": "Smartwatch Series 2",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 19900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 19900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry, but ORD‑1121 has already been shipped, so we can’t change the shipping address at this point. If you need help tracking the package or arranging a redelivery with the carrier, just let me know and I’ll be happy to assist!"
+      },
+      {
+        "type": "reasoning",
+        "text": "Order status is \"shipped\". According to policy, address changes only before order has shipped. Since it's already shipped, cannot change address. Must inform politely. Offer to help with other things, maybe redirect to carrier."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1414,
+        "noCache": 390,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 109,
+        "text": 64,
+        "reasoning": 45
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "hash": "86e330a8da264c088227bcb550882439d33719dd10eb945b186d582958fd3359",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1054,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "sofia.rossi@example.it"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_zgOXPSwln555Fgk19jSPYr2k",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"sofia.rossi@example.it\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b7d9f8c2be091d2006acf4c79245c87d1b5be08d4111d9117"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 961,
+        "noCache": 961,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

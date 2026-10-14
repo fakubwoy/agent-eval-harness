@@ -1,0 +1,44 @@
+{
+  "hash": "2d1ef567f52b8bc2097d0cd386976ecb6b9347e5a11400a1bc27e35eb2354856",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1278,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi, I need help with a refund. The hair dryer I bought stopped working and I want my money back. My order number is ORD-1146. I already tried turning it on and off at the wall and it still won't work at all."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 340,
+        "noCache": 340,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 68,
+        "text": 68,
+        "reasoning": 0
+      }
+    }
+  }
+}

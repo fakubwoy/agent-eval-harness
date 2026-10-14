@@ -1,0 +1,49 @@
+{
+  "hash": "bd659460ec63da27f0053e013c2866d4f7edba68873bf57fb6101896664c58a3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 445,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "grace.okafor@example.ng"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we need to lookup customer by email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_6dd80f4e-2213-4b30-ac4d-f426d7f97066",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"grace.okafor@example.ng\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1114,
+        "noCache": 90,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 33,
+        "reasoning": 10
+      }
+    }
+  }
+}

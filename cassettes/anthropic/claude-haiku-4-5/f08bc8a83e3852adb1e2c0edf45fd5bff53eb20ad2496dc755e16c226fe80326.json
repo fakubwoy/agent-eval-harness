@@ -1,0 +1,42 @@
+{
+  "hash": "f08bc8a83e3852adb1e2c0edf45fd5bff53eb20ad2496dc755e16c226fe80326",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1049,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, my kettle from ORD-1120 started leaking. Can I get a refund?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with your refund request! First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1987,
+        "noCache": 1987,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "hash": "9b1561992a7893b7f5e4caa9e1c71ae4a1e34fd0391b0c6be94d48c4eff5f58e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 324,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, the headphones from order ORD-1042 stopped working. I want my money back."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get_order, check if order belongs to that customer, check status delivered, delivery date within 30 days from current date (2026-06-15). Need to see order details. First ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1061,
+        "noCache": 37,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 89,
+        "text": 30,
+        "reasoning": 59
+      }
+    }
+  }
+}

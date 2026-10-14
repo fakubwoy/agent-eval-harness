@@ -1,0 +1,54 @@
+{
+  "hash": "8c8e4f7892a144a32a211102507ca6fac5acc4e1ba415258d4b2e4dc50c641e6",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 588,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_62e3d1c1-c87c-4cfd-a868-04c627b03b40",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1103",
+              "shipping_address": {
+                "line1": "Carrer de Mallorca 210",
+                "city": "Barcelona",
+                "postal_code": "08008",
+                "country": "Spain"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your shipping address for order **ORD-1103** has been updated to:\n\nCarrer de Mallorca 210  \nBarcelona, 08008  \nSpain  \n\nLet me know if there’s anything else I can help you with!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1581,
+        "noCache": 1581
+      },
+      "outputTokens": {
+        "total": 49,
+        "text": 49
+      }
+    }
+  }
+}

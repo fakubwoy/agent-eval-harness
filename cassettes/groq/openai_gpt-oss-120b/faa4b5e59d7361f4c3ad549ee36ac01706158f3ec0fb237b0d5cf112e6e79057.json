@@ -1,0 +1,74 @@
+{
+  "hash": "faa4b5e59d7361f4c3ad549ee36ac01706158f3ec0fb237b0d5cf112e6e79057",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1418,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_e8a8501f-bc01-4a73-85e1-bac4eddc2d6a",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1042",
+              "customer_id": "C100",
+              "status": "delivered",
+              "placed_at": "2026-04-30T09:10:00Z",
+              "delivered_at": "2026-05-05T15:00:00Z",
+              "shipping_address": {
+                "line1": "12 MG Road",
+                "city": "Bengaluru",
+                "postal_code": "560001",
+                "country": "IN"
+              },
+              "items": [
+                {
+                  "sku": "HDPH-01",
+                  "name": "Wireless headphones",
+                  "qty": 1,
+                  "unit_price_cents": 349900
+                }
+              ],
+              "shipped_at": null,
+              "total_cents": 349900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry to hear the headphones stopped working. I’ve checked the order details, and it was delivered on May 5 2026. Our refund policy allows refunds only within 30 days of delivery, and that window has now passed.\n\nIf there’s anything else I can help with\u2014such as checking warranty options or speaking with a specialist\u2014just let me know!"
+      },
+      {
+        "type": "reasoning",
+        "text": "Check refund eligibility: delivered on 2026-05-05. Current date 2026-06-15. Difference is 41 days? Let's calculate: May 5 to June 15 = 41 days (May 5 to May 31 = 26 days, plus 15 = 41). That's beyond 30 days window. So cannot refund. Must politely explain. Also ask if they'd like to do anything else (maybe a replacement? but policy only refunds). We can offer to check warranty? Not in policy. So we should politely explain refund window passed, and offer to handoff to human if they want further assistance."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1406,
+        "noCache": 382,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 219,
+        "text": 87,
+        "reasoning": 132
+      }
+    }
+  }
+}

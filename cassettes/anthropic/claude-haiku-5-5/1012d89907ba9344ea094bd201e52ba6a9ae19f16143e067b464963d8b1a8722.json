@@ -1,0 +1,44 @@
+{
+  "hash": "1012d89907ba9344ea094bd201e52ba6a9ae19f16143e067b464963d8b1a8722",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1132,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The refund for the wireless charger from your order ORD-1142 has been processed successfully. You will keep the USB-C cable 3 pack from the same order. If you need any further assistance, feel free to ask!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you so much, that's great news! Just to be sure I understand: the refund is only for the wireless charger, and I'm keeping the USB-C cable 3 pack. Is there anything else I need to do on my end, like returning the charger?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 658,
+        "noCache": 658,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 78,
+        "text": 78,
+        "reasoning": 0
+      }
+    }
+  }
+}

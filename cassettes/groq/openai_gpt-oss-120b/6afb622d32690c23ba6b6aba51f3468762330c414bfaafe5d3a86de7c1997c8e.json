@@ -1,0 +1,55 @@
+{
+  "hash": "6afb622d32690c23ba6b6aba51f3468762330c414bfaafe5d3a86de7c1997c8e",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 284,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_b8c19dbc-29d2-4531-b0aa-a7dc7e16a8ff",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1105",
+                "sku": "MUG-SET4",
+                "reason": "Mug set arrived cracked",
+                "amount_cents": 3400,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your refund for the cracked mug set has been processed. You’ll receive **$34.00** back to your original payment method within 3\u20135 business days. If you need anything else, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1677,
+        "noCache": 1677
+      },
+      "outputTokens": {
+        "total": 49,
+        "text": 49
+      }
+    }
+  }
+}

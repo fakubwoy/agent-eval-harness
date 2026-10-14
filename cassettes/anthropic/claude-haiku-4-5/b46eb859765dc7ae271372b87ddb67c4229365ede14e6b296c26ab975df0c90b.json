@@ -1,0 +1,63 @@
+{
+  "hash": "b46eb859765dc7ae271372b87ddb67c4229365ede14e6b296c26ab975df0c90b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1055,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_018fZECHFniWkYK7mE2qm1vc",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1115",
+                "sku": "CAP-BLU",
+                "reason": "doesn't fit",
+                "amount_cents": 2400,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! Your refund has been approved for the baseball cap. You'll receive $24.00 back to your original payment method. The refund ID is RF-1 for your records.\n\nIs there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2717,
+        "noCache": 2717,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 55
+      }
+    }
+  }
+}

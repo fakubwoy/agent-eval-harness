@@ -1,0 +1,80 @@
+{
+  "hash": "f149311aa86f4f45c02432dd330f4c31d1bfe9d5315d63f8ec37a2a7bf05fb18",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 2023,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_UPT3B7mn2WcEIYe6hQ0gUlOK",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1146",
+              "customer_id": "C138",
+              "status": "delivered",
+              "placed_at": "2026-05-04T14:00:00Z",
+              "shipped_at": "2026-05-06T14:00:00Z",
+              "delivered_at": "2026-05-11T12:00:00Z",
+              "shipping_address": {
+                "line1": "2250 Larimer Street",
+                "city": "Denver",
+                "postal_code": "80205",
+                "country": "US"
+              },
+              "items": [
+                {
+                  "sku": "HD-ION",
+                  "name": "Ionic hair dryer",
+                  "qty": 1,
+                  "unit_price_cents": 7900
+                }
+              ],
+              "total_cents": 7900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0be15f8828f77338006acf5045f18087d1ac03c714d1601deb"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1146 with the Ionic hair dryer was delivered on May 11, 2026. Refunds are possible within 30 days of delivery. Since today is June 15, 2026, the refund window has unfortunately passed for this order. \n\nIf you have any other questions or need further assistance, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0be15f8828f77338006acf50473c1c87d1ad0abda0fc789204"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1180,
+        "noCache": 1180,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 73,
+        "text": 73,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "hash": "a8507111ecea991e815e0cb773d2cd8d7be4b11c3cfce5a40da4bf4096019e29",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1634,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01HatQ4uRfPHLFWB5oNwkGK4",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C107",
+              "name": "Olivia Brennan",
+              "order_ids": [
+                "ORD-1107",
+                "ORD-1108"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I found your account. You have two orders. Let me check them to find the desk lamp."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01HFSCzr3t91FcEuRopUM29j",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1107\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_015gWYTv73X6s7u3kGc4gMWN",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1108\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2172,
+        "noCache": 2172,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 126
+      }
+    }
+  }
+}

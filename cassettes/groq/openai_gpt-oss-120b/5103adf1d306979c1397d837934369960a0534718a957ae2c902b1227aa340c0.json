@@ -1,0 +1,47 @@
+{
+  "hash": "5103adf1d306979c1397d837934369960a0534718a957ae2c902b1227aa340c0",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 227,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my package hasn't arrived yet. Can you check where it is?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! Could you please provide the email address you used for your Northwind Goods account and the order number you’d like me to check?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Also need order ID. Ask clarifying question: email and order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1569,
+        "noCache": 545,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 65,
+        "text": 38,
+        "reasoning": 27
+      }
+    }
+  }
+}

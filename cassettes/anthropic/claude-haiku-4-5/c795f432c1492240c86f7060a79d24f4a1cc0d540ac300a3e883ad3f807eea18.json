@@ -1,0 +1,99 @@
+{
+  "hash": "c795f432c1492240c86f7060a79d24f4a1cc0d540ac300a3e883ad3f807eea18",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1685,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01NNK2ZMzxfcZrE3RiwKPEyR",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C116",
+              "name": "Wanjiru Kamau",
+              "order_ids": [
+                "ORD-1121"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01FiCtWkS47WHhrR2ZaPVqYu",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1121",
+              "customer_id": "C116",
+              "status": "shipped",
+              "placed_at": "2026-06-08T11:00:00Z",
+              "shipped_at": "2026-06-10T07:30:00Z",
+              "shipping_address": {
+                "line1": "12 Kenyatta Avenue",
+                "city": "Nairobi",
+                "postal_code": "00100",
+                "country": "KE"
+              },
+              "items": [
+                {
+                  "sku": "SW-2",
+                  "name": "Smartwatch Series 2",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 19900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 19900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I've verified your account. However, I'm unable to change the shipping address for ORD-1121 because it has already shipped (on June 10th). Address changes can only be made before an order ships.\n\nSince your order is in transit, you may want to contact the carrier directly to see if they can redirect it, or you could arrange to have it redelivered once it arrives. If you have other concerns about this order, I'm happy to help!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2400,
+        "noCache": 2400,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 103
+      }
+    }
+  }
+}

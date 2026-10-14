@@ -1,0 +1,42 @@
+{
+  "hash": "d36f6d6be3a044487aa4f0c15d3ad780f667fbe8a8cc98f6c38893605baf818d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1091,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I'd like to change the delivery address for ORD-1137 to Strada Lipscani 12, Bucharest, 030031, Romania."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you change the delivery address for that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2001,
+        "noCache": 2001,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39
+      }
+    }
+  }
+}

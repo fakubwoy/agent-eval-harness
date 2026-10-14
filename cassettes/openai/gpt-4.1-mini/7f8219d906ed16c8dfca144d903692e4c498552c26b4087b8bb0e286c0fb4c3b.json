@@ -1,0 +1,48 @@
+{
+  "hash": "7f8219d906ed16c8dfca144d903692e4c498552c26b4087b8bb0e286c0fb4c3b",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1121,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, what's the status of ORD-1135?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To help you with the status of order ORD-1135, could you please provide the email address you used for the order? This is to verify your identity and ensure your privacy.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0535f9ee8cb0fb92006acf4cb53f4c87d194f8f8f30f32dd69"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 887,
+        "noCache": 887,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 39,
+        "reasoning": 0
+      }
+    }
+  }
+}

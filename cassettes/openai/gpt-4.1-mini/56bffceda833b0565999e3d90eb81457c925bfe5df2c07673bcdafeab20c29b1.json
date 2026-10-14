@@ -1,0 +1,67 @@
+{
+  "hash": "56bffceda833b0565999e3d90eb81457c925bfe5df2c07673bcdafeab20c29b1",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1355,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_pxqS2N8TgUVOmFrQRlUHMbri",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1105",
+                "sku": "MUG-SET4",
+                "reason": "One of the mugs in the mug set arrived cracked, customer wants refund for the mug set only.",
+                "amount_cents": 3400,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c022fb4421cfa98006acf4c8081ac87d190b8dafc586b034c"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the ceramic mug set in order ORD-1105 has been processed due to the cracked mug. You will keep the wool blanket as requested. If you need any further assistance, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c022fb4421cfa98006acf4c81eb2c87d192e5086ddb58b2b7"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1333,
+        "noCache": 181,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 45,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "hash": "c2eb18fb10f19bd1eb566ade321e5363aa9ed9b33671fdf4c03f344c88c6beb9",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1053,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_hXlaTcDvHK0RvgMx4QYKHCL1",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C117",
+              "name": "Javier Ruiz",
+              "order_ids": [
+                "ORD-1122"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_029a2c394bcc4525006acf4ca5c1f087d18f29c5e74f1050a4"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_a4T5bxg38TTEChjZrRJs6DqG",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1122\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_029a2c394bcc4525006acf4ca6d4a487d182acc9cb84e0b8f5"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 991,
+        "noCache": 991,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

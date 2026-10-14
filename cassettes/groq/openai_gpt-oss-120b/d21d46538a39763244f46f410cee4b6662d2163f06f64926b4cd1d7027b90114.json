@@ -1,0 +1,48 @@
+{
+  "hash": "d21d46538a39763244f46f410cee4b6662d2163f06f64926b4cd1d7027b90114",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 231,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is lucia.moretti@example.it"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We need to lookup customer by email."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_b5819865-eb34-45ce-b8a9-fc1b77b1b8b0",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"lucia.moretti@example.it\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1131,
+        "noCache": 1131
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 32,
+        "reasoning": 9
+      }
+    }
+  }
+}

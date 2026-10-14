@@ -1,0 +1,48 @@
+{
+  "hash": "81f1f319ba898eb36b4a52899c3e33c962f53a3c87822683f513885501a42c4a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1302,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any more help in the future, just reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bd466d485c05438006acf4cae586087d1a75ba1dae25262c3"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1392,
+        "noCache": 112,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 24,
+        "text": 24,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "hash": "57b4f4a95fc2d62fa5230a2a8a2c9f3753f32bdd61dd3fd3832819077f20593c",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 894,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks for finding that. The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom. I don't have a second address line, so there's nothing to add there.\n\nAlso, I think there's another order with filters in it that I'd like to keep going to my old address. Could you make sure only the coffee grinder order is changed?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We have new address details. Need to change shipping address for ORD-1116. Ensure only that order. Use change_shipping_address tool."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_1ded438b-cc83-43c2-bd80-437eada8d373",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Manchester\",\"country\":\"United Kingdom\",\"line1\":\"27 Deansgate\",\"postal_code\":\"M3 4LQ\"},\"order_id\":\"ORD-1116\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1650,
+        "noCache": 626,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 82,
+        "text": 53,
+        "reasoning": 29
+      }
+    }
+  }
+}

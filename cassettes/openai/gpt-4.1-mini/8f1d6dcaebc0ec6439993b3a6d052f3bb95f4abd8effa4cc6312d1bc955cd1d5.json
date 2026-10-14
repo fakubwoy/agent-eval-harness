@@ -1,0 +1,91 @@
+{
+  "hash": "8f1d6dcaebc0ec6439993b3a6d052f3bb95f4abd8effa4cc6312d1bc955cd1d5",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1504,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_a6ckjH2Wm7iFuBOOxvUKpB8N",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1104",
+              "customer_id": "C104",
+              "status": "pending",
+              "placed_at": "2026-06-15T08:05:00Z",
+              "shipping_address": {
+                "line1": "14 Admiralty Way",
+                "city": "Lagos",
+                "postal_code": "106104",
+                "country": "NG"
+              },
+              "items": [
+                {
+                  "sku": "SPK-MINI",
+                  "name": "Bluetooth speaker",
+                  "qty": 2,
+                  "unit_price_cents": 4500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 9000
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_070bdb65e02ddad7006acf4c775f9087d1acc0383aa0d3fe9c"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1104 is still pending and has not shipped yet. I will proceed with canceling it for you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_070bdb65e02ddad7006acf4c787a5487d19c9d2a35d2380cdd"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_VlDLe2uC9vuAeW8fOyfSH2m4",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1104\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_070bdb65e02ddad7006acf4c78f70c87d1ac54cea161b814cf"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1128,
+        "noCache": 1128,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

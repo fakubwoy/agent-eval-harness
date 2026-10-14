@@ -1,0 +1,88 @@
+{
+  "hash": "cd13569f540a66674fbb4af684a6f7618b277f39e9a1801f346de33dab054214",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1276,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_fEDoKoC9ICJmukbzD43TSnjG",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1142",
+              "customer_id": "C135",
+              "status": "delivered",
+              "placed_at": "2026-05-31T05:00:00Z",
+              "shipped_at": "2026-06-02T06:00:00Z",
+              "delivered_at": "2026-06-06T10:00:00Z",
+              "shipping_address": {
+                "line1": "House 12, Street 5, F-7/2",
+                "city": "Islamabad",
+                "postal_code": "44000",
+                "country": "PK"
+              },
+              "items": [
+                {
+                  "sku": "WCH-15",
+                  "name": "Wireless charger 15W",
+                  "qty": 1,
+                  "unit_price_cents": 3500
+                },
+                {
+                  "sku": "CBL-3",
+                  "name": "USB-C cable 3 pack",
+                  "qty": 1,
+                  "unit_price_cents": 1500
+                }
+              ],
+              "total_cents": 5000
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_04435dd2ed5ecfa3006acf50542e3487d1be1c6a23c7065247"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_DXxiwjuOq67GJb7b76ra1YYk",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1142\",\"reason\":\"Wireless charger overheats, requesting refund for this item only\",\"sku\":\"WCH-15\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04435dd2ed5ecfa3006acf50556c6c87d18e00d68de80cfc24"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1509,
+        "noCache": 357,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 41,
+        "reasoning": 0
+      }
+    }
+  }
+}

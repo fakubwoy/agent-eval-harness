@@ -1,0 +1,64 @@
+{
+  "hash": "41e7a6df4481f38cfba50296fa2100d9bf87456f085b89b2b6458caa04b150c2",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1438,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is aiko.tanaka@example.jp"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Fk9cntyrCL59qGj7ncnhMs",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"aiko.tanaka@example.jp\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_0155jjie9CzzUGwKadTEdQHh",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1102\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2046,
+        "noCache": 2046,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

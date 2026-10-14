@@ -1,0 +1,51 @@
+{
+  "hash": "0e88530e82a12982762f61b74939d1f1168942c849b1e647635618989901f3c8",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1082,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "And second, please cancel ORD-1144, I found socks at home."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01TWs96nJj16BDfzkjF8k5Kv",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1144\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2650,
+        "noCache": 2650,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 61
+      }
+    }
+  }
+}

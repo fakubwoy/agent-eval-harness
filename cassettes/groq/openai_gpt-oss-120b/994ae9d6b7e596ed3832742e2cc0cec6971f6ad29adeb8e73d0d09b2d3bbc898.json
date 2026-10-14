@@ -1,0 +1,76 @@
+{
+  "hash": "994ae9d6b7e596ed3832742e2cc0cec6971f6ad29adeb8e73d0d09b2d3bbc898",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 459,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5dfecc2d-7382-4ed6-a7f2-5455478325db",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1143",
+              "customer_id": "C136",
+              "status": "pending",
+              "placed_at": "2026-06-14T09:00:00Z",
+              "shipping_address": {
+                "line1": "Karl Johans gate 22",
+                "city": "Oslo",
+                "postal_code": "0159",
+                "country": "NO"
+              },
+              "items": [
+                {
+                  "sku": "GOG-1",
+                  "name": "Ski goggles",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order belongs to customer. Status pending, not shipped yet, so address change allowed. Need full address fields: line1, city, postal_code, country. Provided: \"Storgata 5, Lillehammer, 2609, Norway\". So line1 = Storgata 5, city = Lillehammer, postal_code = 2609, country = Norway. Confirm? Probably okay. Proceed to change shipping address."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_d969f1bc-b565-456f-9211-c8915612d219",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Lillehammer\",\"country\":\"Norway\",\"line1\":\"Storgata 5\",\"postal_code\":\"2609\"},\"order_id\":\"ORD-1143\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1377,
+        "noCache": 353,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 164,
+        "text": 76,
+        "reasoning": 88
+      }
+    }
+  }
+}

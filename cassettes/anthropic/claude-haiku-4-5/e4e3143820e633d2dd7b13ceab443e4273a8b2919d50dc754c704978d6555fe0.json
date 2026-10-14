@@ -1,0 +1,42 @@
+{
+  "hash": "e4e3143820e633d2dd7b13ceab443e4273a8b2919d50dc754c704978d6555fe0",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1133,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please cancel my order."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you cancel your order. To get started, could you please provide your email address so I can verify your account and locate your order?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1970,
+        "noCache": 1970,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38
+      }
+    }
+  }
+}

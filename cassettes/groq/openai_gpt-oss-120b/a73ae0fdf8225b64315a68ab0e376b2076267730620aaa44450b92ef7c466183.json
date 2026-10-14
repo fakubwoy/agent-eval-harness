@@ -1,0 +1,60 @@
+{
+  "hash": "a73ae0fdf8225b64315a68ab0e376b2076267730620aaa44450b92ef7c466183",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1175,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_b792a94f-d2bf-48d4-bbee-c4f196ed0df6",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C109",
+              "name": "Ravi Menon",
+              "order_ids": [
+                "ORD-1110"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs. Use get_order for ORD-1110."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_e0fb4e52-44d8-456a-80f0-c9710171d529",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1110\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1214,
+        "noCache": 190,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 37,
+        "text": 22,
+        "reasoning": 15
+      }
+    }
+  }
+}

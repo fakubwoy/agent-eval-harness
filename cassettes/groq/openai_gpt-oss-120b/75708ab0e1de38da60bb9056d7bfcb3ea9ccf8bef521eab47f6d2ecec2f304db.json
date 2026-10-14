@@ -1,0 +1,60 @@
+{
+  "hash": "75708ab0e1de38da60bb9056d7bfcb3ea9ccf8bef521eab47f6d2ecec2f304db",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 349,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_446a191d-b921-4747-812c-c39795a03bad",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C119",
+              "name": "Hannah Schmidt",
+              "order_ids": [
+                "ORD-1124"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer (it does). Need to get order details to see status and delivery date."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_259b3dfe-4566-4368-9bb2-f903cd336b4c",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1124\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1214,
+        "noCache": 190,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 22,
+        "reasoning": 24
+      }
+    }
+  }
+}

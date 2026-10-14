@@ -1,0 +1,47 @@
+{
+  "hash": "becae9edb122a71cd434ee20dd5dcecb3aa61477ac4cd23c74c77da041d26b9d",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 215,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, what's the status of ORD-1135?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! Could you please provide the email address associated with your account? This will help me locate order ORD‑1135 for you."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1053,
+        "noCache": 29,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 38,
+        "reasoning": 12
+      }
+    }
+  }
+}

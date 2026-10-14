@@ -1,0 +1,42 @@
+{
+  "hash": "de1f94ef385bca2f5d19607dc237cd843189b54a46c90a18ec553bb81b72d485",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 371,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! Have a great day."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1706,
+        "noCache": 682,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13
+      }
+    }
+  }
+}

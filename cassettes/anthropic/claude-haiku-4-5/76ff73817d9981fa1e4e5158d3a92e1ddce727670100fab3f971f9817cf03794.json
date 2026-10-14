@@ -1,0 +1,42 @@
+{
+  "hash": "76ff73817d9981fa1e4e5158d3a92e1ddce727670100fab3f971f9817cf03794",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 965,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh, okay. I'll arrange something with the courier then. Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! Good luck with the courier. If you need anything else, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2521,
+        "noCache": 2521,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 30
+      }
+    }
+  }
+}

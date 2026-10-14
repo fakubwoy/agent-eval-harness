@@ -1,0 +1,88 @@
+{
+  "hash": "632ad4340f08e86c4687f50df7eb790aa7966f41d60e785092b1faf3b317d60a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 736,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_9d5d916a-14ee-462c-b400-7f4207b1e3a1",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1115",
+              "customer_id": "C112",
+              "status": "delivered",
+              "placed_at": "2026-06-02T22:00:00Z",
+              "shipped_at": "2026-06-04T12:00:00Z",
+              "delivered_at": "2026-06-09T16:00:00Z",
+              "shipping_address": {
+                "line1": "Rua Augusta 1500",
+                "city": "Sao Paulo",
+                "postal_code": "01304-001",
+                "country": "BR"
+              },
+              "items": [
+                {
+                  "sku": "HD-BLU-M",
+                  "name": "Zip hoodie (M)",
+                  "color": "blue",
+                  "qty": 1,
+                  "unit_price_cents": 5900
+                },
+                {
+                  "sku": "CAP-BLU",
+                  "name": "Baseball cap",
+                  "color": "blue",
+                  "qty": 1,
+                  "unit_price_cents": 2400
+                },
+                {
+                  "sku": "TS-RED-M",
+                  "name": "Cotton t-shirt (M)",
+                  "color": "red",
+                  "qty": 1,
+                  "unit_price_cents": 1900
+                }
+              ],
+              "total_cents": 10200
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I see the order was delivered on June 9, so it’s still within the 30‑day return window. Could you let me know which blue item you’d like to return\u2014the zip hoodie (SKU HD‑BLU‑M) or the baseball cap (SKU CAP‑BLU)?"
+      },
+      {
+        "type": "reasoning",
+        "text": "The order is delivered on 2026-06-09. Today is 2026-06-15, within 30 days. So refund possible. Need to know which item is \"the blue one\". There are two blue items: Zip hoodie (M) and Baseball cap. Customer said \"the blue one\". Could be ambiguous. Ask clarifying which SKU."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1507,
+        "noCache": 1507
+      },
+      "outputTokens": {
+        "total": 147,
+        "text": 71,
+        "reasoning": 76
+      }
+    }
+  }
+}

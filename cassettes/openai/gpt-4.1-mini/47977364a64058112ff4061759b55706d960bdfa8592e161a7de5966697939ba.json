@@ -1,0 +1,59 @@
+{
+  "hash": "47977364a64058112ff4061759b55706d960bdfa8592e161a7de5966697939ba",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1735,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Sure. My email is thomas.wright@example.co.uk. I don't have the order ID to hand, I'm afraid. It's the order with the coffee grinder in it. The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for the information. I will first look up your orders using your email address to find the relevant order with the coffee grinder.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_02dd2d82538ced64006acf5044f01887d1a591d7bd7e2701a2"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_SDQgncCNaoQNMaKXoHgBrLbI",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"thomas.wright@example.co.uk\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_02dd2d82538ced64006acf504598e087d1a630356f107f071f"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1012,
+        "noCache": 1012,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 50,
+        "reasoning": 0
+      }
+    }
+  }
+}

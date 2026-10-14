@@ -1,0 +1,50 @@
+{
+  "hash": "b5389500d7861dacfdda08211d7e9b050e3a48fc7627d75c49ec927b49952421",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 938,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "jack.thompson@example.co.nz"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_JBtyiYt3lfbZB0GU1Dmm2i33",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"jack.thompson@example.co.nz\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b840f1706eaaf85006acf4cb2ab9887d19c36717ae0820d61"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 943,
+        "noCache": 943,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

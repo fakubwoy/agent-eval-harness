@@ -1,0 +1,50 @@
+{
+  "hash": "cdc1545a474e4c959b28055019fc6d663de3c7d2276ae1c484f8f0349242a5dc",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1360,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "isabella.costa@example.br"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_1THcHJrJ0xJFEaCUG438czwe",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"isabella.costa@example.br\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0965f226a38eb8a7006acf4c6462c487d18be80211ed5e27e4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 944,
+        "noCache": 944,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

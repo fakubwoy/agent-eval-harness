@@ -1,0 +1,48 @@
+{
+  "hash": "45c81c9efc8f028fd86f59a32c3a4dd8e29edc606321124b504dcf2d96ddc0d1",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1450,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, one of the mugs in the mug set from ORD-1105 arrived cracked. I want to keep the blanket, so please refund just the mug set."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for the mug set in order ORD-1105, I first need to verify your identity. Could you please provide the email address you used for this order?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c022fb4421cfa98006acf4c7c708887d186dceb7055dae0b0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 909,
+        "noCache": 909,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 40,
+        "reasoning": 0
+      }
+    }
+  }
+}

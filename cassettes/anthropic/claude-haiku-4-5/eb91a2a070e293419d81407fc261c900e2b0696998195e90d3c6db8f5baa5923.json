@@ -1,0 +1,42 @@
+{
+  "hash": "eb91a2a070e293419d81407fc261c900e2b0696998195e90d3c6db8f5baa5923",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1346,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, please go ahead."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm ready to help! What would you like me to do? For example, I can help you with:\n\n- Checking the status of another order\n- Requesting a refund for a delivered order\n- Changing the shipping address for an order that hasn't shipped yet\n- Cancelling another order\n\nWhat do you need?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2518,
+        "noCache": 2518,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 74
+      }
+    }
+  }
+}

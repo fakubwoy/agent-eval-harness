@@ -1,0 +1,42 @@
+{
+  "hash": "4b6092b149ecd8c930d385b0c680bf5dbe56b80b111f5d76242646e64a83ecbe",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 1088,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please change the delivery address for ORD-1149 to Via Garibaldi 8, Genoa, 16124, Italy."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you change the delivery address for that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1997,
+        "noCache": 1997,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39
+      }
+    }
+  }
+}

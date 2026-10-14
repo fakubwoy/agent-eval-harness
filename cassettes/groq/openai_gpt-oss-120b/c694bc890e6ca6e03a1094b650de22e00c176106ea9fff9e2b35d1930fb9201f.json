@@ -1,0 +1,68 @@
+{
+  "hash": "c694bc890e6ca6e03a1094b650de22e00c176106ea9fff9e2b35d1930fb9201f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-order-status",
+  "trial": 1,
+  "latency_ms": 594,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_0ae68809-8a93-49e1-883c-9fd938226da3",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1101",
+              "customer_id": "C101",
+              "status": "shipped",
+              "placed_at": "2026-06-10T08:15:00Z",
+              "shipped_at": "2026-06-12T14:30:00Z",
+              "shipping_address": {
+                "line1": "8 Rue des Lilas",
+                "city": "Lyon",
+                "postal_code": "69003",
+                "country": "FR"
+              },
+              "items": [
+                {
+                  "sku": "ESP-200",
+                  "name": "Espresso machine",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order **ORD-1101** is currently **shipped**. It left our warehouse on June 12, 2026. Once it’s delivered, you’ll receive a confirmation email with tracking details.\n\nIf you need anything else\u2014such as tracking info, a delivery estimate, or help with a return\u2014just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1369,
+        "noCache": 1369
+      },
+      "outputTokens": {
+        "total": 74,
+        "text": 74
+      }
+    }
+  }
+}

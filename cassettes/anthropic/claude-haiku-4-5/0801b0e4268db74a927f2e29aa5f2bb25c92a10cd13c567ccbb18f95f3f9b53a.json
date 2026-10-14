@@ -1,0 +1,51 @@
+{
+  "hash": "0801b0e4268db74a927f2e29aa5f2bb25c92a10cd13c567ccbb18f95f3f9b53a",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 2587,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01KWFBCzyxBsLnF1QsCFkSoN",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Order ORD-1147 shipped nearly a month ago (May 18) and has not been delivered. Customer is frustrated and threatening chargeback/legal action. Requires investigation into shipment status and escalated resolution options beyond standard refund/cancellation policies.\",\"summary\":\"Viktor Horvat (viktor.horvat@example.hr) - Order ORD-1147: Aero road bike helmet (€159.00) shipped to Zagreb, HR on May 18, 2026. Still showing as \\\"shipped\\\" with no delivery confirmation after ~28 days. Customer requests immediate resolution.\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2700,
+        "noCache": 2700,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 197
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "9f921cf0a2916dc494eaa9175930f7cbcac58af4f5f68e76f53905c819418e4f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1262,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ah, I missed it by a day. Okay, I understand, thanks anyway."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome, and I'm sorry we couldn't help with the refund this time. If you have any other questions or need assistance with anything else, feel free to reach out. Thanks for shopping with Northwind Goods!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2754,
+        "noCache": 2754,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 51
+      }
+    }
+  }
+}

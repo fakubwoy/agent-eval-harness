@@ -1,0 +1,47 @@
+{
+  "hash": "f569e0a99ed0dda0deaa3d371873141844a63d36c3c76a0a20b39283ad366485",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 857,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please cancel ORD-1138, I ordered the wrong size."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To keep your account secure, could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1055,
+        "noCache": 31,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 33,
+        "reasoning": 12
+      }
+    }
+  }
+}

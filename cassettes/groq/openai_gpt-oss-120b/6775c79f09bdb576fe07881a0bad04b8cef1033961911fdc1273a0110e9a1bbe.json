@@ -1,0 +1,47 @@
+{
+  "hash": "6775c79f09bdb576fe07881a0bad04b8cef1033961911fdc1273a0110e9a1bbe",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 561,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I just moved. Can you change the shipping address on ORD-1103?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To keep your account secure, could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, verify belongs to them, check status (not shipped). Then ask for new address details. So first ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1060,
+        "noCache": 36,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 76,
+        "text": 33,
+        "reasoning": 43
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "hash": "b412e77619f8a8311154ecef9d63ac18ec9135af9a6fc5f2605cde0f1dc368ff",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1800,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01B7bQzL9ks9V8yMEiQkw3sL",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "REFUND_WINDOW_EXPIRED",
+                "message": "Order ORD-1120 was delivered more than 30 days ago"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I apologize, but unfortunately your order is outside our 30-day refund window. Your kettle was delivered on May 15, 2026, and today is June 15, 2026 \u2014 exactly 31 days ago. Our refund policy allows refunds only within 30 days of delivery.\n\nI understand this is frustrating given the defect. Would you like me to connect you with a human agent who may be able to explore other options for you?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2627,
+        "noCache": 2627,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

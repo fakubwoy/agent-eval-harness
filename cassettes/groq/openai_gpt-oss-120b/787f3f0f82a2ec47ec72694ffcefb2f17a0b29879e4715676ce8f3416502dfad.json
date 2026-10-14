@@ -1,0 +1,77 @@
+{
+  "hash": "787f3f0f82a2ec47ec72694ffcefb2f17a0b29879e4715676ce8f3416502dfad",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 814,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_0bdbe0ab-e07a-452e-a2ac-955002373c76",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1107",
+              "customer_id": "C107",
+              "status": "delivered",
+              "placed_at": "2026-06-01T19:00:00Z",
+              "shipped_at": "2026-06-03T09:00:00Z",
+              "delivered_at": "2026-06-08T11:00:00Z",
+              "shipping_address": {
+                "line1": "22 Harcourt Street",
+                "city": "Dublin",
+                "postal_code": "D02 H210",
+                "country": "IE"
+              },
+              "items": [
+                {
+                  "sku": "LMP-ARC",
+                  "name": "Arc desk lamp",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 6450
+                }
+              ],
+              "total_cents": 6450
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now ORD-1108."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_1dc8e965-b134-4dfd-9994-27d0dd13e870",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1108\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1492,
+        "noCache": 468,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 22,
+        "reasoning": 7
+      }
+    }
+  }
+}

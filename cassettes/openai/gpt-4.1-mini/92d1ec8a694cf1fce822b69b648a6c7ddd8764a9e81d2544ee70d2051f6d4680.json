@@ -1,0 +1,48 @@
+{
+  "hash": "92d1ec8a694cf1fce822b69b648a6c7ddd8764a9e81d2544ee70d2051f6d4680",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1120,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, can you send ORD-1109 to my office instead? It's ul. Prosta 20, Warsaw."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To help you with changing the shipping address for order ORD-1109, may I please have your email address to verify your identity?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cee108f6b55542a006acf4c912b8c87d1b0554c5ec8ecbacf"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 900,
+        "noCache": 900,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

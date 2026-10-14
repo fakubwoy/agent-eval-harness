@@ -1,0 +1,127 @@
+{
+  "hash": "b7acac7cdda0b7198bb81e6958328e0d04fc796b26414963bb031bf686b5306f",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 2553,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_AuRpfvcuf95Zzxg00KPXY6x4",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1116",
+              "customer_id": "C113",
+              "status": "pending",
+              "placed_at": "2026-06-14T07:50:00Z",
+              "shipping_address": {
+                "line1": "9 Kingsway",
+                "city": "London",
+                "postal_code": "WC2B 6XF",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "GRD-BURR",
+                  "name": "Burr coffee grinder",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 8900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_02dd2d82538ced64006acf5047326087d1b56976a42c8311d3"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_8PJV0bGfl5zC3owhqQkZVCoZ",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1117",
+              "customer_id": "C113",
+              "status": "pending",
+              "placed_at": "2026-06-14T08:05:00Z",
+              "shipping_address": {
+                "line1": "9 Kingsway",
+                "city": "London",
+                "postal_code": "WC2B 6XF",
+                "country": "GB"
+              },
+              "items": [
+                {
+                  "sku": "FLT-100",
+                  "name": "Paper coffee filters (100 pack)",
+                  "qty": 3,
+                  "unit_price_cents": 450
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 1350
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_02dd2d82538ced64006acf5047327487d19fa0ce9269afb60f"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I found your order with the coffee grinder (Order ID ORD-1116), and it has not shipped yet. I can update the shipping address for this order to 27 Deansgate, Manchester, M3 4LQ, United Kingdom. I will proceed with the change now.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_02dd2d82538ced64006acf504892a887d1bea0fa461fd2df1a"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_fP8OrbIWnReuAxX0JGvvuyLi",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1116\",\"address\":{\"line1\":\"27 Deansgate\",\"city\":\"Manchester\",\"postal_code\":\"M3 4LQ\",\"country\":\"GB\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_02dd2d82538ced64006acf504979ac87d1b01424ee1987331b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1371,
+        "noCache": 347,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 109,
+        "text": 109,
+        "reasoning": 0
+      }
+    }
+  }
+}

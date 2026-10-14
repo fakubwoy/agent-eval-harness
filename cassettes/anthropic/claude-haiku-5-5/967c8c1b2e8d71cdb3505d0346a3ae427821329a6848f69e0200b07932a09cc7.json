@@ -1,0 +1,44 @@
+{
+  "hash": "967c8c1b2e8d71cdb3505d0346a3ae427821329a6848f69e0200b07932a09cc7",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 733,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Done! Your refund has been processed:\n\n- **Refund ID:** RF-1\n- **Item:** Wireless charger 15W\n- **Amount:** $35.00\n- **Reason:** Wireless charger overheats\n\nYou'll keep the USB-C cable 3 pack. The refund should appear in your account within a few business days. Is there anything else I can help with?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 766,
+        "noCache": 766,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "hash": "4579b4dc2d1c8af53a5092487f994c1ba899872f3448631c669c76950130c5d7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1190,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_NkdtDZu8R795ehcDgq4T4z6n",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1110",
+              "customer_id": "C109",
+              "status": "pending",
+              "placed_at": "2026-06-14T06:40:00Z",
+              "shipping_address": {
+                "line1": "17 Cathedral Road",
+                "city": "Chennai",
+                "postal_code": "600086",
+                "country": "IN"
+              },
+              "items": [
+                {
+                  "sku": "PC-5L",
+                  "name": "Pressure cooker 5L",
+                  "qty": 1,
+                  "unit_price_cents": 5499
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 5499
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_08edeb51d3e24b21006acf504858bc87d1b1304fc6ff5a2c99"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1110 is still pending and has not shipped yet. I will proceed with canceling it for you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_08edeb51d3e24b21006acf5049496887d1aed836ec7c510457"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_z1Kl0IccwtRgoEF5HjgJ6CP2",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1110\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_08edeb51d3e24b21006acf50499cb487d1b0928574948df58b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1128,
+        "noCache": 1128,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 46,
+        "text": 46,
+        "reasoning": 0
+      }
+    }
+  }
+}

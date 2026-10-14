@@ -1,0 +1,48 @@
+{
+  "hash": "4377715ad7bb0e454d66fbdffa126e3bb60d45ece2df27ad9f2fd333c70b26c3",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1294,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, keep the order and use the new address."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The order will be kept and shipped to your new address as requested. If you have any other questions or need help, just let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0f3611daed4faded006acf4ca20d4887d1b4f03d483d8eef3a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1399,
+        "noCache": 119,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 31,
+        "text": 31,
+        "reasoning": 0
+      }
+    }
+  }
+}

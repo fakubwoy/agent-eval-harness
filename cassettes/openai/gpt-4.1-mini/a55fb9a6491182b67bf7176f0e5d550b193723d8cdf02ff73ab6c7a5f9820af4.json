@@ -1,0 +1,48 @@
+{
+  "hash": "a55fb9a6491182b67bf7176f0e5d550b193723d8cdf02ff73ab6c7a5f9820af4",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1136,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, I cancelled ORD-1125 last week, but I want to make sure I get my money back. Please issue the refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the refund for order ORD-1125, could you please provide your email address for verification? This is to ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bbaba6622a2d776006acf4caa518887d1ad58626684298d33"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 904,
+        "noCache": 904,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35,
+        "text": 35,
+        "reasoning": 0
+      }
+    }
+  }
+}

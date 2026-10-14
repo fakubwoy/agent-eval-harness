@@ -1,0 +1,75 @@
+{
+  "hash": "ee5a889ca49be1987eb20caebe61da8907472f417b41048e5a01571323515b34",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 916,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_bdc1a393-b266-439f-890d-01dfce756b8e",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1120",
+              "customer_id": "C115",
+              "status": "delivered",
+              "placed_at": "2026-05-08T10:00:00Z",
+              "shipped_at": "2026-05-11T08:00:00Z",
+              "delivered_at": "2026-05-15T09:00:00Z",
+              "shipping_address": {
+                "line1": "Drottninggatan 53",
+                "city": "Stockholm",
+                "postal_code": "111 21",
+                "country": "SE"
+              },
+              "items": [
+                {
+                  "sku": "KTL-17",
+                  "name": "Electric kettle 1.7L",
+                  "color": "steel",
+                  "qty": 1,
+                  "unit_price_cents": 4900
+                }
+              ],
+              "total_cents": 4900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m sorry to hear the kettle is leaking. I’ve confirmed that ORD‑1120 was delivered on 15 May 2026, which is just outside our 30‑day refund window (the request is being made 31 days after delivery). Unfortunately, we aren’t able to process a refund for this order.\n\nIf you’d like, I can help you arrange a repair or replacement through our warranty service, or connect you with a human agent for further assistance. Please let me know how you’d like to proceed."
+      },
+      {
+        "type": "reasoning",
+        "text": "Order belongs to customer, status delivered, delivered_at 2026-05-15. Current date 2026-06-15, that's exactly 31 days? Let's calculate: from May 15 to June 15 is 31 days (May has 31 days). So it's outside 30-day window. So cannot refund. Must explain politely."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1433,
+        "noCache": 409,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 191,
+        "text": 118,
+        "reasoning": 73
+      }
+    }
+  }
+}

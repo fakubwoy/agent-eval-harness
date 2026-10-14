@@ -1,0 +1,66 @@
+{
+  "hash": "cd84b63045e09b9f5aac05752ba51dabf20b761e7b28d832714d7344da77c763",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1021,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_w635qGvamPHPwrzGBFKlTxkk",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C120",
+              "name": "Fatima Zahra Benali",
+              "order_ids": [
+                "ORD-1125"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bbaba6622a2d776006acf4cab837087d1bcda37d4b07ff1a0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_ltio4VoRqtSe3PXPYwL9iNup",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1125\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bbaba6622a2d776006acf4cac9c0487d18e528577fd056577"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1003,
+        "noCache": 1003,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

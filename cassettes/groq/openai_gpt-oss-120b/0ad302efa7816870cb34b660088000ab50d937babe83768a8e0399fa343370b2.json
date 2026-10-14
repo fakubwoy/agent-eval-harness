@@ -1,0 +1,49 @@
+{
+  "hash": "0ad302efa7816870cb34b660088000ab50d937babe83768a8e0399fa343370b2",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 2921,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "ravi.menon@example.in"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_b792a94f-d2bf-48d4-bbee-c4f196ed0df6",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"ravi.menon@example.in\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1145,
+        "noCache": 121,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 33,
+        "reasoning": 10
+      }
+    }
+  }
+}

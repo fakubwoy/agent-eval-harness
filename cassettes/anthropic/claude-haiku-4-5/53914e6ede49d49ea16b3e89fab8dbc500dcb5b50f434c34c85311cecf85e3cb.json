@@ -1,0 +1,61 @@
+{
+  "hash": "53914e6ede49d49ea16b3e89fab8dbc500dcb5b50f434c34c85311cecf85e3cb",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1108,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01DWpuLjXAVN1Qik5SuaiuDs",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C113",
+              "name": "Thomas Wright",
+              "order_ids": [
+                "ORD-1116",
+                "ORD-1117"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I found your account, Thomas. You have two orders. Which order would you like to change the shipping address for?\n\n- ORD-1116\n- ORD-1117"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2145,
+        "noCache": 2145,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 45
+      }
+    }
+  }
+}

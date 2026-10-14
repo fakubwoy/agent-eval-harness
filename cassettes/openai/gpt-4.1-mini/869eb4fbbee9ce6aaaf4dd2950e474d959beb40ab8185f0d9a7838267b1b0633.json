@@ -1,0 +1,67 @@
+{
+  "hash": "869eb4fbbee9ce6aaaf4dd2950e474d959beb40ab8185f0d9a7838267b1b0633",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1424,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_0bYuW9LMbxtGs1eqCuyNpTvo",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "refund": {
+                "id": "RF-1",
+                "order_id": "ORD-1107",
+                "sku": "LMP-ARC",
+                "reason": "Desk lamp arrived with a broken switch",
+                "amount_cents": 6450,
+                "created_at": "2026-06-15T12:00:00Z"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0aaa76e34e126238006acf4c99e5f087d1b073b722d22adf8e"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The refund for the black arc desk lamp due to the broken switch has been processed. You should see the amount of €64.50 returned to your original payment method shortly. Is there anything else I can assist you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0aaa76e34e126238006acf4c9b199887d188dbbf2042dad8e9"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1563,
+        "noCache": 155,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 47,
+        "text": 47,
+        "reasoning": 0
+      }
+    }
+  }
+}

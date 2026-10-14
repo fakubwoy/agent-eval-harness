@@ -1,0 +1,46 @@
+{
+  "hash": "3b253fd3abc9d8c7f3573c6c2405fb46d3a1e5815d97c026b078ace2c5745977",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 616,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "mei.lin@example.sg"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Mei. Could you also share the order ID for the earbuds you’d like to refund? This will let me check the order details."
+      },
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Need order ID. Ask for order ID."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1157,
+        "noCache": 1157
+      },
+      "outputTokens": {
+        "total": 54,
+        "text": 39,
+        "reasoning": 15
+      }
+    }
+  }
+}

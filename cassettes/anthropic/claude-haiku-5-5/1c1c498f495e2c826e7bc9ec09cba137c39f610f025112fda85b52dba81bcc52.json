@@ -1,0 +1,53 @@
+{
+  "hash": "1c1c498f495e2c826e7bc9ec09cba137c39f610f025112fda85b52dba81bcc52",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 2232,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The shipping address for your order with the coffee grinder has been updated to 27 Deansgate, Manchester, M3 4LQ, United Kingdom. Is there anything else I can assist you with?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "",
+        "providerMetadata": {
+          "anthropic": {
+            "signature": "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"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 631,
+        "noCache": 631,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 321,
+        "text": 7,
+        "reasoning": 314
+      }
+    }
+  }
+}

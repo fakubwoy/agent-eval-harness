@@ -1,0 +1,64 @@
+{
+  "hash": "4f192f2de7aba8e4e1e81d5ebaaebb07e4a6a23176e6af2ade4f9a3281fc1725",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1406,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is ingrid.berg@example.no"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_0186YpAC7y2xz7uQseroegy2",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"ingrid.berg@example.no\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Kgc4nXCGGRuxk5dBEYMfHL",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1143\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2055,
+        "noCache": 2055,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 104
+      }
+    }
+  }
+}

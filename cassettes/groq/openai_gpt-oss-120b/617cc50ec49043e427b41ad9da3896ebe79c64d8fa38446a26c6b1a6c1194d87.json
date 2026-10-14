@@ -1,0 +1,49 @@
+{
+  "hash": "617cc50ec49043e427b41ad9da3896ebe79c64d8fa38446a26c6b1a6c1194d87",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 201,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "daniel.kowalski@example.pl"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Need to lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_aebe8627-8dfb-4fb0-b7d4-e6a2668e173b",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"daniel.kowalski@example.pl\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1167,
+        "noCache": 143,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 34,
+        "reasoning": 11
+      }
+    }
+  }
+}

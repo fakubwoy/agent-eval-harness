@@ -1,0 +1,72 @@
+{
+  "hash": "19e8910073cf7523906246ab16039698692525753bc67b8a8c7c60e8608e69ec",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 2206,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01XM7YYjX3x5Wtb5hSPmprYn",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "cancel_order timed out after 10000 ms"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm experiencing a technical issue with the cancellation system. Let me hand this over to a human agent who can help you right away."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01UYzraR9cEZBoDmkxotGkuk",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Cancel order tool failed twice with timeout errors\",\"summary\":\"Customer Jack Thompson (jack.thompson@example.co.nz) wants to cancel ORD-1138 (Wetsuit 3mm size L, $189.00) because they ordered the wrong size. Order is still pending and eligible for cancellation. System timeouts prevented completion.\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2587,
+        "noCache": 2587,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 170
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "hash": "05e3ad7e3149e241d19efe90ab62de8291fa6a7f6284ad9584d3c4da3e1b7a16",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1468,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_SDQgncCNaoQNMaKXoHgBrLbI",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C113",
+              "name": "Thomas Wright",
+              "order_ids": [
+                "ORD-1116",
+                "ORD-1117"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_02dd2d82538ced64006acf504598e087d1a630356f107f071f"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_AuRpfvcuf95Zzxg00KPXY6x4",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1116\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_02dd2d82538ced64006acf5047326087d1b56976a42c8311d3"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_8PJV0bGfl5zC3owhqQkZVCoZ",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1117\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_02dd2d82538ced64006acf5047327487d19fa0ce9269afb60f"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1093,
+        "noCache": 1093,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 53,
+        "text": 53,
+        "reasoning": 0
+      }
+    }
+  }
+}

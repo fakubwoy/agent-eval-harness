@@ -1,0 +1,120 @@
+{
+  "hash": "e474dc77a5504ce4128acca9ef58ab9248e925b2d8145fd38a876a6fbb04da28",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1714,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_1czSWaYngQozKqL3mfOReF1g",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1118",
+              "customer_id": "C114",
+              "status": "delivered",
+              "placed_at": "2026-05-28T04:00:00Z",
+              "shipped_at": "2026-05-29T06:00:00Z",
+              "delivered_at": "2026-06-02T10:00:00Z",
+              "shipping_address": {
+                "line1": "80 Robinson Road",
+                "city": "Singapore",
+                "postal_code": "068898",
+                "country": "SG"
+              },
+              "items": [
+                {
+                  "sku": "EB-PRO-WHT",
+                  "name": "Wireless earbuds Pro",
+                  "color": "white",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0783ba27590631a5006acf4c67637487d1bbabd0ec969530b3"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_UThT5RbqkwgdrCcuPU8maOe4",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1119",
+              "customer_id": "C114",
+              "status": "delivered",
+              "placed_at": "2026-06-08T03:00:00Z",
+              "shipped_at": "2026-06-09T05:00:00Z",
+              "delivered_at": "2026-06-12T10:00:00Z",
+              "shipping_address": {
+                "line1": "80 Robinson Road",
+                "city": "Singapore",
+                "postal_code": "068898",
+                "country": "SG"
+              },
+              "items": [
+                {
+                  "sku": "EB-PRO-BLK",
+                  "name": "Wireless earbuds Pro",
+                  "color": "black",
+                  "qty": 1,
+                  "unit_price_cents": 12900
+                }
+              ],
+              "total_cents": 12900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0783ba27590631a5006acf4c67638487d1a6a0f8bd63ea7250"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_BVucQkGeb7bkDakBaIvadGOU",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1119\",\"reason\":\"Left earbud cutting out, customer requests refund\",\"sku\":\"EB-PRO-BLK\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0783ba27590631a5006acf4c68f79487d189af9b90b3f893e0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1408,
+        "noCache": 384,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 40,
+        "reasoning": 0
+      }
+    }
+  }
+}

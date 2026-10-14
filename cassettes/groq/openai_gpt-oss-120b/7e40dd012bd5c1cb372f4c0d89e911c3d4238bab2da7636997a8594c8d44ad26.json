@@ -1,0 +1,49 @@
+{
+  "hash": "7e40dd012bd5c1cb372f4c0d89e911c3d4238bab2da7636997a8594c8d44ad26",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 738,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is aiko.tanaka@example.jp"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_7b030821-5d07-4e29-bb45-c82b8ed127b5",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"aiko.tanaka@example.jp\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1156,
+        "noCache": 132,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 33,
+        "reasoning": 10
+      }
+    }
+  }
+}

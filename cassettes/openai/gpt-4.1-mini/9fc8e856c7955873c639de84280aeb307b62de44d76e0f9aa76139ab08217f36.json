@@ -1,0 +1,59 @@
+{
+  "hash": "9fc8e856c7955873c639de84280aeb307b62de44d76e0f9aa76139ab08217f36",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1567,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh sorry, I mean the cap."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I will process the refund for the blue baseball cap from your order ORD-1115 instead.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c6a756887d1a277f7e59d9ea9a2"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_ZCJc2FMUp5e6ZP8rwTDXv8Kc",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1115\",\"reason\":\"Doesn't fit\",\"sku\":\"CAP-BLU\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0965f226a38eb8a7006acf4c6af13087d18fb733bc5a88ed15"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1436,
+        "noCache": 156,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 53,
+        "text": 53,
+        "reasoning": 0
+      }
+    }
+  }
+}

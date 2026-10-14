@@ -1,0 +1,81 @@
+{
+  "hash": "9545653b3fe44b14200e0de34d84ea5ec728a8cd6d5bcddd0691290b7f4435bb",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1363,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_ltio4VoRqtSe3PXPYwL9iNup",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1125",
+              "customer_id": "C120",
+              "status": "cancelled",
+              "placed_at": "2026-06-01T15:00:00Z",
+              "shipping_address": {
+                "line1": "21 Boulevard Zerktouni",
+                "city": "Casablanca",
+                "postal_code": "20250",
+                "country": "MA"
+              },
+              "items": [
+                {
+                  "sku": "BAG-TAN",
+                  "name": "Leather tote bag",
+                  "color": "tan",
+                  "qty": 1,
+                  "unit_price_cents": 15900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 15900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0bbaba6622a2d776006acf4cac9c0487d18e528577fd056577"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1125 was cancelled and has not been shipped or delivered. Since it was not delivered, a refund cannot be issued for this order. If you have any other questions or need further assistance, please let me know.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0bbaba6622a2d776006acf4cadae0887d1b4d3f1df55b3adba"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1144,
+        "noCache": 1144,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 49,
+        "text": 49,
+        "reasoning": 0
+      }
+    }
+  }
+}

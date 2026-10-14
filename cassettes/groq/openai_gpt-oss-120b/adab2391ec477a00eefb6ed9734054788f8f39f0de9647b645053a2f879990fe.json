@@ -1,0 +1,59 @@
+{
+  "hash": "adab2391ec477a00eefb6ed9734054788f8f39f0de9647b645053a2f879990fe",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 501,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_051a0c0c-b8fe-4ca2-9eb1-381198969753",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C112",
+              "name": "Isabella Costa",
+              "order_ids": [
+                "ORD-1115"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Get order ORD-1115."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_9d5d916a-14ee-462c-b400-7f4207b1e3a1",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1115\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1252,
+        "noCache": 1252
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 22,
+        "reasoning": 16
+      }
+    }
+  }
+}

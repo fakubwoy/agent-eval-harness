@@ -1,0 +1,47 @@
+{
+  "hash": "fc61a561755463f423fce278df71a01c5f6e64018c7397f29b9ea0999d9fd159",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1103,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, please go ahead."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I’m happy to help, but I’m not sure which request you’d like me to handle next. Could you let me know what you’d like to do (e.g., place a new order, change an address, request a refund, etc.)?"
+      },
+      {
+        "type": "reasoning",
+        "text": "User says \"Yes, please go ahead.\" ambiguous. Need clarification: what action? Possibly they want to proceed with something else, maybe a refund or address change. We need to ask clarifying question."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1455,
+        "noCache": 431,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 103,
+        "text": 61,
+        "reasoning": 42
+      }
+    }
+  }
+}

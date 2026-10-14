@@ -1,0 +1,60 @@
+{
+  "hash": "e2b04bf17a0ee6e7a800a5c4f8ca31db5a5bdd4d0d51dec36081f1fb69f7312a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 223,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_3f8974d3-4ace-43e3-9257-2a56ec8b1446",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C134",
+              "name": "Jonas Weber",
+              "order_ids": [
+                "ORD-1140"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify that order belongs to this customer. Retrieve order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_d1684362-8b25-4aa9-bb58-40d8658c59e6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1140\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1214,
+        "noCache": 190,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 22,
+        "reasoning": 14
+      }
+    }
+  }
+}

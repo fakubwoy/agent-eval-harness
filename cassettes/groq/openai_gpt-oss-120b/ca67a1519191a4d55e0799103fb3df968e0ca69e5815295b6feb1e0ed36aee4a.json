@@ -1,0 +1,60 @@
+{
+  "hash": "ca67a1519191a4d55e0799103fb3df968e0ca69e5815295b6feb1e0ed36aee4a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 492,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_6dd80f4e-2213-4b30-ac4d-f426d7f97066",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C104",
+              "name": "Grace Okafor",
+              "order_ids": [
+                "ORD-1104"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have customer id and order id matches. Need to get order details to see status."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_6d046ca7-a6f6-46f2-986a-9c3695eb3093",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1104\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1183,
+        "noCache": 159,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 42,
+        "text": 22,
+        "reasoning": 20
+      }
+    }
+  }
+}

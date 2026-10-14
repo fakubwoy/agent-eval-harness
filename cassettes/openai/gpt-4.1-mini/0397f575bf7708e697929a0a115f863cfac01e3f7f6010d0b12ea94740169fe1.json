@@ -1,0 +1,65 @@
+{
+  "hash": "0397f575bf7708e697929a0a115f863cfac01e3f7f6010d0b12ea94740169fe1",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 994,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_54gQzK7qlNvhIWKYjfjLwuC8",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "TIMEOUT",
+                "message": "cancel_order timed out after 10000 ms"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b840f1706eaaf85006acf4cb4b01087d1bcffe61010badd1a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_mhGeeh8doJwrftjVC3OB6uAY",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1138\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b840f1706eaaf85006acf4cb5f32487d1ad3f5f5181f80344"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1175,
+        "noCache": 151,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

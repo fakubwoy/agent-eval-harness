@@ -1,0 +1,47 @@
+{
+  "hash": "cd05bf9428e1715e48bb3a0fd11a30e9920008607657d2c520d998345fb1e6a8",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 5964,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, the air fryer from ORD-1136 arrived with a cracked basket. I'd like a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I’m happy to help with that. Could you please provide the email address you used for this order?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get_order, verify order belongs to that customer, check status delivered, delivery date within 30 days (current date 2026-06-15). Need to see order details. So ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1063,
+        "noCache": 39,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 91,
+        "text": 32,
+        "reasoning": 59
+      }
+    }
+  }
+}

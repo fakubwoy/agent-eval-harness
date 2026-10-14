@@ -1,0 +1,48 @@
+{
+  "hash": "320db6f33848d39475a8e136a84f28c83b8af23c88c8a8ed277472354be37efc",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 1844,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please cancel my order."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with canceling your order, could you please provide me with your email address and the order ID you want to cancel? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_038ecf93a310dbcf006acf4c629a2487d1b0764efefd4a0958"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 883,
+        "noCache": 883,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 43,
+        "reasoning": 0
+      }
+    }
+  }
+}

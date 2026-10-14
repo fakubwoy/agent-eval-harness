@@ -1,0 +1,64 @@
+{
+  "hash": "19600d63dce4990cb7d8290a8103732f9689be8a29e2f8255b0a8176d0341efd",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1425,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "jack.thompson@example.co.nz"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_015xXdcqDGBfBZZYuxv2Li55",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"jack.thompson@example.co.nz\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_019TYa1UdhasGYKTiGGpwjPQ",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1138\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2026,
+        "noCache": 2026,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 106
+      }
+    }
+  }
+}

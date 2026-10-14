@@ -1,0 +1,67 @@
+{
+  "hash": "141b0699cddb941ef43650f142ccfc7aedf7b1909bd16134060f20b0bbe6a410",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1001,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_2tCTqfYV2WbFyk1biCLrxsmG",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C136",
+              "name": "Ingrid Berg",
+              "order_ids": [
+                "ORD-1143",
+                "ORD-1144"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cdb9a7e9da2c252006acf4c99013087d1bfc8fffb9cb85c6c"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_0bdlWO4S3pC2CsiItDBluNPR",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1143\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cdb9a7e9da2c252006acf4c9a2c9487d1acd345115781db98"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1014,
+        "noCache": 1014,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

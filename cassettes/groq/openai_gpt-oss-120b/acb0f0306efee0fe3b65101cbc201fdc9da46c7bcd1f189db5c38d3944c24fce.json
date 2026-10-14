@@ -1,0 +1,50 @@
+{
+  "hash": "acb0f0306efee0fe3b65101cbc201fdc9da46c7bcd1f189db5c38d3944c24fce",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 968,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_a69f8f5f-725d-4d9d-b2af-de9e7a71587f",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1110",
+              "status": "cancelled"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order **ORD-1110** has been cancelled successfully. If you have any other questions or need further assistance, just let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1442,
+        "noCache": 418,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 33,
+        "text": 33
+      }
+    }
+  }
+}

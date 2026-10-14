@@ -1,0 +1,82 @@
+{
+  "hash": "a683b16144d56658a6a66e1adca5f9676cae724ba8ec0ca70da0aaa82157c77d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1510,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_CEpEwULwWl5UEEvk14Gzd95f",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1144",
+              "customer_id": "C136",
+              "status": "pending",
+              "placed_at": "2026-06-14T09:20:00Z",
+              "shipping_address": {
+                "line1": "Karl Johans gate 22",
+                "city": "Oslo",
+                "postal_code": "0159",
+                "country": "NO"
+              },
+              "items": [
+                {
+                  "sku": "SOCK-3P",
+                  "name": "Merino thermal socks (3 pairs)",
+                  "qty": 2,
+                  "unit_price_cents": 1500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 3000
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cdb9a7e9da2c252006acf4c9e488087d19c5092eb5e9d2fd4"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_rKqhFu68Bz0M7bR9qgoigGzN",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1144\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cdb9a7e9da2c252006acf4c9ff38487d19033223ff7c8d26e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1503,
+        "noCache": 223,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

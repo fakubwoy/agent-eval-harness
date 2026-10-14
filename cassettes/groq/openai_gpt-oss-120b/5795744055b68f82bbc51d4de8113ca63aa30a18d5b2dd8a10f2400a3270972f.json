@@ -1,0 +1,55 @@
+{
+  "hash": "5795744055b68f82bbc51d4de8113ca63aa30a18d5b2dd8a10f2400a3270972f",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1019,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_74ac98f3-292b-4f5c-aece-4e81f2094337",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1139",
+              "shipping_address": {
+                "line1": "1550 Rue Sherbrooke Ouest",
+                "city": "Montreal",
+                "postal_code": "H3G 1L3",
+                "country": "CA"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your shipping address has been updated to:\n\n1550 Rue Sherbrooke Ouest  \nMontreal, H3G 1L3  \nCanada\n\nYour order **ORD‑1139** will now be sent to the new address. Let me know if there’s anything else I can help with!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1567,
+        "noCache": 543,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 64,
+        "text": 64
+      }
+    }
+  }
+}

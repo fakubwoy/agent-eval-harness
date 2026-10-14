@@ -1,0 +1,48 @@
+{
+  "hash": "06cd66a8ada74ffbda6a3ab0cd89213d954c1d33e2cfdfe1d6e468f60b001c88",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 753,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Oh sorry, I mean the cap."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now request refund for order ORD-1115, sku CAP-BLU, reason \"doesn't fit\"."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_d2b94b19-ef7f-4675-aa06-73fd9be5e470",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1115\",\"reason\":\"doesn't fit\",\"sku\":\"CAP-BLU\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1668,
+        "noCache": 1668
+      },
+      "outputTokens": {
+        "total": 57,
+        "text": 35,
+        "reasoning": 22
+      }
+    }
+  }
+}

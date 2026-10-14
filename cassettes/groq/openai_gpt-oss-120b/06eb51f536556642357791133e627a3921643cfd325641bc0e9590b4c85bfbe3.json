@@ -1,0 +1,82 @@
+{
+  "hash": "06eb51f536556642357791133e627a3921643cfd325641bc0e9590b4c85bfbe3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 893,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_8114e67e-8b62-4eda-9c20-5cd929caed8f",
+          "toolName": "list_orders",
+          "output": {
+            "type": "json",
+            "value": {
+              "orders": [
+                {
+                  "id": "ORD-1112",
+                  "status": "pending",
+                  "placed_at": "2026-06-14T20:10:00Z",
+                  "total_cents": 3990,
+                  "items": [
+                    "Yoga mat"
+                  ]
+                },
+                {
+                  "id": "ORD-1113",
+                  "status": "pending",
+                  "placed_at": "2026-06-13T09:30:00Z",
+                  "total_cents": 3900,
+                  "items": [
+                    "Insulated water bottle 750ml"
+                  ]
+                },
+                {
+                  "id": "ORD-1114",
+                  "status": "delivered",
+                  "placed_at": "2026-05-25T13:00:00Z",
+                  "total_cents": 8900,
+                  "items": [
+                    "Running jacket"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I see you have a pending order ORD‑1112 placed on June 14 2026 that contains the yoga mat. Would you like me to go ahead and cancel this order for you?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We have ORD-1112 pending with yoga mat. Since status pending (not shipped), can cancel. Need to confirm with customer that this is the correct order. Ask confirmation."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1459,
+        "noCache": 435,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 86,
+        "text": 49,
+        "reasoning": 37
+      }
+    }
+  }
+}

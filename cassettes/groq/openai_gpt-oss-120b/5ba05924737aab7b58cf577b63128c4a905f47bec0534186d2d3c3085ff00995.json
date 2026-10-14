@@ -1,0 +1,47 @@
+{
+  "hash": "5ba05924737aab7b58cf577b63128c4a905f47bec0534186d2d3c3085ff00995",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 637,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want a refund for ORD-1123. I changed my mind about the drone."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure, I can help with that. Could you please provide the email address associated with your account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, verify order belongs. Then check order status and delivery date. Need to see if within 30 days and delivered. So first ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1060,
+        "noCache": 36,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 73,
+        "text": 29,
+        "reasoning": 44
+      }
+    }
+  }
+}

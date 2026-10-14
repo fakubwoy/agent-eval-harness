@@ -1,0 +1,42 @@
+{
+  "hash": "e17274b99bf5505f4704aa9509d1f539bd971ee509406275bba6a445a29383ec",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1083,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, two things. First, can ORD-1143 go to my cabin instead? Address: Storgata 5, Lillehammer, 2609, Norway."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help! Before I can change the shipping address, I need to verify that this order belongs to you.\n\nCould you please provide your email address?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2004,
+        "noCache": 2004,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38
+      }
+    }
+  }
+}

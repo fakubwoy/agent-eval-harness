@@ -1,0 +1,48 @@
+{
+  "hash": "239c629bf6c20a7ae81265a5529728062bbb41d5f391fa14e63b4caa94b8819b",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1012,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Perfect, thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any more help, feel free to ask. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_06be3c04eaedaee9006acf4c73edfc87d1a61b43a4655da8b4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1139,
+        "noCache": 115,
+        "cacheRead": 1024,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

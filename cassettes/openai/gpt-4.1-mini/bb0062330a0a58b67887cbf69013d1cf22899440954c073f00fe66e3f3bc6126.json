@@ -1,0 +1,50 @@
+{
+  "hash": "bb0062330a0a58b67887cbf69013d1cf22899440954c073f00fe66e3f3bc6126",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1170,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "daniel.kowalski@example.pl"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_wgq1G1CqAurfMlGFp8sOrwQr",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"daniel.kowalski@example.pl\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cee108f6b55542a006acf4c92847887d18d1efb39c5a76bba"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 943,
+        "noCache": 943,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "hash": "31a5b8e740de36b016e5fa2418677a2642aee9b90b91d58c4bf902f19d93a69f",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1376,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_bIHQShiJh9sk6lvo1gimYyLs",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1139",
+              "shipping_address": {
+                "line1": "1550 Rue Sherbrooke Ouest",
+                "city": "Montreal",
+                "postal_code": "H3G 1L3",
+                "country": "CA"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0f3611daed4faded006acf4c9f400c87d19741b9d5c8158840"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The shipping address for your order ORD-1139 has been updated to 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada. If you need any further assistance, feel free to ask!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0f3611daed4faded006acf4ca0aac887d19cbcc3ed7527530d"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1332,
+        "noCache": 180,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 50,
+        "reasoning": 0
+      }
+    }
+  }
+}

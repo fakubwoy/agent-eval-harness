@@ -1,0 +1,72 @@
+{
+  "hash": "be05bd5a53dd6be0891aade18a3e6f84e86459074cbbd990f2a5cab7ec16d03c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1329,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_014Qb47W1rWTqboJi1pH81pX",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "request_refund failed: upstream service error"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Let me try that again:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01UFHgSbQj9LgoFQ2yNnTLCs",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1136\",\"reason\":\"Air fryer arrived with a cracked basket\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2580,
+        "noCache": 2580,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 93
+      }
+    }
+  }
+}

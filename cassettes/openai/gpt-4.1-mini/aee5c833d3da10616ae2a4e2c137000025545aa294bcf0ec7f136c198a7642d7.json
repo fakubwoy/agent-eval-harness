@@ -1,0 +1,50 @@
+{
+  "hash": "aee5c833d3da10616ae2a4e2c137000025545aa294bcf0ec7f136c198a7642d7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1330,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "viktor.horvat@example.hr"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_M3BPwyGc7iHJaN9NnZ0mZrE2",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"viktor.horvat@example.hr\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0fb9c73d3b98da0a006acf4c703cc887d1a0a8ae67a026211a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 948,
+        "noCache": 948,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

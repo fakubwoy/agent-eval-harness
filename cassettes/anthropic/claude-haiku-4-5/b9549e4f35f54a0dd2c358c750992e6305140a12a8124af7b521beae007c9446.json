@@ -1,0 +1,55 @@
+{
+  "hash": "b9549e4f35f54a0dd2c358c750992e6305140a12a8124af7b521beae007c9446",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 1596,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "sean.murphy@example.ie\n\nLook, I just want this sorted by a person. Can you transfer me to someone?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand you'd prefer to speak with someone, and I can help transfer you. But first, let me just quickly verify this is your order so I can give the team the right information."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01XUVWjTXrqBNyYLVXxpRZh6",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"sean.murphy@example.ie\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2067,
+        "noCache": 2067,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 99
+      }
+    }
+  }
+}

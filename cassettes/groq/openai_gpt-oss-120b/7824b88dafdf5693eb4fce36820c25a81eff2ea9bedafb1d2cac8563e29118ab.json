@@ -1,0 +1,60 @@
+{
+  "hash": "7824b88dafdf5693eb4fce36820c25a81eff2ea9bedafb1d2cac8563e29118ab",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 197,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_2b591c85-076a-4464-bead-39f5585b46fd",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C117",
+              "name": "Javier Ruiz",
+              "order_ids": [
+                "ORD-1122"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have order belongs to this customer. Need to check order status."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_6c83c2ab-7b99-445a-a261-0070ce4bb48b",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1122\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1175,
+        "noCache": 151,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 22,
+        "reasoning": 16
+      }
+    }
+  }
+}

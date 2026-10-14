@@ -1,0 +1,74 @@
+{
+  "hash": "1963043ad2078e876ab1a08e305b4559d705b142af1f7a92c756fb205f64ebd6",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 424,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_cc0ad535-5d4c-4db5-a88b-51f40eac5ecb",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1146",
+              "customer_id": "C138",
+              "status": "delivered",
+              "placed_at": "2026-05-04T14:00:00Z",
+              "shipped_at": "2026-05-06T14:00:00Z",
+              "delivered_at": "2026-05-11T12:00:00Z",
+              "shipping_address": {
+                "line1": "2250 Larimer Street",
+                "city": "Denver",
+                "postal_code": "80205",
+                "country": "US"
+              },
+              "items": [
+                {
+                  "sku": "HD-ION",
+                  "name": "Ionic hair dryer",
+                  "qty": 1,
+                  "unit_price_cents": 7900
+                }
+              ],
+              "total_cents": 7900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you, Rebecca. I see that your order ORD‑1146 was delivered on May 11, 2026. Our refund policy covers items that are returned within 30 days of delivery, and unfortunately the 35‑day window has now passed.\n\nI’m sorry for the inconvenience with the hair dryer. While I can’t process a refund at this point, I’d be happy to arrange a replacement or discuss other options for you. Please let me know how you’d like to proceed."
+      },
+      {
+        "type": "reasoning",
+        "text": "Check delivery date: 2026-05-11. Current date 2026-06-15. That's 35 days later, beyond 30-day window. So refund not eligible. Must politely explain."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1424,
+        "noCache": 400,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 156,
+        "text": 112,
+        "reasoning": 44
+      }
+    }
+  }
+}

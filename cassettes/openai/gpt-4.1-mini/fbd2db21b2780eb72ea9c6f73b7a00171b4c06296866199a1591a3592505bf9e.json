@@ -1,0 +1,66 @@
+{
+  "hash": "fbd2db21b2780eb72ea9c6f73b7a00171b4c06296866199a1591a3592505bf9e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1198,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_zgOXPSwln555Fgk19jSPYr2k",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C106",
+              "name": "Sofia Rossi",
+              "order_ids": [
+                "ORD-1106"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b7d9f8c2be091d2006acf4c79245c87d1b5be08d4111d9117"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_zw5x0JePyQ1k5GYNQKrnStNk",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1106\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b7d9f8c2be091d2006acf4c7a54d887d1ac9c409b2433197b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1009,
+        "noCache": 1009,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "hash": "17f8704df3638ec0cf6af462ed1580030a0a723576f71809a855ec46d8fd6ae3",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-my-order-three-orders",
+  "trial": 1,
+  "latency_ms": 577,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_db7f6b73-67a3-4a3f-8e92-2a6988bf5228",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C111",
+              "name": "Noah Fischer",
+              "order_ids": [
+                "ORD-1112",
+                "ORD-1113",
+                "ORD-1114"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we need to find which order has yoga mat. List orders."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_8114e67e-8b62-4eda-9c20-5cd929caed8f",
+        "toolName": "list_orders",
+        "input": "{\"customer_id\":\"C111\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1279,
+        "noCache": 1279
+      },
+      "outputTokens": {
+        "total": 38,
+        "text": 23,
+        "reasoning": 15
+      }
+    }
+  }
+}

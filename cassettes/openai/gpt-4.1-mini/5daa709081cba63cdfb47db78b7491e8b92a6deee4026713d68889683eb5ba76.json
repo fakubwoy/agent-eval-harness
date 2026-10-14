@@ -1,0 +1,48 @@
+{
+  "hash": "5daa709081cba63cdfb47db78b7491e8b92a6deee4026713d68889683eb5ba76",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1337,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my blender broke after a week. The order number is ORD-11"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with your broken blender, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac132c62ca2eeea006acf4c9ddd5487d1b62414f399d19b9b"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 892,
+        "noCache": 892,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 37,
+        "text": 37,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "dc8fac6c381dc7485c9105dfa274116b40377406dec89d4d89723837a9e92562",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-unknown-email",
+  "trial": 1,
+  "latency_ms": 932,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel ORD-1150 please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1973,
+        "noCache": 1973,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 34
+      }
+    }
+  }
+}

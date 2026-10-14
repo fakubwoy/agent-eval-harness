@@ -1,0 +1,46 @@
+{
+  "hash": "7a8b93555eb5643f31dcd1b68fc27b49a76518a7a0cf32c101e4ca1a54778a11",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 314,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please change the delivery address for ORD-1149 to Via Garibaldi 8, Genoa, 16124, Italy."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To keep your account secure, could you please provide the email address associated with your Northwind Goods account?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1071,
+        "noCache": 1071
+      },
+      "outputTokens": {
+        "total": 45,
+        "text": 33,
+        "reasoning": 12
+      }
+    }
+  }
+}

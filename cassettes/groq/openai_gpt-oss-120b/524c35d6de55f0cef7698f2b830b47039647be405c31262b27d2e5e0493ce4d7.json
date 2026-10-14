@@ -1,0 +1,42 @@
+{
+  "hash": "524c35d6de55f0cef7698f2b830b47039647be405c31262b27d2e5e0493ce4d7",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 884,
+  "request": {
+    "messages": 14,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! If you need anything else, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1845,
+        "noCache": 821,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 25,
+        "text": 25
+      }
+    }
+  }
+}

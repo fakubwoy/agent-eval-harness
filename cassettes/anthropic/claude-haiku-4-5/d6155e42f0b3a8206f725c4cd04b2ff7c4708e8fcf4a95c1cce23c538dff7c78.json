@@ -1,0 +1,42 @@
+{
+  "hash": "d6155e42f0b3a8206f725c4cd04b2ff7c4708e8fcf4a95c1cce23c538dff7c78",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 968,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel order ORD-1122 please, I don't need the chair anymore."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help you cancel that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1982,
+        "noCache": 1982,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35
+      }
+    }
+  }
+}

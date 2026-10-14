@@ -1,0 +1,50 @@
+{
+  "hash": "991f989d7dbb9cdd02047f1f4c5217d36092721a46426fd8d64ccc7e37bdb9ca",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1006,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "rebecca.stone@example.com"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_EqBlBSvHwx7AOmGrIQ5FKAOG",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"rebecca.stone@example.com\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0be15f8828f77338006acf5044e15c87d1bda757062d47d9e5"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 975,
+        "noCache": 975,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

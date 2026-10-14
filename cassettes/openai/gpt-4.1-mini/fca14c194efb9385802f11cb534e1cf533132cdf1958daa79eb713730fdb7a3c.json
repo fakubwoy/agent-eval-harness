@@ -1,0 +1,50 @@
+{
+  "hash": "fca14c194efb9385802f11cb534e1cf533132cdf1958daa79eb713730fdb7a3c",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 993,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "fatima.benali@example.ma"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_w635qGvamPHPwrzGBFKlTxkk",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"fatima.benali@example.ma\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bbaba6622a2d776006acf4cab837087d1bcda37d4b07ff1a0"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 952,
+        "noCache": 952,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

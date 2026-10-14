@@ -1,0 +1,61 @@
+{
+  "hash": "6d3cd753ccad46fce56363c32be0cc68b0d4c9e0f420c811a172137a2a9fe1b6",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1348,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_rKqhFu68Bz0M7bR9qgoigGzN",
+          "toolName": "cancel_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1144",
+              "status": "cancelled"
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cdb9a7e9da2c252006acf4c9ff38487d19033223ff7c8d26e"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Order ORD-1144 has been successfully cancelled. If you need any more help, just let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cdb9a7e9da2c252006acf4ca105e487d1abdabe62eb902df9"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1541,
+        "noCache": 133,
+        "cacheRead": 1408,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 24,
+        "text": 24,
+        "reasoning": 0
+      }
+    }
+  }
+}

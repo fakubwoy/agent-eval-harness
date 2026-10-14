@@ -1,0 +1,77 @@
+{
+  "hash": "cf8156b66857a42a766c7e674e7f7f7e54d9357a8b7f66c39a7325852e1c670b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 684,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_3f91a9a3-999a-4c32-8c7a-608cc560cbd1",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1103",
+              "customer_id": "C103",
+              "status": "pending",
+              "placed_at": "2026-06-14T18:20:00Z",
+              "shipping_address": {
+                "line1": "Calle de Alcala 45",
+                "city": "Madrid",
+                "postal_code": "28014",
+                "country": "ES"
+              },
+              "items": [
+                {
+                  "sku": "RUN-TR9",
+                  "name": "Trail running shoes",
+                  "color": "grey",
+                  "qty": 1,
+                  "unit_price_cents": 11995
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 11995
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order belongs to customer, status pending (not shipped). Need to change shipping address. Provide address fields: line1, city, postal_code, country. The user gave \"Carrer de Mallorca 210, Barcelona, 08008, Spain\". So line1 = \"Carrer de Mallorca 210\", city = \"Barcelona\", postal_code = \"08008\", country = \"Spain\". Use change_shipping_address."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_62e3d1c1-c87c-4cfd-a868-04c627b03b40",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Barcelona\",\"country\":\"Spain\",\"line1\":\"Carrer de Mallorca 210\",\"postal_code\":\"08008\"},\"order_id\":\"ORD-1103\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1397,
+        "noCache": 373,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 135,
+        "text": 50,
+        "reasoning": 85
+      }
+    }
+  }
+}

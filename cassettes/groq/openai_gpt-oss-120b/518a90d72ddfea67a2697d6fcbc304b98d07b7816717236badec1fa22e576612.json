@@ -1,0 +1,47 @@
+{
+  "hash": "518a90d72ddfea67a2697d6fcbc304b98d07b7816717236badec1fa22e576612",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1279,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my blender broke after a week. The order number is ORD-11"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure \u2014 could you please provide the email address associated with your account? This will let me verify the order before we proceed."
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity. Customer gave order number ORD-11. Need email. Ask for email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1058,
+        "noCache": 34,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 57,
+        "text": 35,
+        "reasoning": 22
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "hash": "9f5b5d07aafd326e93c34a141c0ae1601e9e7917d2ce97b649b7e9fe4c8116b9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 226,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "laura.martin@example.ca. Actually wait, don't cancel it. I only wanted to cancel because I'm moving. Can you ship it to my new place instead? 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "We have email, need to verify order belongs to that email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_7958f4f5-b8e5-4f33-b7c2-41f887ee40ef",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"laura.martin@example.ca\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1158,
+        "noCache": 134,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 51,
+        "text": 33,
+        "reasoning": 18
+      }
+    }
+  }
+}

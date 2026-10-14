@@ -1,0 +1,60 @@
+{
+  "hash": "61806e3f095ab13b3b980002820df664a7de8def44cfd1a4c0032a8354739c2b",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 684,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_5c50fab5-c0d3-471d-b97f-adb5c5ec7c69",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C139",
+              "name": "Viktor Horvat",
+              "order_ids": [
+                "ORD-1147"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify that order belongs to this customer. Use get_order for ORD-1147."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_c125fda3-3ade-4b30-987c-6943ca4d7e94",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1147\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1326,
+        "noCache": 302,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 22,
+        "reasoning": 19
+      }
+    }
+  }
+}

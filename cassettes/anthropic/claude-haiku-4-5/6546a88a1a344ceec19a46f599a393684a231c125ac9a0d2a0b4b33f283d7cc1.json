@@ -1,0 +1,42 @@
+{
+  "hash": "6546a88a1a344ceec19a46f599a393684a231c125ac9a0d2a0b4b33f283d7cc1",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-address-change-after-shipping",
+  "trial": 1,
+  "latency_ms": 1169,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I need ORD-1121 delivered to my new place: 45 Moi Avenue, Mombasa, 80100, Kenya."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you change the shipping address for that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1999,
+        "noCache": 1999,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "a20c575f66fd5906eb53423852e205937157b314033575b81e9fe51ea89a47ff",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 988,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want a refund for ORD-1123. I changed my mind about the drone."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with a refund for ORD-1123. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1984,
+        "noCache": 1984,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 42
+      }
+    }
+  }
+}

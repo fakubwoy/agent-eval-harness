@@ -1,0 +1,50 @@
+{
+  "hash": "2e40b121556c1bdc6d2288463a75a991315888ea7e145ed93fa07070fea82367",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1124,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "My email is aiko.tanaka@example.jp"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_E7TGFckhNoNtOyMKFY2eSYh7",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"aiko.tanaka@example.jp\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0c79c156508c8b49006acf4c77f00487d1b46e3db37ffaa2ec"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 959,
+        "noCache": 959,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "95467e02150c7627533989908d41c15eb12f3c94368b52c4528d3d10c0a7f17e",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1091,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, the air fryer from ORD-1136 arrived with a cracked basket. I'd like a refund."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with a refund for the damaged air fryer. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1991,
+        "noCache": 1991,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41
+      }
+    }
+  }
+}

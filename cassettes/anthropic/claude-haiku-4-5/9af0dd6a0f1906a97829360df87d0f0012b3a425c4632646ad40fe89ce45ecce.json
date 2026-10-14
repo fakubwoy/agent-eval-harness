@@ -1,0 +1,42 @@
+{
+  "hash": "9af0dd6a0f1906a97829360df87d0f0012b3a425c4632646ad40fe89ce45ecce",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 1056,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, the rice cooker from order ORD-1102 doesn't heat properly. I'd like a refund please."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with a refund for the rice cooker. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1991,
+        "noCache": 1991,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40
+      }
+    }
+  }
+}

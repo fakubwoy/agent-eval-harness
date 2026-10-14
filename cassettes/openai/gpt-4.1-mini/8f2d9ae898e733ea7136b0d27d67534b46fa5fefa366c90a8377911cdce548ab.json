@@ -1,0 +1,48 @@
+{
+  "hash": "8f2d9ae898e733ea7136b0d27d67534b46fa5fefa366c90a8377911cdce548ab",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 984,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need any more help, feel free to ask. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0c79c156508c8b49006acf4c7e187887d1aba29858646639f7"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1374,
+        "noCache": 94,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 22,
+        "text": 22,
+        "reasoning": 0
+      }
+    }
+  }
+}

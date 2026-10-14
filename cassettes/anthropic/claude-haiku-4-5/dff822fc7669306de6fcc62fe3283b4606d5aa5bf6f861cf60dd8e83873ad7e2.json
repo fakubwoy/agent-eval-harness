@@ -1,0 +1,42 @@
+{
+  "hash": "dff822fc7669306de6fcc62fe3283b4606d5aa5bf6f861cf60dd8e83873ad7e2",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 909,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there! I have a quick question about my order ORD-1141. Could you let me know whether it has shipped yet?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'd be happy to help you check on that order. First, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1992,
+        "noCache": 1992,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 38
+      }
+    }
+  }
+}

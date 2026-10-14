@@ -1,0 +1,66 @@
+{
+  "hash": "677cd0d6f86e5c4917538ed8ee9e854d297db3fd74ffd2dbeac119778cf0698c",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1123,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_MgauIk5ZScNPSwCsHEJNio10",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1103",
+              "shipping_address": {
+                "line1": "Carrer de Mallorca 210",
+                "city": "Barcelona",
+                "postal_code": "08008",
+                "country": "ES"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_06be3c04eaedaee9006acf4c7196f487d1a0ddbe9ddc9fa53e"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "The shipping address for order ORD-1103 has been updated to Carrer de Mallorca 210, Barcelona, 08008, Spain. Is there anything else I can help you with?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_06be3c04eaedaee9006acf4c72bc5087d1acdafcce3878e6f6"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1089,
+        "noCache": 1089,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 40,
+        "reasoning": 0
+      }
+    }
+  }
+}

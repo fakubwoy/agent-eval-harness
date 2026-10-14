@@ -1,0 +1,60 @@
+{
+  "hash": "8dafebb86ab0234340eacaba072550d3e9bdd655ca6bd374a2fb5ab56d1d7af2",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 236,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_ff70f655-2b4c-41a2-8c6e-3da352bbafd3",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C130",
+              "name": "Sara Haddad",
+              "order_ids": [
+                "ORD-1136"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Use get_order for ORD-1136."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_5200cce2-e383-47c9-bd4b-562d50460db6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1136\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1237,
+        "noCache": 213,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 22,
+        "reasoning": 18
+      }
+    }
+  }
+}

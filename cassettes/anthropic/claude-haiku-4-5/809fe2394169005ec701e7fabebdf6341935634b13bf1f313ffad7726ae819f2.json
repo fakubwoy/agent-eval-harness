@@ -1,0 +1,73 @@
+{
+  "hash": "809fe2394169005ec701e7fabebdf6341935634b13bf1f313ffad7726ae819f2",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 2095,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01XUVWjTXrqBNyYLVXxpRZh6",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C137",
+              "name": "Sean Murphy",
+              "order_ids": [
+                "ORD-1145"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect, that confirms ORD-1145 is your order. Let me hand you over to a human agent who can sort out the missing screws for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01X5S16QAQ2zWmuwA8XesRzS",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Customer requests human agent for missing screws issue\",\"summary\":\"Sean Murphy (sean.murphy@example.ie) received TV wall mount order ORD-1145 with missing screws. Customer prefers to speak with a human agent to resolve this.\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2203,
+        "noCache": 2203,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 156
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "hash": "ea209306d10006a2c36e3aa054bab9479eda05faf1f21fea7386b3c7f35314c9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 788,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d26ab55d-5ae1-47d0-a890-60615254af66",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C115",
+              "name": "Lars Johansson",
+              "order_ids": [
+                "ORD-1120"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Use get_order for ORD-1120."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_bdc1a393-b266-439f-890d-01dfce756b8e",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1120\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1235,
+        "noCache": 211,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 22,
+        "reasoning": 18
+      }
+    }
+  }
+}

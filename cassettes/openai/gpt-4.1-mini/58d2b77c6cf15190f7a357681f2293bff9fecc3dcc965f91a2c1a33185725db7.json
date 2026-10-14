@@ -1,0 +1,48 @@
+{
+  "hash": "58d2b77c6cf15190f7a357681f2293bff9fecc3dcc965f91a2c1a33185725db7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 1095,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, please change the delivery address for ORD-1149 to Via Garibaldi 8, Genoa, 16124, Italy."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with changing the delivery address for order ORD-1149, could you please provide your email address for verification?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0eed3d1068d8c10e006acf4c7c7bcc87d193fb791a5574e6c6"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 905,
+        "noCache": 905,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27,
+        "text": 27,
+        "reasoning": 0
+      }
+    }
+  }
+}

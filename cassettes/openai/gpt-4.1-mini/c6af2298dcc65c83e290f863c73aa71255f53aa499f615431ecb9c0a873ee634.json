@@ -1,0 +1,48 @@
+{
+  "hash": "c6af2298dcc65c83e290f863c73aa71255f53aa499f615431ecb9c0a873ee634",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 1068,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please cancel order ORD-1104, I ordered it by mistake."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with canceling order ORD-1104, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_070bdb65e02ddad7006acf4c74fee887d1ae9b020568d50441"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 890,
+        "noCache": 890,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 41,
+        "reasoning": 0
+      }
+    }
+  }
+}

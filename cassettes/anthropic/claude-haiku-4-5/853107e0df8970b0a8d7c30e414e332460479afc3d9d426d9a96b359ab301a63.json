@@ -1,0 +1,42 @@
+{
+  "hash": "853107e0df8970b0a8d7c30e414e332460479afc3d9d426d9a96b359ab301a63",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "identity-email-mismatch",
+  "trial": 1,
+  "latency_ms": 994,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Is there anything else I can help you with today regarding your account or orders?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2585,
+        "noCache": 2585,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19
+      }
+    }
+  }
+}

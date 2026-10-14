@@ -1,0 +1,61 @@
+{
+  "hash": "fe80bcbee3360660b722d874c56e85885835fc4aa5a7a979ddd527e76d7afaf5",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 573,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_2eec74bb-91f7-4014-a6e5-e3ef5736344b",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C114",
+              "name": "Mei Lin",
+              "order_ids": [
+                "ORD-1118",
+                "ORD-1119"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have two orders. Need to know which is earbuds. We can get order details for each. Let's fetch both."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_930b0a63-f3ea-41d7-b875-69140d6f8304",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1118\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1366,
+        "noCache": 342,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 51,
+        "text": 25,
+        "reasoning": 26
+      }
+    }
+  }
+}

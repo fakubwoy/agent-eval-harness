@@ -1,0 +1,48 @@
+{
+  "hash": "94abb1be93c3263002a8e960d1754dcbd19ae0532d0c27ba0acfbe94f87ecc2d",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1068,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there! I have a quick question about my order ORD-1141. Could you tell me whether it has shipped yet?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with your order status, may I please have the email address you used for the order? This is to verify your identity and ensure your privacy.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf504d3c2487d183b4b250885203dc"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 902,
+        "noCache": 902,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 34,
+        "text": 34,
+        "reasoning": 0
+      }
+    }
+  }
+}

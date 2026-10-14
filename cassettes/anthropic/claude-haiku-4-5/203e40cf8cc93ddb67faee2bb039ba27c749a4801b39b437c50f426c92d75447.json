@@ -1,0 +1,99 @@
+{
+  "hash": "203e40cf8cc93ddb67faee2bb039ba27c749a4801b39b437c50f426c92d75447",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1369,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01DYwN7itu7CoMKzLAPDK1Yy",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C135",
+              "name": "Zara Ahmed",
+              "order_ids": [
+                "ORD-1141",
+                "ORD-1142"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01BhKmSzpCzrBMYgJBaGsMGR",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1141",
+              "customer_id": "C135",
+              "status": "shipped",
+              "placed_at": "2026-06-11T05:00:00Z",
+              "shipped_at": "2026-06-13T06:00:00Z",
+              "shipping_address": {
+                "line1": "House 12, Street 5, F-7/2",
+                "city": "Islamabad",
+                "postal_code": "44000",
+                "country": "PK"
+              },
+              "items": [
+                {
+                  "sku": "CASE-X",
+                  "name": "Phone case",
+                  "qty": 1,
+                  "unit_price_cents": 1900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 1900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified your account. Your order ORD-1141 **has shipped**. It was shipped on June 13, 2026 and is on its way to you at House 12, Street 5, F-7/2, Islamabad, 44000, Pakistan.\n\nThe order contains 1 phone case and should arrive soon. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2390,
+        "noCache": 2390,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 93
+      }
+    }
+  }
+}

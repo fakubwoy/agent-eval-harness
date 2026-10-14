@@ -1,0 +1,59 @@
+{
+  "hash": "b23ab2b3f0be1cae5b65800f827f4a2af31bc6db91fc475f89eb250db7d7aa45",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 217,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_162a4529-3afe-427b-9ba0-9c06f749b7e1",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "UPSTREAM_ERROR",
+                "message": "lookup_customer failed: upstream service error"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Tool failed. We can retry once."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_d6c5266f-dc59-44f6-a747-7f94996d2bea",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"elena.popescu@example.ro\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1198,
+        "noCache": 174,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 27,
+        "reasoning": 9
+      }
+    }
+  }
+}

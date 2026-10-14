@@ -1,0 +1,42 @@
+{
+  "hash": "823ab7636e463c63423f33853adb35963ec929ac74e7737b70be52b78d60e42d",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1210,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, my blender broke after a week. The order number is ORD-11"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Hi! I'm sorry to hear your blender broke. I'd be happy to help you with a refund.\n\nBefore I can look into your order, I need to verify your identity. Could you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1982,
+        "noCache": 1982,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 55
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "hash": "e8c74992f93cc48dae45ff8ac8f9521aaed3fd8c09b2eeade16f9612a77d2158",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1058,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_EqBlBSvHwx7AOmGrIQ5FKAOG",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C138",
+              "name": "Rebecca Stone",
+              "order_ids": [
+                "ORD-1146"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0be15f8828f77338006acf5044e15c87d1bda757062d47d9e5"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_UPT3B7mn2WcEIYe6hQ0gUlOK",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1146\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0be15f8828f77338006acf5045f18087d1ac03c714d1601deb"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1021,
+        "noCache": 1021,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

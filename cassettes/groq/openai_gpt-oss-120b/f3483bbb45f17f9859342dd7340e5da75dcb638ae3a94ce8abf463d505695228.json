@@ -1,0 +1,47 @@
+{
+  "hash": "f3483bbb45f17f9859342dd7340e5da75dcb638ae3a94ce8abf463d505695228",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1161,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fine, I'll just refuse the delivery."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You can refuse the package when it arrives; the carrier will return it to us. Once we receive the returned chair (and it’s within 30 days of the delivery attempt), we’ll process a full refund for you.\n\nLet me know if you’d like any further assistance."
+      },
+      {
+        "type": "reasoning",
+        "text": "Customer wants to refuse delivery. That's effectively a return/refund after delivery. We can explain that they can refuse, and after it's returned we can process a refund if within 30 days. Since not delivered yet, we can note that once it's returned we can refund. No tool needed."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1516,
+        "noCache": 492,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 125,
+        "text": 66,
+        "reasoning": 59
+      }
+    }
+  }
+}

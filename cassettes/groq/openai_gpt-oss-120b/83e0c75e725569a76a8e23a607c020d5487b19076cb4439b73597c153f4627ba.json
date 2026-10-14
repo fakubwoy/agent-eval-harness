@@ -1,0 +1,76 @@
+{
+  "hash": "83e0c75e725569a76a8e23a607c020d5487b19076cb4439b73597c153f4627ba",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 443,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_dd28f11f-f2ab-4e61-9889-06a6bdedf5f9",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1139",
+              "customer_id": "C133",
+              "status": "pending",
+              "placed_at": "2026-06-13T19:00:00Z",
+              "shipping_address": {
+                "line1": "200 King Street West",
+                "city": "Toronto",
+                "postal_code": "M5H 3T4",
+                "country": "CA"
+              },
+              "items": [
+                {
+                  "sku": "DSK-ELEC",
+                  "name": "Electric standing desk",
+                  "qty": 1,
+                  "unit_price_cents": 45900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 45900
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Order is pending, not shipped. So we can change shipping address. The user wants to ship to new address. We should confirm new address details. They gave full address. We'll proceed to change shipping address. Use change_shipping_address."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_74ac98f3-292b-4f5c-aece-4e81f2094337",
+        "toolName": "change_shipping_address",
+        "input": "{\"address\":{\"city\":\"Montreal\",\"country\":\"CA\",\"line1\":\"1550 Rue Sherbrooke Ouest\",\"postal_code\":\"H3G 1L3\"},\"order_id\":\"ORD-1139\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1404,
+        "noCache": 380,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 106,
+        "text": 58,
+        "reasoning": 48
+      }
+    }
+  }
+}

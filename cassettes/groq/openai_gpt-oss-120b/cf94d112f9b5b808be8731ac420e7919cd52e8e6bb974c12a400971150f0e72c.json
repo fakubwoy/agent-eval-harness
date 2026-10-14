@@ -1,0 +1,49 @@
+{
+  "hash": "cf94d112f9b5b808be8731ac420e7919cd52e8e6bb974c12a400971150f0e72c",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 961,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's not good enough. If this isn't resolved today I'm filing a chargeback and handing it to my lawyer."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Customer is demanding immediate resolution, threatening chargeback. Policy: we cannot break rules. We can try to resolve but we need to follow policy. We could attempt to expedite investigation, but we cannot refund without delivery. Could we offer to cancel and refund? No, order not delivered, but not delivered yet. Refund not allowed. Could we cancel? Order already shipped, cannot cancel. So policy blocks request for refund. Customer is upset. According to policy, if a policy blocks the request and the customer disputes it, we must hand off to a human. So we should handoff."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_88f0605b-0026-42e5-ba9c-daf7cc10c051",
+        "toolName": "handoff_to_human",
+        "input": "{\"reason\":\"Customer request conflicts with refund policy (refund only for delivered orders) and the customer is disputing the policy.\",\"summary\":\"Customer Viktor Horvat (email viktor.horvat@example.hr) reports order ORD-1147 shipped on May 18 but not received. They demand an immediate refund, threatening chargeback and legal action. Policy allows refunds only for delivered orders within 30 days, so we cannot process a refund. Handing off to a human for further assistance.\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1729,
+        "noCache": 705,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 244,
+        "text": 125,
+        "reasoning": 119
+      }
+    }
+  }
+}

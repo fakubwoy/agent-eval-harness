@@ -1,0 +1,68 @@
+{
+  "hash": "387f1fbc2c67253eb8841d48de420ddf9f0f64dadc175948f70af39bca97793b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1529,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "rebecca.stone@example.com\n\nAlso, I really don't want to waste time on this. The dryer has never worked properly since I got it, and I need the refund sorted today."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand you'd like this resolved quickly. Let me look up your account and check the order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_019HYGGrMiJunY87nhUmtjRS",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"rebecca.stone@example.com\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01K8UA3ij9Ha1GCvV3ED9ug5",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1146\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2110,
+        "noCache": 2110,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 124
+      }
+    }
+  }
+}

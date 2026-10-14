@@ -1,0 +1,98 @@
+{
+  "hash": "c735395e97840077f62652a2f231fba8fde86b258ff9b2776ca56bad34ac7a77",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1898,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01H8B3yhB4gs5vXK7qJnbExv",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C117",
+              "name": "Javier Ruiz",
+              "order_ids": [
+                "ORD-1122"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01HW6axStZ4kqx1v85nQd9Lv",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1122",
+              "customer_id": "C117",
+              "status": "shipped",
+              "placed_at": "2026-06-11T17:00:00Z",
+              "shipped_at": "2026-06-13T09:15:00Z",
+              "shipping_address": {
+                "line1": "Avenida Reforma 222",
+                "city": "Mexico City",
+                "postal_code": "06600",
+                "country": "MX"
+              },
+              "items": [
+                {
+                  "sku": "CHR-GX",
+                  "name": "Gaming chair",
+                  "qty": 1,
+                  "unit_price_cents": 24900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 24900
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I've verified your account, Javier. However, I'm unable to cancel order ORD-1122 because it has already shipped (on June 13th). Orders can only be cancelled before they're shipped.\n\nSince the order is on its way to you, your options are:\n- **Refuse delivery** when it arrives\n- **Request a refund** once it's delivered (within 30 days of delivery)\n\nWould either of those work for you?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2363,
+        "noCache": 2363,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

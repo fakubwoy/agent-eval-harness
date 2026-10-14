@@ -1,0 +1,73 @@
+{
+  "hash": "1a4c07c3650a76f0f6ae17be5fa7d657b3d9b40dec0b31e0803b67b6c2e0851f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1661,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01NgY5G5B6ksUAQxqpdq1xpS",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C103",
+              "name": "Mateo Alvarez",
+              "order_ids": [
+                "ORD-1103"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I've verified your account. Now let me update the shipping address on ORD-1103:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_012zH8spkdqek25vmyxuzo94",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1103\",\"address\":{\"line1\":\"Carrer de Mallorca 210\",\"city\":\"Barcelona\",\"postal_code\":\"08008\",\"country\":\"Spain\"}}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2158,
+        "noCache": 2158,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 148
+      }
+    }
+  }
+}

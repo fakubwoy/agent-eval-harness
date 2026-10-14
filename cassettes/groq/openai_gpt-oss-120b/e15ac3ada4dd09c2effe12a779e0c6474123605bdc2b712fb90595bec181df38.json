@@ -1,0 +1,60 @@
+{
+  "hash": "e15ac3ada4dd09c2effe12a779e0c6474123605bdc2b712fb90595bec181df38",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 2116,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_290ca02a-a023-4812-8771-d87641473209",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C120",
+              "name": "Fatima Zahra Benali",
+              "order_ids": [
+                "ORD-1125"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Use get_order for ORD-1125."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_f0a5a16b-43f1-474d-9d6b-ad90587b5da4",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1125\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1260,
+        "noCache": 236,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 22,
+        "reasoning": 18
+      }
+    }
+  }
+}

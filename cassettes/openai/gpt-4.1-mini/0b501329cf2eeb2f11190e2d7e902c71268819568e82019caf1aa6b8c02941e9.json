@@ -1,0 +1,48 @@
+{
+  "hash": "0b501329cf2eeb2f11190e2d7e902c71268819568e82019caf1aa6b8c02941e9",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1973,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi there, I'd like to change the shipping address on my order, please. Could you help me with that?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Of course, I can help with that. Could you please provide me with the email address you used for the order and the order ID you want to change the shipping address for? Also, please share the new shipping address details.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_02dd2d82538ced64006acf504222d887d18813a2ee04f8b71a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 899,
+        "noCache": 899,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 48,
+        "reasoning": 0
+      }
+    }
+  }
+}

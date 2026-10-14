@@ -1,0 +1,50 @@
+{
+  "hash": "21a5d80b6d4f19a186857d90a25d686de0518b27dc463d3e069ebea28a6f46ec",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 1008,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email is mateo.alvarez@example.es. New address: Carrer de Mallorca 210, Barcelona, 08008, Spain."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_QzRpduofZM96K2shX3HnDeOZ",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"mateo.alvarez@example.es\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_06be3c04eaedaee9006acf4c708c6c87d1ba36d1fab4729cfa"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 954,
+        "noCache": 954,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 20,
+        "text": 20,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "hash": "5a4032058a0f30e8bd2da342a38b152a60fee8ff2a0282d7b04cf188c909dfa2",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 977,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your shipping address for order ORD‑1116 has been updated to:\n\n27 Deansgate  \nManchester, M3 4LQ  \nUnited Kingdom  \n\nThe other order will remain on the original address. Let me know if there’s anything else I can help with!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[DONE]"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 800,
+        "noCache": 800,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 7,
+        "text": 7,
+        "reasoning": 0
+      }
+    }
+  }
+}

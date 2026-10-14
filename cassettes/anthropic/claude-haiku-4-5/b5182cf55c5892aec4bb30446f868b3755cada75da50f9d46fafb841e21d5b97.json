@@ -1,0 +1,42 @@
+{
+  "hash": "b5182cf55c5892aec4bb30446f868b3755cada75da50f9d46fafb841e21d5b97",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1120,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, one of the mugs in the mug set from ORD-1105 arrived cracked. I want to keep the blanket, so please refund just the mug set."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I'd be happy to help with that! Before I can process the refund, I need to verify your identity first.\n\nCould you please provide the email address associated with your account?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2005,
+        "noCache": 2005,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41
+      }
+    }
+  }
+}

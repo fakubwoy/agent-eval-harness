@@ -1,0 +1,48 @@
+{
+  "hash": "e66493b25b6c3c89034adbee11be4ab4c4ab7c90717aefb6f5bd1e9b275576b4",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 1991,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I want to return the blue one from order ORD-1115, it doesn't fit."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with the return, may I please have the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0965f226a38eb8a7006acf4c62ae2487d1a32aeea5e46332d8"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 896,
+        "noCache": 896,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 36,
+        "text": 36,
+        "reasoning": 0
+      }
+    }
+  }
+}

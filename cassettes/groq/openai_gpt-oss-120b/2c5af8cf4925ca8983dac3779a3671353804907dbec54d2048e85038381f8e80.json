@@ -1,0 +1,76 @@
+{
+  "hash": "2c5af8cf4925ca8983dac3779a3671353804907dbec54d2048e85038381f8e80",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-cancel-pending",
+  "trial": 1,
+  "latency_ms": 342,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_6d046ca7-a6f6-46f2-986a-9c3695eb3093",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1104",
+              "customer_id": "C104",
+              "status": "pending",
+              "placed_at": "2026-06-15T08:05:00Z",
+              "shipping_address": {
+                "line1": "14 Admiralty Way",
+                "city": "Lagos",
+                "postal_code": "106104",
+                "country": "NG"
+              },
+              "items": [
+                {
+                  "sku": "SPK-MINI",
+                  "name": "Bluetooth speaker",
+                  "qty": 2,
+                  "unit_price_cents": 4500
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 9000
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Status pending, not shipped. So we can cancel. Proceed to cancel_order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_e1a5bce2-4f90-4f5f-9c18-6afc6c303943",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1104\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1345,
+        "noCache": 321,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 23,
+        "reasoning": 17
+      }
+    }
+  }
+}

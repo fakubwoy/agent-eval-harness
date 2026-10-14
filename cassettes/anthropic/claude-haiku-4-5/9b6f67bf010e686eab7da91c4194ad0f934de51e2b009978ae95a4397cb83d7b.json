@@ -1,0 +1,73 @@
+{
+  "hash": "9b6f67bf010e686eab7da91c4194ad0f934de51e2b009978ae95a4397cb83d7b",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1643,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01NHhXWX8iWuJKfV1YSHYWcp",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C133",
+              "name": "Laura Martin",
+              "order_ids": [
+                "ORD-1139"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! Now let me update the shipping address for your order:"
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01HHMF323r6krFpRZ8qqZv4Z",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1139\",\"address\":{\"line1\":\"1550 Rue Sherbrooke Ouest\",\"city\":\"Montreal\",\"postal_code\":\"H3G 1L3\",\"country\":\"Canada\"}}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2198,
+        "noCache": 2198,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 145
+      }
+    }
+  }
+}

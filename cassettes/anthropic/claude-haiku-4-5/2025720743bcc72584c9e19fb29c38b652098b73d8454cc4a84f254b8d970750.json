@@ -1,0 +1,42 @@
+{
+  "hash": "2025720743bcc72584c9e19fb29c38b652098b73d8454cc4a84f254b8d970750",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 1128,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, that's the one, the black arc lamp."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! As I mentioned, your refund for the black Arc desk lamp has already been processed. You should see the €64.50 refunded to your account within a few business days.\n\nIs there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2971,
+        "noCache": 2971,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 54
+      }
+    }
+  }
+}

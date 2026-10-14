@@ -1,0 +1,76 @@
+{
+  "hash": "44ba08b509e14fa12bc36a229b021d0aad22b1f34e2a8ad949c5a38c4dab6b6f",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 1802,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_018YvmqzdG9RpUf1LzN8YfYc",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1135",
+              "customer_id": "C129",
+              "status": "shipped",
+              "placed_at": "2026-06-09T21:00:00Z",
+              "shipped_at": "2026-06-11T13:00:00Z",
+              "shipping_address": {
+                "line1": "Avenida Corrientes 1234",
+                "city": "Buenos Aires",
+                "postal_code": "C1043",
+                "country": "AR"
+              },
+              "items": [
+                {
+                  "sku": "MATE-KIT",
+                  "name": "Mate gourd and bombilla kit",
+                  "qty": 2,
+                  "unit_price_cents": 2800
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 5600
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! Here's the status of your order **ORD-1135**:\n\n**Status:** Shipped  \n**Order placed:** June 9, 2026  \n**Shipped:** June 11, 2026  \n**Items:** Mate gourd and bombilla kit (qty: 2) - $28.00 each  \n**Total:** $56.00  \n**Shipping to:** Avenida Corrientes 1234, Buenos Aires C1043, Argentina\n\nYour order is on its way! It hasn't been delivered yet, so you should expect it soon."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2471,
+        "noCache": 2471,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 135
+      }
+    }
+  }
+}

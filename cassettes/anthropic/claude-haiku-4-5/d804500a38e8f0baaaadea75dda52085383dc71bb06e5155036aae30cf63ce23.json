@@ -1,0 +1,77 @@
+{
+  "hash": "d804500a38e8f0baaaadea75dda52085383dc71bb06e5155036aae30cf63ce23",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-status-no-order-id",
+  "trial": 1,
+  "latency_ms": 2051,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_019FEPE82dyyiSK6YK1NbGpd",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1111",
+              "customer_id": "C110",
+              "status": "shipped",
+              "placed_at": "2026-06-09T16:20:00Z",
+              "shipped_at": "2026-06-11T10:05:00Z",
+              "shipping_address": {
+                "line1": "410 Pine Street",
+                "city": "Seattle",
+                "postal_code": "98101",
+                "country": "US"
+              },
+              "items": [
+                {
+                  "sku": "BPK-40",
+                  "name": "Hiking backpack 40L",
+                  "color": "green",
+                  "qty": 1,
+                  "unit_price_cents": 12999
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 12999
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order **ORD-1111** is currently **shipped** and on its way to you! Here are the details:\n\n- **Item:** Hiking backpack 40L (green)\n- **Shipped on:** June 11, 2026\n- **Shipping to:** 410 Pine Street, Seattle, WA 98101, US\n- **Total:** $129.99\n\nSince it shipped 4 days ago, it should arrive soon. Unfortunately, I don't have real-time tracking details, but based on the shipping date, you can expect delivery within the next few days. If it doesn't arrive within a reasonable timeframe, please let me know!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2367,
+        "noCache": 2367,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 150
+      }
+    }
+  }
+}

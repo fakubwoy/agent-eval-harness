@@ -1,0 +1,76 @@
+{
+  "hash": "e3f6cb4968ce1eef075cb566eac6e6c5b8c3c5da0b40fc9cccb9cbca45e26420",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 326,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_1dc8e965-b134-4dfd-9994-27d0dd13e870",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1108",
+              "customer_id": "C107",
+              "status": "delivered",
+              "placed_at": "2026-03-26T12:00:00Z",
+              "shipped_at": "2026-03-28T10:00:00Z",
+              "delivered_at": "2026-04-02T15:00:00Z",
+              "shipping_address": {
+                "line1": "22 Harcourt Street",
+                "city": "Dublin",
+                "postal_code": "D02 H210",
+                "country": "IE"
+              },
+              "items": [
+                {
+                  "sku": "NB-A5-3",
+                  "name": "A5 notebook set",
+                  "qty": 2,
+                  "unit_price_cents": 1200
+                }
+              ],
+              "total_cents": 2400
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "The desk lamp is in ORD-1107, delivered 2026-06-08. Current date 2026-06-15, within 30 days. So eligible for refund. Need reason: broken switch. We'll request refund."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_804902fa-ada0-4e7c-a35f-32ce28fba910",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1107\",\"reason\":\"Broken switch on desk lamp\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1671,
+        "noCache": 647,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 81,
+        "text": 31,
+        "reasoning": 50
+      }
+    }
+  }
+}

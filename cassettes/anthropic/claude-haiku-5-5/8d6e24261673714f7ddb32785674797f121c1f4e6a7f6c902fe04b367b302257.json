@@ -1,0 +1,44 @@
+{
+  "hash": "8d6e24261673714f7ddb32785674797f121c1f4e6a7f6c902fe04b367b302257",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1093,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "(The support chat is open. Write your first message.)"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I need to cancel my order ORD-1110. Found it cheaper somewhere else."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 328,
+        "noCache": 328,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 30,
+        "text": 30,
+        "reasoning": 0
+      }
+    }
+  }
+}

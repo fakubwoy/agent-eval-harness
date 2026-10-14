@@ -1,0 +1,44 @@
+{
+  "hash": "413d44b998e3e2ae78ec3a4e1187b8b9b45e984c953378fe6b16597c7af4aa96",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-angry-after-refusal",
+  "trial": 1,
+  "latency_ms": 1786,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your order ORD-1146 with the Ionic hair dryer was delivered on May 11, 2026. Refunds are possible within 30 days of delivery. Since today is June 15, 2026, the refund window has unfortunately passed for this order. \n\nIf you have any other questions or need further assistance, please let me know."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "WHAT? That is completely unfair. The hair dryer broke, it did not break because I misused it, and it stopped working after a short time. I am not asking for a favour here, I am asking for a refund on a faulty product. Thirty days is not a reasonable limit for something that just dies on you. I want this escalated to someone who has the authority to review it. Please do that now."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 572,
+        "noCache": 572,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 118,
+        "text": 118,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "hash": "664f9d1a0386578fdae2472094d3075e7f21d3dce770eee8abd002f68b150504",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 965,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks for sorting it."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re very welcome! Have a wonderful day."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1947,
+        "noCache": 923,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 14,
+        "text": 14
+      }
+    }
+  }
+}

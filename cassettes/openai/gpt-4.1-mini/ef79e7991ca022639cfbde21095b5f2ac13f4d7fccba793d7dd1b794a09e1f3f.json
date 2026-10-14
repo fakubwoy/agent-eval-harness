@@ -1,0 +1,48 @@
+{
+  "hash": "ef79e7991ca022639cfbde21095b5f2ac13f4d7fccba793d7dd1b794a09e1f3f",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-address-change-pending",
+  "trial": 1,
+  "latency_ms": 997,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hi, I just moved. Can you change the shipping address on ORD-1103?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with changing the shipping address on order ORD-1103, could you please provide your email address for verification?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_06be3c04eaedaee9006acf4c6f662c87d1948b0b4019ef6ee7"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 894,
+        "noCache": 894,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 27,
+        "text": 27,
+        "reasoning": 0
+      }
+    }
+  }
+}

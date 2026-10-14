@@ -1,0 +1,66 @@
+{
+  "hash": "959af63f3953aad79abf04fb272f32f58306e1060f16347795ccec9343dd79d1",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "handoff-legal-threat",
+  "trial": 1,
+  "latency_ms": 1053,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_M3BPwyGc7iHJaN9NnZ0mZrE2",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C139",
+              "name": "Viktor Horvat",
+              "order_ids": [
+                "ORD-1147"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0fb9c73d3b98da0a006acf4c703cc887d1a0a8ae67a026211a"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_BoItQYJr2fHgjgmxZYyjFqaX",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1147\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0fb9c73d3b98da0a006acf4c71648c87d1854b69ff4359ab50"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 999,
+        "noCache": 999,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "hash": "983ff6b51a32a4d37245de124dce96a075c37e198ed9e006595f1e08eda99bb4",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 302,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_f460adf9-e872-41dc-b2e0-3145f4ca4ecd",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C100",
+              "name": "Priya Sharma",
+              "order_ids": [
+                "ORD-1042"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. It does. Now get order details."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_e8a8501f-bc01-4a73-85e1-bac4eddc2d6a",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1042\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1232,
+        "noCache": 208,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 22,
+        "reasoning": 17
+      }
+    }
+  }
+}

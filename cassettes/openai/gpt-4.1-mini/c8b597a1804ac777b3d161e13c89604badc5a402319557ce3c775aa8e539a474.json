@@ -1,0 +1,66 @@
+{
+  "hash": "c8b597a1804ac777b3d161e13c89604badc5a402319557ce3c775aa8e539a474",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1211,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_5N8sxd2Ka3FyDFT13YDwBWnT",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C105",
+              "name": "Henrik Larsen",
+              "order_ids": [
+                "ORD-1105"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c022fb4421cfa98006acf4c7e138487d1ab77f93a71430359"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_yldnTo1h8OhO4R2Yj5NSXWZF",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1105\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0c022fb4421cfa98006acf4c7f418087d186fcd1bf9b85efb6"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1010,
+        "noCache": 1010,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

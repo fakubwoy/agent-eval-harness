@@ -1,0 +1,87 @@
+{
+  "hash": "131657c4360c5a1b62e12099fe7987970958b52adcbe2657ca8bc72a57409f4c",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 1791,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_018TDNkiA35wJiQYfuZsXV1S",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C114",
+              "name": "Mei Lin",
+              "order_ids": [
+                "ORD-1118",
+                "ORD-1119"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Great! I found your account, Mei Lin. You have two orders. Let me check them to find the earbuds order."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01MautGtW9WnaiYnLtrmGbX5",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1118\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01NDLwKJ3ZVCJAwBgc3TUo5S",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1119\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2145,
+        "noCache": 2145,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 132
+      }
+    }
+  }
+}

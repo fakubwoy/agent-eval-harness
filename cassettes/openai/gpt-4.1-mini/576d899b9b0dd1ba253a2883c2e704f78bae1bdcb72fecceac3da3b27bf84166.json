@@ -1,0 +1,82 @@
+{
+  "hash": "576d899b9b0dd1ba253a2883c2e704f78bae1bdcb72fecceac3da3b27bf84166",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-cancel-timeout-twice",
+  "trial": 1,
+  "latency_ms": 1146,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_uVcPBnGF9jPcQLtPG3YFbWZr",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1138",
+              "customer_id": "C132",
+              "status": "pending",
+              "placed_at": "2026-06-14T22:40:00Z",
+              "shipping_address": {
+                "line1": "15 Queen Street",
+                "city": "Auckland",
+                "postal_code": "1010",
+                "country": "NZ"
+              },
+              "items": [
+                {
+                  "sku": "WS-3MM-L",
+                  "name": "Wetsuit 3mm (size L)",
+                  "qty": 1,
+                  "unit_price_cents": 18900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 18900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0b840f1706eaaf85006acf4cb3ac5487d1863ff64ed1aa15a1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_54gQzK7qlNvhIWKYjfjLwuC8",
+        "toolName": "cancel_order",
+        "input": "{\"order_id\":\"ORD-1138\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0b840f1706eaaf85006acf4cb4b01087d1bcffe61010badd1a"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1131,
+        "noCache": 1131,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

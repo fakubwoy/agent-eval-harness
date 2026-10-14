@@ -1,0 +1,62 @@
+{
+  "hash": "f33cfeb653390ea582edb2f22f0633d44835d9499806ebbbe6fb48c62abab3c3",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1187,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01DgrwyWvyEwYQwnP7szMqgq",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1109",
+              "shipping_address": {
+                "line1": "ul. Prosta 20",
+                "city": "Warsaw",
+                "postal_code": "00-850",
+                "country": "PL"
+              }
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! Your shipping address for ORD-1109 has been updated to ul. Prosta 20, Warsaw 00-850, Poland. Your mechanical keyboard will be sent to your office. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2630,
+        "noCache": 2630,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 56
+      }
+    }
+  }
+}

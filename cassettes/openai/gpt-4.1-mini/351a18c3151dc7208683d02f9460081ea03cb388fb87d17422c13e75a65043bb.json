@@ -1,0 +1,67 @@
+{
+  "hash": "351a18c3151dc7208683d02f9460081ea03cb388fb87d17422c13e75a65043bb",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1045,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_E6K0ez27Z15kA6V7qEmo0yvW",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C135",
+              "name": "Zara Ahmed",
+              "order_ids": [
+                "ORD-1141",
+                "ORD-1142"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_04435dd2ed5ecfa3006acf504f4eac87d1b802b3357518e988"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_ogsLSsOl483GK4AMG3yeyPBH",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1141\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_04435dd2ed5ecfa3006acf5050699c87d19f3a243723a9d55e"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1011,
+        "noCache": 1011,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

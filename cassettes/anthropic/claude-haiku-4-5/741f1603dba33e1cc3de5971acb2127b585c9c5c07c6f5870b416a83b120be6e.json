@@ -1,0 +1,73 @@
+{
+  "hash": "741f1603dba33e1cc3de5971acb2127b585c9c5c07c6f5870b416a83b120be6e",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1959,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "toolu_01VyokdxQFevzgmfHxjNc5nL",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C131",
+              "name": "Elena Popescu",
+              "order_ids": [
+                "ORD-1137"
+              ]
+            }
+          },
+          "providerOptions": {
+            "anthropic": {
+              "caller": {
+                "type": "direct"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Perfect! I've verified that ORD-1137 belongs to your account. The order hasn't shipped yet, so I can change the address for you."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01Sc28ds6MtQM9Erq7q3FP3M",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1137\",\"address\":{\"line1\":\"Strada Lipscani 12\",\"city\":\"Bucharest\",\"postal_code\":\"030031\",\"country\":\"RO\"}}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2483,
+        "noCache": 2483,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 161
+      }
+    }
+  }
+}

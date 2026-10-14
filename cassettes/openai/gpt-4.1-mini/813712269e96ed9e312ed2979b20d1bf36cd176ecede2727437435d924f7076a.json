@@ -1,0 +1,48 @@
+{
+  "hash": "813712269e96ed9e312ed2979b20d1bf36cd176ecede2727437435d924f7076a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1142,
+  "request": {
+    "messages": 16,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! Have a great day, and feel free to reach out if you need any further assistance.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0cee108f6b55542a006acf4c99f42c87d1badd5e791ad8c884"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1423,
+        "noCache": 143,
+        "cacheRead": 1280,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 23,
+        "text": 23,
+        "reasoning": 0
+      }
+    }
+  }
+}

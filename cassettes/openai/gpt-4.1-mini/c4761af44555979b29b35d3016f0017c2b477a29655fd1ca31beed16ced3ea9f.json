@@ -1,0 +1,80 @@
+{
+  "hash": "c4761af44555979b29b35d3016f0017c2b477a29655fd1ca31beed16ced3ea9f",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-status-then-refund-item",
+  "trial": 1,
+  "latency_ms": 1234,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_ogsLSsOl483GK4AMG3yeyPBH",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1141",
+              "customer_id": "C135",
+              "status": "shipped",
+              "placed_at": "2026-06-11T05:00:00Z",
+              "shipped_at": "2026-06-13T06:00:00Z",
+              "shipping_address": {
+                "line1": "House 12, Street 5, F-7/2",
+                "city": "Islamabad",
+                "postal_code": "44000",
+                "country": "PK"
+              },
+              "items": [
+                {
+                  "sku": "CASE-X",
+                  "name": "Phone case",
+                  "qty": 1,
+                  "unit_price_cents": 1900
+                }
+              ],
+              "delivered_at": null,
+              "total_cents": 1900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_04435dd2ed5ecfa3006acf5050699c87d19f3a243723a9d55e"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1141 has already been shipped on June 13, 2026. If you need any more information or assistance, please let me know!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_04435dd2ed5ecfa3006acf5051902887d1a23fad2a8f14a9a3"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1164,
+        "noCache": 1164,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 35,
+        "text": 35,
+        "reasoning": 0
+      }
+    }
+  }
+}

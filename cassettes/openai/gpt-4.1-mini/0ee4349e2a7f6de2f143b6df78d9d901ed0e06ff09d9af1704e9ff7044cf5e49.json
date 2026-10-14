@@ -1,0 +1,89 @@
+{
+  "hash": "0ee4349e2a7f6de2f143b6df78d9d901ed0e06ff09d9af1704e9ff7044cf5e49",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 1300,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_yldnTo1h8OhO4R2Yj5NSXWZF",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1105",
+              "customer_id": "C105",
+              "status": "delivered",
+              "placed_at": "2026-06-03T10:00:00Z",
+              "shipped_at": "2026-06-05T09:00:00Z",
+              "delivered_at": "2026-06-10T13:00:00Z",
+              "shipping_address": {
+                "line1": "Norrebrogade 66",
+                "city": "Copenhagen",
+                "postal_code": "2200",
+                "country": "DK"
+              },
+              "items": [
+                {
+                  "sku": "BLK-WOOL",
+                  "name": "Wool blanket",
+                  "color": "grey",
+                  "qty": 1,
+                  "unit_price_cents": 8900
+                },
+                {
+                  "sku": "MUG-SET4",
+                  "name": "Ceramic mug set (4 pieces)",
+                  "qty": 1,
+                  "unit_price_cents": 3400
+                }
+              ],
+              "total_cents": 12300
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0c022fb4421cfa98006acf4c7f418087d186fcd1bf9b85efb6"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_pxqS2N8TgUVOmFrQRlUHMbri",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1105\",\"reason\":\"One of the mugs in the mug set arrived cracked, customer wants refund for the mug set only.\",\"sku\":\"MUG-SET4\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0c022fb4421cfa98006acf4c8081ac87d190b8dafc586b034c"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1206,
+        "noCache": 1206,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 50,
+        "text": 50,
+        "reasoning": 0
+      }
+    }
+  }
+}

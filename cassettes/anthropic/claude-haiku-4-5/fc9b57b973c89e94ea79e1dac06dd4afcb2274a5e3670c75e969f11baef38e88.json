@@ -1,0 +1,42 @@
+{
+  "hash": "fc9b57b973c89e94ea79e1dac06dd4afcb2274a5e3670c75e969f11baef38e88",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "tool-fault-get-order-timeout-once",
+  "trial": 1,
+  "latency_ms": 822,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else with your order, feel free to ask. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2611,
+        "noCache": 2611,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 26
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "hash": "7fe564e6b68580a0ad4c3f9471bdb2a5fdb22dce94ecb8aa1359b2237468d394",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-order-id-split",
+  "trial": 1,
+  "latency_ms": 1427,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_5hETlhtS4kxtEMQqIAoNsPSQ",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C134",
+              "name": "Jonas Weber",
+              "order_ids": [
+                "ORD-1140"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac132c62ca2eeea006acf4c9fb3e087d1beda834bad3b1ffa"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_LIQJ2rf3yabhOwVPGsqos5ft",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1140",
+              "customer_id": "C134",
+              "status": "delivered",
+              "placed_at": "2026-05-29T08:00:00Z",
+              "shipped_at": "2026-05-31T08:00:00Z",
+              "delivered_at": "2026-06-03T15:00:00Z",
+              "shipping_address": {
+                "line1": "Bahnhofstrasse 10",
+                "city": "Zurich",
+                "postal_code": "8001",
+                "country": "CH"
+              },
+              "items": [
+                {
+                  "sku": "BLD-PRO",
+                  "name": "High speed blender",
+                  "qty": 1,
+                  "unit_price_cents": 13900
+                }
+              ],
+              "total_cents": 13900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac132c62ca2eeea006acf4c9fb3f887d19ba5a7cfbb91cdbd"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for the information, Jonas. Your order for the high speed blender was delivered on June 3rd. Since it is within 30 days of delivery, I can help you with a refund for the broken blender. Would you like to proceed with the refund?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac132c62ca2eeea006acf4ca0b80c87d185e77071848e6add"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1170,
+        "noCache": 1170,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 56,
+        "text": 56,
+        "reasoning": 0
+      }
+    }
+  }
+}

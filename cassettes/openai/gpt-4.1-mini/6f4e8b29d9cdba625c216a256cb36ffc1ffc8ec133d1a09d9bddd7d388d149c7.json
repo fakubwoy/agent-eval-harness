@@ -1,0 +1,66 @@
+{
+  "hash": "6f4e8b29d9cdba625c216a256cb36ffc1ffc8ec133d1a09d9bddd7d388d149c7",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-address-no-postcode",
+  "trial": 1,
+  "latency_ms": 1043,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_wgq1G1CqAurfMlGFp8sOrwQr",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C108",
+              "name": "Daniel Kowalski",
+              "order_ids": [
+                "ORD-1109"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0cee108f6b55542a006acf4c92847887d18d1efb39c5a76bba"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_ibnYgb0nHHJ2wEBfuCayHEjo",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1109\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0cee108f6b55542a006acf4c939b2487d1ad0efbd4f81238f4"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 993,
+        "noCache": 993,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 19,
+        "text": 19,
+        "reasoning": 0
+      }
+    }
+  }
+}

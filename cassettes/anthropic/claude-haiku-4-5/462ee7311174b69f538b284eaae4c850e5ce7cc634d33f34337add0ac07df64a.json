@@ -1,0 +1,42 @@
+{
+  "hash": "462ee7311174b69f538b284eaae4c850e5ce7cc634d33f34337add0ac07df64a",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1519,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Great. Oh, and the charger was faulty too, can you refund that separately as well?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "I understand both items had issues. Unfortunately, our policy allows only one refund per order. Since both items are defective, I can refund the entire order for €88.00 as a full refund, which will cover both the wobbling stand and the faulty charger.\n\nWould you like me to proceed with the full refund?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2571,
+        "noCache": 2571,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 76
+      }
+    }
+  }
+}

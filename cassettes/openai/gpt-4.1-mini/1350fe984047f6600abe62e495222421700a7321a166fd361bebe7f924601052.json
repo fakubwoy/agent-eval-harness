@@ -1,0 +1,50 @@
+{
+  "hash": "1350fe984047f6600abe62e495222421700a7321a166fd361bebe7f924601052",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "missing-info-cancel-no-email",
+  "trial": 1,
+  "latency_ms": 1491,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "ravi.menon@example.in"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_IFLYeibXj2gsLbbzSjXRGo0S",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"ravi.menon@example.in\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_08edeb51d3e24b21006acf5047284c87d195161e6ff9da5c88"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 942,
+        "noCache": 942,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 21,
+        "text": 21,
+        "reasoning": 0
+      }
+    }
+  }
+}

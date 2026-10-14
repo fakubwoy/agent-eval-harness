@@ -1,0 +1,64 @@
+{
+  "hash": "f986cbec9e9d2d5ad3c167186fd476c2ce082c976fbf92021e69bef9056e8af0",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 1443,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "lars.johansson@example.se"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01MgCacRjbTNsQAPpKZMvY7Z",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"lars.johansson@example.se\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "toolu_01LJ44N73CHf3BkXyJ3LRo6p",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1120\"}",
+        "providerMetadata": {
+          "anthropic": {
+            "caller": {
+              "type": "direct"
+            }
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_use"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2035,
+        "noCache": 2035,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 105
+      }
+    }
+  }
+}

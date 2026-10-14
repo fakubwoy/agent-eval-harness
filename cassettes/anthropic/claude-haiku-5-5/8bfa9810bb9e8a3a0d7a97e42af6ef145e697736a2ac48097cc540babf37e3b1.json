@@ -1,0 +1,44 @@
+{
+  "hash": "8bfa9810bb9e8a3a0d7a97e42af6ef145e697736a2ac48097cc540babf37e3b1",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "ambiguous-which-address",
+  "trial": 1,
+  "latency_ms": 1065,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Perfect! I found it\u2014that's **ORD-1116** with the Burr coffee grinder. The order hasn't shipped yet, so I can change the address for you.\n\nWhat's the new shipping address you'd like to use? Please provide:\n- Street address (line 1)\n- City\n- Postal code\n- Country"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thanks! The new address is 27 Deansgate, Manchester, M3 4LQ, United Kingdom."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 648,
+        "noCache": 648,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 40,
+        "reasoning": 0
+      }
+    }
+  }
+}

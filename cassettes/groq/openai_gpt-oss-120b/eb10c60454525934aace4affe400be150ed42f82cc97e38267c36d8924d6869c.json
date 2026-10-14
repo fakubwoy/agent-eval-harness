@@ -1,0 +1,60 @@
+{
+  "hash": "eb10c60454525934aace4affe400be150ed42f82cc97e38267c36d8924d6869c",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "tool-fault-lookup-error-once",
+  "trial": 1,
+  "latency_ms": 1476,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d6c5266f-dc59-44f6-a747-7f94996d2bea",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C131",
+              "name": "Elena Popescu",
+              "order_ids": [
+                "ORD-1137"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have customer_id C131, order ORD-1137 belongs to her. Need to get order details to see status (shipped or not)."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_25e5f418-562c-4b52-8ce8-d9ca2d25e25b",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1137\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1265,
+        "noCache": 241,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 54,
+        "text": 22,
+        "reasoning": 32
+      }
+    }
+  }
+}

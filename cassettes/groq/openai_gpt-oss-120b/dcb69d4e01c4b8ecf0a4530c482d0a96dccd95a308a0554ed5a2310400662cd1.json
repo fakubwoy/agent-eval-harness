@@ -1,0 +1,47 @@
+{
+  "hash": "dcb69d4e01c4b8ecf0a4530c482d0a96dccd95a308a0554ed5a2310400662cd1",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-30",
+  "trial": 1,
+  "latency_ms": 1211,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Hello, I want to return the stand mixer from ORD-1106, it is far too loud. Is that still possible?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Sure thing! To check the details of your order and see if a return is possible, could you please provide the email address you used for this purchase?"
+      },
+      {
+        "type": "reasoning",
+        "text": "We need to verify identity first. Ask for email. Then lookup_customer, then get order, check status and delivery date. Then see if within 30 days. Need to ask email."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1068,
+        "noCache": 44,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 79,
+        "text": 40,
+        "reasoning": 39
+      }
+    }
+  }
+}

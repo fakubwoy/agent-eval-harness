@@ -1,0 +1,48 @@
+{
+  "hash": "a1126060133991e47fc3f9e1acd26c214ed084d8d9007a07f72c2fd8176961cd",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "ambiguous-two-earbud-orders",
+  "trial": 1,
+  "latency_ms": 758,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "The black pair, the one that arrived this week. The white ones are fine."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "User didn't give order ID. Need to ask for order ID. Also maybe we can list orders for the customer to help them identify. So we can lookup_customer with email, then list orders. But we need order ID to request refund. We can ask for order ID, but we could also list orders to let them pick. Let's first lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_2eec74bb-91f7-4014-a6e5-e3ef5736344b",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"mei.lin@example.sg\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1234,
+        "noCache": 1234
+      },
+      "outputTokens": {
+        "total": 102,
+        "text": 30,
+        "reasoning": 72
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hash": "8baf995597516f92c30baa8c26f216c9ae4d4cd6cf81ca163720a793cd48fe90",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-cancel-after-shipping",
+  "trial": 1,
+  "latency_ms": 1219,
+  "request": {
+    "messages": 2,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cancel order ORD-1122 please, I don't need the chair anymore."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "To assist you with canceling order ORD-1122, could you please provide the email address you used for the order? This is to verify your identity and ensure the order belongs to you.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_029a2c394bcc4525006acf4ca4804c87d195e3e83e4f4627da"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 891,
+        "noCache": 891,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 41,
+        "text": 41,
+        "reasoning": 0
+      }
+    }
+  }
+}

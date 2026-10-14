@@ -1,0 +1,74 @@
+{
+  "hash": "a03666e7b4bbb62394ec782da2656a8b5346ed4624845313cfd2ff832cbf1885",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-day-31",
+  "trial": 1,
+  "latency_ms": 2093,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_9dW2PGMQwKPd3DiJx7vGJd57",
+          "toolName": "request_refund",
+          "output": {
+            "type": "json",
+            "value": {
+              "error": {
+                "code": "REFUND_WINDOW_EXPIRED",
+                "message": "Order ORD-1120 was delivered more than 30 days ago"
+              }
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0ac7d5adedeb720c006acf4caf8d6887d1b98460e882f36734"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "It seems there was an issue with the refund as the system shows the order was delivered more than 30 days ago, which conflicts with the delivery date I have. Let me check again to clarify this.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0ac7d5adedeb720c006acf4cb0e0c487d1a9a0f27303f27690"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_4vFZ9MkH6hL7EaJttRxehAuZ",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1120\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0ac7d5adedeb720c006acf4cb19b7c87d198d74940bd8b6191"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1277,
+        "noCache": 125,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 62,
+        "text": 62,
+        "reasoning": 0
+      }
+    }
+  }
+}

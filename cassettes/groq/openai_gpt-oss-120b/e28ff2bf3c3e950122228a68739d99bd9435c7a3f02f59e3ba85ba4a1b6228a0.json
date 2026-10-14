@@ -1,0 +1,41 @@
+{
+  "hash": "e28ff2bf3c3e950122228a68739d99bd9435c7a3f02f59e3ba85ba4a1b6228a0",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-day-10",
+  "trial": 1,
+  "latency_ms": 442,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thank you."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You’re welcome! Have a great day."
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1631,
+        "noCache": 1631
+      },
+      "outputTokens": {
+        "total": 13,
+        "text": 13
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "hash": "07cf0a55315c150002350c86d40f7f1a29b591b318bd2aad97164f37a04321c3",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-past-30-days",
+  "trial": 1,
+  "latency_ms": 1957,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_Pqry7UDcr5RwKF4n3teT9Sy1",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1042",
+              "customer_id": "C100",
+              "status": "delivered",
+              "placed_at": "2026-04-30T09:10:00Z",
+              "delivered_at": "2026-05-05T15:00:00Z",
+              "shipping_address": {
+                "line1": "12 MG Road",
+                "city": "Bengaluru",
+                "postal_code": "560001",
+                "country": "IN"
+              },
+              "items": [
+                {
+                  "sku": "HDPH-01",
+                  "name": "Wireless headphones",
+                  "qty": 1,
+                  "unit_price_cents": 349900
+                }
+              ],
+              "shipped_at": null,
+              "total_cents": 349900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_048e8169b85c3110006acf4cb2c76c87d180aa18f5b0613175"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1042 with the wireless headphones was delivered on May 5, 2026. Since it is within 30 days of delivery, I can help you with the refund. I will proceed with the refund for the headphones now.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_048e8169b85c3110006acf4cb439fc87d1af1df8c951ab8fa9"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_YH2ZaGhGyqk6dEG4frUUvvJp",
+        "toolName": "request_refund",
+        "input": "{\"order_id\":\"ORD-1042\",\"reason\":\"Headphones stopped working\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_048e8169b85c3110006acf4cb4dae087d1a1a673d70ad9da78"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1149,
+        "noCache": 1149,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 79,
+        "text": 79,
+        "reasoning": 0
+      }
+    }
+  }
+}

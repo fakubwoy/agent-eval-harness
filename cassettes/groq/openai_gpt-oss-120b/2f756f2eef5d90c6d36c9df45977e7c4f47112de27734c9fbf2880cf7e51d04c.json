@@ -1,0 +1,60 @@
+{
+  "hash": "2f756f2eef5d90c6d36c9df45977e7c4f47112de27734c9fbf2880cf7e51d04c",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "happy-path-refund-single-item",
+  "trial": 1,
+  "latency_ms": 605,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_ed2404b8-d324-4aa1-8da4-6c5136c77c39",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C105",
+              "name": "Henrik Larsen",
+              "order_ids": [
+                "ORD-1105"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now verify order belongs to this customer. Use get_order for ORD-1105."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_345b43ac-9a0d-4ea9-bc61-4b050dd8371a",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1105\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1284,
+        "noCache": 260,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 40,
+        "text": 22,
+        "reasoning": 18
+      }
+    }
+  }
+}

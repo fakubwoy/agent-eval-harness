@@ -1,0 +1,100 @@
+{
+  "hash": "348d9b073844387756123515aa1e3e03f15c65fc3f9f4d2795b0db914af55d8a",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "tool-fault-refund-fails-twice",
+  "trial": 1,
+  "latency_ms": 1544,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_QGAceVai9MAjDdEfWowAkBut",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C130",
+              "name": "Sara Haddad",
+              "order_ids": [
+                "ORD-1136"
+              ]
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0a74a658338cda89006acf4cb9dfa087d1b4bdba2052d84f32"
+            }
+          }
+        },
+        {
+          "type": "tool-result",
+          "toolCallId": "call_qtEy9LErXTQSsLtdyJlRlhPr",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1136",
+              "customer_id": "C130",
+              "status": "delivered",
+              "placed_at": "2026-06-05T08:00:00Z",
+              "shipped_at": "2026-06-07T08:00:00Z",
+              "delivered_at": "2026-06-11T08:00:00Z",
+              "shipping_address": {
+                "line1": "Sheikh Zayed Road 101, Tower B",
+                "city": "Dubai",
+                "postal_code": "00000",
+                "country": "AE"
+              },
+              "items": [
+                {
+                  "sku": "AF-4L",
+                  "name": "Air fryer 4L",
+                  "qty": 1,
+                  "unit_price_cents": 9900
+                }
+              ],
+              "total_cents": 9900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0a74a658338cda89006acf4cb9dfb887d1837b196c68d7f3a1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for verifying your order. The air fryer from order ORD-1136 was delivered on June 11, 2026. Since it is within the 30-day refund window, I can proceed with the refund for the air fryer basket. Just to confirm, you want a refund for the air fryer item with SKU AF-4L, correct?",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0a74a658338cda89006acf4cbac4f487d1a97b8c643f5f4cd2"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1172,
+        "noCache": 1172,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 74,
+        "text": 74,
+        "reasoning": 0
+      }
+    }
+  }
+}

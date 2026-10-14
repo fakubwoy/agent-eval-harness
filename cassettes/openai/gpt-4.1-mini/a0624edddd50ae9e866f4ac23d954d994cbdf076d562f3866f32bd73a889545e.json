@@ -1,0 +1,91 @@
+{
+  "hash": "a0624edddd50ae9e866f4ac23d954d994cbdf076d562f3866f32bd73a889545e",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1972,
+  "request": {
+    "messages": 8,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "call_n36I1QbxBDky1bkDglpbfZqz",
+          "toolName": "get_order",
+          "output": {
+            "type": "json",
+            "value": {
+              "id": "ORD-1139",
+              "customer_id": "C133",
+              "status": "pending",
+              "placed_at": "2026-06-13T19:00:00Z",
+              "shipping_address": {
+                "line1": "200 King Street West",
+                "city": "Toronto",
+                "postal_code": "M5H 3T4",
+                "country": "CA"
+              },
+              "items": [
+                {
+                  "sku": "DSK-ELEC",
+                  "name": "Electric standing desk",
+                  "qty": 1,
+                  "unit_price_cents": 45900
+                }
+              ],
+              "shipped_at": null,
+              "delivered_at": null,
+              "total_cents": 45900
+            }
+          },
+          "providerOptions": {
+            "openai": {
+              "itemId": "fc_0f3611daed4faded006acf4c9d745c87d1a47e26d4fbbba6f0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your order ORD-1139 is still pending and has not shipped yet. I can update the shipping address to your new place at 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada. I will proceed with this change now.",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_0f3611daed4faded006acf4c9e78a887d1802daa39aea3862f"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_bIHQShiJh9sk6lvo1gimYyLs",
+        "toolName": "change_shipping_address",
+        "input": "{\"order_id\":\"ORD-1139\",\"address\":{\"line1\":\"1550 Rue Sherbrooke Ouest\",\"city\":\"Montreal\",\"postal_code\":\"H3G 1L3\",\"country\":\"CA\"}}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0f3611daed4faded006acf4c9f400c87d19741b9d5c8158840"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1170,
+        "noCache": 1170,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 112,
+        "text": 112,
+        "reasoning": 0
+      }
+    }
+  }
+}

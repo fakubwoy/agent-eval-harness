@@ -1,0 +1,42 @@
+{
+  "hash": "e6d96ed3484476a4542ec722e8ed48e08f860bdb2e11927a8a605c0e4bee4e51",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "ambiguous-blue-item",
+  "trial": 1,
+  "latency_ms": 860,
+  "request": {
+    "messages": 12,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thanks."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "You're welcome! If you need anything else, feel free to reach out. Have a great day!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2777,
+        "noCache": 2777,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 24
+      }
+    }
+  }
+}

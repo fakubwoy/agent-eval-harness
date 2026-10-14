@@ -1,0 +1,61 @@
+{
+  "hash": "1ef96e84d9cedf269acdd66bee52c725196fc1547da52e25d5ed80ab02c0d489",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-double-refund",
+  "trial": 1,
+  "latency_ms": 1574,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "hannah.schmidt@example.at"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "tool-call",
+        "toolCallId": "call_Tz7pRHlqZXoer5jtOZ2TMLY3",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"hannah.schmidt@example.at\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bd466d485c05438006acf4ca8a7b887d1b7e342f0fac90da9"
+          }
+        }
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "call_MssD6noBXLivphVRxRhFi4b6",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1124\"}",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "fc_0bd466d485c05438006acf4ca8a7c887d18f3c6901253159ee"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 953,
+        "noCache": 953,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 54,
+        "text": 54,
+        "reasoning": 0
+      }
+    }
+  }
+}

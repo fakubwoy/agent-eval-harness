@@ -1,0 +1,49 @@
+{
+  "hash": "4a00a9239922c53553443fbfde3c6629d1bb361501dc6645f279b7e2bc5dffa9",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "policy-refund-cancelled-order",
+  "trial": 1,
+  "latency_ms": 1133,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "fatima.benali@example.ma"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have email. Use lookup_customer."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_290ca02a-a023-4812-8771-d87641473209",
+        "toolName": "lookup_customer",
+        "input": "{\"email\":\"fatima.benali@example.ma\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1189,
+        "noCache": 165,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 43,
+        "text": 33,
+        "reasoning": 10
+      }
+    }
+  }
+}

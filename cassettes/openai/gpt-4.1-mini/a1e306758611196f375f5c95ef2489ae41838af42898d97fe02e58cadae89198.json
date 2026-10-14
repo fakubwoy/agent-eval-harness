@@ -1,0 +1,48 @@
+{
+  "hash": "a1e306758611196f375f5c95ef2489ae41838af42898d97fe02e58cadae89198",
+  "model": "openai:gpt-4.1-mini",
+  "scenario": "policy-refund-not-delivered",
+  "trial": 1,
+  "latency_ms": 1192,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "OK, I'll ask again once it arrives."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Thank you for understanding. If you need any further assistance when the order arrives, feel free to reach out. Have a great day!",
+        "providerMetadata": {
+          "openai": {
+            "itemId": "msg_061cd9493450802d006acf4cb4ec0c87d1a073fcf7c8d20f87"
+          }
+        }
+      }
+    ],
+    "finishReason": {
+      "unified": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1218,
+        "noCache": 66,
+        "cacheRead": 1152,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 29,
+        "text": 29,
+        "reasoning": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "hash": "eb1b4747bb20ef2a22c94f56040e5c0d2a5dd50141f86a973e1d380b93921158",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "missing-info-refund-no-order-id",
+  "trial": 1,
+  "latency_ms": 223,
+  "request": {
+    "messages": 6,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_2f515b72-074e-418b-afb0-d0f18c8e0f13",
+          "toolName": "lookup_customer",
+          "output": {
+            "type": "json",
+            "value": {
+              "customer_id": "C107",
+              "name": "Olivia Brennan",
+              "order_ids": [
+                "ORD-1107",
+                "ORD-1108"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "reasoning",
+        "text": "Now we have two orders. Need to know which contains desk lamp. We can get each order details. Let's fetch both."
+      },
+      {
+        "type": "tool-call",
+        "toolCallId": "fc_0bdbe0ab-e07a-452e-a2ac-955002373c76",
+        "toolName": "get_order",
+        "input": "{\"order_id\":\"ORD-1107\"}"
+      }
+    ],
+    "finishReason": {
+      "unified": "tool-calls",
+      "raw": "tool_calls"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1292,
+        "noCache": 268,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 51,
+        "text": 25,
+        "reasoning": 26
+      }
+    }
+  }
+}

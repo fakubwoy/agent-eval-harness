@@ -1,0 +1,44 @@
+{
+  "hash": "6736abc0fe4ab1f014d7cdcdc5790b7412992691a7e65e44f21ae34e26a5d282",
+  "model": "anthropic:claude-haiku-5-5",
+  "scenario": "handoff-explicit-human",
+  "trial": 1,
+  "latency_ms": 1132,
+  "request": {
+    "messages": 4,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'd be happy to help you with this right away. Before I can assist, I need to verify your identity first.\n\nCould you please provide the email address associated with your account?"
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "sean.murphy@example.ie\n\nLook, I just want this sorted by a person. Can you transfer me to someone?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 439,
+        "noCache": 439,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 39,
+        "text": 39,
+        "reasoning": 0
+      }
+    }
+  }
+}

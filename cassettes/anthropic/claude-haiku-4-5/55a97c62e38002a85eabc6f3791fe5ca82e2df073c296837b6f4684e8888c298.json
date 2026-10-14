@@ -1,0 +1,42 @@
+{
+  "hash": "55a97c62e38002a85eabc6f3791fe5ca82e2df073c296837b6f4684e8888c298",
+  "model": "anthropic:claude-haiku-4-5",
+  "scenario": "multi-turn-cancel-then-address",
+  "trial": 1,
+  "latency_ms": 1133,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yes, keep the order and use the new address."
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "All set! Your order ORD-1139 is confirmed and will be shipped to your new address at 1550 Rue Sherbrooke Ouest, Montreal, H3G 1L3, Canada. Is there anything else I can help you with?"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "end_turn"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 2465,
+        "noCache": 2465,
+        "cacheRead": 0,
+        "cacheWrite": 0
+      },
+      "outputTokens": {
+        "total": 61
+      }
+    }
+  }
+}

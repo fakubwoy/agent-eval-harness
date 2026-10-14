@@ -1,0 +1,55 @@
+{
+  "hash": "0217d190621a53adf6ec18cc85ef6352f3e838d3a15dbf7ad0257f92a0e24e5a",
+  "model": "groq:openai/gpt-oss-120b",
+  "scenario": "multi-turn-address-and-cancel",
+  "trial": 1,
+  "latency_ms": 1466,
+  "request": {
+    "messages": 10,
+    "last": {
+      "role": "tool",
+      "content": [
+        {
+          "type": "tool-result",
+          "toolCallId": "fc_d969f1bc-b565-456f-9211-c8915612d219",
+          "toolName": "change_shipping_address",
+          "output": {
+            "type": "json",
+            "value": {
+              "order_id": "ORD-1143",
+              "shipping_address": {
+                "line1": "Storgata 5",
+                "city": "Lillehammer",
+                "postal_code": "2609",
+                "country": "Norway"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Your shipping address for **ORD‑1143** has been updated to:\n\nStorgata 5  \nLillehammer 2609  \nNorway  \n\nLet me know if there’s anything else I can help with!"
+      }
+    ],
+    "finishReason": {
+      "unified": "stop",
+      "raw": "stop"
+    },
+    "usage": {
+      "inputTokens": {
+        "total": 1568,
+        "noCache": 544,
+        "cacheRead": 1024
+      },
+      "outputTokens": {
+        "total": 48,
+        "text": 48
+      }
+    }
+  }
+}
