@@ -1,15 +1,31 @@
 {
   "name": "agent-eval-harness",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Evaluate a tool-calling customer support agent against a deterministic fake e-commerce backend, across models.",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "eval": "tsx src/cli.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "lint": "echo \"TODO(M0)\"",
-    "check": "npm run typecheck && npm test"
+    "check": "npm run typecheck && npm test",
+    "ci": "npm run check && tsx src/cli.ts validate && tsx src/cli.ts run --models openai:gpt-4.1-mini,anthropic:claude-haiku-4-5,groq:openai/gpt-oss-120b --mode replay"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "4.0.79",
+    "@ai-sdk/groq": "4.0.60",
+    "@ai-sdk/openai": "4.0.93",
+    "ai": "7.0.140",
+    "yaml": "2.9.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vitest": "5.0.4"
   }
 }
