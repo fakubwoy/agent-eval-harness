@@ -8,6 +8,8 @@ import type { Toolbox } from "../tools/index.js";
 export const SYSTEM_PROMPT = readFileSync(new URL("./system-prompt.md", import.meta.url), "utf8");
 export const DEFAULT_MAX_STEPS = 8;
 export const TEMPERATURE = 0;
+// Free tier rate limits (Groq: 8000 tokens per minute) need the SDK backoff to cover about a minute.
+export const MAX_RETRIES = 6;
 
 const toolSchemas = (box: Pick<Toolbox, "defs">) =>
   box.defs.map((d) => ({ name: d.name, description: d.description, schema: z.toJSONSchema(d.inputSchema) as JSONSchema7 }));
@@ -62,7 +64,7 @@ export async function runAgentTurn(
       tools,
       temperature: TEMPERATURE,
       stopWhen: stepCountIs(1),
-      maxRetries: 2,
+      maxRetries: MAX_RETRIES,
     });
     steps.push({ ...toUsage(r.usage), latency_ms: latencyOf(r.providerMetadata, Math.round(performance.now() - started)) });
     messages.push(...r.response.messages);

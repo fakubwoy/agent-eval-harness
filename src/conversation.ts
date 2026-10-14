@@ -1,5 +1,5 @@
 import { generateText, type LanguageModel, type ModelMessage } from "ai";
-import { runAgentTurn, TEMPERATURE, type StepStats } from "./agent/loop.js";
+import { MAX_RETRIES, runAgentTurn, TEMPERATURE, type StepStats } from "./agent/loop.js";
 import { createBackend } from "./backend/store.js";
 import type { Snapshot } from "./backend/types.js";
 import { toUsage } from "./providers/pricing.js";
@@ -83,7 +83,7 @@ export async function runConversation(
     if (u.mode === "scripted") return u.turns[turns] ?? null;
     if (!models.user) throw new Error(`Scenario ${scenario.id} uses an LLM customer but no user model was given`);
     const started = performance.now();
-    const r = await generateText({ model: models.user, system: userPrompt(u), messages: userView, temperature: TEMPERATURE });
+    const r = await generateText({ model: models.user, system: userPrompt(u), messages: userView, temperature: TEMPERATURE, maxRetries: MAX_RETRIES });
     const latency = (r.providerMetadata as { harness?: { latency_ms?: number } } | undefined)?.harness?.latency_ms;
     user_steps.push({ ...toUsage(r.usage), latency_ms: latency ?? Math.round(performance.now() - started) });
     return r.text.trim();
