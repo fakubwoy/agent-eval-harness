@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx tsx src/cli.ts validate
+      - name: Full replay of committed cassettes (no keys, no network)
+        run: time npx tsx src/cli.ts run --models openai:gpt-4.1-mini,anthropic:claude-haiku-4-5,groq:openai/gpt-oss-120b --mode replay
