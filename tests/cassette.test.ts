@@ -18,6 +18,12 @@ describe("cassette hashing", () => {
     expect(requestHash("openai:x", "s1", 1, { ...params, temperature: 1 })).not.toBe(a);
   });
 
+  it("keeps agent hashes unchanged and separates customer cassettes per agent model", () => {
+    const a = requestHash("openai:x", "s1", 1, params);
+    expect(requestHash("openai:x", "s1", 1, params, undefined)).toBe(a);
+    expect(requestHash("anthropic:u", "s1", 1, params, "openai:x")).not.toBe(requestHash("anthropic:u", "s1", 1, params, "groq:y"));
+  });
+
   it("keeps model ids with slashes in one directory", () => {
     expect(cassettePath("cassettes", "groq:openai/gpt-oss-120b", "abc")).toBe("cassettes/groq/openai_gpt-oss-120b/abc.json");
   });

@@ -81,17 +81,17 @@ export async function runEval(o: RunOptions): Promise<{ runId: string; outDir: s
 
   async function runJob(i: number) {
     const { model, scenario, trial } = jobs[i]!;
-    const wrap = (spec: string) =>
+    const wrap = (spec: string, talksTo?: string) =>
       wrapLanguageModel({
         model: resolve(spec) as Parameters<typeof wrapLanguageModel>[0]["model"],
-        middleware: cassetteMiddleware({ model: spec, mode, trial, scenario: scenario.id, dir: o.cassetteDir, meter }),
+        middleware: cassetteMiddleware({ model: spec, mode, trial, scenario: scenario.id, talksTo, dir: o.cassetteDir, meter }),
       });
     const userSpec = scenario.user.mode === "llm" ? o.userModel! : null;
     let conv: ConversationResult;
     if (meter.capped()) conv = notStarted(scenario);
     else {
       try {
-        conv = await runConversation(scenario, { agent: wrap(model), user: userSpec ? wrap(userSpec) : undefined });
+        conv = await runConversation(scenario, { agent: wrap(model), user: userSpec ? wrap(userSpec, model) : undefined });
       } catch (e) {
         conv = { ...notStarted(scenario), error: e instanceof Error ? e.message : String(e) };
       }

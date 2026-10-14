@@ -46,9 +46,11 @@ function stable(v: unknown): unknown {
 type CallParams = Parameters<NonNullable<LanguageModelMiddleware["wrapGenerate"]>>[0]["params"];
 
 // Only what decides the model's answer goes in the key: no headers, keys, abort signals or provider options.
-export function requestHash(model: string, scenario: string, trial: number, p: CallParams): string {
+// `talksTo` is set for the simulated customer: its opening message is the same request whichever agent it faces,
+// so without the agent in the key, runs of different agent models would share and overwrite that cassette.
+export function requestHash(model: string, scenario: string, trial: number, p: CallParams, talksTo?: string): string {
   const { prompt, tools, toolChoice, temperature, maxOutputTokens, topP, topK, stopSequences, responseFormat, seed } = p;
-  const key = { model, scenario, trial, prompt, tools, toolChoice, temperature, maxOutputTokens, topP, topK, stopSequences, responseFormat, seed };
+  const key = { model, talksTo, scenario, trial, prompt, tools, toolChoice, temperature, maxOutputTokens, topP, topK, stopSequences, responseFormat, seed };
   return createHash("sha256").update(JSON.stringify(stable(key))).digest("hex");
 }
 
@@ -65,12 +67,12 @@ export function isModelOutputRejection(e: unknown): boolean {
 
 export type Meter = { check(): void; add(model: string, usage: Usage): void };
 
-export function cassetteMiddleware(o: { model: string; mode: CassetteMode; trial: number; scenario: string; dir?: string; meter?: Meter }): LanguageModelMiddleware {
+export function cassetteMiddleware(o: { model: string; mode: CassetteMode; trial: number; scenario: string; talksTo?: string; dir?: string; meter?: Meter }): LanguageModelMiddleware {
   const dir = o.dir ?? CASSETTE_DIR;
   return {
     specificationVersion: "v4",
     wrapGenerate: async ({ doGenerate, params }) => {
-      const hash = requestHash(o.model, o.scenario, o.trial, params);
+      const hash = requestHash(o.model, o.scenario, o.trial, params, o.talksTo);
       const file = cassettePath(dir, o.model, hash);
       if ((o.mode === "replay" || o.mode === "auto") && existsSync(file)) {
         const c = CassetteSchema.parse(JSON.parse(readFileSync(file, "utf8")));
