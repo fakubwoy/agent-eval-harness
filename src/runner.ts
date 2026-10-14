@@ -4,7 +4,7 @@ import { wrapLanguageModel, type LanguageModel } from "ai";
 import { promptHash, TEMPERATURE } from "./agent/loop.js";
 import { runConversation, type ConversationResult } from "./conversation.js";
 import { createBackend } from "./backend/store.js";
-import { cassetteMiddleware, CostCapError, type CassetteMode, type Meter } from "./providers/cassette.js";
+import { cassetteMiddleware, CostCapError, toJson, type CassetteMode, type Meter } from "./providers/cassette.js";
 import { costUsd, PRICING, type Price, type Usage } from "./providers/pricing.js";
 import { getModel } from "./providers/registry.js";
 import type { Scenario } from "./scenarios/schema.js";
@@ -143,8 +143,8 @@ export async function runEval(o: RunOptions): Promise<{ runId: string; outDir: s
 
   const summary = aggregate(records, { runId, mode, trials, cap, spent: meter.spent(), promptHash: hash, harnessVersion: HARNESS_VERSION, userModel: o.userModel ?? null });
   mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, "runs.jsonl"), records.map((r) => JSON.stringify(r)).join("\n") + "\n");
-  writeFileSync(join(outDir, "summary.json"), JSON.stringify(summary, null, 2) + "\n");
+  writeFileSync(join(outDir, "runs.jsonl"), records.map((r) => toJson(r)).join("\n") + "\n");
+  writeFileSync(join(outDir, "summary.json"), toJson(summary, 2) + "\n");
   return { runId, outDir, records, summary };
 }
 

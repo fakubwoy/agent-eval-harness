@@ -58,12 +58,14 @@ export function renderMarkdown(s: Summary, records: RunRecord[]): string {
   out.push("## Failures", "");
   for (const m of s.models) {
     const failed = failingRuns(records, m.model);
-    out.push(`### ${m.model}`, "", failed.length ? "" : "No failing runs.");
+    out.push(`### ${m.model}`, "");
+    if (!failed.length) out.push("No failing runs.");
     for (const r of failed) {
       out.push(`- [${r.scenario_id}${s.trials > 1 ? ` (trial ${r.trial})` : ""}](report.html#${anchor(r)}): ${r.failures.filter((f) => !f.startsWith("note:")).join("; ") || "failed"}`);
     }
     out.push("");
   }
-  out.push("## Notes", "", ...(s.notes.length ? s.notes.map((n) => `- ${n}`) : ["None."]), `- Spend in this invocation: $${s.cost.spent_usd.toFixed(4)} (cap $${s.cost.cap_usd.toFixed(2)}). Replayed calls count as $0.`, "");
-  return out.join("\n");
+  out.push("## Notes", "", ...s.notes.map((n) => `- ${n}`), `- Spend in this invocation: $${s.cost.spent_usd.toFixed(4)} (cap $${s.cost.cap_usd.toFixed(2)}). Replayed calls count as $0.`, "");
+  // Model text can contain dashes, which the repo bans as raw characters; entities render the same.
+  return out.join("\n").replace(/[\u2013\u2014]/g, (c) => `&#${c.charCodeAt(0)};`);
 }

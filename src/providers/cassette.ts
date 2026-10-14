@@ -54,6 +54,12 @@ export function requestHash(model: string, scenario: string, trial: number, p: C
   return createHash("sha256").update(JSON.stringify(stable(key))).digest("hex");
 }
 
+// Model output often contains en and em dashes; the repo bans those characters in files, so they are written as
+// \u escapes. JSON.parse gives back exactly the same strings.
+export function toJson(value: unknown, indent?: number): string {
+  return JSON.stringify(value, null, indent).replace(/[\u2013\u2014]/g, (c) => `\\u${c.charCodeAt(0).toString(16)}`);
+}
+
 export function cassettePath(dir: string, model: string, hash: string): string {
   const { provider, id } = parseSpec(model);
   return join(dir, provider, id.replace(/[^\w.-]/g, "_"), `${hash}.json`);
@@ -86,7 +92,7 @@ export function cassetteMiddleware(o: { model: string; mode: CassetteMode; trial
         if (o.mode === "live") return;
         const request = { messages: params.prompt.length, last: params.prompt.at(-1) };
         mkdirSync(dirname(file), { recursive: true });
-        writeFileSync(file, JSON.stringify({ hash, model: o.model, scenario: o.scenario, trial: o.trial, latency_ms, request, ...body }, null, 2) + "\n");
+        writeFileSync(file, toJson({ hash, model: o.model, scenario: o.scenario, trial: o.trial, latency_ms, request, ...body }, 2) + "\n");
       };
       o.meter?.check();
       const started = performance.now();

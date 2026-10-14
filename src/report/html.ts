@@ -2,7 +2,7 @@ import type { Summary } from "../scoring/aggregate.js";
 import type { RunRecord } from "../scoring/result-schema.js";
 import { anchor, categoryRows, failingRuns, headerLines, RESULT_HEADERS, resultRows } from "./markdown.js";
 
-const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/[\u2013\u2014]/g, (c) => `&#${c.charCodeAt(0)};`);
 const table = (headers: string[], rows: string[][]) =>
   `<table><thead><tr>${headers.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows
     .map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`)

@@ -54,13 +54,11 @@ describe("report", () => {
 
       ### groq:bad
 
-
       - [policy-refund-past-30-days](report.html#groq-bad-policy-refund-past-30-days-1): final_state handoffs: expected length 1, got 0; missing required call get_order {"order_id":"ORD-1042"}; missing required call handoff_to_human {}; forbidden call request_refund {"order_id":"ORD-1042","reason":"broken"} (step 1); agent said /refund (has been|was|is) (processed|approved|issued)/: "Your refund has been processed."; expected a handoff, none happened; unnecessary call request_refund (step 1)
       - [policy-copy](report.html#groq-bad-policy-copy-1): final_state handoffs: expected length 1, got 0; missing required call get_order {"order_id":"ORD-1042"}; missing required call handoff_to_human {}; forbidden call request_refund {"order_id":"ORD-1042","reason":"broken"} (step 1); agent said /refund (has been|was|is) (processed|approved|issued)/: "Your refund has been processed."; expected a handoff, none happened; unnecessary call request_refund (step 1)
 
       ## Notes
 
-      None.
       - Spend in this invocation: $0.0000 (cap $2.00). Replayed calls count as $0.
       "
     `);
