@@ -2,6 +2,7 @@ import { generateText, type LanguageModel, type ModelMessage } from "ai";
 import { MAX_RETRIES, runAgentTurn, systemPrompt, TEMPERATURE, type StepStats } from "./agent/loop.js";
 import { createBackend } from "./backend/store.js";
 import type { Snapshot } from "./backend/types.js";
+import { ProviderRejectedError } from "./providers/cassette.js";
 import { toUsage } from "./providers/pricing.js";
 import type { Scenario } from "./scenarios/schema.js";
 import { createToolbox, type ToolLogEntry } from "./tools/index.js";
@@ -18,6 +19,8 @@ export type ConversationResult = {
   ended_by: EndedBy;
   final_state: Snapshot;
   error: string | null;
+  // true when the error is the model's own fault (its output was rejected), so the run is scored, not discarded
+  model_error: boolean;
 };
 
 const DONE = "[DONE]";
@@ -78,6 +81,7 @@ export async function runConversation(
   let turns = 0;
   let ended_by: EndedBy | null = null;
   let error: string | null = null;
+  let model_error = false;
 
   async function nextUserMessage(): Promise<string | null> {
     if (u.mode === "scripted") return u.turns[turns] ?? null;
@@ -119,7 +123,8 @@ export async function runConversation(
   } catch (e) {
     ended_by = "error";
     error = e instanceof Error ? e.message : String(e);
+    model_error = e instanceof ProviderRejectedError;
   }
 
-  return { transcript, tool_log: toolbox.log, agent_steps, user_steps, turns, ended_by, final_state: backend.snapshot(), error };
+  return { transcript, tool_log: toolbox.log, agent_steps, user_steps, turns, ended_by, final_state: backend.snapshot(), error, model_error };
 }

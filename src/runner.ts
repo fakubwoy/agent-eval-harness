@@ -112,12 +112,12 @@ export async function runEval(o: RunOptions): Promise<{ runId: string; outDir: s
       harness_version: HARNESS_VERSION,
       prompt_hash: hash,
       temperature: TEMPERATURE,
-      status: aborted ? "aborted" : conv.ended_by === "error" ? "error" : "completed",
+      status: aborted ? "aborted" : conv.ended_by === "error" && !conv.model_error ? "error" : "completed",
       aborted,
       error: conv.error,
       ended_by: conv.ended_by,
       scores,
-      failures: conv.error ? [`run error: ${conv.error}`, ...failures] : failures,
+      failures: conv.error ? [`${conv.model_error ? "model error" : "run error"}: ${conv.error}`, ...failures] : failures,
       metrics: {
         turns: conv.turns,
         steps: conv.agent_steps.length,
@@ -159,5 +159,6 @@ function notStarted(scenario: Scenario): ConversationResult {
     ended_by: "error",
     final_state: createBackend({ seed: scenario.seed, fixtures: scenario.fixtures, clock: scenario.clock }).snapshot(),
     error: "not started: cost cap reached",
+    model_error: false,
   };
 }

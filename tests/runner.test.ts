@@ -1,6 +1,7 @@
 import { mkdtempSync, readdirSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { APICallError } from "ai";
 import { describe, expect, it } from "vitest";
 import { parse } from "yaml";
 import { runEval } from "../src/runner.js";
@@ -69,6 +70,28 @@ describe("runner", () => {
     const r = await runEval({ scenarios: [example], models: ["openai:mock-agent"], trials: 2, mode: "live", outDir: tmp(), pricing, resolveModel: agent });
     expect(r.records.map((x) => x.trial)).toEqual([1, 2]);
     expect(r.summary.models[0]!.pass_k).toBe(1);
+  });
+
+  it("records a provider rejection of the model output as a scored model failure and replays it", async () => {
+    const cassetteDir = tmp();
+    const rejecting = () =>
+      scriptedModel(() => {
+        throw new APICallError({ message: "tool call validation failed: attempted to call tool 'handful_to_human'", url: "x", requestBodyValues: {}, statusCode: 400, responseBody: '{"error":{"code":"tool_use_failed"}}', isRetryable: false });
+      }, "mock-agent");
+    const rec = await runEval({ scenarios: [example], models: ["openai:mock-agent"], mode: "record", cassetteDir, outDir: tmp(), runId: "R2", pricing, resolveModel: rejecting });
+    expect(rec.records[0]).toMatchObject({ status: "completed", ended_by: "error", scores: { pass: false } });
+    expect(rec.records[0]!.failures[0]).toMatch(/^model error: Provider rejected the model output: tool call validation failed/);
+    const rep = await runEval({ scenarios: [example], models: ["openai:mock-agent"], mode: "replay", cassetteDir, outDir: tmp(), runId: "R2", pricing, resolveModel: noNetwork });
+    expect(rep.records[0]!.failures).toEqual(rec.records[0]!.failures);
+  });
+
+  it("keeps other 400 errors as harness errors", async () => {
+    const bad = () =>
+      scriptedModel(() => {
+        throw new APICallError({ message: "invalid request body", url: "x", requestBodyValues: {}, statusCode: 400, isRetryable: false });
+      }, "mock-agent");
+    const r = await runEval({ scenarios: [example], models: ["openai:mock-agent"], mode: "live", outDir: tmp(), pricing, resolveModel: bad });
+    expect(r.records[0]!.status).toBe("error");
   });
 
   it("refuses paid runs for models without a price", async () => {
