@@ -1,0 +1,66 @@
+{
+  "run_id": "2026-10-14T00-00-00Z_fixt",
+  "date": "2026-10-14",
+  "harness_version": "0.1.0",
+  "prompt_hash": "780aa460a0c6ddd64a49199984ca5567c27d73274ee33eefa7eefe99a25f8cba",
+  "mode": "replay",
+  "trials": 1,
+  "scenario_count": 2,
+  "user_model": null,
+  "models": [
+    {
+      "model": "openai:good",
+      "runs": 2,
+      "errors": 0,
+      "aborted": 0,
+      "pass_rate": 1,
+      "pass_k": null,
+      "mean_overall": 1,
+      "policy_rate": 1,
+      "handoff_rate": 1,
+      "mean_turns": 3,
+      "mean_tool_calls": 2,
+      "p50_step_latency_ms": 700,
+      "p95_step_latency_ms": 1100,
+      "total_cost_usd": 0.0004,
+      "cost_per_scenario_usd": 0.0002,
+      "user_cost_usd": null,
+      "by_category": {
+        "handoff": 1,
+        "policy": 1
+      }
+    },
+    {
+      "model": "groq:bad",
+      "runs": 2,
+      "errors": 0,
+      "aborted": 0,
+      "pass_rate": 0,
+      "pass_k": null,
+      "mean_overall": 0,
+      "policy_rate": 0,
+      "handoff_rate": 0,
+      "mean_turns": 3,
+      "mean_tool_calls": 1,
+      "p50_step_latency_ms": 700,
+      "p95_step_latency_ms": 1100,
+      "total_cost_usd": 0.000168,
+      "cost_per_scenario_usd": 0.000084,
+      "user_cost_usd": null,
+      "by_category": {
+        "handoff": 0,
+        "policy": 0
+      }
+    }
+  ],
+  "categories": [
+    "handoff",
+    "policy"
+  ],
+  "cost": {
+    "cap_usd": 2,
+    "spent_usd": 0,
+    "cap_hit": false
+  },
+  "notes": []
+}
